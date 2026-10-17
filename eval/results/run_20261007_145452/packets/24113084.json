@@ -1,0 +1,257 @@
+{
+  "complaint_id": "24113084",
+  "run_started": "2026-10-07T19:56:53+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "24113084",
+    "date_received": "7/12/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Struggling to pay your loan",
+    "sub_issue": "",
+    "state": "CA",
+    "narrative": "I'm struggling to keep up with payments on this loan due to a medical emergency and reached out twice about hardship options. I haven't gotten any response and the fees keep adding up every week.",
+    "account_id": "ACC-041",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1426,
+      "output_tokens": 214
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4594,
+      "output_tokens": 1289
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3907,
+      "output_tokens": 1621
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4358,
+      "output_tokens": 1932
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4099,
+      "output_tokens": 1963
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4343,
+      "output_tokens": 2383
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Struggling to keep up with loan payments due to a medical emergency",
+      "Reached out twice about hardship options with no response",
+      "Fees keep adding up every week"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "every week"
+    ],
+    "account_details_mentioned": "Loan payments are difficult to keep up with; fees accrue weekly",
+    "risk_signal_phrases": [
+      "due to a medical emergency"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "distressed but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-041",
+      "loan_balance": 900.0,
+      "origination_date": "2026-03-05",
+      "payment_status": "past_due",
+      "product_type": "payday_loan",
+      "account_note": "Payday loan, past due. Opened 2026-03-05."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-041",
+        "date": "2026-04-02",
+        "type": "payment",
+        "amount": 150.0,
+        "note": "Scheduled payment received"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-05",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-12",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-18",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Inbound call from customer, 6 min; hardship options requested; callback requested"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-18",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Hardship request logged; status pending review"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-19",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-26",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Inbound call from customer, 4 min; follow-up on hardship request"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-07-03",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-07-10",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_true",
+    "fact_verification_explanation": "The central allegation is that the customer asked for hardship options twice and got no response. The records support this. There are two inbound customer calls: 2026-06-18 (6 min; hardship options requested; callback requested) and 2026-06-30 (4 min; follow-up on hardship request). A hardship request was logged on 2026-06-18 with status 'pending review'. The history through 2026-07-10 shows no outbound callback or other response, and the request is still pending about three weeks later. The customer's description of weekly fees is also consistent with the records, but that is background rather than a disputed charge. Six $15 weekly extension fees were assessed (06-05, 06-12, 06-19, 06-26, 07-03, 07-10), totaling $90, and fees continued after the hardship request was logged. The account is past due, and the last payment was $150 on 2026-04-02.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The customer states a medical-emergency hardship and has contacted the company twice without a response, which are hardship and repeated-prior-contact signals that put the case at Medium. There is no attorney/regulator reference, no embedded instructions, no alleged misleading statement or threat, and the $90 in fees is under $200, so the case does not reach High. The UDAAP-pattern signal did not influence the tier.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "07",
+    "topic": "Hardship and Payment Deferral Options",
+    "category": "internal",
+    "matched_keywords": [
+      "hardship",
+      "struggling to pay",
+      "medical emergency"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Hardship and Payment Deferral Options\n\n**Applies to:** Complaints where a customer states they are struggling to make payments, references job loss, medical emergency, or similar hardship, or explicitly requests a payment plan or deferral.\n\n## Available options (in order of customer impact, least to most significant)\n1. **Payment date shift** \u2014 move the due date within the same billing cycle by up to 10 days, no fee, available once per 12-month period, analyst may approve directly.\n2. **Reduced-payment plan** \u2014 temporarily reduce the monthly payment for up to 3 months, extending the loan term accordingly. Requires supervisor approval and a documented hardship reason.\n3. **Interest-only or fee-deferral period** \u2014 defer principal payments for up to 2 months in cases of documented significant hardship (job loss, medical emergency, natural disaster). Requires supervisor approval.\n4. **Full forbearance** \u2014 pause all payments for up to 60 days. Reserved for severe, documented hardship. Requires manager approval.\n\n## Eligibility\n- Account must be no more than 60 days past due at time of request.\n- Customer must state a reason for hardship (does not need to be independently verified for options 1-2; options 3-4 require the customer to describe the nature of the hardship, though no documentation/proof is required at this stage).\n\n## What an analyst or agent may say\n- May offer option 1 directly, with no further approval needed.\n- May describe options 2-4 as \"available, pending supervisor review\" \u2014 may NOT confirm a plan is approved until supervisor sign-off is actually logged.\n- May NOT suggest an account will be reported as current to credit bureaus during a reduced-payment or forbearance period unless that is actually how the specific plan is structured \u2014 this must be confirmed, not assumed.\n\n## Escalation trigger\nA customer who has already received a hardship accommodation and is requesting a second one within the same 12-month period, or who indicates the hardship accommodation itself failed to resolve their situation, should be flagged for supervisor review rather than a standard offer.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "We understand that dealing with a medical emergency while trying to keep up with your loan payments has been stressful, and that you have not received a response to your requests for hardship options.\n\nWhat we found:\n\nYour requests for help: Our records show you called us on June 18, 2026, to ask about hardship options and requested a callback. You called again on June 30, 2026, to follow up. Your hardship request was logged on June 18 and is still marked as pending review. Our records show no callback or other response to you since then.\n\nThe weekly fees: Our records show six $15 weekly extension fees on your account, dated June 5, June 12, June 19, June 26, July 3, and July 10, for a total of $90. Fees continued to be assessed after your hardship request was logged.\n\nOutcome:\n\nYour hardship request has not yet been decided. We are referring it for supervisor review. Depending on your situation and eligibility, the options we can review include a payment date shift, a temporary reduced-payment plan, a short interest-only or fee-deferral period, or a payment pause (forbearance). Some of these options require supervisor or manager approval, so none is approved at this time. We cannot confirm any change to the fees already assessed or to future fees until the review is complete.\n\nNext steps:\n\nA representative will contact you about your options. You are welcome to reply to this message or call us at the number on your account if you would like to add details about your situation or ask about the fees. You are also free to contact any other organization about this matter if you choose.\n\nCase reference: 24113084",
+        "policy_cited": "07 Hardship and Payment Deferral Options (options 1-4; 'What an analyst or agent may say'), with 10 Prohibited Language and 11 Response Tone and Format applied",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Struggling to keep up with loan payments due to a medical emergency",
+          "Reached out twice about hardship options with no response",
+          "Fees keep adding up every week"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 'We are referring it for supervisor review' and 'A representative will contact you about your options' state actions and commitments that do not appear in the verification output or the cited policy. The verification shows the request is 'pending review' with no outbound response in about three weeks. Nothing confirms a referral has been made or that a contact is scheduled. The dates (June 18, June 30), the six $15 fees totaling $90, the fee dates, and the 'no callback' statement all trace correctly to the verification output.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: 'We are referring it for supervisor review' asserts an action that is not documented in the verification output. Either confirm the referral has actually been made or reword it as pending review, as policy 07 allows.",
+          "Groundedness: 'A representative will contact you about your options' is an unsupported commitment with no documented owner or timeframe. The customer has already gone about three weeks without a callback, so an unfulfilled promise here would worsen the problem. Confirm a callback has actually been assigned before including it."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "We understand how stressful it is to deal with a medical emergency while trying to keep up with your loan payments. This response covers the three concerns you raised.\n\nHardship options and no response: Our records show you called us on June 18 to ask about hardship options and requested a callback. You called again on June 30 to follow up. Your hardship request was logged on June 18 and is still showing as pending review. Our records show no callback or other response to you since then.\n\nHardship options available: Depending on eligibility and your circumstances, we may be able to offer a payment date shift, a temporary reduced-payment plan, an interest-only or fee-deferral period, or a short full forbearance. A payment date shift can be offered directly. The other options require supervisor or manager review, and none of them is approved until that approval is complete. We cannot confirm any plan, or how an account would be reported to credit bureaus under a plan, until the specific details are confirmed.\n\nWeekly fees: Our records show six $15 weekly extension fees, totaling $90, assessed on June 5, June 12, June 19, June 26, July 3, and July 10. The last four came after your hardship request was logged on June 18. We cannot confirm in this message whether any of these fees can be adjusted.\n\nNext steps: To move your request forward, please reply to this message or call the number on your account. Mention the case reference below and briefly describe your medical hardship, so it can be considered for the options that need review.\n\nCase reference: 24113084",
+        "policy_cited": "07 Hardship and Payment Deferral Options (options 2\u20134 described as available, pending supervisor review; no approval confirmed); governed by 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Struggling to keep up with loan payments due to a medical emergency",
+          "Reached out twice about hardship options with no response",
+          "Fees keep adding up every week"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all three allegations are addressed: the medical-emergency payment hardship (acknowledgment plus the hardship options section), the two contacts with no response (dedicated section), and the weekly fees (dedicated section).",
+        "groundedness_check": "pass \u2014 the June 18 and June 30 calls, the callback request, the June 18 hardship log with 'pending review' status, the absence of any callback, and the six $15 fees totaling $90 on the listed dates all match the verification output. 'The last four came after your hardship request was logged on June 18' is correct (06-19, 06-26, 07-03, 07-10). The hardship options match Policy 07. Note: case reference 24113084 does not appear in the supplied inputs, so confirm it against the case record before sending.",
+        "policy_authorization_check": "pass \u2014 no remedy is stated (remedy_stated is null). The draft offers only the payment date shift directly, which Policy 07 allows. It describes the other options as requiring supervisor or manager review and not yet approved, and it makes no commitment on credit bureau reporting. It makes no commitment on fee adjustment, saying it cannot confirm whether any fee can be adjusted.",
+        "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact (the statement that records show no callback is a verified fact, not an apology or liability admission). There are no future guarantees, legal conclusions, unapproved promises, or language discouraging other channels.",
+        "tone_structure_check": "pass \u2014 the draft opens with a specific acknowledgment, gives findings with dates and amounts, states the outcome (request still pending, options described as pending review, fee adjustment unconfirmed), gives next steps, and ends with the case reference. It uses separate short paragraphs per allegation, second-person plain language, and no marketing content. The findings and outcome are organized by allegation rather than in one block, which Policy 11 permits for multi-allegation complaints.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "We understand how stressful it is to deal with a medical emergency while trying to keep up with your loan payments. This response covers the three concerns you raised.\n\nHardship options and no response: Our records show you called us on June 18 to ask about hardship options and requested a callback. You called again on June 30 to follow up. Your hardship request was logged on June 18 and is still showing as pending review. Our records show no callback or other response to you since then.\n\nHardship options available: Depending on eligibility and your circumstances, we may be able to offer a payment date shift, a temporary reduced-payment plan, an interest-only or fee-deferral period, or a short full forbearance. A payment date shift can be offered directly. The other options require supervisor or manager review, and none of them is approved until that approval is complete. We cannot confirm any plan, or how an account would be reported to credit bureaus under a plan, until the specific details are confirmed.\n\nWeekly fees: Our records show six $15 weekly extension fees, totaling $90, assessed on June 5, June 12, June 19, June 26, July 3, and July 10. The last four came after your hardship request was logged on June 18. We cannot confirm in this message whether any of these fees can be adjusted.\n\nNext steps: To move your request forward, please reply to this message or call the number on your account. Mention the case reference below and briefly describe your medical hardship, so it can be considered for the options that need review.\n\nCase reference: 24113084",
+    "policy_cited": "07 Hardship and Payment Deferral Options (options 2\u20134 described as available, pending supervisor review; no approval confirmed); governed by 10 Prohibited Language and 11 Response Tone and Format",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Struggling to keep up with loan payments due to a medical emergency",
+      "Reached out twice about hardship options with no response",
+      "Fees keep adding up every week"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all three allegations are addressed: the medical-emergency payment hardship (acknowledgment plus the hardship options section), the two contacts with no response (dedicated section), and the weekly fees (dedicated section).",
+    "groundedness_check": "pass \u2014 the June 18 and June 30 calls, the callback request, the June 18 hardship log with 'pending review' status, the absence of any callback, and the six $15 fees totaling $90 on the listed dates all match the verification output. 'The last four came after your hardship request was logged on June 18' is correct (06-19, 06-26, 07-03, 07-10). The hardship options match Policy 07. Note: case reference 24113084 does not appear in the supplied inputs, so confirm it against the case record before sending.",
+    "policy_authorization_check": "pass \u2014 no remedy is stated (remedy_stated is null). The draft offers only the payment date shift directly, which Policy 07 allows. It describes the other options as requiring supervisor or manager review and not yet approved, and it makes no commitment on credit bureau reporting. It makes no commitment on fee adjustment, saying it cannot confirm whether any fee can be adjusted.",
+    "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact (the statement that records show no callback is a verified fact, not an apology or liability admission). There are no future guarantees, legal conclusions, unapproved promises, or language discouraging other channels.",
+    "tone_structure_check": "pass \u2014 the draft opens with a specific acknowledgment, gives findings with dates and amounts, states the outcome (request still pending, options described as pending review, fee adjustment unconfirmed), gives next steps, and ends with the case reference. It uses separate short paragraphs per allegation, second-person plain language, and no marketing content. The findings and outcome are organized by allegation rather than in one block, which Policy 11 permits for multi-allegation complaints.",
+    "specific_issues": []
+  },
+  "summary": "Struggling to pay your loan - confirmed_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T19:58:05+00:00"
+}

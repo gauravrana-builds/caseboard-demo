@@ -1,0 +1,10 @@
+complaint_id,demo_case_type,narrative,extracted_allegations,fact_verification,risk_tier,policy_cited,draft_text,remedy_stated,action_required_before_sending,verifier_result,verifier_issues,human_tag (Approve / Minor / Substantive),reviewer_notes
+SYN-P01,core_partially_true,"I was charged two separate fees this month, a $15 processing fee and a $35 late fee. I think both of these are wrong and should be refunded.",Charged a $15 processing fee this month | Charged a $35 late fee this month | Believes both fees are wrong,partially_true,Medium,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee correctly charged: explain the charge, do not waive; no fee was charged for the late fee claim). Also governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).","You wrote to us about a $15 processing fee and a $35 late fee on your account this month, and you believe both are wrong. It makes sense to want to check charges you weren't expecting, so we went through your account and looked at each one.
+
+The $15 processing fee: This fee was charged on June 25, 2026. It's listed as a standard fee in section 2.1 of your loan agreement, and we found no error in how it was charged. Because of that, we aren't refunding it.
+
+The $35 late fee: We couldn't find a $35 late fee anywhere in your transaction history for this period, and your account is current. Since that fee was never charged, there's nothing to refund.
+
+If you're seeing a $35 charge on a statement or in your online account, please reply with the date and description, or a screenshot, and we'll look at it. You're also welcome to send us anything else you'd like us to consider at any time, and we'll review it.
+
+Case reference: SYN-P01",,,pass,,,

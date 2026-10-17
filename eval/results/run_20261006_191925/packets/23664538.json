@@ -1,0 +1,265 @@
+{
+  "complaint_id": "23664538",
+  "run_started": "2026-10-07T00:21:08+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23664538",
+    "date_received": "2026-06-29",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Took or threatened to take negative or legal action",
+    "sub_issue": "Threatened or suggested your credit would be damaged",
+    "state": "AZ",
+    "narrative": "The collection agency representative raised his voice and told me this would go on my permanent record forever if I didn't pay today. I felt pressured and intimidated during the entire call.",
+    "account_id": "ACC-029",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1424,
+      "output_tokens": 202
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3003,
+      "output_tokens": 1134
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Collection agency representative raised his voice during a call",
+      "Representative said the debt would go on the customer's permanent record forever if not paid today",
+      "Customer felt pressured and intimidated throughout the call"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "today"
+    ],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "distressed but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-029",
+      "loan_balance": 2500.0,
+      "origination_date": "2025-02-19",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-029",
+        "date": "2025-02-19",
+        "type": "payment",
+        "amount": 73.53,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-03-21",
+        "type": "payment",
+        "amount": 75.76,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-04-20",
+        "type": "payment",
+        "amount": 166.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-05-20",
+        "type": "payment",
+        "amount": 83.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-06-19",
+        "type": "payment",
+        "amount": 108.7,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-07-19",
+        "type": "payment",
+        "amount": 75.76,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-08-18",
+        "type": "payment",
+        "amount": 89.29,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-09-17",
+        "type": "payment",
+        "amount": 208.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-10-17",
+        "type": "payment",
+        "amount": 92.59,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2025-11-16",
+        "type": "payment",
+        "amount": 108.7,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The account and transaction data cannot confirm or contradict any of the three allegations, which concern the content and tone of a collection call. ACC-029 is an installment loan with a $2,500.00 balance and status 'current'. It shows ten routine scheduled payments from 2025-02-19 to 2025-11-16, with no missed payments, delinquency, fees, or collection-related entries. The data holds no call recordings, collector contact logs, or third-party agency placement records, and no record of the call itself. The complaint gives only 'today' as a date, with no absolute date. The account being current is also inconsistent with a collection call about a debt, so the call may relate to a different account or debt, or the account may have been misidentified. This cannot be resolved from the data provided. Also, the account_note says this is a generic record not built to verify this complaint. Missing: call recording or transcript, collection agency contact log for the call date, agency placement or referral records, and confirmation of which debt the call concerned.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap is outcome-determinative, because the call conduct cannot be checked without call records. Separately, the allegations of a raised voice, a 'permanent record forever' claim, and a pay-today demand fit a UDAAP pattern (pressure tactics and possibly misleading credit-reporting statements). That pattern raised the tier. No attorney or regulator reference is present, and attorney_regulator_flag is False.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central allegation (collector conduct and statements on the call), and the gap affects the outcome. Human escalation is needed to obtain call recordings and agency records and to confirm which debt was being collected, given the account shows as current.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "The collection agency representative raised his voice and told me this would go on my permanent record forever if I didn't pay today. I felt pressured and intimidated during the entire call.",
+    "extraction": {
+      "allegations": [
+        "Collection agency representative raised his voice during a call",
+        "Representative said the debt would go on the customer's permanent record forever if not paid today",
+        "Customer felt pressured and intimidated throughout the call"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "today"
+      ],
+      "account_details_mentioned": null,
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "distressed but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The account and transaction data cannot confirm or contradict any of the three allegations, which concern the content and tone of a collection call. ACC-029 is an installment loan with a $2,500.00 balance and status 'current'. It shows ten routine scheduled payments from 2025-02-19 to 2025-11-16, with no missed payments, delinquency, fees, or collection-related entries. The data holds no call recordings, collector contact logs, or third-party agency placement records, and no record of the call itself. The complaint gives only 'today' as a date, with no absolute date. The account being current is also inconsistent with a collection call about a debt, so the call may relate to a different account or debt, or the account may have been misidentified. This cannot be resolved from the data provided. Also, the account_note says this is a generic record not built to verify this complaint. Missing: call recording or transcript, collection agency contact log for the call date, agency placement or referral records, and confirmation of which debt the call concerned.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap is outcome-determinative, because the call conduct cannot be checked without call records. Separately, the allegations of a raised voice, a 'permanent record forever' claim, and a pay-today demand fit a UDAAP pattern (pressure tactics and possibly misleading credit-reporting statements). That pattern raised the tier. No attorney or regulator reference is present, and attorney_regulator_flag is False.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-029",
+        "loan_balance": 2500.0,
+        "origination_date": "2025-02-19",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-029",
+          "date": "2025-02-19",
+          "type": "payment",
+          "amount": 73.53,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-03-21",
+          "type": "payment",
+          "amount": 75.76,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-04-20",
+          "type": "payment",
+          "amount": 166.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-05-20",
+          "type": "payment",
+          "amount": 83.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-06-19",
+          "type": "payment",
+          "amount": 108.7,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-07-19",
+          "type": "payment",
+          "amount": 75.76,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-08-18",
+          "type": "payment",
+          "amount": 89.29,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-09-17",
+          "type": "payment",
+          "amount": 208.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-10-17",
+          "type": "payment",
+          "amount": 92.59,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2025-11-16",
+          "type": "payment",
+          "amount": 108.7,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central allegation (collector conduct and statements on the call), and the gap affects the outcome. Human escalation is needed to obtain call recordings and agency records and to confirm which debt was being collected, given the account shows as current.",
+    "unresolved": "The account and transaction data cannot confirm or contradict any of the three allegations, which concern the content and tone of a collection call. ACC-029 is an installment loan with a $2,500.00 balance and status 'current'. It shows ten routine scheduled payments from 2025-02-19 to 2025-11-16, with no missed payments, delinquency, fees, or collection-related entries. The data holds no call recordings, collector contact logs, or third-party agency placement records, and no record of the call itself. The complaint gives only 'today' as a date, with no absolute date. The account being current is also inconsistent with a collection call about a debt, so the call may relate to a different account or debt, or the account may have been misidentified. This cannot be resolved from the data provided. Also, the account_note says this is a generic record not built to verify this complaint. Missing: call recording or transcript, collection agency contact log for the call date, agency placement or referral records, and confirmation of which debt the call concerned.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Took or threatened to take negative or legal action - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:19+00:00"
+}

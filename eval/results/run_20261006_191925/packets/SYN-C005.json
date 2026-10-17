@@ -1,0 +1,207 @@
+{
+  "complaint_id": "SYN-C005",
+  "run_started": "2026-10-07T00:23:56+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C005",
+    "date_received": "2026-05-18",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account status incorrect",
+    "state": "OH",
+    "narrative": "My loan is reporting as past due on my credit report but my own records show my $45 payment was made on time through autopay.",
+    "account_id": "ACC-055",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1409,
+      "output_tokens": 191
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2725,
+      "output_tokens": 1293
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Loan is reporting as past due on credit report",
+      "Customer's records show the $45 payment was made on time through autopay"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      45.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "$45 payment made on time through autopay; loan reporting as past due on credit report",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-055",
+      "loan_balance": 1400.0,
+      "origination_date": "2026-04-04",
+      "payment_status": "delinquent",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-055",
+        "date": "2026-04-04",
+        "type": "payment",
+        "amount": 42.42,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-055",
+        "date": "2026-05-04",
+        "type": "payment",
+        "amount": 43.75,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-055",
+        "date": "2026-06-03",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-055",
+        "date": "2026-07-03",
+        "type": "payment",
+        "amount": 73.68,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-055",
+        "date": "2026-08-02",
+        "type": "payment",
+        "amount": 46.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-055",
+        "date": "2026-09-01",
+        "type": "payment",
+        "amount": 38.89,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The complaint has two parts. (1) 'Loan reporting as past due': the account shows payment_status 'delinquent', which is consistent with this, but no credit bureau reporting data was provided, so what is actually being reported cannot be confirmed. (2) '$45 payment made on time through autopay': no transaction of $45.00 exists. Payments on record are $42.42 (2026-04-04), $43.75 (2026-05-04), $73.68 (2026-07-03), $46.67 (2026-08-02) and $38.89 (2026-09-01). No autopay enrollment or schedule data is in the record, and the amounts vary, so they do not match a fixed $45 autopay. The only entry for the 2026-06-03 cycle is a $30.00 fee, with no payment, which may be the source of the delinquency, but this is not established. The complaint gives no dates, so the payment at issue cannot be matched to a specific cycle. The account_note says the record is generic and not built to verify this complaint. Missing: (a) the date or cycle of the disputed payment, (b) autopay enrollment and schedule records, (c) the due date and delinquency start date, (d) what was furnished to the credit bureaus.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap could change the outcome: whether the $45 payment was made on time determines whether the delinquency and credit reporting are accurate, and the data cannot settle that. This triggers the automatic High rule. There is no attorney or regulator reference (attorney_regulator_flag is False) and no UDAAP pattern.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central issue (no $45 payment found, no autopay records, no credit reporting data, no payment date from the customer), and this gap could change the outcome. A human must review and obtain the missing records before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "My loan is reporting as past due on my credit report but my own records show my $45 payment was made on time through autopay.",
+    "extraction": {
+      "allegations": [
+        "Loan is reporting as past due on credit report",
+        "Customer's records show the $45 payment was made on time through autopay"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        45.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "$45 payment made on time through autopay; loan reporting as past due on credit report",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The complaint has two parts. (1) 'Loan reporting as past due': the account shows payment_status 'delinquent', which is consistent with this, but no credit bureau reporting data was provided, so what is actually being reported cannot be confirmed. (2) '$45 payment made on time through autopay': no transaction of $45.00 exists. Payments on record are $42.42 (2026-04-04), $43.75 (2026-05-04), $73.68 (2026-07-03), $46.67 (2026-08-02) and $38.89 (2026-09-01). No autopay enrollment or schedule data is in the record, and the amounts vary, so they do not match a fixed $45 autopay. The only entry for the 2026-06-03 cycle is a $30.00 fee, with no payment, which may be the source of the delinquency, but this is not established. The complaint gives no dates, so the payment at issue cannot be matched to a specific cycle. The account_note says the record is generic and not built to verify this complaint. Missing: (a) the date or cycle of the disputed payment, (b) autopay enrollment and schedule records, (c) the due date and delinquency start date, (d) what was furnished to the credit bureaus.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap could change the outcome: whether the $45 payment was made on time determines whether the delinquency and credit reporting are accurate, and the data cannot settle that. This triggers the automatic High rule. There is no attorney or regulator reference (attorney_regulator_flag is False) and no UDAAP pattern.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-055",
+        "loan_balance": 1400.0,
+        "origination_date": "2026-04-04",
+        "payment_status": "delinquent",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-055",
+          "date": "2026-04-04",
+          "type": "payment",
+          "amount": 42.42,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-055",
+          "date": "2026-05-04",
+          "type": "payment",
+          "amount": 43.75,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-055",
+          "date": "2026-06-03",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-055",
+          "date": "2026-07-03",
+          "type": "payment",
+          "amount": 73.68,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-055",
+          "date": "2026-08-02",
+          "type": "payment",
+          "amount": 46.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-055",
+          "date": "2026-09-01",
+          "type": "payment",
+          "amount": 38.89,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central issue (no $45 payment found, no autopay records, no credit reporting data, no payment date from the customer), and this gap could change the outcome. A human must review and obtain the missing records before any response is drafted.",
+    "unresolved": "The complaint has two parts. (1) 'Loan reporting as past due': the account shows payment_status 'delinquent', which is consistent with this, but no credit bureau reporting data was provided, so what is actually being reported cannot be confirmed. (2) '$45 payment made on time through autopay': no transaction of $45.00 exists. Payments on record are $42.42 (2026-04-04), $43.75 (2026-05-04), $73.68 (2026-07-03), $46.67 (2026-08-02) and $38.89 (2026-09-01). No autopay enrollment or schedule data is in the record, and the amounts vary, so they do not match a fixed $45 autopay. The only entry for the 2026-06-03 cycle is a $30.00 fee, with no payment, which may be the source of the delinquency, but this is not established. The complaint gives no dates, so the payment at issue cannot be matched to a specific cycle. The account_note says the record is generic and not built to verify this complaint. Missing: (a) the date or cycle of the disputed payment, (b) autopay enrollment and schedule records, (c) the due date and delinquency start date, (d) what was furnished to the credit bureaus.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:24:09+00:00"
+}

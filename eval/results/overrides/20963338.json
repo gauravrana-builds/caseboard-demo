@@ -1,0 +1,233 @@
+{
+  "complaint_id": "20963338",
+  "run_started": "2026-10-08T18:00:44+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20963338",
+    "date_received": "4/6/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "FL",
+    "narrative": "I took out a payday loan for $300 and was told the fee would be $45. When the payment was withdrawn from my account it was actually $87, almost double what I was quoted. I have the original text message showing the $45 fee they promised me.",
+    "account_id": "ACC-007",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1444,
+      "output_tokens": 224
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4569,
+      "output_tokens": 1099
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4148,
+      "output_tokens": 1337
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4360,
+      "output_tokens": 1655
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Was told the fee on the $300 payday loan would be $45",
+      "The payment withdrawn from the account was $87, almost double the quoted fee"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      300.0,
+      45.0,
+      87.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Payment of $87 was withdrawn from the account; customer has the original text message showing the $45 fee",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and specific"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-007",
+      "loan_balance": 0.0,
+      "origination_date": "3/2/2026",
+      "payment_status": "paid_off",
+      "product_type": "payday_loan",
+      "account_note": "Payday loan, paid off. Opened 2026-03-02."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-007",
+        "date": "2026-03-02",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Loan funded: principal $300.00; finance charge $87.00 per e-signed loan agreement; total repayable $387.00 due 2026-03-30"
+      },
+      {
+        "account_id": "ACC-007",
+        "date": "2026-03-30",
+        "type": "payment",
+        "amount": 387.0,
+        "note": "ACH withdrawal: $300.00 principal + $87.00 finance charge"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "Confirmed: the loan was funded on 2026-03-02 with $300.00 principal and an $87.00 finance charge per the e-signed loan agreement, and on 2026-03-30 an ACH withdrawal of $387.00 ($300.00 principal + $87.00 finance charge) was taken. The $87 charge the customer describes did happen. Cannot be confirmed: that the customer was told the fee would be $45. The customer cites a text message that is not in the account or transaction records, and the system does not hold what was communicated before signing. The e-signed agreement showing $87 does not rule out a different quote. Missing: the text message or any record of pre-origination quotes or communications.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer alleges being quoted a $45 fee on a $300 payday loan and then charged $87. This is an allegation of being misled about loan cost (policy 05), which is automatic High whether or not the records confirm it. The UDAAP pattern directly set this tier.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Customer alleges being quoted one fee ($45) and charged another ($87), a misled-about-loan-terms allegation under policy 05. This requires mandatory human review, and no draft may be prepared. The quoted-fee claim also cannot be verified, since the text message is not on file.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I took out a payday loan for $300 and was told the fee would be $45. When the payment was withdrawn from my account it was actually $87, almost double what I was quoted. I have the original text message showing the $45 fee they promised me.",
+    "extraction": {
+      "allegations": [
+        "Was told the fee on the $300 payday loan would be $45",
+        "The payment withdrawn from the account was $87, almost double the quoted fee"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        300.0,
+        45.0,
+        87.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Payment of $87 was withdrawn from the account; customer has the original text message showing the $45 fee",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and specific"
+    },
+    "verification": {
+      "fact_verification": "partially_true",
+      "fact_verification_explanation": "Confirmed: the loan was funded on 2026-03-02 with $300.00 principal and an $87.00 finance charge per the e-signed loan agreement, and on 2026-03-30 an ACH withdrawal of $387.00 ($300.00 principal + $87.00 finance charge) was taken. The $87 charge the customer describes did happen. Cannot be confirmed: that the customer was told the fee would be $45. The customer cites a text message that is not in the account or transaction records, and the system does not hold what was communicated before signing. The e-signed agreement showing $87 does not rule out a different quote. Missing: the text message or any record of pre-origination quotes or communications.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer alleges being quoted a $45 fee on a $300 payday loan and then charged $87. This is an allegation of being misled about loan cost (policy 05), which is automatic High whether or not the records confirm it. The UDAAP pattern directly set this tier.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-007",
+        "loan_balance": 0.0,
+        "origination_date": "3/2/2026",
+        "payment_status": "paid_off",
+        "product_type": "payday_loan",
+        "account_note": "Payday loan, paid off. Opened 2026-03-02."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-007",
+          "date": "2026-03-02",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Loan funded: principal $300.00; finance charge $87.00 per e-signed loan agreement; total repayable $387.00 due 2026-03-30"
+        },
+        {
+          "account_id": "ACC-007",
+          "date": "2026-03-30",
+          "type": "payment",
+          "amount": 387.0,
+          "note": "ACH withdrawal: $300.00 principal + $87.00 finance charge"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Customer alleges being quoted one fee ($45) and charged another ($87), a misled-about-loan-terms allegation under policy 05. This requires mandatory human review, and no draft may be prepared. The quoted-fee claim also cannot be verified, since the text message is not on file.",
+    "unresolved": null,
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - partially_true - High risk - draft ready for review",
+  "run_finished": "2026-10-09T19:22:57+00:00",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us because you were told the fee on your $300 payday loan would be $45, and the amount taken from your account was much higher. We understand how frustrating it is when a cost doesn't match what you expected, so we reviewed your loan and payment records.\n\nHere is what we found on each point:\n\n1. The fee you were quoted. Our account records don't include what was said or sent to you before you signed, so we can't confirm that you were quoted $45. The text message you mention isn't in our records. The loan agreement you e-signed lists a finance charge of $87 on the $300 loan, which was funded on March 2, 2026. That agreement doesn't rule out that you were given a different figure earlier, and we haven't ruled it out.\n\n2. The amount withdrawn. Our records confirm that the finance charge on your loan was $87. On March 30, 2026, $387 was withdrawn from your account by ACH. That is the $300 you borrowed plus the $87 finance charge. The $87 you noticed matches the finance charge in your agreement.\n\nBecause we couldn't verify the $45 quote from our records, we haven't made any change to your account at this time. If you send us the text message, such as a screenshot or a forwarded copy, we will review it along with your loan records. You are welcome to send us anything else you think is relevant at any time, and we will review it. You can reply to this message or call us at the number on your account.\n\nCase reference: 20963338",
+        "policy_cited": "08 General Dispute Handling Process (standard process; outcome classified as partially confirmed), with Policies 10 and 11 governing language and format",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Was told the fee on the $300 payday loan would be $45",
+          "The payment withdrawn from the account was $87, almost double the quoted fee"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed individually: (1) the $45 fee quote is stated as unverifiable from records, and (2) the $87 withdrawal is confirmed as matching the finance charge in the agreement.",
+        "groundedness_check": "pass \u2014 The $300 principal, $87 finance charge, March 2, 2026 funding date, $387 ACH withdrawal on March 30, 2026, the absence of the text message from records, and the point that the e-signed agreement does not rule out a different quote all match the verification output. 'Payday loan' is the customer's own descriptor and does not contradict the verification. No refund, credit, or approval is claimed as granted or processed.",
+        "policy_authorization_check": "pass \u2014 No remedy is stated (remedy_stated and referral_stated are null). The draft says no account change has been made, so nothing exceeds policy authority.",
+        "prohibited_language_check": "pass \u2014 The draft contains no fault admission, future guarantee, legal conclusion, or promise outside documented authority. It does not discourage other channels and invites the customer to send more information. 'We understand how frustrating it is' is acceptable under the tone rules.",
+        "tone_structure_check": "pass \u2014 The draft follows Policy 11: it opens by referencing the specific complaint, then gives findings with dates and amounts, then the outcome (no change made, and why), then next steps (send the text message, reply or call), and ends with case reference 20963338. The tone is plain-language and second-person, with no marketing content. Length is acceptable for a multi-allegation response.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us because you were told the fee on your $300 payday loan would be $45, and the amount taken from your account was much higher. We understand how frustrating it is when a cost doesn't match what you expected, so we reviewed your loan and payment records.\n\nHere is what we found on each point:\n\n1. The fee you were quoted. Our account records don't include what was said or sent to you before you signed, so we can't confirm that you were quoted $45. The text message you mention isn't in our records. The loan agreement you e-signed lists a finance charge of $87 on the $300 loan, which was funded on March 2, 2026. That agreement doesn't rule out that you were given a different figure earlier, and we haven't ruled it out.\n\n2. The amount withdrawn. Our records confirm that the finance charge on your loan was $87. On March 30, 2026, $387 was withdrawn from your account by ACH. That is the $300 you borrowed plus the $87 finance charge. The $87 you noticed matches the finance charge in your agreement.\n\nBecause we couldn't verify the $45 quote from our records, we haven't made any change to your account at this time. If you send us the text message, such as a screenshot or a forwarded copy, we will review it along with your loan records. You are welcome to send us anything else you think is relevant at any time, and we will review it. You can reply to this message or call us at the number on your account.\n\nCase reference: 20963338",
+    "policy_cited": "08 General Dispute Handling Process (standard process; outcome classified as partially confirmed), with Policies 10 and 11 governing language and format",
+    "remedy_stated": null,
+    "referral_stated": null,
+    "allegations_addressed": [
+      "Was told the fee on the $300 payday loan would be $45",
+      "The payment withdrawn from the account was $87, almost double the quoted fee"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed individually: (1) the $45 fee quote is stated as unverifiable from records, and (2) the $87 withdrawal is confirmed as matching the finance charge in the agreement.",
+    "groundedness_check": "pass \u2014 The $300 principal, $87 finance charge, March 2, 2026 funding date, $387 ACH withdrawal on March 30, 2026, the absence of the text message from records, and the point that the e-signed agreement does not rule out a different quote all match the verification output. 'Payday loan' is the customer's own descriptor and does not contradict the verification. No refund, credit, or approval is claimed as granted or processed.",
+    "policy_authorization_check": "pass \u2014 No remedy is stated (remedy_stated and referral_stated are null). The draft says no account change has been made, so nothing exceeds policy authority.",
+    "prohibited_language_check": "pass \u2014 The draft contains no fault admission, future guarantee, legal conclusion, or promise outside documented authority. It does not discourage other channels and invites the customer to send more information. 'We understand how frustrating it is' is acceptable under the tone rules.",
+    "tone_structure_check": "pass \u2014 The draft follows Policy 11: it opens by referencing the specific complaint, then gives findings with dates and amounts, then the outcome (no change made, and why), then next steps (send the text message, reply or call), and ends with case reference 20963338. The tone is plain-language and second-person, with no marketing content. Length is acceptable for a multi-allegation response.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": null,
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Customer alleges being quoted one fee ($45) and charged another ($87), a misled-about-loan-terms allegation under policy 05. This requires mandatory human review, and no draft may be prepared. The quoted-fee claim also cannot be verified, since the text message is not on file.",
+    "at": "2026-10-09T19:22:57+00:00"
+  }
+}

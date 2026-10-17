@@ -1,0 +1,209 @@
+{
+  "complaint_id": "SYN-P02",
+  "run_started": "2026-10-11T15:36:09+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-P02",
+    "date_received": "7/2/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "WA",
+    "narrative": "My payment this month was taken out twice from my bank account, for $220 total instead of $110. This has caused an overdraft on my checking account.",
+    "account_id": "ACC-P02",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1408,
+      "output_tokens": 224
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5156,
+      "output_tokens": 859
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4792,
+      "output_tokens": 2109
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4500,
+      "output_tokens": 1391
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5023,
+      "output_tokens": 1441
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4473,
+      "output_tokens": 1222
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Monthly payment was taken out of bank account twice",
+      "Total of $220 was withdrawn instead of $110",
+      "Double withdrawal caused an overdraft on checking account"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      220.0,
+      110.0
+    ],
+    "dates_mentioned": [
+      "this month"
+    ],
+    "account_details_mentioned": "Payment due was $110; $220 was withdrawn from bank account; checking account overdrafted",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-P02",
+      "loan_balance": 990.0,
+      "origination_date": "9/10/2025",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Transaction log shows TWO payments of $110 processed on 2026-06-30 and 2026-07-01 (CONFIRMED \u2014 duplicate charge occurred due to a known payment-processor retry issue logged internally on 2026-07-01). However, no overdraft fee charge appears linked to this account or flows to the customer's bank (the overdraft, if any, would be charged by the customer's own bank, not us \u2014 NOT CONFIRMED on our end)."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-P02",
+        "date": "2026-06-30",
+        "type": "payment",
+        "amount": 110.0,
+        "note": "First of two payments (duplicate charge event)."
+      },
+      {
+        "account_id": "ACC-P02",
+        "date": "2026-07-01",
+        "type": "payment",
+        "amount": 110.0,
+        "note": "Second payment - duplicate, caused by processor retry issue logged 2026-07-01."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "The customer reports two problem events. (1) Duplicate withdrawal: CONFIRMED. The transaction log shows two payments of $110 each, on 2026-06-30 and 2026-07-01, totaling $220 against a $110 payment due. An internal log dated 2026-07-01 attributes the second payment to a payment-processor retry issue, so the customer is right that the second $110 was taken in error. The two payments fall on either side of a month boundary, which is consistent with the customer's 'this month' wording. (2) Overdraft on the customer's checking account: CANNOT BE CONFIRMED. Our records show no overdraft fee or related charge on this account. Any overdraft would have been assessed by the customer's own bank, which our system would not record, so this is unconfirmed rather than contradicted. The customer is right about the duplicate payment. Whether it caused an overdraft would need the customer's bank statement.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true (duplicate payment confirmed, overdraft unconfirmed), which moves the tier to Medium. There is no attorney/regulator reference, no identity-theft or fraud dispute, no misrepresentation of loan terms, no hardship or vulnerability indicator, and the disputed amount is under $200.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Having $220 come out of your account when you only owed $110 is upsetting, and we understand it's worse that it left your checking account overdrawn. We've looked at each part of what you told us.\n\nThe payment taken twice, and the $220 total: Our records confirm you were charged two payments of $110, one on June 30 and one on July 1, 2026. That adds up to $220 against the $110 you owed, which matches what you described. Our records confirm the second payment was taken in error.\n\nThe overdraft: We can't see activity on your bank account, and our records show no overdraft fee or related charge on your account with us. That means we can't confirm from our side that the overdraft happened or what led to it. If you'd like us to take a look, please send us your bank statement showing the overdraft and any fee your bank charged. We'll review whatever you send.\n\nWhat happens next: We've referred the correction of the second payment for approval. We can't tell you the outcome yet, and we'll be in touch once there's a decision. You're welcome to send us anything further at any time, including your bank statement, and we'll review it. You can reply to this message or call the number on your account.\n\nCase reference: SYN-P02",
+        "policy_cited": "08 General Dispute Handling Process (standard process and complete-response requirements); 10 Prohibited Language and 11 Response Tone and Format applied. No refund or remedy is stated because no approval authority is documented in the cited policy.",
+        "remedy_stated": null,
+        "referral_stated": "The confirmed duplicate payment (second $110 payment taken July 1, 2026, after the $110 payment on June 30, 2026) needs to be referred to the appropriate approver for correction or refund before this response is sent. Case SYN-P02.",
+        "allegations_addressed": [
+          "Monthly payment was taken out of bank account twice",
+          "Total of $220 was withdrawn instead of $110",
+          "Double withdrawal caused an overdraft on checking account"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 the opening says 'we understand it's worse that it left your checking account overdrawn,' which states the overdraft as an established fact. The verification output says the overdraft CANNOT BE CONFIRMED. This also conflicts with the draft's later statement that 'we can't confirm from our side that the overdraft happened.'",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: the opening sentence treats the unconfirmed overdraft as having happened ('it left your checking account overdrawn'). It should acknowledge the customer's report of an overdraft without asserting it, for example 'you told us this left your account overdrawn.' The sentence also contradicts the overdraft paragraph below it.",
+          "Other checks pass. The three allegations (double withdrawal, $220 vs. $110, overdraft) are all addressed. The dates and amounts match the verification output. The 'referred for approval' statement is grounded by referral_stated. No remedy is promised, and no prohibited language was found."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You told us your monthly payment came out of your bank account twice, and that it left your checking account overdrawn. That's a stressful thing to find, and we've looked at each part of what you described.\n\nThe double withdrawal: You're right. Your payment due was $110, and our records show two payments of $110 each, one on June 30 and one on July 1. Our records confirm the second $110 payment was taken in error.\n\nThe $220 total: That matches what we see. Two payments of $110 add up to $220, which is $110 more than the amount due.\n\nThe overdraft: We can't confirm this part yet. Our records don't show any overdraft fee or related charge on your account with us. We also can't see your bank's records, so we don't know whether the extra payment led to an overdraft on your checking account.\n\nWhat happens next: Because the second payment was taken in error, we've referred the correction of that $110 payment for approval. We can't tell you the outcome or timing yet, and we'll review the referral on its own merits.\n\nIf you'd like us to look at the overdraft, please send us your bank statement showing it. You can reply to this message or call the number on your account. You're welcome to send us anything further at any time, and we'll review it.\n\nCase reference: SYN-P02",
+        "policy_cited": "08 General Dispute Handling Process, Standard process and What counts as a complete response (with Policy 10 Prohibited Language and Policy 11 Response Tone and Format)",
+        "remedy_stated": null,
+        "referral_stated": "Correction of the duplicate $110 payment taken on July 1, 2026 has been referred for approval. Please make this referral before sending the response.",
+        "allegations_addressed": [
+          "Monthly payment was taken out of bank account twice",
+          "Total of $220 was withdrawn instead of $110",
+          "Double withdrawal caused an overdraft on checking account"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all three allegations are addressed individually: the duplicate withdrawal, the $220 total versus $110, and the overdraft.",
+        "groundedness_check": "pass \u2014 the amounts ($110 due, two payments of $110, $220 total, $110 excess), the dates (June 30 and July 1) and the 'taken in error' finding all trace to the verification output. The overdraft is correctly described as unconfirmed, with the explanation that our records show no overdraft fee and that the customer's bank records are not visible to us. 'We've referred the correction of that $110 payment for approval' is grounded because the verification output confirms the error and the draft declares the referral in `referral_stated`; the human reviewer makes that referral before sending. The draft does not say a refund or credit has been granted or processed.",
+        "policy_authorization_check": "pass \u2014 `remedy_stated` is null and the draft promises no remedy, only a referral for approval. The draft states no outcome or timing, so nothing exceeds the cited policy's authority.",
+        "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact ('You're right' and 'taken in error' restate confirmed facts). There are no future guarantees, no legal conclusions, no promised remedies outside documented authority, and nothing that discourages the customer from other channels.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11: it opens with a specific acknowledgment, gives findings paragraph by paragraph with dates and amounts, then states the outcome (referred for approval, no outcome or timing yet) and next steps (send the bank statement, reply or call), and ends with the case reference SYN-P02. It uses plain second-person language, short paragraphs, and has no marketing content. The outcome and next steps share one section, which is acceptable.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You told us your monthly payment came out of your bank account twice, and that it left your checking account overdrawn. That's a stressful thing to find, and we've looked at each part of what you described.\n\nThe double withdrawal: You're right. Your payment due was $110, and our records show two payments of $110 each, one on June 30 and one on July 1. Our records confirm the second $110 payment was taken in error.\n\nThe $220 total: That matches what we see. Two payments of $110 add up to $220, which is $110 more than the amount due.\n\nThe overdraft: We can't confirm this part yet. Our records don't show any overdraft fee or related charge on your account with us. We also can't see your bank's records, so we don't know whether the extra payment led to an overdraft on your checking account.\n\nWhat happens next: Because the second payment was taken in error, we've referred the correction of that $110 payment for approval. We can't tell you the outcome or timing yet, and we'll review the referral on its own merits.\n\nIf you'd like us to look at the overdraft, please send us your bank statement showing it. You can reply to this message or call the number on your account. You're welcome to send us anything further at any time, and we'll review it.\n\nCase reference: SYN-P02",
+    "policy_cited": "08 General Dispute Handling Process, Standard process and What counts as a complete response (with Policy 10 Prohibited Language and Policy 11 Response Tone and Format)",
+    "remedy_stated": null,
+    "referral_stated": "Correction of the duplicate $110 payment taken on July 1, 2026 has been referred for approval. Please make this referral before sending the response.",
+    "allegations_addressed": [
+      "Monthly payment was taken out of bank account twice",
+      "Total of $220 was withdrawn instead of $110",
+      "Double withdrawal caused an overdraft on checking account"
+    ]
+  },
+  "action_required_before_sending": "Correction of the duplicate $110 payment taken on July 1, 2026 has been referred for approval. Please make this referral before sending the response.",
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all three allegations are addressed individually: the duplicate withdrawal, the $220 total versus $110, and the overdraft.",
+    "groundedness_check": "pass \u2014 the amounts ($110 due, two payments of $110, $220 total, $110 excess), the dates (June 30 and July 1) and the 'taken in error' finding all trace to the verification output. The overdraft is correctly described as unconfirmed, with the explanation that our records show no overdraft fee and that the customer's bank records are not visible to us. 'We've referred the correction of that $110 payment for approval' is grounded because the verification output confirms the error and the draft declares the referral in `referral_stated`; the human reviewer makes that referral before sending. The draft does not say a refund or credit has been granted or processed.",
+    "policy_authorization_check": "pass \u2014 `remedy_stated` is null and the draft promises no remedy, only a referral for approval. The draft states no outcome or timing, so nothing exceeds the cited policy's authority.",
+    "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact ('You're right' and 'taken in error' restate confirmed facts). There are no future guarantees, no legal conclusions, no promised remedies outside documented authority, and nothing that discourages the customer from other channels.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11: it opens with a specific acknowledgment, gives findings paragraph by paragraph with dates and amounts, then states the outcome (referred for approval, no outcome or timing yet) and next steps (send the bank statement, reply or call), and ends with the case reference SYN-P02. It uses plain second-person language, short paragraphs, and has no marketing content. The outcome and next steps share one section, which is acceptable.",
+    "specific_issues": []
+  },
+  "summary": "Problem when making payments - partially_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-11T15:37:05+00:00"
+}

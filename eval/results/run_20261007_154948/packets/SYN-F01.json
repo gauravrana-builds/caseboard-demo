@@ -1,0 +1,150 @@
+{
+  "complaint_id": "SYN-F01",
+  "run_started": "2026-10-07T20:52:26+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-F01",
+    "date_received": "6/10/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "TX",
+    "narrative": "I was charged a $35 late fee this month even though I paid on time. I pay the same way every month and this has never happened before.",
+    "account_id": "ACC-F01",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1409,
+      "output_tokens": 192
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4164,
+      "output_tokens": 352
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3714,
+      "output_tokens": 1181
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4019,
+      "output_tokens": 1624
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $35 late fee this month despite paying on time",
+      "Pays the same way every month and this has never happened before"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      35.0
+    ],
+    "dates_mentioned": [
+      "this month"
+    ],
+    "account_details_mentioned": "Pays the same way every month; payment was made on time",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "calm, factual, mildly frustrated"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-F01",
+      "loan_balance": 2100.0,
+      "origination_date": "2025-11-02",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Transaction log shows ONE payment of $180 on 2026-06-08, due date 2026-06-10. Payment was 2 days EARLY. No late fee was assessed on this account in June. Complaint's claim of a $35 late fee is NOT supported by transaction history."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-F01",
+        "date": "2026-06-08",
+        "type": "payment",
+        "amount": 180.0,
+        "note": "Payment received 2 days before due date (due 2026-06-10). No late fee assessed."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The central allegation is that a $35 late fee was wrongly charged this month despite an on-time payment. The transaction log shows ONE payment of $180 on 2026-06-08, two days before the 2026-06-10 due date. The account record and transaction note both state that no late fee was assessed in June, and no fee transaction appears in the history. The payment was on time, as the customer says, but that is background. The records directly contradict the claim that a $35 late fee was charged.",
+    "risk_tier": "Low",
+    "risk_rationale": "The amount is $35 (under $200), the claim is confirmed false against clear records, and there is no attorney/regulator reference, embedded instruction, hardship or vulnerability indicator, UDAAP-pattern language, or collector conduct allegation. The attorney_regulator_flag is FALSE.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Low",
+  "policy": {
+    "policy_id": "06",
+    "topic": "Fee Waiver and Goodwill Credit Authority",
+    "category": "internal",
+    "matched_keywords": [
+      "late fee"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Fee Waiver and Goodwill Credit Authority\n\n**Applies to:** Complaints where account/transaction data confirms a fee was charged in error, or where a goodwill gesture is being considered for a confirmed service failure.\n\n## Authority thresholds\n| Fee/credit amount | Who may approve |\n|---|---|\n| $0 \u2013 $50 | Complaints analyst, no additional sign-off required |\n| $50.01 \u2013 $200 | Complaints analyst with supervisor co-sign |\n| $200.01+ | Supervisor or manager approval required; analyst may not approve independently |\n\n## When a waiver is appropriate\n- The transaction history **confirms** the fee was charged in error (e.g., payment was received before the due date but a late fee was still assessed).\n- The fee was charged due to a documented system or processing error.\n- A documented goodwill exception for a first-time, low-dollar fee on an otherwise good-standing account (use sparingly, document the rationale).\n\n## When a waiver is NOT appropriate\n- The transaction history confirms the fee was correctly charged (no error occurred) \u2014 the response should explain the charge, not waive it.\n- The complaint's underlying fact could not be verified (missing/incomplete data) \u2014 route to manual review rather than waiving preemptively.\n- The complaint involves a dispute of right vs. convenience (e.g., customer disagrees with a disclosed, legitimate fee) \u2014 explain the fee and its basis; do not waive solely to end the complaint.\n\n## What an analyst or agent may say\n- May state the exact dollar amount being waived and the specific reason (tied to the confirmed error).\n- May NOT waive a fee \"as a one-time courtesy\" without a documented rationale on file \u2014 every waiver must cite either a confirmed error or an explicit goodwill justification.\n\n## Documentation requirement\nEvery waiver, regardless of amount, must be logged with: the confirming evidence (which transaction record), the dollar amount, and the approving party.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a $35 late fee you believe was charged to your account this month even though you paid on time. We reviewed your account and payment history.\n\nWhat we found: your payment of $180 was received on June 8, 2026, two days before your June 10, 2026 due date. You are correct that the payment was on time. Our records show no late fee was assessed for June, and no fee of any kind appears in your transaction history for this cycle.\n\nYou also mentioned that you pay the same way every month and that this has never happened before. For this billing cycle, your on-time payment was recorded as expected, and we found no late fee charged to your account.\n\nBecause no fee was charged, there is nothing to waive or reverse, so no credit or adjustment applies. If you are seeing a $35 charge on your statement or in your online account, please reply to this message with the date and description of the charge, or contact us using the details on your account. We will review exactly what you are seeing. You are also welcome to pursue any other channel you choose.\n\nCase reference: SYN-F01",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (no fee was assessed, so no waiver applies); response governed by 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Charged a $35 late fee this month despite paying on time",
+          "Pays the same way every month and this has never happened before"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass. Both allegations are addressed. The $35 late fee despite on-time payment is covered in the findings and outcome paragraphs. The 'pays the same way every month / never happened before' allegation has its own paragraph.",
+        "groundedness_check": "pass. The $180 payment, the June 8, 2026 receipt date, the June 10, 2026 due date, the on-time status, and the absence of any June late fee or fee transaction all trace to the verification output. The draft does not claim to have verified the customer's payment history or that this has never happened before. It limits its statements to 'this billing cycle'. The case reference 'SYN-F01' is not in the inputs provided, so it could not be cross-checked. It looks like a case ID from the original record and is not a factual claim.",
+        "policy_authorization_check": "pass. No remedy is stated (remedy_stated is null). The draft says no waiver or credit applies because no fee was assessed, which is consistent with Policy 06. No approval threshold is implicated.",
+        "prohibited_language_check": "pass. There is no fault admission, no guarantee about the future, no legal conclusion, and no promise outside documented authority. 'You are also welcome to pursue any other channel you choose' affirms the customer's options. 'We will review exactly what you are seeing' is a commitment to review, not a promised outcome.",
+        "tone_structure_check": "pass. The draft follows Policy 11's order: acknowledgment, findings, outcome ('nothing to waive or reverse'), next steps (reply with the charge date and description), then the case reference. It uses second person and plain language, has short paragraphs, handles each allegation in a separate paragraph, and contains no marketing content.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about a $35 late fee you believe was charged to your account this month even though you paid on time. We reviewed your account and payment history.\n\nWhat we found: your payment of $180 was received on June 8, 2026, two days before your June 10, 2026 due date. You are correct that the payment was on time. Our records show no late fee was assessed for June, and no fee of any kind appears in your transaction history for this cycle.\n\nYou also mentioned that you pay the same way every month and that this has never happened before. For this billing cycle, your on-time payment was recorded as expected, and we found no late fee charged to your account.\n\nBecause no fee was charged, there is nothing to waive or reverse, so no credit or adjustment applies. If you are seeing a $35 charge on your statement or in your online account, please reply to this message with the date and description of the charge, or contact us using the details on your account. We will review exactly what you are seeing. You are also welcome to pursue any other channel you choose.\n\nCase reference: SYN-F01",
+    "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (no fee was assessed, so no waiver applies); response governed by 10 Prohibited Language and 11 Response Tone and Format",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Charged a $35 late fee this month despite paying on time",
+      "Pays the same way every month and this has never happened before"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass. Both allegations are addressed. The $35 late fee despite on-time payment is covered in the findings and outcome paragraphs. The 'pays the same way every month / never happened before' allegation has its own paragraph.",
+    "groundedness_check": "pass. The $180 payment, the June 8, 2026 receipt date, the June 10, 2026 due date, the on-time status, and the absence of any June late fee or fee transaction all trace to the verification output. The draft does not claim to have verified the customer's payment history or that this has never happened before. It limits its statements to 'this billing cycle'. The case reference 'SYN-F01' is not in the inputs provided, so it could not be cross-checked. It looks like a case ID from the original record and is not a factual claim.",
+    "policy_authorization_check": "pass. No remedy is stated (remedy_stated is null). The draft says no waiver or credit applies because no fee was assessed, which is consistent with Policy 06. No approval threshold is implicated.",
+    "prohibited_language_check": "pass. There is no fault admission, no guarantee about the future, no legal conclusion, and no promise outside documented authority. 'You are also welcome to pursue any other channel you choose' affirms the customer's options. 'We will review exactly what you are seeing' is a commitment to review, not a promised outcome.",
+    "tone_structure_check": "pass. The draft follows Policy 11's order: acknowledgment, findings, outcome ('nothing to waive or reverse'), next steps (reply with the charge date and description), then the case reference. It uses second person and plain language, has short paragraphs, handles each allegation in a separate paragraph, and contains no marketing content.",
+    "specific_issues": []
+  },
+  "summary": "Charged fees or interest you didn't expect - confirmed_false - Low risk - draft ready for review",
+  "run_finished": "2026-10-07T20:52:53+00:00"
+}

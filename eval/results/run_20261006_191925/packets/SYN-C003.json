@@ -1,0 +1,208 @@
+{
+  "complaint_id": "SYN-C003",
+  "run_started": "2026-10-07T00:23:43+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C003",
+    "date_received": "2026-08-21",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Struggling to pay your loan",
+    "sub_issue": "",
+    "state": "MN",
+    "narrative": "I reached out about a hardship plan after a reduction in my work hours and have not received a callback in over a week, while my $300 balance continues to accrue interest.",
+    "account_id": "ACC-053",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1417,
+      "output_tokens": 756
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2538,
+      "output_tokens": 1777
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3976,
+      "output_tokens": 1838
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4515,
+      "output_tokens": 2143
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4094,
+      "output_tokens": 2372
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4563,
+      "output_tokens": 2390
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Reached out about a hardship plan after a reduction in work hours and has not received a callback in over a week",
+      "$300 balance continues to accrue interest"
+    ],
+    "requested_outcome": "Callback regarding a hardship plan",
+    "dollar_amounts_mentioned": [
+      300.0
+    ],
+    "dates_mentioned": [
+      "in over a week"
+    ],
+    "account_details_mentioned": "$300 balance continues to accrue interest",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concerned"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-053",
+      "loan_balance": 1600.0,
+      "origination_date": "2026-07-04",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-053",
+        "date": "2026-07-04",
+        "type": "payment",
+        "amount": 59.26,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-053",
+        "date": "2026-08-03",
+        "type": "payment",
+        "amount": 84.21,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-053",
+        "date": "2026-09-02",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The data provided cannot confirm or contradict either allegation. (1) Hardship request and missing callback: the account record and transaction history contain no contact, call, or case-log data, so there is no way to confirm whether a hardship request was received or when a callback was due. (2) '$300 balance continues to accrue interest': the account shows a loan balance of $1,600.00, not $300, and payment_status is 'current'. The transactions (payments of $59.26 on 2026-07-04, $84.21 on 2026-08-03, and $100.00 on 2026-09-02) show no interest-accrual entries, and no $300 figure appears anywhere. It is unclear whether $300 refers to a different account, a partial balance, or a misstatement. In addition, the account_note says the record is generic filler data and was not built to verify this complaint. The dollar discrepancy and missing contact logs are therefore left unresolved. Nothing in the evidence contradicts the claim, and nothing supports it.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The customer reports financial hardship (reduced work hours) and repeated unanswered contact (no callback in over a week), both Medium-elevating indicators. There is no attorney/regulator reference. The unverifiable gaps (contact logs, the $300 vs. $1,600 balance mismatch) do not change the outcome, because the customer is requesting a callback about a hardship plan rather than disputing a charge or amount, so Automatic High is not triggered. The UDAAP pattern did not influence the tier.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "07",
+    "topic": "Hardship and Payment Deferral Options",
+    "category": "internal",
+    "matched_keywords": [
+      "hardship",
+      "struggling to pay"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Hardship and Payment Deferral Options\n\n**Applies to:** Complaints where a customer states they are struggling to make payments, references job loss, medical emergency, or similar hardship, or explicitly requests a payment plan or deferral.\n\n## Available options (in order of customer impact, least to most significant)\n1. **Payment date shift** \u2014 move the due date within the same billing cycle by up to 10 days, no fee, available once per 12-month period, analyst may approve directly.\n2. **Reduced-payment plan** \u2014 temporarily reduce the monthly payment for up to 3 months, extending the loan term accordingly. Requires supervisor approval and a documented hardship reason.\n3. **Interest-only or fee-deferral period** \u2014 defer principal payments for up to 2 months in cases of documented significant hardship (job loss, medical emergency, natural disaster). Requires supervisor approval.\n4. **Full forbearance** \u2014 pause all payments for up to 60 days. Reserved for severe, documented hardship. Requires manager approval.\n\n## Eligibility\n- Account must be no more than 60 days past due at time of request.\n- Customer must state a reason for hardship (does not need to be independently verified for options 1-2; options 3-4 require the customer to describe the nature of the hardship, though no documentation/proof is required at this stage).\n\n## What an analyst or agent may say\n- May offer option 1 directly, with no further approval needed.\n- May describe options 2-4 as \"available, pending supervisor review\" \u2014 may NOT confirm a plan is approved until supervisor sign-off is actually logged.\n- May NOT suggest an account will be reported as current to credit bureaus during a reduced-payment or forbearance period unless that is actually how the specific plan is structured \u2014 this must be confirmed, not assumed.\n\n## Escalation trigger\nA customer who has already received a hardship accommodation and is requesting a second one within the same 12-month period, or who indicates the hardship accommodation itself failed to resolve their situation, should be flagged for supervisor review rather than a standard offer.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_failed_verification",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Thank you for writing about your request for a hardship plan after your work hours were reduced, and about your concern that a $300 balance is still accruing interest. We understand how frustrating it is to wait for a callback while you are managing a change in income.\n\nHardship plan and callback: We were unable to find a record of your earlier request or a scheduled callback in the information available to us, so we can't confirm when it was received. We are treating this message as your request for hardship assistance. Your account is current, and you have told us the reason for your request, so you may be eligible for the following options:\n- Payment date shift: we can move your due date by up to 10 days within the same billing cycle, with no fee. This is available once per 12-month period.\n- Reduced-payment plan, interest-only or fee-deferral period, or full forbearance: these options are available, pending supervisor review. None of them has been approved, and we can't confirm one until that review is complete.\n\nThe $300 balance and interest: Our records show a loan balance of $1,600.00, not $300, and a payment status of current. We reviewed your payments of $59.26 on July 4, $84.21 on August 3, and $100.00 on September 2. The transaction history does not show any separate interest entries, and we did not find a $300 figure. We'd like to understand which balance you are referring to. Please send us the statement or account that shows $300 so we can review it with you.\n\nNext steps: Reply to this message or call the number on your account. Tell us which option you would like to pursue and which balance you were looking at. Case reference: SYN-C003.",
+        "policy_cited": "07 Hardship and Payment Deferral Options (Available options; Eligibility; What an analyst or agent may say); 10 Prohibited Language; 11 Response Tone and Format",
+        "remedy_stated": "Payment date shift of up to 10 days within the same billing cycle, no fee, once per 12-month period (analyst-approvable). Reduced-payment plan, interest-only or fee-deferral period, and full forbearance are described only as available pending supervisor review, not approved.",
+        "allegations_addressed": [
+          "Reached out about a hardship plan after a reduction in work hours and has not received a callback in over a week",
+          "$300 balance continues to accrue interest"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "fail \u2014 Policy 10's tone requirements say to avoid technical jargon without explanation. The draft uses 'full forbearance', 'interest-only or fee-deferral period', and 'reduced-payment plan' with no plain-language description of what each means for the customer. The 'Hardship plan and callback' section also blends findings, outcome, and options into one block. The overall order (acknowledgment, findings, outcome, next steps, case reference) is otherwise followed, and organizing by allegation is permitted for multi-allegation complaints.",
+        "specific_issues": [
+          "Tone/structure: 'forbearance' and 'interest-only or fee-deferral period' are used without plain-language explanation, which Policy 10 does not allow. The draft should say, for example, 'a temporary pause on payments' or 'a short period where principal payments are deferred'."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us about a hardship plan after your work hours were reduced, and you told us you haven't received a callback in over a week. We understand how frustrating that wait has been, especially while you're managing a change in income.\n\nWhat we found:\n\nHardship request and callback: The records available to us for this review don't show when your request was received or when a callback was due, so we couldn't confirm the timing. Your account is currently in good standing (payment status: current), which means you're eligible for our hardship options.\n\nThe $300 balance and interest: Our records show a loan balance of $1,600.00, and we could not find a $300 figure on your account. We also couldn't confirm from the records reviewed what the $300 refers to. If you can tell us where you're seeing it, such as a statement or a particular date, we will look into it.\n\nOutcome and options:\n\nWe can offer you a one-time shift of your payment due date by up to 10 days within the same billing cycle, at no fee. This option is available once in a 12-month period.\n\nWe can also review the following options. They are available pending supervisor review, and none has been approved yet:\n- Lowering your monthly payment for up to 3 months, with your loan term extended to match.\n- A short period of up to 2 months where payments toward the loan amount itself are put on hold.\n- A temporary pause on all payments for up to 60 days.\n\nNext steps:\n\nPlease reply to this message or call the number on your account and give us the case reference below. Let us know which option you'd like to pursue and, if you can, where you saw the $300 amount, so we can go over your choices with you directly.\n\nCase reference: SYN-C003",
+        "policy_cited": "07 Hardship and Payment Deferral Options (payment date shift, analyst-approvable; other options described as available pending supervisor review), with 10 Prohibited Language and 11 Response Tone and Format applied",
+        "remedy_stated": "Offer of a one-time, no-fee payment date shift of up to 10 days within the same billing cycle (once per 12-month period). The reduced-payment plan, the deferral of payments toward the loan amount, and the full payment pause are described only as available pending supervisor review, not approved.",
+        "allegations_addressed": [
+          "Reached out about a hardship plan after a reduction in work hours and has not received a callback in over a week",
+          "$300 balance continues to accrue interest"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "fail \u2014 The second allegation, '$300 balance continues to accrue interest,' is only partly addressed. The draft discusses the $300 figure under a heading 'The $300 balance and interest,' but never says anything about interest. It does not say that the records reviewed show no interest-accrual entries, and it does not say that interest accrual could not be confirmed. The customer's actual interest concern gets no answer.",
+        "groundedness_check": "fail \u2014 'Your account is currently in good standing (payment status: current), which means you're eligible for our hardship options.' The verification output supports only payment_status = 'current'. 'Good standing' is a characterization not in the evidence. The eligibility conclusion is also broader than the cited policy supports. Options 3\u20134 are tied to documented significant or severe hardship, and all of options 2\u20134 need supervisor or manager approval. Reduced work hours have not been shown to qualify for those options.",
+        "policy_authorization_check": "pass \u2014 The only remedy actually offered is the one-time, no-fee payment date shift of up to 10 days, which policy 07 lets an analyst offer directly. Options 2\u20134 are described as 'available pending supervisor review, and none has been approved yet,' which matches the policy's permitted phrasing. The draft does not confirm any plan as approved and makes no credit-reporting claims.",
+        "prohibited_language_check": "pass \u2014 The draft contains no fault admission, no guarantee about the future, no legal conclusion, and nothing discouraging other channels. The phrase 'we understand how frustrating that wait has been' is the kind of acknowledgment policy 10 allows. The eligibility phrase is flagged under groundedness rather than here.",
+        "tone_structure_check": "pass \u2014 The draft follows the Policy 11 order: acknowledgment, findings, outcome and options, next steps, then case reference SYN-C003. It uses second person, short paragraphs, and separate paragraphs for each allegation. The length is acceptable for a multi-allegation complaint, and it contains no marketing content.",
+        "specific_issues": [
+          "Completeness: the draft never addresses the 'accrue interest' part of the second allegation, even though its own heading names interest. It should state that no interest-accrual entries appear in the records reviewed, or that this could not be confirmed.",
+          "Groundedness: 'good standing ... which means you're eligible for our hardship options' is not supported by the verification output, which shows only 'current' status. It also overstates eligibility for options requiring supervisor or manager approval. It should be reworded, for example to say the account is current and that the options are subject to review."
+        ]
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about a hardship plan after your work hours were reduced, and you told us you haven't received a callback in over a week. We understand how frustrating that wait has been, especially while you're managing a change in income.\n\nWhat we found:\n\nHardship request and callback: The records available to us for this review don't show when your request was received or when a callback was due, so we couldn't confirm the timing. Your account is currently in good standing (payment status: current), which means you're eligible for our hardship options.\n\nThe $300 balance and interest: Our records show a loan balance of $1,600.00, and we could not find a $300 figure on your account. We also couldn't confirm from the records reviewed what the $300 refers to. If you can tell us where you're seeing it, such as a statement or a particular date, we will look into it.\n\nOutcome and options:\n\nWe can offer you a one-time shift of your payment due date by up to 10 days within the same billing cycle, at no fee. This option is available once in a 12-month period.\n\nWe can also review the following options. They are available pending supervisor review, and none has been approved yet:\n- Lowering your monthly payment for up to 3 months, with your loan term extended to match.\n- A short period of up to 2 months where payments toward the loan amount itself are put on hold.\n- A temporary pause on all payments for up to 60 days.\n\nNext steps:\n\nPlease reply to this message or call the number on your account and give us the case reference below. Let us know which option you'd like to pursue and, if you can, where you saw the $300 amount, so we can go over your choices with you directly.\n\nCase reference: SYN-C003",
+    "policy_cited": "07 Hardship and Payment Deferral Options (payment date shift, analyst-approvable; other options described as available pending supervisor review), with 10 Prohibited Language and 11 Response Tone and Format applied",
+    "remedy_stated": "Offer of a one-time, no-fee payment date shift of up to 10 days within the same billing cycle (once per 12-month period). The reduced-payment plan, the deferral of payments toward the loan amount, and the full payment pause are described only as available pending supervisor review, not approved.",
+    "allegations_addressed": [
+      "Reached out about a hardship plan after a reduction in work hours and has not received a callback in over a week",
+      "$300 balance continues to accrue interest"
+    ]
+  },
+  "verifier": {
+    "overall_result": "fail",
+    "completeness_check": "fail \u2014 The second allegation, '$300 balance continues to accrue interest,' is only partly addressed. The draft discusses the $300 figure under a heading 'The $300 balance and interest,' but never says anything about interest. It does not say that the records reviewed show no interest-accrual entries, and it does not say that interest accrual could not be confirmed. The customer's actual interest concern gets no answer.",
+    "groundedness_check": "fail \u2014 'Your account is currently in good standing (payment status: current), which means you're eligible for our hardship options.' The verification output supports only payment_status = 'current'. 'Good standing' is a characterization not in the evidence. The eligibility conclusion is also broader than the cited policy supports. Options 3\u20134 are tied to documented significant or severe hardship, and all of options 2\u20134 need supervisor or manager approval. Reduced work hours have not been shown to qualify for those options.",
+    "policy_authorization_check": "pass \u2014 The only remedy actually offered is the one-time, no-fee payment date shift of up to 10 days, which policy 07 lets an analyst offer directly. Options 2\u20134 are described as 'available pending supervisor review, and none has been approved yet,' which matches the policy's permitted phrasing. The draft does not confirm any plan as approved and makes no credit-reporting claims.",
+    "prohibited_language_check": "pass \u2014 The draft contains no fault admission, no guarantee about the future, no legal conclusion, and nothing discouraging other channels. The phrase 'we understand how frustrating that wait has been' is the kind of acknowledgment policy 10 allows. The eligibility phrase is flagged under groundedness rather than here.",
+    "tone_structure_check": "pass \u2014 The draft follows the Policy 11 order: acknowledgment, findings, outcome and options, next steps, then case reference SYN-C003. It uses second person, short paragraphs, and separate paragraphs for each allegation. The length is acceptable for a multi-allegation complaint, and it contains no marketing content.",
+    "specific_issues": [
+      "Completeness: the draft never addresses the 'accrue interest' part of the second allegation, even though its own heading names interest. It should state that no interest-accrual entries appear in the records reviewed, or that this could not be confirmed.",
+      "Groundedness: 'good standing ... which means you're eligible for our hardship options' is not supported by the verification output, which shows only 'current' status. It also overstates eligibility for options requiring supervisor or manager approval. It should be reworded, for example to say the account is current and that the options are subject to review."
+    ]
+  },
+  "summary": "Struggling to pay your loan - unverifiable - Medium risk - draft failed verification twice - needs manual drafting",
+  "run_finished": "2026-10-07T00:25:12+00:00"
+}

@@ -1,0 +1,285 @@
+{
+  "complaint_id": "SYN-B02",
+  "run_started": "2026-10-07T02:26:53+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B02",
+    "date_received": "5/9/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Struggling to pay your loan",
+    "sub_issue": "",
+    "state": "OH",
+    "narrative": "I lost my job two months ago and reached out about a hardship plan. I was told someone would call me back within 48 hours and no one ever did. I have now also filed a complaint with the Attorney General's office in my state because I feel like I am being ignored while my account continues to accrue fees.",
+    "account_id": "ACC-014",
+    "attorney_regulator_flag": "TRUE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1456,
+      "output_tokens": 293
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3735,
+      "output_tokens": 1226
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Reached out about a hardship plan after losing job and was told someone would call back within 48 hours, but no one ever did",
+      "Feels ignored",
+      "Account continues to accrue fees"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "two months ago",
+      "within 48 hours"
+    ],
+    "account_details_mentioned": "Account continues to accrue fees; customer inquired about a hardship plan",
+    "risk_signal_phrases": [
+      "I have now also filed a complaint with the Attorney General's office in my state",
+      "I lost my job two months ago and reached out about a hardship plan"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated, feels ignored, financially distressed"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-014",
+      "loan_balance": 1800.0,
+      "origination_date": "2025-01-17",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-014",
+        "date": "2025-01-17",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-02-16",
+        "type": "payment",
+        "amount": 75.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-03-18",
+        "type": "payment",
+        "amount": 60.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-04-17",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-05-17",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-06-16",
+        "type": "payment",
+        "amount": 60.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-07-16",
+        "type": "payment",
+        "amount": 90.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-08-15",
+        "type": "payment",
+        "amount": 52.94,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-09-14",
+        "type": "payment",
+        "amount": 90.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-10-14",
+        "type": "payment",
+        "amount": 54.55,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The records cannot confirm or rule out the core allegation, which is that a hardship-plan request was made and the promised 48-hour callback never happened. The account record and transaction history contain no contact log, call-back queue, hardship-request record or case notes. The account note is generic and was not written to address this complaint. On the fee allegation, the visible history shows only two fees ($25.00 on 2025-01-17 and $25.00 on 2025-04-17) and none after that, so continued fee accrual is not supported by the data we have. The history ends 2025-10-14 and the complaint's own timeframe ('two months ago') is undated, so we cannot tell whether the data covers the relevant period. The account shows payment_status 'current' with routine payments through 2025-10-14, which is not inconsistent with a job loss but does not corroborate it. Missing: customer-contact and hardship-request logs, any callback records, and transaction history after 2025-10-14.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer states they have filed a complaint with the state Attorney General's office and attorney_regulator_flag is TRUE, which is an automatic High trigger. The customer also reports job loss and financial hardship.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "triggers": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'Attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I lost my job two months ago and reached out about a hardship plan. I was told someone would call me back within 48 hours and no one ever did. I have now also filed a complaint with the Attorney General's office in my state because I feel like I am being ignored while my account continues to accrue fees.",
+    "extraction": {
+      "allegations": [
+        "Reached out about a hardship plan after losing job and was told someone would call back within 48 hours, but no one ever did",
+        "Feels ignored",
+        "Account continues to accrue fees"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "two months ago",
+        "within 48 hours"
+      ],
+      "account_details_mentioned": "Account continues to accrue fees; customer inquired about a hardship plan",
+      "risk_signal_phrases": [
+        "I have now also filed a complaint with the Attorney General's office in my state",
+        "I lost my job two months ago and reached out about a hardship plan"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated, feels ignored, financially distressed"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The records cannot confirm or rule out the core allegation, which is that a hardship-plan request was made and the promised 48-hour callback never happened. The account record and transaction history contain no contact log, call-back queue, hardship-request record or case notes. The account note is generic and was not written to address this complaint. On the fee allegation, the visible history shows only two fees ($25.00 on 2025-01-17 and $25.00 on 2025-04-17) and none after that, so continued fee accrual is not supported by the data we have. The history ends 2025-10-14 and the complaint's own timeframe ('two months ago') is undated, so we cannot tell whether the data covers the relevant period. The account shows payment_status 'current' with routine payments through 2025-10-14, which is not inconsistent with a job loss but does not corroborate it. Missing: customer-contact and hardship-request logs, any callback records, and transaction history after 2025-10-14.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer states they have filed a complaint with the state Attorney General's office and attorney_regulator_flag is TRUE, which is an automatic High trigger. The customer also reports job loss and financial hardship.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-014",
+        "loan_balance": 1800.0,
+        "origination_date": "2025-01-17",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-014",
+          "date": "2025-01-17",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-02-16",
+          "type": "payment",
+          "amount": 75.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-03-18",
+          "type": "payment",
+          "amount": 60.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-04-17",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-05-17",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-06-16",
+          "type": "payment",
+          "amount": 60.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-07-16",
+          "type": "payment",
+          "amount": 90.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-08-15",
+          "type": "payment",
+          "amount": 52.94,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-09-14",
+          "type": "payment",
+          "amount": 90.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-10-14",
+          "type": "payment",
+          "amount": 54.55,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'Attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "unresolved": "The records cannot confirm or rule out the core allegation, which is that a hardship-plan request was made and the promised 48-hour callback never happened. The account record and transaction history contain no contact log, call-back queue, hardship-request record or case notes. The account note is generic and was not written to address this complaint. On the fee allegation, the visible history shows only two fees ($25.00 on 2025-01-17 and $25.00 on 2025-04-17) and none after that, so continued fee accrual is not supported by the data we have. The history ends 2025-10-14 and the complaint's own timeframe ('two months ago') is undated, so we cannot tell whether the data covers the relevant period. The account shows payment_status 'current' with routine payments through 2025-10-14, which is not inconsistent with a job loss but does not corroborate it. Missing: customer-contact and hardship-request logs, any callback records, and transaction history after 2025-10-14.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Struggling to pay your loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T02:27:05+00:00"
+}

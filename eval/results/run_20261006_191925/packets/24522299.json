@@ -1,0 +1,281 @@
+{
+  "complaint_id": "24522299",
+  "run_started": "2026-10-07T00:22:16+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "24522299",
+    "date_received": "2026-07-23",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Getting the loan",
+    "sub_issue": "",
+    "state": "OH",
+    "narrative": "I was approved for this loan and told funding would happen within 24 hours, but it took 6 days to actually receive the money. By the time it arrived, the emergency expense I needed it for had already turned into a bigger problem.",
+    "account_id": "ACC-046",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1432,
+      "output_tokens": 233
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3105,
+      "output_tokens": 1305
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Approved for the loan and told funding would happen within 24 hours",
+      "Funds took 6 days to arrive",
+      "Emergency expense became a bigger problem by the time the money arrived"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "within 24 hours",
+      "6 days"
+    ],
+    "account_details_mentioned": "Loan was approved; funding was promised within 24 hours but received after 6 days",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-046",
+      "loan_balance": 1100.0,
+      "origination_date": "2025-12-03",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-046",
+        "date": "2025-12-03",
+        "type": "payment",
+        "amount": 32.35,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-01-02",
+        "type": "payment",
+        "amount": 42.31,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-02-01",
+        "type": "payment",
+        "amount": 52.38,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-03-03",
+        "type": "payment",
+        "amount": 84.62,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-04-02",
+        "type": "payment",
+        "amount": 84.62,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-05-02",
+        "type": "payment",
+        "amount": 47.83,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-06-01",
+        "type": "payment",
+        "amount": 57.89,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-07-01",
+        "type": "payment",
+        "amount": 36.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-07-31",
+        "type": "payment",
+        "amount": 64.71,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-08-30",
+        "type": "payment",
+        "amount": 78.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-046",
+        "date": "2026-09-29",
+        "type": "payment",
+        "amount": 45.83,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer's claim depends on two facts: when funding was promised and when funds were actually disbursed. Neither is in the evidence. The account record shows only an origination date of 2025-12-03 and no disbursement or funding date. The transaction history contains only routine scheduled payments (2025-12-03 through 2026-09-29), with no disbursement or funding entry. There is no approval timestamp or record of what funding timeline was communicated. The first payment is dated the same day as origination, which does not show when funds were released. The account_note says the record is generic and was not built to verify this complaint. Missing: loan approval date/time, funding or disbursement date, and any record of the promised 24-hour timeline. The complaint also gives no calendar dates to match against the account.",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable and the missing funding and approval timestamps are the entire basis of the complaint, so the gap could change the outcome (automatic High). No attorney or regulator reference is present and the attorney_regulator_flag is False. The possible misrepresentation of the funding timeline was a secondary signal and did not drive the tier.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central issue: no disbursement or funding record and no record of the promised timeline exist, so a response cannot be drafted without guessing. Retrieve loan approval and funding records, and the origination communications, before drafting.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was approved for this loan and told funding would happen within 24 hours, but it took 6 days to actually receive the money. By the time it arrived, the emergency expense I needed it for had already turned into a bigger problem.",
+    "extraction": {
+      "allegations": [
+        "Approved for the loan and told funding would happen within 24 hours",
+        "Funds took 6 days to arrive",
+        "Emergency expense became a bigger problem by the time the money arrived"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "within 24 hours",
+        "6 days"
+      ],
+      "account_details_mentioned": "Loan was approved; funding was promised within 24 hours but received after 6 days",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer's claim depends on two facts: when funding was promised and when funds were actually disbursed. Neither is in the evidence. The account record shows only an origination date of 2025-12-03 and no disbursement or funding date. The transaction history contains only routine scheduled payments (2025-12-03 through 2026-09-29), with no disbursement or funding entry. There is no approval timestamp or record of what funding timeline was communicated. The first payment is dated the same day as origination, which does not show when funds were released. The account_note says the record is generic and was not built to verify this complaint. Missing: loan approval date/time, funding or disbursement date, and any record of the promised 24-hour timeline. The complaint also gives no calendar dates to match against the account.",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable and the missing funding and approval timestamps are the entire basis of the complaint, so the gap could change the outcome (automatic High). No attorney or regulator reference is present and the attorney_regulator_flag is False. The possible misrepresentation of the funding timeline was a secondary signal and did not drive the tier.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-046",
+        "loan_balance": 1100.0,
+        "origination_date": "2025-12-03",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-046",
+          "date": "2025-12-03",
+          "type": "payment",
+          "amount": 32.35,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-01-02",
+          "type": "payment",
+          "amount": 42.31,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-02-01",
+          "type": "payment",
+          "amount": 52.38,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-03-03",
+          "type": "payment",
+          "amount": 84.62,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-04-02",
+          "type": "payment",
+          "amount": 84.62,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-05-02",
+          "type": "payment",
+          "amount": 47.83,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-06-01",
+          "type": "payment",
+          "amount": 57.89,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-07-01",
+          "type": "payment",
+          "amount": 36.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-07-31",
+          "type": "payment",
+          "amount": 64.71,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-08-30",
+          "type": "payment",
+          "amount": 78.57,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-046",
+          "date": "2026-09-29",
+          "type": "payment",
+          "amount": 45.83,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central issue: no disbursement or funding record and no record of the promised timeline exist, so a response cannot be drafted without guessing. Retrieve loan approval and funding records, and the origination communications, before drafting.",
+    "unresolved": "The customer's claim depends on two facts: when funding was promised and when funds were actually disbursed. Neither is in the evidence. The account record shows only an origination date of 2025-12-03 and no disbursement or funding date. The transaction history contains only routine scheduled payments (2025-12-03 through 2026-09-29), with no disbursement or funding entry. There is no approval timestamp or record of what funding timeline was communicated. The first payment is dated the same day as origination, which does not show when funds were released. The account_note says the record is generic and was not built to verify this complaint. Missing: loan approval date/time, funding or disbursement date, and any record of the promised 24-hour timeline. The complaint also gives no calendar dates to match against the account.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Getting the loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:22:29+00:00"
+}

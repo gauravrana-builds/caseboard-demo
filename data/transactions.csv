@@ -1,0 +1,139 @@
+account_id,date,type,amount,note
+ACC-F01,2026-06-08,payment,180.0,Payment received 2 days before due date (due 2026-06-10). No late fee assessed.
+ACC-F02,N/A,none,0.0,No payday loan record exists for this customer.
+ACC-F03,N/A,none,0.0,No account of any kind exists for this customer.
+ACC-F04,2026-06-01,payment,180.0,Single payment processed. No duplicate charge on 2026-06-15 or elsewhere.
+ACC-P01,2026-06-25,fee,15.0,"Processing fee - standard, disclosed in loan agreement section 2.1."
+ACC-P02,2026-06-30,payment,110.0,First of two payments (duplicate charge event).
+ACC-P02,2026-07-01,payment,110.0,"Second payment - duplicate, caused by processor retry issue logged 2026-07-01."
+ACC-P03,2026-03-01,call_log,0.0,6 calls to personal number in 7-day window. No workplace contact on record.
+ACC-P04,2026-07-08,payoff,0.0,Loan paid in full.
+ACC-P04,2026-07-08,fee,60.0,Early payoff processing fee - disclosed in loan agreement section 4.3.
+ACC-B04,2026-02-20,payment,220.0,Within visible 90-day window.
+ACC-B04,2026-05-18,payment,220.0,Most recent payment in visible window. January 2026 activity outside retained history.
+ACC-B06,2026-03-15,call_log,0.0,"Inbound call, agent D. Reyes, fee waiver requested, escalated to supervisor - no outcome logged."
+ACC-B06,2026-03-18,fee,30.0,"Fee charged, remains on account - not waived in system."
+ACC-005,2026-02-20,none,0.0,Scheduled payment not received
+ACC-005,2026-03-01,none,0.0,Account placed with third-party collection agency; past-due total $600.00
+ACC-005,2026-03-02,none,0.0,Collection agency notice mailed to address on file
+ACC-005,2026-03-30,call_log,0.0,"Collection agency outbound call 07:41, no answer"
+ACC-005,2026-03-30,call_log,0.0,"Collection agency outbound call 12:15, no answer"
+ACC-005,2026-03-30,call_log,0.0,"Collection agency outbound call 16:30, no answer"
+ACC-005,2026-03-30,call_log,0.0,"Collection agency outbound call 18:45, no answer"
+ACC-005,2026-03-31,call_log,0.0,"Collection agency outbound call 07:55, no answer"
+ACC-005,2026-03-31,call_log,0.0,"Collection agency outbound call 11:00, no answer"
+ACC-005,2026-03-31,call_log,0.0,"Collection agency outbound call 14:20, no answer"
+ACC-005,2026-03-31,call_log,0.0,"Collection agency outbound call 17:05, no answer"
+ACC-005,2026-03-31,call_log,0.0,"Collection agency outbound call 19:10, no answer"
+ACC-005,2026-04-01,call_log,0.0,"Collection agency outbound call 12:05, answered, 2 min"
+ACC-006,2025-10-15,payment,162.5,Scheduled installment received
+ACC-006,2025-11-14,payment,162.5,Scheduled installment received
+ACC-006,2025-12-15,none,0.0,Scheduled installment $162.50 not received
+ACC-006,2026-01-14,none,0.0,Scheduled installment $162.50 not received
+ACC-006,2026-02-13,none,0.0,Scheduled installment $162.50 not received
+ACC-006,2026-03-15,none,0.0,Scheduled installment $162.50 not received
+ACC-006,2026-03-20,none,0.0,Account moved to in-house collections. Past-due total $650.00
+ACC-006,2026-04-03,call_log,0.0,"Outbound collections call to customer, voicemail left, 1 min"
+ACC-006,2026-04-06,call_log,0.0,"Outbound collections call to customer, 7 min, recorded. QA review tag: statement about credit impact outside approved script"
+ACC-007,2026-03-02,none,0.0,Loan funded: principal $300.00; finance charge $87.00 per e-signed loan agreement; total repayable $387.00 due 2026-03-30
+ACC-007,2026-03-30,payment,387.0,ACH withdrawal: $300.00 principal + $87.00 finance charge
+ACC-009,2026-02-12,payment,118.75,Payment received via mobile app; ledger posting date 2026-02-12
+ACC-009,2026-03-12,payment,118.75,Payment received via mobile app; ledger posting date 2026-03-12
+ACC-009,2026-04-13,payment,118.75,Payment received via mobile app; due date 2026-04-14; ledger posting date 2026-04-15
+ACC-009,2026-04-15,fee,35.0,Late fee assessed
+ACC-013,2026-05-14,payment,155.56,Routine scheduled payment.
+ACC-013,2026-06-13,payment,215.38,Routine scheduled payment.
+ACC-013,2026-07-13,fee,30.0,Routine fee assessment.
+ACC-013,2026-08-12,fee,30.0,Routine fee assessment.
+ACC-013,2026-09-11,payment,100.0,Routine scheduled payment.
+ACC-014,2025-01-17,fee,25.0,Routine fee assessment.
+ACC-014,2025-02-16,payment,75.0,Routine scheduled payment.
+ACC-014,2025-03-18,payment,60.0,Routine scheduled payment.
+ACC-014,2025-04-17,fee,25.0,Routine fee assessment.
+ACC-014,2025-05-17,payment,72.0,Routine scheduled payment.
+ACC-014,2025-06-16,payment,60.0,Routine scheduled payment.
+ACC-014,2025-07-16,payment,90.0,Routine scheduled payment.
+ACC-014,2025-08-15,payment,52.94,Routine scheduled payment.
+ACC-014,2025-09-14,payment,90.0,Routine scheduled payment.
+ACC-014,2025-10-14,payment,54.55,Routine scheduled payment.
+ACC-015,2026-02-01,payment,55.17,Routine scheduled payment.
+ACC-015,2026-03-03,payment,80.0,Routine scheduled payment.
+ACC-015,2026-04-02,payment,69.57,Routine scheduled payment.
+ACC-015,2026-05-02,payment,84.21,Routine scheduled payment.
+ACC-015,2026-06-01,payment,94.12,Routine scheduled payment.
+ACC-015,2026-07-01,payment,55.17,Routine scheduled payment.
+ACC-015,2026-07-31,payment,51.61,Routine scheduled payment.
+ACC-015,2026-08-30,payment,50.0,Routine scheduled payment.
+ACC-015,2026-09-29,payment,48.48,Routine scheduled payment.
+ACC-016,2025-03-09,payment,37.93,Routine scheduled payment.
+ACC-016,2025-04-08,payment,52.38,Routine scheduled payment.
+ACC-016,2025-05-08,payment,32.35,Routine scheduled payment.
+ACC-016,2025-06-07,payment,33.33,Routine scheduled payment.
+ACC-016,2025-07-07,payment,55.0,Routine scheduled payment.
+ACC-016,2025-08-06,payment,55.0,Routine scheduled payment.
+ACC-016,2025-09-05,payment,84.62,Routine scheduled payment.
+ACC-016,2025-10-05,payment,44.0,Routine scheduled payment.
+ACC-016,2025-11-04,fee,25.0,Routine fee assessment.
+ACC-016,2025-12-04,payment,34.38,Routine scheduled payment.
+ACC-016,2026-01-03,payment,64.71,Routine scheduled payment.
+ACC-016,2026-02-02,payment,37.93,Routine scheduled payment.
+ACC-017,2025-02-03,payment,138.46,Routine scheduled payment.
+ACC-017,2025-03-05,payment,60.0,Routine scheduled payment.
+ACC-017,2025-04-04,payment,72.0,Routine scheduled payment.
+ACC-017,2025-05-04,payment,85.71,Routine scheduled payment.
+ACC-017,2025-06-03,payment,138.46,Routine scheduled payment.
+ACC-017,2025-07-03,payment,100.0,Routine scheduled payment.
+ACC-017,2025-08-02,payment,54.55,Routine scheduled payment.
+ACC-017,2025-09-01,payment,50.0,Routine scheduled payment.
+ACC-017,2025-10-01,payment,72.0,Routine scheduled payment.
+ACC-017,2025-10-31,payment,51.43,Routine scheduled payment.
+ACC-017,2025-11-30,payment,94.74,Routine scheduled payment.
+ACC-017,2025-12-30,payment,105.88,Routine scheduled payment.
+ACC-018,2025-12-11,payment,12.86,Routine scheduled payment.
+ACC-018,2026-01-10,payment,22.5,Routine scheduled payment.
+ACC-018,2026-02-09,payment,13.24,Routine scheduled payment.
+ACC-018,2026-03-11,payment,34.62,Routine scheduled payment.
+ACC-018,2026-04-10,payment,23.68,Routine scheduled payment.
+ACC-018,2026-05-10,payment,17.31,Routine scheduled payment.
+ACC-018,2026-06-09,payment,23.68,Routine scheduled payment.
+ACC-018,2026-07-09,payment,13.64,Routine scheduled payment.
+ACC-018,2026-08-08,payment,20.45,Routine scheduled payment.
+ACC-018,2026-09-07,payment,32.14,Routine scheduled payment.
+ACC-022,2026-01-18,payment,140.0,Scheduled installment received
+ACC-022,2026-02-18,payment,140.0,Scheduled installment received
+ACC-022,2026-03-18,none,0.0,Scheduled installment $140.00 not received
+ACC-022,2026-04-18,none,0.0,Scheduled installment $140.00 not received
+ACC-022,2026-04-20,none,0.0,Account reported to credit bureaus: 60 days past due
+ACC-022,2026-05-18,payment,280.0,Payment received covering 2 installments
+ACC-022,2026-06-18,payment,140.0,Scheduled installment received
+ACC-027,2026-03-19,payment,185.0,Scheduled installment received
+ACC-027,2026-04-19,payment,185.0,Scheduled installment received
+ACC-027,2026-05-12,payment,185.0,Scheduled installment received
+ACC-029,2026-02-19,payment,210.0,Scheduled installment received
+ACC-029,2026-03-19,payment,210.0,Scheduled installment received
+ACC-029,2026-04-19,none,0.0,Scheduled installment $210.00 not received
+ACC-029,2026-05-19,none,0.0,Scheduled installment $210.00 not received
+ACC-029,2026-05-25,none,0.0,Account moved to in-house collections. Past-due total $420.00
+ACC-029,2026-06-26,call_log,0.0,"Outbound collections call to customer, 11 min, recorded"
+ACC-029,2026-06-26,none,0.0,Customer requested supervisor review of call. QA review opened (tone and statements); result pending
+ACC-037,2026-07-02,none,0.0,"Online application received; loan funded $1,100.00 to bank account ending 6620"
+ACC-037,2026-07-02,none,0.0,Identity verification: address and phone on application differ from customer master record
+ACC-037,2026-08-01,none,0.0,Scheduled payment not received
+ACC-037,2026-08-03,none,0.0,Delinquency notice mailed to address on customer master record
+ACC-037,2026-08-06,call_log,0.0,"Inbound call from customer disputing the loan, 9 min"
+ACC-037,2026-08-07,none,0.0,Fraud review opened; collections activity paused
+ACC-039,2026-03-27,payment,100.0,Autopay withdrawal
+ACC-039,2026-04-27,payment,100.0,Autopay withdrawal
+ACC-039,2026-05-09,none,0.0,Autopay disabled by customer via mobile app
+ACC-039,2026-05-27,none,0.0,Scheduled installment $100.00 not received; no autopay instruction active
+ACC-039,2026-06-01,fee,25.0,Late fee assessed
+ACC-041,2026-04-02,payment,150.0,Scheduled payment received
+ACC-041,2026-06-05,fee,15.0,Weekly extension fee assessed
+ACC-041,2026-06-12,fee,15.0,Weekly extension fee assessed
+ACC-041,2026-06-18,call_log,0.0,"Inbound call from customer, 6 min; hardship options requested; callback requested"
+ACC-041,2026-06-18,none,0.0,Hardship request logged; status pending review
+ACC-041,2026-06-19,fee,15.0,Weekly extension fee assessed
+ACC-041,2026-06-26,fee,15.0,Weekly extension fee assessed
+ACC-041,2026-06-30,call_log,0.0,"Inbound call from customer, 4 min; follow-up on hardship request"
+ACC-041,2026-07-03,fee,15.0,Weekly extension fee assessed
+ACC-041,2026-07-10,fee,15.0,Weekly extension fee assessed

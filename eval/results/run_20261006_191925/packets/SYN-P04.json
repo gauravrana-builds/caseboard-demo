@@ -1,0 +1,209 @@
+{
+  "complaint_id": "SYN-P04",
+  "run_started": "2026-10-07T00:23:19+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-P04",
+    "date_received": "2026-07-10",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "TN",
+    "narrative": "I was told my loan had no prepayment penalty, but when I paid it off early I was charged an extra $60 fee that wasn't in my original disclosures.",
+    "account_id": "ACC-P04",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1421,
+      "output_tokens": 214
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2589,
+      "output_tokens": 1407
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3728,
+      "output_tokens": 1246
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4146,
+      "output_tokens": 1787
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4047,
+      "output_tokens": 1178
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4112,
+      "output_tokens": 1153
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Told the loan had no prepayment penalty",
+      "Charged an extra $60 fee after paying off the loan early",
+      "The $60 fee was not in the original disclosures"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      60.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Loan was paid off early; original disclosures did not include the $60 fee",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-P04",
+      "loan_balance": 0.0,
+      "origination_date": "2025-08-15",
+      "payment_status": "paid_off",
+      "product_type": "installment_loan",
+      "account_note": "Loan was paid in full on 2026-07-08 (CONFIRMED \u2014 early payoff occurred as described). Transaction log shows a $60 'early payoff processing fee' was charged (CONFIRMED \u2014 fee was charged). However, loan agreement on file, section 4.3, does list this fee under 'Payoff Terms' \u2014 it was disclosed, just easy to miss (customer's claim of non-disclosure is NOT CONFIRMED, though the fee itself is real)."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-P04",
+        "date": "2026-07-08",
+        "type": "payoff",
+        "amount": 0.0,
+        "note": "Loan paid in full."
+      },
+      {
+        "account_id": "ACC-P04",
+        "date": "2026-07-08",
+        "type": "fee",
+        "amount": 60.0,
+        "note": "Early payoff processing fee - disclosed in loan agreement section 4.3."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "SUPPORTED: The loan was paid off early on 2026-07-08 (balance $0.00, status paid_off), and a $60.00 'early payoff processing fee' was charged the same day, so the customer's claim that the fee was charged is confirmed. CONTRADICTED: The customer says the fee was not in the original disclosures, but the loan agreement on file (section 4.3, 'Payoff Terms') lists it. The account note says it was 'easy to miss', but it was disclosed. NOT VERIFIABLE FROM RECORDS: The customer says they were told the loan had no prepayment penalty. The data has no call recordings, chat logs, or sales notes, so this verbal representation can be neither confirmed nor refuted. Note that the written disclosure does not rule out a contradictory verbal statement.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true (fee confirmed, non-disclosure contradicted, verbal assurance unverified), which elevates it to Medium; the amount is only $60, and there is no attorney/regulator mention, hardship, or vulnerability indicator, so it does not reach High.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_failed_verification",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a $60 fee charged when you paid off your loan early, and about what you were told regarding prepayment penalties. We reviewed your account and loan agreement, and here is what we found on each point.\n\nThe $60 fee: Our records confirm that your loan was paid off early on July 8, 2026, and that a $60.00 early payoff processing fee was charged on the same day.\n\nWhether the fee was in your original disclosures: Section 4.3 (\"Payoff Terms\") of your loan agreement on file lists this fee, so our records show it was included in the loan documents.\n\nWhat you were told about a prepayment penalty: We do not keep call recordings, chat logs, or sales notes in the records available to us, so we cannot confirm or rule out what was said to you in conversation. We understand this may be frustrating, and we want to be clear that this is a limit of our records, not a conclusion about your account of events.\n\nOutcome: Based on the records we reviewed, the $60.00 fee was applied as described in your loan agreement, and we are not able to reverse it at this time.\n\nNext steps: If you have more information about the conversation, such as the approximate date, how you were contacted, the name of the representative, or any written materials you received, please reply to this message and we will add it to your case file. You are also free to raise this concern through any other channel you choose.\n\nCase reference: SYN-P04",
+        "policy_cited": "08 General Dispute Handling Process (standard process: respond to every allegation individually; classify as partially confirmed). Policies 10 and 11 applied for language and format.",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Told the loan had no prepayment penalty",
+          "Charged an extra $60 fee after paying off the loan early",
+          "The $60 fee was not in the original disclosures"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 'we are not able to reverse it at this time' is unsupported. Neither the verification output nor the cited policy (08) says the fee cannot be reversed or sets any fee-reversal authority, so the inability is invented. Also, 'We do not keep call recordings, chat logs, or sales notes' overstates the verification finding, which says only that the data reviewed contained no such records, not that the company does not retain them.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: 'we are not able to reverse it at this time' states an inability that no verification finding or cited policy supports. The outcome should be reframed, for example as 'based on the records reviewed, the fee was applied as described in your loan agreement', without asserting that reversal is impossible. Alternatively, cite the policy that governs fee waivers.",
+          "Groundedness: 'We do not keep call recordings, chat logs, or sales notes' goes beyond the verification output, which says only that the data reviewed had none. Rephrase to 'the records we reviewed did not include call recordings, chat logs, or sales notes'.",
+          "Not a failure, but worth reviewing: the outcome reads as a final denial while the verbal-assurance allegation remains unverified and the draft invites more information. The reviewer should confirm the outcome matches the 'partially confirmed' classification under Policy 08."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us about a $60 fee charged when you paid off your loan early, and about being told the loan had no prepayment penalty. We reviewed your account and the loan agreement on file. Here is what we found on each point.\n\nThe $60 fee: Your loan was paid off early on July 8, 2026, and a $60.00 early payoff processing fee was charged to your account the same day. Our records confirm this charge.\n\nWhether the fee was in your original disclosures: The loan agreement on file lists this fee in section 4.3, \"Payoff Terms.\" Based on the records we reviewed, the fee was included in the written loan documents.\n\nWhat you were told about prepayment penalties: The records we reviewed did not include call recordings, chat logs, or sales notes, so we could not confirm or rule out what was said to you. The written agreement does not settle this question, and we have not reached a conclusion on it.\n\nNext steps: If you can, please reply with when and how you were told there was no prepayment penalty (for example, by phone, chat, or in person), and the name of the person if you know it. We will review anything you send and write back to you. You are also free to pursue this through any other channel you choose.\n\nCase reference: SYN-P04",
+        "policy_cited": "08 General Dispute Handling Process, standard process (outcome classified as partially confirmed; every allegation addressed individually), with Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format) applied",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Told the loan had no prepayment penalty",
+          "Charged an extra $60 fee after paying off the loan early",
+          "The $60 fee was not in the original disclosures"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "fail \u2014 the draft has no distinct outcome/resolution step. Policy 11 requires the specific remedy, or a clear explanation of why no remedy applies, between 'what we found' and 'next steps'. The draft never says whether the $60 fee stands, whether any refund or waiver is being offered, or that no adjustment is being made at this time while the verbal-representation question stays open. Policy 08 also requires a clear outcome or next step, and the draft gives only a next step.",
+        "specific_issues": [
+          "Tone/structure: the outcome/resolution element is missing. The customer is not told what happens to the $60 fee (for example, 'no adjustment has been made at this time; the case remains open pending the information requested'). The draft moves directly from findings to next steps.",
+          "Minor, non-failing observation: 'We will review anything you send and write back to you' gives no timeframe. This does not violate a cited policy, but the redraft could add one if a documented timeline exists."
+        ]
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about a $60 fee charged when you paid off your loan early, and about being told the loan had no prepayment penalty. We reviewed your account and the loan agreement on file. Here is what we found on each point.\n\nThe $60 fee: Your loan was paid off early on July 8, 2026, and a $60.00 early payoff processing fee was charged to your account the same day. Our records confirm this charge.\n\nWhether the fee was in your original disclosures: The loan agreement on file lists this fee in section 4.3, \"Payoff Terms.\" Based on the records we reviewed, the fee was included in the written loan documents.\n\nWhat you were told about prepayment penalties: The records we reviewed did not include call recordings, chat logs, or sales notes, so we could not confirm or rule out what was said to you. The written agreement does not settle this question, and we have not reached a conclusion on it.\n\nNext steps: If you can, please reply with when and how you were told there was no prepayment penalty (for example, by phone, chat, or in person), and the name of the person if you know it. We will review anything you send and write back to you. You are also free to pursue this through any other channel you choose.\n\nCase reference: SYN-P04",
+    "policy_cited": "08 General Dispute Handling Process, standard process (outcome classified as partially confirmed; every allegation addressed individually), with Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format) applied",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Told the loan had no prepayment penalty",
+      "Charged an extra $60 fee after paying off the loan early",
+      "The $60 fee was not in the original disclosures"
+    ]
+  },
+  "verifier": {
+    "overall_result": "fail",
+    "completeness_check": "pass",
+    "groundedness_check": "pass",
+    "policy_authorization_check": "pass",
+    "prohibited_language_check": "pass",
+    "tone_structure_check": "fail \u2014 the draft has no distinct outcome/resolution step. Policy 11 requires the specific remedy, or a clear explanation of why no remedy applies, between 'what we found' and 'next steps'. The draft never says whether the $60 fee stands, whether any refund or waiver is being offered, or that no adjustment is being made at this time while the verbal-representation question stays open. Policy 08 also requires a clear outcome or next step, and the draft gives only a next step.",
+    "specific_issues": [
+      "Tone/structure: the outcome/resolution element is missing. The customer is not told what happens to the $60 fee (for example, 'no adjustment has been made at this time; the case remains open pending the information requested'). The draft moves directly from findings to next steps.",
+      "Minor, non-failing observation: 'We will review anything you send and write back to you' gives no timeframe. This does not violate a cited policy, but the redraft could add one if a documented timeline exists."
+    ]
+  },
+  "summary": "Charged fees or interest you didn't expect - partially_true - Medium risk - draft failed verification twice - needs manual drafting",
+  "run_finished": "2026-10-07T00:24:17+00:00"
+}

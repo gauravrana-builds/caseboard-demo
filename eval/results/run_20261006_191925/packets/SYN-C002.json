@@ -1,0 +1,193 @@
+{
+  "complaint_id": "SYN-C002",
+  "run_started": "2026-10-07T00:23:33+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C002",
+    "date_received": "2026-06-06",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "MO",
+    "narrative": "I tried to make my $90 monthly payment through the mobile app and it failed twice with no error explanation. I'm concerned I'll be reported late through no fault of my own.",
+    "account_id": "ACC-052",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1419,
+      "output_tokens": 203
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2666,
+      "output_tokens": 1310
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Attempted to make a $90 monthly payment through the mobile app and it failed twice",
+      "No error explanation was given for the failed payments"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      90.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Monthly payment of $90 attempted through the mobile app; failed twice with no error explanation",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-052",
+      "loan_balance": 1600.0,
+      "origination_date": "2026-05-19",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-052",
+        "date": "2026-05-19",
+        "type": "payment",
+        "amount": 48.48,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-052",
+        "date": "2026-06-18",
+        "type": "payment",
+        "amount": 133.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-052",
+        "date": "2026-07-18",
+        "type": "payment",
+        "amount": 55.17,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-052",
+        "date": "2026-08-17",
+        "type": "payment",
+        "amount": 51.61,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-052",
+        "date": "2026-09-16",
+        "type": "payment",
+        "amount": 114.29,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges two failed $90 mobile-app payment attempts with no error explanation. The transaction history lists only five posted payments (2026-05-19 $48.48, 2026-06-18 $133.33, 2026-07-18 $55.17, 2026-08-17 $51.61, 2026-09-16 $114.29) and has no record of failed, declined, or attempted payments. Missing: (1) mobile app or payment-processing logs showing attempts and error codes, (2) the date of the attempts, since the complaint gives none, and (3) the customer's expected payment schedule. None of the posted payments is $90, and the amounts vary widely, so the customer's described $90 monthly payment does not match the payment history. The account is 'current', which neither supports nor contradicts a failed-payment claim. The account_note is a generic placeholder and adds no verification value.",
+    "risk_tier": "High",
+    "risk_rationale": "The core allegation (failed payments and no error message) cannot be verified because no payment-attempt or app log was retrieved, and that gap decides the outcome: any draft would have to either acknowledge or deny a technical failure, and could miss related harm such as late fees or credit reporting. This triggers the automatic High rule for unverifiable claims with an outcome-changing gap.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: no payment-attempt or app error logs are available to confirm or refute the failed $90 payments. Retrieve those logs and the attempt dates, or have a human reviewer follow up with the customer, before drafting.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I tried to make my $90 monthly payment through the mobile app and it failed twice with no error explanation. I'm concerned I'll be reported late through no fault of my own.",
+    "extraction": {
+      "allegations": [
+        "Attempted to make a $90 monthly payment through the mobile app and it failed twice",
+        "No error explanation was given for the failed payments"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        90.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Monthly payment of $90 attempted through the mobile app; failed twice with no error explanation",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concerned but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges two failed $90 mobile-app payment attempts with no error explanation. The transaction history lists only five posted payments (2026-05-19 $48.48, 2026-06-18 $133.33, 2026-07-18 $55.17, 2026-08-17 $51.61, 2026-09-16 $114.29) and has no record of failed, declined, or attempted payments. Missing: (1) mobile app or payment-processing logs showing attempts and error codes, (2) the date of the attempts, since the complaint gives none, and (3) the customer's expected payment schedule. None of the posted payments is $90, and the amounts vary widely, so the customer's described $90 monthly payment does not match the payment history. The account is 'current', which neither supports nor contradicts a failed-payment claim. The account_note is a generic placeholder and adds no verification value.",
+      "risk_tier": "High",
+      "risk_rationale": "The core allegation (failed payments and no error message) cannot be verified because no payment-attempt or app log was retrieved, and that gap decides the outcome: any draft would have to either acknowledge or deny a technical failure, and could miss related harm such as late fees or credit reporting. This triggers the automatic High rule for unverifiable claims with an outcome-changing gap.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-052",
+        "loan_balance": 1600.0,
+        "origination_date": "2026-05-19",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-052",
+          "date": "2026-05-19",
+          "type": "payment",
+          "amount": 48.48,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-052",
+          "date": "2026-06-18",
+          "type": "payment",
+          "amount": 133.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-052",
+          "date": "2026-07-18",
+          "type": "payment",
+          "amount": 55.17,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-052",
+          "date": "2026-08-17",
+          "type": "payment",
+          "amount": 51.61,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-052",
+          "date": "2026-09-16",
+          "type": "payment",
+          "amount": 114.29,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: no payment-attempt or app error logs are available to confirm or refute the failed $90 payments. Retrieve those logs and the attempt dates, or have a human reviewer follow up with the customer, before drafting.",
+    "unresolved": "The customer alleges two failed $90 mobile-app payment attempts with no error explanation. The transaction history lists only five posted payments (2026-05-19 $48.48, 2026-06-18 $133.33, 2026-07-18 $55.17, 2026-08-17 $51.61, 2026-09-16 $114.29) and has no record of failed, declined, or attempted payments. Missing: (1) mobile app or payment-processing logs showing attempts and error codes, (2) the date of the attempts, since the complaint gives none, and (3) the customer's expected payment schedule. None of the posted payments is $90, and the amounts vary widely, so the customer's described $90 monthly payment does not match the payment history. The account is 'current', which neither supports nor contradicts a failed-payment claim. The account_note is a generic placeholder and adds no verification value.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem when making payments - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:23:46+00:00"
+}

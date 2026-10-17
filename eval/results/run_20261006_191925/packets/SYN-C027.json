@@ -1,0 +1,271 @@
+{
+  "complaint_id": "SYN-C027",
+  "run_started": "2026-10-07T00:25:34+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C027",
+    "date_received": "2026-08-17",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Struggling to pay your loan",
+    "sub_issue": "",
+    "state": "NC",
+    "narrative": "I reached out about a hardship plan after a reduction in my work hours and have not received a callback in over a week, while my $100 balance continues to accrue interest.",
+    "account_id": "ACC-077",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1417,
+      "output_tokens": 210
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3026,
+      "output_tokens": 1339
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Requested a hardship plan after a reduction in work hours and has not received a callback in over a week",
+      "$100 balance continues to accrue interest"
+    ],
+    "requested_outcome": "Hardship plan",
+    "dollar_amounts_mentioned": [
+      100.0
+    ],
+    "dates_mentioned": [
+      "over a week"
+    ],
+    "account_details_mentioned": "$100 balance continuing to accrue interest",
+    "risk_signal_phrases": [
+      "reduction in my work hours"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-077",
+      "loan_balance": 800.0,
+      "origination_date": "2025-02-23",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-077",
+        "date": "2025-02-23",
+        "type": "payment",
+        "amount": 38.1,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-03-25",
+        "type": "payment",
+        "amount": 44.44,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-04-24",
+        "type": "payment",
+        "amount": 36.36,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-05-24",
+        "type": "payment",
+        "amount": 28.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-06-23",
+        "type": "payment",
+        "amount": 27.59,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-07-23",
+        "type": "payment",
+        "amount": 61.54,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-08-22",
+        "type": "payment",
+        "amount": 44.44,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-09-21",
+        "type": "fee",
+        "amount": 35.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-10-21",
+        "type": "payment",
+        "amount": 36.36,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-077",
+        "date": "2025-11-20",
+        "type": "payment",
+        "amount": 34.78,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The account and transaction data cannot confirm or contradict either allegation. (1) Hardship request / no callback: no contact log, call record, or hardship-request entry was provided, so there is no evidence of when or whether the request was received or a callback was attempted. The complaint date is also not given, so 'over a week' cannot be anchored. (2) '$100 balance continues to accrue interest': the account record shows a loan balance of $800.00 (payday_loan, status 'current'), not $100, and the customer does not explain the difference. The 10 transactions (2025-02-23 to 2025-11-20) are 9 scheduled payments ($27.59-$61.54) and one $35.00 fee on 2025-09-21. None is an interest accrual, so the data neither shows nor refutes interest accruing. The history ends 2025-11-20, and it is unknown whether it covers the complaint period. The account_note says the record is generic and was not built to verify this complaint.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gaps could change the outcome: the $100 vs. $800 balance discrepancy, no record of the hardship request or callback, and no interest-accrual data. The customer also reports financial hardship (reduced work hours) on a payday loan, which would otherwise raise the tier toward Medium.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the missing information (hardship request/contact log, which balance is disputed, interest accrual history) affects the outcome, so a draft would risk misstating facts to a customer reporting hardship. Route to a human reviewer to pull the contact log and full account/interest history.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I reached out about a hardship plan after a reduction in my work hours and have not received a callback in over a week, while my $100 balance continues to accrue interest.",
+    "extraction": {
+      "allegations": [
+        "Requested a hardship plan after a reduction in work hours and has not received a callback in over a week",
+        "$100 balance continues to accrue interest"
+      ],
+      "requested_outcome": "Hardship plan",
+      "dollar_amounts_mentioned": [
+        100.0
+      ],
+      "dates_mentioned": [
+        "over a week"
+      ],
+      "account_details_mentioned": "$100 balance continuing to accrue interest",
+      "risk_signal_phrases": [
+        "reduction in my work hours"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concerned but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The account and transaction data cannot confirm or contradict either allegation. (1) Hardship request / no callback: no contact log, call record, or hardship-request entry was provided, so there is no evidence of when or whether the request was received or a callback was attempted. The complaint date is also not given, so 'over a week' cannot be anchored. (2) '$100 balance continues to accrue interest': the account record shows a loan balance of $800.00 (payday_loan, status 'current'), not $100, and the customer does not explain the difference. The 10 transactions (2025-02-23 to 2025-11-20) are 9 scheduled payments ($27.59-$61.54) and one $35.00 fee on 2025-09-21. None is an interest accrual, so the data neither shows nor refutes interest accruing. The history ends 2025-11-20, and it is unknown whether it covers the complaint period. The account_note says the record is generic and was not built to verify this complaint.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gaps could change the outcome: the $100 vs. $800 balance discrepancy, no record of the hardship request or callback, and no interest-accrual data. The customer also reports financial hardship (reduced work hours) on a payday loan, which would otherwise raise the tier toward Medium.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-077",
+        "loan_balance": 800.0,
+        "origination_date": "2025-02-23",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-077",
+          "date": "2025-02-23",
+          "type": "payment",
+          "amount": 38.1,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-03-25",
+          "type": "payment",
+          "amount": 44.44,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-04-24",
+          "type": "payment",
+          "amount": 36.36,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-05-24",
+          "type": "payment",
+          "amount": 28.57,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-06-23",
+          "type": "payment",
+          "amount": 27.59,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-07-23",
+          "type": "payment",
+          "amount": 61.54,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-08-22",
+          "type": "payment",
+          "amount": 44.44,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-09-21",
+          "type": "fee",
+          "amount": 35.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-10-21",
+          "type": "payment",
+          "amount": 36.36,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-077",
+          "date": "2025-11-20",
+          "type": "payment",
+          "amount": 34.78,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the missing information (hardship request/contact log, which balance is disputed, interest accrual history) affects the outcome, so a draft would risk misstating facts to a customer reporting hardship. Route to a human reviewer to pull the contact log and full account/interest history.",
+    "unresolved": "The account and transaction data cannot confirm or contradict either allegation. (1) Hardship request / no callback: no contact log, call record, or hardship-request entry was provided, so there is no evidence of when or whether the request was received or a callback was attempted. The complaint date is also not given, so 'over a week' cannot be anchored. (2) '$100 balance continues to accrue interest': the account record shows a loan balance of $800.00 (payday_loan, status 'current'), not $100, and the customer does not explain the difference. The 10 transactions (2025-02-23 to 2025-11-20) are 9 scheduled payments ($27.59-$61.54) and one $35.00 fee on 2025-09-21. None is an interest accrual, so the data neither shows nor refutes interest accruing. The history ends 2025-11-20, and it is unknown whether it covers the complaint period. The account_note says the record is generic and was not built to verify this complaint.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Struggling to pay your loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:25:47+00:00"
+}

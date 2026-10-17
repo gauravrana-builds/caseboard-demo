@@ -1,0 +1,265 @@
+{
+  "complaint_id": "22672068",
+  "run_started": "2026-10-07T00:21:17+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "22672068",
+    "date_received": "2026-05-28",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Written notification about debt",
+    "sub_issue": "Didn't receive enough information to verify debt",
+    "state": "AZ",
+    "narrative": "I received a collection notice with no original creditor listed and no breakdown of how the amount owed was calculated. I requested this information in writing and it has been over 30 days with no response.",
+    "account_id": "ACC-032",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1417,
+      "output_tokens": 263
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3063,
+      "output_tokens": 1227
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Received a collection notice with no original creditor listed",
+      "Collection notice did not include a breakdown of how the amount owed was calculated",
+      "Requested this information in writing and received no response in over 30 days"
+    ],
+    "requested_outcome": "Information identifying the original creditor and a breakdown of how the amount owed was calculated",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "over 30 days"
+    ],
+    "account_details_mentioned": "Collection notice received without original creditor or calculation of amount owed; written request for this information made and unanswered",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-032",
+      "loan_balance": 600.0,
+      "origination_date": "2025-12-14",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-032",
+        "date": "2025-12-14",
+        "type": "payment",
+        "amount": 22.22,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-01-13",
+        "type": "payment",
+        "amount": 22.22,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-02-12",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-03-14",
+        "type": "payment",
+        "amount": 31.58,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-04-13",
+        "type": "payment",
+        "amount": 31.58,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-05-13",
+        "type": "payment",
+        "amount": 20.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-06-12",
+        "type": "payment",
+        "amount": 20.69,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-07-12",
+        "type": "payment",
+        "amount": 24.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-08-11",
+        "type": "payment",
+        "amount": 20.69,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-032",
+        "date": "2026-09-10",
+        "type": "payment",
+        "amount": 17.65,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved data covers only account ACC-032, a $600.00 installment loan originated 2025-12-14 with status 'current'. The transaction log shows 10 routine payments from 2025-12-14 to 2026-09-10 and no collection, delinquency, charge-off, or third-party transfer activity. The data contains no collection notice records, no correspondence or written-request logs, and no complaint-response tracking. Missing: (1) any record that a collection notice was issued and its contents (original creditor, calculation breakdown); (2) any record of the customer's written request and its date of receipt; (3) any record of a response or the response timeline. It is also unclear how a collection notice relates to a loan that is current and has been paid on schedule. The notice may concern a different account or a third-party debt, or there may be a data mismatch. The account note says the record is generic and not built for this complaint, so it cannot confirm or refute the claim.",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable and the gap is central to the outcome: whether the notice omitted required creditor and calculation information, and whether a written request went unanswered for over 30 days, cannot be determined from the data. This triggers the automatic High rule.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the core allegations (collection notice contents and the unanswered written request), so no accurate response can be drafted. Escalate to a human reviewer to retrieve collections and correspondence records and to reconcile the current installment loan with the collection notice.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I received a collection notice with no original creditor listed and no breakdown of how the amount owed was calculated. I requested this information in writing and it has been over 30 days with no response.",
+    "extraction": {
+      "allegations": [
+        "Received a collection notice with no original creditor listed",
+        "Collection notice did not include a breakdown of how the amount owed was calculated",
+        "Requested this information in writing and received no response in over 30 days"
+      ],
+      "requested_outcome": "Information identifying the original creditor and a breakdown of how the amount owed was calculated",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "over 30 days"
+      ],
+      "account_details_mentioned": "Collection notice received without original creditor or calculation of amount owed; written request for this information made and unanswered",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved data covers only account ACC-032, a $600.00 installment loan originated 2025-12-14 with status 'current'. The transaction log shows 10 routine payments from 2025-12-14 to 2026-09-10 and no collection, delinquency, charge-off, or third-party transfer activity. The data contains no collection notice records, no correspondence or written-request logs, and no complaint-response tracking. Missing: (1) any record that a collection notice was issued and its contents (original creditor, calculation breakdown); (2) any record of the customer's written request and its date of receipt; (3) any record of a response or the response timeline. It is also unclear how a collection notice relates to a loan that is current and has been paid on schedule. The notice may concern a different account or a third-party debt, or there may be a data mismatch. The account note says the record is generic and not built for this complaint, so it cannot confirm or refute the claim.",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable and the gap is central to the outcome: whether the notice omitted required creditor and calculation information, and whether a written request went unanswered for over 30 days, cannot be determined from the data. This triggers the automatic High rule.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-032",
+        "loan_balance": 600.0,
+        "origination_date": "2025-12-14",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-032",
+          "date": "2025-12-14",
+          "type": "payment",
+          "amount": 22.22,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-01-13",
+          "type": "payment",
+          "amount": 22.22,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-02-12",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-03-14",
+          "type": "payment",
+          "amount": 31.58,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-04-13",
+          "type": "payment",
+          "amount": 31.58,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-05-13",
+          "type": "payment",
+          "amount": 20.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-06-12",
+          "type": "payment",
+          "amount": 20.69,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-07-12",
+          "type": "payment",
+          "amount": 24.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-08-11",
+          "type": "payment",
+          "amount": 20.69,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-032",
+          "date": "2026-09-10",
+          "type": "payment",
+          "amount": 17.65,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the core allegations (collection notice contents and the unanswered written request), so no accurate response can be drafted. Escalate to a human reviewer to retrieve collections and correspondence records and to reconcile the current installment loan with the collection notice.",
+    "unresolved": "The retrieved data covers only account ACC-032, a $600.00 installment loan originated 2025-12-14 with status 'current'. The transaction log shows 10 routine payments from 2025-12-14 to 2026-09-10 and no collection, delinquency, charge-off, or third-party transfer activity. The data contains no collection notice records, no correspondence or written-request logs, and no complaint-response tracking. Missing: (1) any record that a collection notice was issued and its contents (original creditor, calculation breakdown); (2) any record of the customer's written request and its date of receipt; (3) any record of a response or the response timeline. It is also unclear how a collection notice relates to a loan that is current and has been paid on schedule. The notice may concern a different account or a third-party debt, or there may be a data mismatch. The account note says the record is generic and not built for this complaint, so it cannot confirm or refute the claim.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Written notification about debt - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:29+00:00"
+}

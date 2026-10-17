@@ -1,0 +1,381 @@
+{
+  "complaint_id": "SYN-B07",
+  "run_started": "2026-10-08T18:01:15+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B07",
+    "date_received": "6/2/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Struggling to pay your loan",
+    "sub_issue": "",
+    "state": "GA",
+    "narrative": "I have reached out to this company five times about setting up a payment plan and keep getting transferred with no resolution. I am now filing this complaint with the CFPB as well as contacting my state banking regulator directly, since internal escalation has not worked.",
+    "account_id": "ACC-017",
+    "attorney_regulator_flag": "TRUE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1443,
+      "output_tokens": 219
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5246,
+      "output_tokens": 814
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4255,
+      "output_tokens": 2177
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4859,
+      "output_tokens": 1688
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Reached out to the company five times about setting up a payment plan",
+      "Kept getting transferred with no resolution",
+      "Internal escalation has not worked"
+    ],
+    "requested_outcome": "Setting up a payment plan",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [
+      "I am now filing this complaint with the CFPB as well as contacting my state banking regulator directly"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated, factual, escalating"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-017",
+      "loan_balance": 1800.0,
+      "origination_date": "2/3/2025",
+      "payment_status": "delinquent",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-017",
+        "date": "2025-02-03",
+        "type": "payment",
+        "amount": 138.46,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-03-05",
+        "type": "payment",
+        "amount": 60.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-04-04",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-05-04",
+        "type": "payment",
+        "amount": 85.71,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-06-03",
+        "type": "payment",
+        "amount": 138.46,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-07-03",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-08-02",
+        "type": "payment",
+        "amount": 54.55,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-09-01",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-10-01",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-10-31",
+        "type": "payment",
+        "amount": 51.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-11-30",
+        "type": "payment",
+        "amount": 94.74,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-12-30",
+        "type": "payment",
+        "amount": 105.88,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The central allegation is that the customer contacted the company five times about a payment plan, was transferred repeatedly, and got no resolution. The records provided hold only account status and payment transactions. They contain no call logs, transfer records, payment-plan requests, or escalation history, so none of the five contacts can be confirmed or ruled out. The account is delinquent with a $1,800.00 balance, which is consistent with a customer needing a payment plan but does not show that the contacts happened. The last recorded payment was $105.88 on 2025-12-30, and there are no fees or other problem events to check. Missing: contact and call-center records and any payment-plan request or hardship-program records for ACC-017.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer states they are filing with the CFPB and contacting their state banking regulator, and attorney_regulator_flag is TRUE, which is an automatic High trigger whatever the merits of the payment-plan complaint.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "triggers": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'CFPB', 'regulator', 'state banking'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I have reached out to this company five times about setting up a payment plan and keep getting transferred with no resolution. I am now filing this complaint with the CFPB as well as contacting my state banking regulator directly, since internal escalation has not worked.",
+    "extraction": {
+      "allegations": [
+        "Reached out to the company five times about setting up a payment plan",
+        "Kept getting transferred with no resolution",
+        "Internal escalation has not worked"
+      ],
+      "requested_outcome": "Setting up a payment plan",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [],
+      "account_details_mentioned": null,
+      "risk_signal_phrases": [
+        "I am now filing this complaint with the CFPB as well as contacting my state banking regulator directly"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated, factual, escalating"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The central allegation is that the customer contacted the company five times about a payment plan, was transferred repeatedly, and got no resolution. The records provided hold only account status and payment transactions. They contain no call logs, transfer records, payment-plan requests, or escalation history, so none of the five contacts can be confirmed or ruled out. The account is delinquent with a $1,800.00 balance, which is consistent with a customer needing a payment plan but does not show that the contacts happened. The last recorded payment was $105.88 on 2025-12-30, and there are no fees or other problem events to check. Missing: contact and call-center records and any payment-plan request or hardship-program records for ACC-017.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer states they are filing with the CFPB and contacting their state banking regulator, and attorney_regulator_flag is TRUE, which is an automatic High trigger whatever the merits of the payment-plan complaint.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-017",
+        "loan_balance": 1800.0,
+        "origination_date": "2/3/2025",
+        "payment_status": "delinquent",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-017",
+          "date": "2025-02-03",
+          "type": "payment",
+          "amount": 138.46,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-03-05",
+          "type": "payment",
+          "amount": 60.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-04-04",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-05-04",
+          "type": "payment",
+          "amount": 85.71,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-06-03",
+          "type": "payment",
+          "amount": 138.46,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-07-03",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-08-02",
+          "type": "payment",
+          "amount": 54.55,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-09-01",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-10-01",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-10-31",
+          "type": "payment",
+          "amount": 51.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-11-30",
+          "type": "payment",
+          "amount": 94.74,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-12-30",
+          "type": "payment",
+          "amount": 105.88,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'CFPB', 'regulator', 'state banking'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "unresolved": "The central allegation is that the customer contacted the company five times about a payment plan, was transferred repeatedly, and got no resolution. The records provided hold only account status and payment transactions. They contain no call logs, transfer records, payment-plan requests, or escalation history, so none of the five contacts can be confirmed or ruled out. The account is delinquent with a $1,800.00 balance, which is consistent with a customer needing a payment plan but does not show that the contacts happened. The last recorded payment was $105.88 on 2025-12-30, and there are no fees or other problem events to check. Missing: contact and call-center records and any payment-plan request or hardship-program records for ACC-017.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Struggling to pay your loan - unverifiable - High risk - draft ready for review",
+  "run_finished": "2026-10-09T19:24:14+00:00",
+  "policy": {
+    "policy_id": "07",
+    "topic": "Hardship and Payment Deferral Options",
+    "category": "internal",
+    "matched_keywords": [
+      "struggling to pay",
+      "payment plan"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Hardship and Payment Deferral Options\n\n**Applies to:** Complaints where a customer states they are struggling to make payments, references job loss, medical emergency, or similar hardship, or explicitly requests a payment plan or deferral.\n\n## Available options (in order of customer impact, least to most significant)\n1. **Payment date shift** \u2014 move the due date within the same billing cycle by up to 10 days, no fee, available once per 12-month period, analyst may approve directly.\n2. **Reduced-payment plan** \u2014 temporarily reduce the monthly payment for up to 3 months, extending the loan term accordingly. Requires supervisor approval and a documented hardship reason.\n3. **Interest-only or fee-deferral period** \u2014 defer principal payments for up to 2 months in cases of documented significant hardship (job loss, medical emergency, natural disaster). Requires supervisor approval.\n4. **Full forbearance** \u2014 pause all payments for up to 60 days. Reserved for severe, documented hardship. Requires manager approval.\n\n## Eligibility\n- Account must be no more than 60 days past due at time of request.\n- Customer must state a reason for hardship (does not need to be independently verified for options 1-2; options 3-4 require the customer to describe the nature of the hardship, though no documentation/proof is required at this stage).\n\n## What an analyst or agent may say\n- May offer option 1 directly, with no further approval needed.\n- May describe options 2-4 as \"available, pending supervisor review\" \u2014 may NOT confirm a plan is approved until supervisor sign-off is actually logged.\n- May NOT suggest an account will be reported as current to credit bureaus during a reduced-payment or forbearance period unless that is actually how the specific plan is structured \u2014 this must be confirmed, not assumed.\n\n## Escalation trigger\nA customer who has already received a hardship accommodation and is requesting a second one within the same 12-month period, or who indicates the hardship accommodation itself failed to resolve their situation, should be flagged for supervisor review rather than a standard offer.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Thank you for writing to us about your request for a payment plan. You told us you've contacted us five times, were transferred each time without getting an answer, and that escalating internally hasn't helped. We understand how frustrating that would be, especially when you're trying to get an arrangement in place.\n\nHere is what we found, taking each of your concerns in turn.\n\nYour five contacts about a payment plan: The records we reviewed show your account status and payment history, including your most recent payment of $105.88 on December 30, 2025. They don't include call or contact history, so we couldn't confirm or rule out the five contacts from what we have. We aren't doubting what you've told us. If you have dates, times or phone numbers for any of those contacts, please send them and we'll review them.\n\nBeing transferred without a resolution: The same limitation applies. The records we reviewed don't show call transfers, so we couldn't confirm what happened on those calls.\n\nInternal escalation not working: We also couldn't find a record of a prior escalation or a payment-plan request on your account in the records we reviewed.\n\nWhat this means for your payment plan: We offer hardship options for customers who are having trouble making payments. They include a one-time shift of your due date within the same billing cycle, a temporary reduced payment for up to 3 months, a short deferral period, and, in severe cases, a pause in payments. A due-date shift can be offered directly. The other options are available, pending supervisor review, and none of them is approved until that review is complete. Whether you're eligible depends on how far past due your account is. We have not approved a plan, and we can't say yet which option would fit.\n\nNext steps: We've forwarded your request for a payment plan for review. To help us, please reply to this message or call the number on your account and tell us briefly what is making your payments difficult, and which option you'd prefer if you have a preference. You're welcome to send any further information at any time, and we will review it.\n\nCase reference: SYN-B07. Please include it in any further correspondence.",
+        "policy_cited": "07 Hardship and Payment Deferral Options (Available options 1-4; Eligibility; What an analyst or agent may say), together with 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": "No remedy approved. The draft describes the hardship options as available: a due-date shift (which an analyst may offer directly) and the reduced-payment, deferral and forbearance options (pending supervisor review). It states that no plan has been approved and that eligibility depends on how far past due the account is.",
+        "referral_stated": "The draft says the customer's payment-plan request has been forwarded for review. Before sending, the reviewer should route the request to a supervisor for hardship review (options 2-4), confirm the account is no more than 60 days past due, and request contact and call-center records for ACC-017 so the five contacts and transfers can be checked.",
+        "allegations_addressed": [
+          "Reached out to the company five times about setting up a payment plan",
+          "Kept getting transferred with no resolution",
+          "Internal escalation has not worked"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all three allegations are addressed individually: the five contacts about a payment plan, being transferred with no resolution, and internal escalation not working.",
+        "groundedness_check": "pass \u2014 the $105.88 payment on December 30, 2025 matches the verification output. The statements that call, transfer and escalation records were not available match the 'unverifiable' finding. The hardship options, the eligibility dependence on days past due, and the supervisor-review wording all trace to Policy 07. The statement that the request 'has been forwarded for review' is declared in referral_stated, and the reviewer routes it before sending. The draft does not claim any approval, credit or plan has been granted.",
+        "policy_authorization_check": "pass \u2014 no remedy is approved. The only item offered directly is the due-date shift, which Policy 07 lets an analyst offer without further approval. The other options are described as 'available, pending supervisor review', and the draft states that none is approved until that review is complete.",
+        "prohibited_language_check": "pass \u2014 there is no fault admission, future guarantee, legal conclusion, promise outside documented authority, or language discouraging other channels. 'We understand how frustrating that would be' is acceptable tone under Policy 10, and 'We have not approved a plan' avoids overpromising.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: a specific acknowledgment, findings per allegation, outcome, next steps, then the case reference SYN-B07. It uses second person and plain language, with short, separated paragraphs for each allegation. The length is acceptable for a multi-allegation response, and there is no marketing content.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "Thank you for writing to us about your request for a payment plan. You told us you've contacted us five times, were transferred each time without getting an answer, and that escalating internally hasn't helped. We understand how frustrating that would be, especially when you're trying to get an arrangement in place.\n\nHere is what we found, taking each of your concerns in turn.\n\nYour five contacts about a payment plan: The records we reviewed show your account status and payment history, including your most recent payment of $105.88 on December 30, 2025. They don't include call or contact history, so we couldn't confirm or rule out the five contacts from what we have. We aren't doubting what you've told us. If you have dates, times or phone numbers for any of those contacts, please send them and we'll review them.\n\nBeing transferred without a resolution: The same limitation applies. The records we reviewed don't show call transfers, so we couldn't confirm what happened on those calls.\n\nInternal escalation not working: We also couldn't find a record of a prior escalation or a payment-plan request on your account in the records we reviewed.\n\nWhat this means for your payment plan: We offer hardship options for customers who are having trouble making payments. They include a one-time shift of your due date within the same billing cycle, a temporary reduced payment for up to 3 months, a short deferral period, and, in severe cases, a pause in payments. A due-date shift can be offered directly. The other options are available, pending supervisor review, and none of them is approved until that review is complete. Whether you're eligible depends on how far past due your account is. We have not approved a plan, and we can't say yet which option would fit.\n\nNext steps: We've forwarded your request for a payment plan for review. To help us, please reply to this message or call the number on your account and tell us briefly what is making your payments difficult, and which option you'd prefer if you have a preference. You're welcome to send any further information at any time, and we will review it.\n\nCase reference: SYN-B07. Please include it in any further correspondence.",
+    "policy_cited": "07 Hardship and Payment Deferral Options (Available options 1-4; Eligibility; What an analyst or agent may say), together with 10 Prohibited Language and 11 Response Tone and Format",
+    "remedy_stated": "No remedy approved. The draft describes the hardship options as available: a due-date shift (which an analyst may offer directly) and the reduced-payment, deferral and forbearance options (pending supervisor review). It states that no plan has been approved and that eligibility depends on how far past due the account is.",
+    "referral_stated": "The draft says the customer's payment-plan request has been forwarded for review. Before sending, the reviewer should route the request to a supervisor for hardship review (options 2-4), confirm the account is no more than 60 days past due, and request contact and call-center records for ACC-017 so the five contacts and transfers can be checked.",
+    "allegations_addressed": [
+      "Reached out to the company five times about setting up a payment plan",
+      "Kept getting transferred with no resolution",
+      "Internal escalation has not worked"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all three allegations are addressed individually: the five contacts about a payment plan, being transferred with no resolution, and internal escalation not working.",
+    "groundedness_check": "pass \u2014 the $105.88 payment on December 30, 2025 matches the verification output. The statements that call, transfer and escalation records were not available match the 'unverifiable' finding. The hardship options, the eligibility dependence on days past due, and the supervisor-review wording all trace to Policy 07. The statement that the request 'has been forwarded for review' is declared in referral_stated, and the reviewer routes it before sending. The draft does not claim any approval, credit or plan has been granted.",
+    "policy_authorization_check": "pass \u2014 no remedy is approved. The only item offered directly is the due-date shift, which Policy 07 lets an analyst offer without further approval. The other options are described as 'available, pending supervisor review', and the draft states that none is approved until that review is complete.",
+    "prohibited_language_check": "pass \u2014 there is no fault admission, future guarantee, legal conclusion, promise outside documented authority, or language discouraging other channels. 'We understand how frustrating that would be' is acceptable tone under Policy 10, and 'We have not approved a plan' avoids overpromising.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: a specific acknowledgment, findings per allegation, outcome, next steps, then the case reference SYN-B07. It uses second person and plain language, with short, separated paragraphs for each allegation. The length is acceptable for a multi-allegation response, and there is no marketing content.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": "The draft says the customer's payment-plan request has been forwarded for review. Before sending, the reviewer should route the request to a supervisor for hardship review (options 2-4), confirm the account is no more than 60 days past due, and request contact and call-center records for ACC-017 so the five contacts and transfers can be checked.",
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "at": "2026-10-09T19:24:14+00:00"
+  }
+}

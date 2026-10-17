@@ -1,0 +1,402 @@
+{
+  "complaint_id": "SYN-B02",
+  "run_started": "2026-10-08T18:00:55+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B02",
+    "date_received": "5/9/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Struggling to pay your loan",
+    "sub_issue": "",
+    "state": "OH",
+    "narrative": "I lost my job two months ago and reached out about a hardship plan. I was told someone would call me back within 48 hours and no one ever did. I have now also filed a complaint with the Attorney General's office in my state because I feel like I am being ignored while my account continues to accrue fees.",
+    "account_id": "ACC-014",
+    "attorney_regulator_flag": "TRUE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1456,
+      "output_tokens": 281
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5158,
+      "output_tokens": 1127
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4400,
+      "output_tokens": 2064
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4738,
+      "output_tokens": 1738
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4555,
+      "output_tokens": 2790
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4622,
+      "output_tokens": 1717
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Requested a hardship plan after losing job but received no callback within the promised 48 hours",
+      "Feels ignored by the company",
+      "Account continues to accrue fees"
+    ],
+    "requested_outcome": "A hardship plan",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "two months ago",
+      "within 48 hours"
+    ],
+    "account_details_mentioned": "Account continues to accrue fees; customer reached out about a hardship plan after job loss",
+    "risk_signal_phrases": [
+      "I have now also filed a complaint with the Attorney General's office in my state",
+      "I lost my job two months ago"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated and distressed but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-014",
+      "loan_balance": 1800.0,
+      "origination_date": "1/17/2025",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-014",
+        "date": "2025-01-17",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-02-16",
+        "type": "payment",
+        "amount": 75.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-03-18",
+        "type": "payment",
+        "amount": 60.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-04-17",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-05-17",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-06-16",
+        "type": "payment",
+        "amount": 60.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-07-16",
+        "type": "payment",
+        "amount": 90.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-08-15",
+        "type": "payment",
+        "amount": 52.94,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-09-14",
+        "type": "payment",
+        "amount": 90.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-014",
+        "date": "2025-10-14",
+        "type": "payment",
+        "amount": 54.55,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The central allegation is that the customer asked for a hardship plan after losing their job and nobody called back within the promised 48 hours. The account and transaction data record only fees and payments. They hold no call log, hardship request, callback commitment or contact record, so the request and the missed callback can be neither confirmed nor ruled out. Missing: contact/call logs and any hardship-request record for the period after the job loss. The second event, that the account 'continues to accrue fees', is not supported either. The only fees on file are $25 on 2025-01-17 and $25 on 2025-04-17, with none in the later history, which ends 2025-10-14. The complaint date is not given, so it is unclear whether this history covers the period the customer describes. No problem event is confirmed, so this is unverifiable rather than partially_true. The account shows payment_status 'current', and its account_note says it is a generic record not built to verify this complaint.",
+    "risk_tier": "High",
+    "risk_rationale": "The attorney_regulator_flag is TRUE and the complaint says the customer filed a complaint with the state Attorney General's office, which is an automatic High trigger. Job loss (hardship) is an additional risk indicator. Unverifiable evidence did not raise the tier.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "triggers": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'Attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I lost my job two months ago and reached out about a hardship plan. I was told someone would call me back within 48 hours and no one ever did. I have now also filed a complaint with the Attorney General's office in my state because I feel like I am being ignored while my account continues to accrue fees.",
+    "extraction": {
+      "allegations": [
+        "Requested a hardship plan after losing job but received no callback within the promised 48 hours",
+        "Feels ignored by the company",
+        "Account continues to accrue fees"
+      ],
+      "requested_outcome": "A hardship plan",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "two months ago",
+        "within 48 hours"
+      ],
+      "account_details_mentioned": "Account continues to accrue fees; customer reached out about a hardship plan after job loss",
+      "risk_signal_phrases": [
+        "I have now also filed a complaint with the Attorney General's office in my state",
+        "I lost my job two months ago"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated and distressed but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The central allegation is that the customer asked for a hardship plan after losing their job and nobody called back within the promised 48 hours. The account and transaction data record only fees and payments. They hold no call log, hardship request, callback commitment or contact record, so the request and the missed callback can be neither confirmed nor ruled out. Missing: contact/call logs and any hardship-request record for the period after the job loss. The second event, that the account 'continues to accrue fees', is not supported either. The only fees on file are $25 on 2025-01-17 and $25 on 2025-04-17, with none in the later history, which ends 2025-10-14. The complaint date is not given, so it is unclear whether this history covers the period the customer describes. No problem event is confirmed, so this is unverifiable rather than partially_true. The account shows payment_status 'current', and its account_note says it is a generic record not built to verify this complaint.",
+      "risk_tier": "High",
+      "risk_rationale": "The attorney_regulator_flag is TRUE and the complaint says the customer filed a complaint with the state Attorney General's office, which is an automatic High trigger. Job loss (hardship) is an additional risk indicator. Unverifiable evidence did not raise the tier.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-014",
+        "loan_balance": 1800.0,
+        "origination_date": "1/17/2025",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-014",
+          "date": "2025-01-17",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-02-16",
+          "type": "payment",
+          "amount": 75.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-03-18",
+          "type": "payment",
+          "amount": 60.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-04-17",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-05-17",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-06-16",
+          "type": "payment",
+          "amount": 60.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-07-16",
+          "type": "payment",
+          "amount": 90.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-08-15",
+          "type": "payment",
+          "amount": 52.94,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-09-14",
+          "type": "payment",
+          "amount": 90.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-014",
+          "date": "2025-10-14",
+          "type": "payment",
+          "amount": 54.55,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'Attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "unresolved": "The central allegation is that the customer asked for a hardship plan after losing their job and nobody called back within the promised 48 hours. The account and transaction data record only fees and payments. They hold no call log, hardship request, callback commitment or contact record, so the request and the missed callback can be neither confirmed nor ruled out. Missing: contact/call logs and any hardship-request record for the period after the job loss. The second event, that the account 'continues to accrue fees', is not supported either. The only fees on file are $25 on 2025-01-17 and $25 on 2025-04-17, with none in the later history, which ends 2025-10-14. The complaint date is not given, so it is unclear whether this history covers the period the customer describes. No problem event is confirmed, so this is unverifiable rather than partially_true. The account shows payment_status 'current', and its account_note says it is a generic record not built to verify this complaint.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Struggling to pay your loan - unverifiable - High risk - draft ready for review",
+  "run_finished": "2026-10-09T19:24:17+00:00",
+  "policy": {
+    "policy_id": "07",
+    "topic": "Hardship and Payment Deferral Options",
+    "category": "internal",
+    "matched_keywords": [
+      "hardship",
+      "struggling to pay"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Hardship and Payment Deferral Options\n\n**Applies to:** Complaints where a customer states they are struggling to make payments, references job loss, medical emergency, or similar hardship, or explicitly requests a payment plan or deferral.\n\n## Available options (in order of customer impact, least to most significant)\n1. **Payment date shift** \u2014 move the due date within the same billing cycle by up to 10 days, no fee, available once per 12-month period, analyst may approve directly.\n2. **Reduced-payment plan** \u2014 temporarily reduce the monthly payment for up to 3 months, extending the loan term accordingly. Requires supervisor approval and a documented hardship reason.\n3. **Interest-only or fee-deferral period** \u2014 defer principal payments for up to 2 months in cases of documented significant hardship (job loss, medical emergency, natural disaster). Requires supervisor approval.\n4. **Full forbearance** \u2014 pause all payments for up to 60 days. Reserved for severe, documented hardship. Requires manager approval.\n\n## Eligibility\n- Account must be no more than 60 days past due at time of request.\n- Customer must state a reason for hardship (does not need to be independently verified for options 1-2; options 3-4 require the customer to describe the nature of the hardship, though no documentation/proof is required at this stage).\n\n## What an analyst or agent may say\n- May offer option 1 directly, with no further approval needed.\n- May describe options 2-4 as \"available, pending supervisor review\" \u2014 may NOT confirm a plan is approved until supervisor sign-off is actually logged.\n- May NOT suggest an account will be reported as current to credit bureaus during a reduced-payment or forbearance period unless that is actually how the specific plan is structured \u2014 this must be confirmed, not assumed.\n\n## Escalation trigger\nA customer who has already received a hardship accommodation and is requesting a second one within the same 12-month period, or who indicates the hardship accommodation itself failed to resolve their situation, should be flagged for supervisor review rather than a standard offer.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You told us that you lost your job about two months ago, asked for a hardship plan, and did not get the callback you were promised within 48 hours. We understand how stressful that is, and we want to be clear about where things stand.\n\nHere is what we found on each point.\n\nThe hardship request and missed callback: In the account records we reviewed, we could not find a record of your hardship request or of a callback commitment. That means we can't confirm what happened, but it does not mean your request wasn't made. We have treated your message as a hardship request and are not relying on the earlier contact.\n\nFeeling ignored: You should have heard back, and we are working to make sure you now get a response to your request.\n\nFees on your account: The fees we see are $25 on January 17, 2025 and $25 on April 17, 2025. We see no fees after that in the history we reviewed, which runs through October 14, 2025, and your account shows as current. If you are seeing newer fees, please send us the statement or the dates and amounts so we can look at them directly.\n\nOutcome: Several hardship options are available, and we have referred your request for supervisor review. These include a temporary reduced payment, a short deferral period, and in some cases a pause on payments. No plan has been approved yet, and we can't confirm which option you will be offered until that review is complete.\n\nNext steps: Please reply with the best phone number and times to reach you, and anything you would like us to know about your situation. You can send more information at any time and we will review it. We are also aware that you have contacted your state Attorney General's office. You are free to use any channel you choose.\n\nCase reference: SYN-B02",
+        "policy_cited": "07 Hardship and Payment Deferral Options, 'What an analyst or agent may say' (options 2\u20134 described as available, pending supervisor review; no plan confirmed as approved)",
+        "remedy_stated": null,
+        "referral_stated": "Hardship request (job loss, customer asked for a payment plan) referred for supervisor review under Policy 07. The reviewer must make this referral before sending, as the draft says it has been made. The referral should include the customer's request, the case reference SYN-B02, and the High risk flag for the Attorney General complaint. No plan is approved or promised.",
+        "allegations_addressed": [
+          "Requested a hardship plan after losing job but received no callback within the promised 48 hours",
+          "Feels ignored by the company",
+          "Account continues to accrue fees"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass \u2014 all three allegations are addressed: the hardship request and missed callback, feeling ignored, and continuing fees.",
+        "groundedness_check": "fail \u2014 'you lost your job about two months ago' is not supported. The allegations list gives no timeframe for the job loss, and the verification output says the complaint date is not given. 'We have treated your message as a hardship request and are not relying on the earlier contact' is also not supported. The verification output shows no earlier contact on record, so this implies a record or process that does not exist. The fee dates and amounts ($25 on 2025-01-17 and $25 on 2025-04-17), the history end date (2025-10-14), the 'current' status, and the hardship options with 'pending supervisor review' do trace to the verification output and Policy 07. The 'referred for supervisor review' statement is covered by `referral_stated`.",
+        "policy_authorization_check": "pass \u2014 `remedy_stated` is null, and no plan is approved or promised. The options are described only as available and pending supervisor review, which Policy 07 permits.",
+        "prohibited_language_check": "fail \u2014 'You should have heard back' admits fault. The verification output rated the missed callback unverifiable, so this goes beyond confirmed fact, and it also contradicts the draft's own statement that 'we can't confirm what happened.' Policy 10 prohibits fault admissions beyond confirmed fact. No future guarantees, legal conclusions, or discouragement of other channels were found. 'You are free to use any channel you choose' is acceptable.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: acknowledgment, findings, outcome, next steps, case reference SYN-B02. Each allegation is addressed in its own paragraph, and the longer length is acceptable for a multi-allegation complaint.",
+        "specific_issues": [
+          "Groundedness: 'lost your job about two months ago' states a timeframe not found in the allegations or the verification output.",
+          "Groundedness: 'are not relying on the earlier contact' refers to an earlier contact that is not supported by the verification output and is confusing to the customer.",
+          "Prohibited language: 'You should have heard back' admits fault for a missed callback that could not be verified."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "We received your complaint about your request for a hardship plan after losing your job. We understand how frustrating it is to be waiting on help at a difficult time, and to feel ignored.\n\nHere is what we found on each point you raised.\n\nYour hardship plan request and the callback: In the records we reviewed, we did not find a record of a hardship request or of a callback being promised. That means we can't confirm or rule out what you describe. You have told us you need help, though, and we are treating this complaint as your request for a hardship plan.\n\nFees on your account: The account history we reviewed runs through October 14, 2025. It shows two $25 fees, one on January 17, 2025 and one on April 17, 2025, and no fees after that. Your account is listed as current. If you are seeing other charges, please send us the dates and amounts, or a copy of your statement, and we will look at them.\n\nYour sense of being ignored: We understand why you feel this way, and we want you to know your request is now being looked at.\n\nWhat happens next: Hardship options are available, and your request for a plan is being forwarded to a supervisor for review. No plan has been approved yet, and we will let you know the result of that review.\n\nIf there is anything more you would like us to know about your situation, or any information about the fees or your earlier request, you can reply to this message or call the number on your account at any time. We will review whatever you send. Case reference: SYN-B02.",
+        "policy_cited": "07 Hardship and Payment Deferral Options, 'What an analyst or agent may say' (options 2-4 described as available, pending supervisor review); also Policy 10 and Policy 11",
+        "remedy_stated": null,
+        "referral_stated": "The customer's hardship plan request (job loss) needs to be forwarded to a supervisor for review under Policy 07 before this reply is sent. No plan is approved or promised in the draft.",
+        "allegations_addressed": [
+          "Requested a hardship plan after losing job but received no callback within the promised 48 hours",
+          "Feels ignored by the company",
+          "Account continues to accrue fees"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all three allegations are addressed: the missed hardship callback, the feeling of being ignored, and the continuing fees.",
+        "groundedness_check": "pass \u2014 The two $25 fees (2025-01-17 and 2025-04-17), the history end date of 2025-10-14, the 'current' status, and the absence of any hardship or callback record all match the verification output. The draft says the request and callback can be neither confirmed nor ruled out, which matches the 'unverifiable' finding. The statement that the hardship request is 'being forwarded to a supervisor for review' is declared in `referral_stated` and matches Policy 07's 'available, pending supervisor review' language. The draft states that no plan has been approved, and it claims no refund, credit or approval.",
+        "policy_authorization_check": "pass \u2014 `remedy_stated` is null and no remedy is granted. Options 2-4 are described only as available pending supervisor review, which is what Policy 07 permits, and no plan is confirmed as approved.",
+        "prohibited_language_check": "pass \u2014 The draft contains no fault admission, no future guarantee, no legal conclusion and no promise outside documented authority. It does not discourage the customer from using other channels such as the regulator. 'We understand how frustrating it is' and 'we understand why you feel this way' are acknowledgments of feeling, not admissions of fault. 'We will let you know the result of that review' commits to communication, not to an outcome.",
+        "tone_structure_check": "pass \u2014 The order is acknowledgment, findings (one paragraph per allegation), outcome and next steps, then case reference SYN-B02. Outcome and next steps are combined in one 'What happens next' paragraph. That is acceptable because the outcome is a pending referral. The draft uses short paragraphs, second person and plain language, with no marketing content. Its length is appropriate for a multi-allegation complaint.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "We received your complaint about your request for a hardship plan after losing your job. We understand how frustrating it is to be waiting on help at a difficult time, and to feel ignored.\n\nHere is what we found on each point you raised.\n\nYour hardship plan request and the callback: In the records we reviewed, we did not find a record of a hardship request or of a callback being promised. That means we can't confirm or rule out what you describe. You have told us you need help, though, and we are treating this complaint as your request for a hardship plan.\n\nFees on your account: The account history we reviewed runs through October 14, 2025. It shows two $25 fees, one on January 17, 2025 and one on April 17, 2025, and no fees after that. Your account is listed as current. If you are seeing other charges, please send us the dates and amounts, or a copy of your statement, and we will look at them.\n\nYour sense of being ignored: We understand why you feel this way, and we want you to know your request is now being looked at.\n\nWhat happens next: Hardship options are available, and your request for a plan is being forwarded to a supervisor for review. No plan has been approved yet, and we will let you know the result of that review.\n\nIf there is anything more you would like us to know about your situation, or any information about the fees or your earlier request, you can reply to this message or call the number on your account at any time. We will review whatever you send. Case reference: SYN-B02.",
+    "policy_cited": "07 Hardship and Payment Deferral Options, 'What an analyst or agent may say' (options 2-4 described as available, pending supervisor review); also Policy 10 and Policy 11",
+    "remedy_stated": null,
+    "referral_stated": "The customer's hardship plan request (job loss) needs to be forwarded to a supervisor for review under Policy 07 before this reply is sent. No plan is approved or promised in the draft.",
+    "allegations_addressed": [
+      "Requested a hardship plan after losing job but received no callback within the promised 48 hours",
+      "Feels ignored by the company",
+      "Account continues to accrue fees"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all three allegations are addressed: the missed hardship callback, the feeling of being ignored, and the continuing fees.",
+    "groundedness_check": "pass \u2014 The two $25 fees (2025-01-17 and 2025-04-17), the history end date of 2025-10-14, the 'current' status, and the absence of any hardship or callback record all match the verification output. The draft says the request and callback can be neither confirmed nor ruled out, which matches the 'unverifiable' finding. The statement that the hardship request is 'being forwarded to a supervisor for review' is declared in `referral_stated` and matches Policy 07's 'available, pending supervisor review' language. The draft states that no plan has been approved, and it claims no refund, credit or approval.",
+    "policy_authorization_check": "pass \u2014 `remedy_stated` is null and no remedy is granted. Options 2-4 are described only as available pending supervisor review, which is what Policy 07 permits, and no plan is confirmed as approved.",
+    "prohibited_language_check": "pass \u2014 The draft contains no fault admission, no future guarantee, no legal conclusion and no promise outside documented authority. It does not discourage the customer from using other channels such as the regulator. 'We understand how frustrating it is' and 'we understand why you feel this way' are acknowledgments of feeling, not admissions of fault. 'We will let you know the result of that review' commits to communication, not to an outcome.",
+    "tone_structure_check": "pass \u2014 The order is acknowledgment, findings (one paragraph per allegation), outcome and next steps, then case reference SYN-B02. Outcome and next steps are combined in one 'What happens next' paragraph. That is acceptable because the outcome is a pending referral. The draft uses short paragraphs, second person and plain language, with no marketing content. Its length is appropriate for a multi-allegation complaint.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": "The customer's hardship plan request (job loss) needs to be forwarded to a supervisor for review under Policy 07 before this reply is sent. No plan is approved or promised in the draft.",
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "at": "2026-10-09T19:24:17+00:00"
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "complaint_id": "SYN-C011",
+  "run_started": "2026-10-07T00:24:25+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C011",
+    "date_received": "2026-09-08",
+    "product": "Checking or savings account",
+    "sub_product": "Checking account",
+    "issue": "Managing an account",
+    "sub_issue": "Banking errors",
+    "state": "NC",
+    "narrative": "A $120 deposit I made was applied to the wrong account, and it has taken over a week for the bank to even acknowledge the error.",
+    "account_id": "ACC-061",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1395,
+      "output_tokens": 187
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3137,
+      "output_tokens": 945
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "$120 deposit was applied to the wrong account",
+      "Bank has taken over a week to acknowledge the error"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      120.0
+    ],
+    "dates_mentioned": [
+      "over a week"
+    ],
+    "account_details_mentioned": "A $120 deposit was applied to the wrong account",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-061",
+      "loan_balance": 800.0,
+      "origination_date": "2025-10-22",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-061",
+        "date": "2025-10-22",
+        "type": "payment",
+        "amount": 25.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2025-11-21",
+        "type": "payment",
+        "amount": 57.14,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2025-12-21",
+        "type": "payment",
+        "amount": 44.44,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-01-20",
+        "type": "payment",
+        "amount": 30.77,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-02-19",
+        "type": "payment",
+        "amount": 34.78,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-03-21",
+        "type": "payment",
+        "amount": 36.36,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-04-20",
+        "type": "payment",
+        "amount": 26.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-05-20",
+        "type": "payment",
+        "amount": 61.54,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-06-19",
+        "type": "payment",
+        "amount": 22.22,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-07-19",
+        "type": "payment",
+        "amount": 24.24,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-08-18",
+        "type": "payment",
+        "amount": 30.77,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-061",
+        "date": "2026-09-17",
+        "type": "payment",
+        "amount": 29.63,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer says a $120 deposit was applied to the wrong account. The only record available is for ACC-061, an installment loan, and it shows 12 routine scheduled payments from 2025-10-22 to 2026-09-17 (amounts $22.22 to $61.54). None of them is $120 and none is a deposit. A missing $120 entry here is consistent with the claim, but it does not confirm it. A misapplied deposit would appear on the other account, and no data was retrieved for it. Missing evidence: (1) the date of the deposit, since the complaint says only 'over a week' ago; (2) the deposit's source and destination account, and the account the customer says it was meant for; (3) the transaction history of the account that may have received it; (4) any record of the bank's contact with the customer, needed to check the 'over a week to acknowledge' allegation. The account note also says this record is generic and not built to confirm or deny the complaint.",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable, and the unresolved gap (whether a $120 deposit was misapplied, and to which account) determines the outcome, which is an automatic High trigger even though there are no attorney/regulator mentions, hardship, or vulnerability signals.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: the retrieved data cannot confirm or refute the $120 misapplied deposit, so a human must review the correct accounts before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "A $120 deposit I made was applied to the wrong account, and it has taken over a week for the bank to even acknowledge the error.",
+    "extraction": {
+      "allegations": [
+        "$120 deposit was applied to the wrong account",
+        "Bank has taken over a week to acknowledge the error"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        120.0
+      ],
+      "dates_mentioned": [
+        "over a week"
+      ],
+      "account_details_mentioned": "A $120 deposit was applied to the wrong account",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer says a $120 deposit was applied to the wrong account. The only record available is for ACC-061, an installment loan, and it shows 12 routine scheduled payments from 2025-10-22 to 2026-09-17 (amounts $22.22 to $61.54). None of them is $120 and none is a deposit. A missing $120 entry here is consistent with the claim, but it does not confirm it. A misapplied deposit would appear on the other account, and no data was retrieved for it. Missing evidence: (1) the date of the deposit, since the complaint says only 'over a week' ago; (2) the deposit's source and destination account, and the account the customer says it was meant for; (3) the transaction history of the account that may have received it; (4) any record of the bank's contact with the customer, needed to check the 'over a week to acknowledge' allegation. The account note also says this record is generic and not built to confirm or deny the complaint.",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable, and the unresolved gap (whether a $120 deposit was misapplied, and to which account) determines the outcome, which is an automatic High trigger even though there are no attorney/regulator mentions, hardship, or vulnerability signals.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-061",
+        "loan_balance": 800.0,
+        "origination_date": "2025-10-22",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-061",
+          "date": "2025-10-22",
+          "type": "payment",
+          "amount": 25.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2025-11-21",
+          "type": "payment",
+          "amount": 57.14,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2025-12-21",
+          "type": "payment",
+          "amount": 44.44,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-01-20",
+          "type": "payment",
+          "amount": 30.77,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-02-19",
+          "type": "payment",
+          "amount": 34.78,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-03-21",
+          "type": "payment",
+          "amount": 36.36,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-04-20",
+          "type": "payment",
+          "amount": 26.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-05-20",
+          "type": "payment",
+          "amount": 61.54,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-06-19",
+          "type": "payment",
+          "amount": 22.22,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-07-19",
+          "type": "payment",
+          "amount": 24.24,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-08-18",
+          "type": "payment",
+          "amount": 30.77,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-061",
+          "date": "2026-09-17",
+          "type": "payment",
+          "amount": 29.63,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: the retrieved data cannot confirm or refute the $120 misapplied deposit, so a human must review the correct accounts before any response is drafted.",
+    "unresolved": "The customer says a $120 deposit was applied to the wrong account. The only record available is for ACC-061, an installment loan, and it shows 12 routine scheduled payments from 2025-10-22 to 2026-09-17 (amounts $22.22 to $61.54). None of them is $120 and none is a deposit. A missing $120 entry here is consistent with the claim, but it does not confirm it. A misapplied deposit would appear on the other account, and no data was retrieved for it. Missing evidence: (1) the date of the deposit, since the complaint says only 'over a week' ago; (2) the deposit's source and destination account, and the account the customer says it was meant for; (3) the transaction history of the account that may have received it; (4) any record of the bank's contact with the customer, needed to check the 'over a week to acknowledge' allegation. The account note also says this record is generic and not built to confirm or deny the complaint.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Managing an account - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:24:35+00:00"
+}

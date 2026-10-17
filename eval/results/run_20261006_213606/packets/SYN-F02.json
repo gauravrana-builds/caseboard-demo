@@ -1,0 +1,191 @@
+{
+  "complaint_id": "SYN-F02",
+  "run_started": "2026-10-07T12:18:53+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-F02",
+    "date_received": "6/14/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Received a loan you didn't apply for",
+    "sub_issue": "",
+    "state": "AZ",
+    "narrative": "There is a $400 payday loan on my account that I never applied for. I think someone used my information without my knowledge.",
+    "account_id": "ACC-F02",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1404,
+      "output_tokens": 195
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3271,
+      "output_tokens": 2112
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3687,
+      "output_tokens": 1091
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4063,
+      "output_tokens": 1521
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3860,
+      "output_tokens": 1339
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4054,
+      "output_tokens": 1770
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "A $400 payday loan appears on the account that the customer never applied for",
+      "Customer believes someone used their information without their knowledge"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      400.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "A $400 payday loan is on the account that the customer did not apply for",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concise, uncertain, factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-F02",
+      "loan_balance": 0.0,
+      "origination_date": null,
+      "payment_status": "no_active_loan",
+      "product_type": "installment_loan",
+      "account_note": "No payday loan record exists for this customer in the system as of complaint date. No loan origination, no funding transaction, no account on file matching the $400 amount described. Complaint's claim is NOT supported \u2014 recommend fraud/identity-verification review rather than a billing dispute path."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-F02",
+        "date": "N/A",
+        "type": "none",
+        "amount": 0.0,
+        "note": "No payday loan record exists for this customer."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The account record for ACC-F02 shows loan_balance $0.00 and payment_status 'no_active_loan'. The account note says no payday loan record exists for this customer as of the complaint date, with no origination, no funding transaction, and nothing matching $400. The transaction data has a single placeholder entry (type 'none', amount $0.00, date N/A). So the allegation that a $400 payday loan appears on this account is contradicted by our records. This finding covers only our own records for this account. It does not rule out that the customer's identity was misused elsewhere, such as at another lender or on a credit report. The customer has not said where they saw the loan, so any response should ask that and should not dismiss the identity-theft concern.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The disputed amount ($400) is over $200 and the customer suspects identity misuse, which would be serious if true. There is no attorney/regulator reference, hardship, vulnerability, or misleading-product language, and the claim is contradicted by our records rather than unverifiable, so the tier is not raised to High.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a $400 payday loan that you did not apply for, and you are concerned that someone may have used your information without your knowledge. We understand how worrying that is.\n\nWhat we found: We reviewed your account records. They show a loan balance of $0.00 and no active loan. They also show no loan application, no loan funding, and no $400 transaction on your account. A $400 payday loan does not appear in our records for your account.\n\nRegarding your concern that someone used your information: our review covers only the records we hold for your account, and it found nothing matching this loan. It cannot tell us whether your information was used somewhere else, such as with another lender or on a credit report. We are not dismissing your concern.\n\nOutcome: Because no loan was found on your account, there is no loan to remove or dispute on our side, and no remedy applies at this time.\n\nNext steps: Please reply to this message or call the number on your account and tell us where you saw the loan (for example, a statement, an email, a credit report, or a collection notice). Include the lender name or any reference number shown. We will review whatever you send us. You are also free to raise your concern with other lenders, credit reporting agencies, or any other channel you choose.\n\nCase reference: SYN-F02",
+        "policy_cited": "08 General Dispute Handling Process (standard process: not confirmed / no error found, every allegation addressed individually); Policy 10 Prohibited Language and Policy 11 Response Tone and Format applied to the draft",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "A $400 payday loan appears on the account that the customer never applied for",
+          "Customer believes someone used their information without their knowledge"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 'They also show no loan application, no loan funding, and no $400 transaction on your account.' The verification output says there is no loan origination, no funding transaction, and nothing matching $400. It says nothing about loan applications, so 'no loan application' is a broader claim than the records support. Separately, the case reference 'SYN-F02' does not appear in the verification output, which only gives account ID 'ACC-F02'. It cannot be traced to the materials provided and needs to be confirmed against the intake case ID.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: the draft says records show 'no loan application', but the verification only supports 'no origination' and 'no funding transaction'. Reword to match the verified findings, e.g. 'no loan origination, no loan funding, and no $400 transaction'.",
+          "Groundedness: the case reference 'SYN-F02' cannot be traced to the verification output (which shows 'ACC-F02'). Confirm it against the actual case ID before sending."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us about a $400 payday loan that appears on your account and that you did not apply for, and you told us you believe someone may have used your information without your knowledge. We understand how concerning that would be.\n\nWhat we found: we reviewed your account records as of the date of your complaint. They show a loan balance of $0.00 and no active loan. They contain no payday loan record, no loan origination, no loan funding, and no $400 transaction. We therefore did not find the $400 payday loan on your account with us.\n\nAbout your concern that someone used your information: our review covers only the records for your account with us, so it cannot rule out misuse of your information elsewhere, such as with another lender or on a credit report. You have not yet told us where you saw the loan, so we cannot say more about that.\n\nOutcome: because we found no loan on your account, there is no loan to remove or dispute, and no remedy applies at this time.\n\nNext steps: please reply and tell us where you saw the $400 loan (for example, a statement, a notice, a credit report, or a message from another company) and include a copy if you have one. We will review it once we receive it. You are also free to raise your concern with any other organization or authority you choose.\n\nCase reference: SYN-F02",
+        "policy_cited": "08 General Dispute Handling Process (outcome classified as not confirmed; no error found), with Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format) applied",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "A $400 payday loan appears on the account that the customer never applied for",
+          "Customer believes someone used their information without their knowledge"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed: (1) the $400 payday loan the customer never applied for, covered under 'What we found' and 'Outcome'; (2) the belief that someone used their information, covered under 'About your concern that someone used your information' and the next steps.",
+        "groundedness_check": "pass \u2014 the loan balance of $0.00, no active loan, and no loan record, origination, funding or $400 transaction all match the verification output. The limit of the review to our own records, and the fact that the customer has not said where they saw the loan, are also supported. Note for the human reviewer: the case reference 'SYN-F02' does not appear in the inputs supplied to this check (only account ACC-F02 does). Confirm it matches the case ID in the original complaint record before sending.",
+        "policy_authorization_check": "pass \u2014 the draft states no remedy (remedy_stated is null) and says none applies. It promises no refund, waiver, removal or account change, so nothing exceeds the authority of Policy 08 or any fee-waiver threshold.",
+        "prohibited_language_check": "pass \u2014 no fault admission, no guarantee about the future, no legal conclusion, and no promise outside documented authority. 'You are also free to raise your concern with any other organization or authority you choose' encourages other channels rather than discouraging them. 'There is no loan to remove or dispute' refers only to our own account records and does not tell the customer to stop pursuing the matter elsewhere.",
+        "tone_structure_check": "pass \u2014 the order follows Policy 11: acknowledgment that references the specific complaint, findings, outcome, next steps, then the case reference. It uses second person, plain language and short paragraphs, with the two allegations in separate paragraphs. Its length is acceptable for a multi-allegation response, and it contains no marketing or cross-sell content.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about a $400 payday loan that appears on your account and that you did not apply for, and you told us you believe someone may have used your information without your knowledge. We understand how concerning that would be.\n\nWhat we found: we reviewed your account records as of the date of your complaint. They show a loan balance of $0.00 and no active loan. They contain no payday loan record, no loan origination, no loan funding, and no $400 transaction. We therefore did not find the $400 payday loan on your account with us.\n\nAbout your concern that someone used your information: our review covers only the records for your account with us, so it cannot rule out misuse of your information elsewhere, such as with another lender or on a credit report. You have not yet told us where you saw the loan, so we cannot say more about that.\n\nOutcome: because we found no loan on your account, there is no loan to remove or dispute, and no remedy applies at this time.\n\nNext steps: please reply and tell us where you saw the $400 loan (for example, a statement, a notice, a credit report, or a message from another company) and include a copy if you have one. We will review it once we receive it. You are also free to raise your concern with any other organization or authority you choose.\n\nCase reference: SYN-F02",
+    "policy_cited": "08 General Dispute Handling Process (outcome classified as not confirmed; no error found), with Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format) applied",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "A $400 payday loan appears on the account that the customer never applied for",
+      "Customer believes someone used their information without their knowledge"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed: (1) the $400 payday loan the customer never applied for, covered under 'What we found' and 'Outcome'; (2) the belief that someone used their information, covered under 'About your concern that someone used your information' and the next steps.",
+    "groundedness_check": "pass \u2014 the loan balance of $0.00, no active loan, and no loan record, origination, funding or $400 transaction all match the verification output. The limit of the review to our own records, and the fact that the customer has not said where they saw the loan, are also supported. Note for the human reviewer: the case reference 'SYN-F02' does not appear in the inputs supplied to this check (only account ACC-F02 does). Confirm it matches the case ID in the original complaint record before sending.",
+    "policy_authorization_check": "pass \u2014 the draft states no remedy (remedy_stated is null) and says none applies. It promises no refund, waiver, removal or account change, so nothing exceeds the authority of Policy 08 or any fee-waiver threshold.",
+    "prohibited_language_check": "pass \u2014 no fault admission, no guarantee about the future, no legal conclusion, and no promise outside documented authority. 'You are also free to raise your concern with any other organization or authority you choose' encourages other channels rather than discouraging them. 'There is no loan to remove or dispute' refers only to our own account records and does not tell the customer to stop pursuing the matter elsewhere.",
+    "tone_structure_check": "pass \u2014 the order follows Policy 11: acknowledgment that references the specific complaint, findings, outcome, next steps, then the case reference. It uses second person, plain language and short paragraphs, with the two allegations in separate paragraphs. Its length is acceptable for a multi-allegation response, and it contains no marketing or cross-sell content.",
+    "specific_issues": []
+  },
+  "summary": "Received a loan you didn't apply for - confirmed_false - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T12:19:58+00:00"
+}

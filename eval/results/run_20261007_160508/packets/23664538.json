@@ -1,0 +1,223 @@
+{
+  "complaint_id": "23664538",
+  "run_started": "2026-10-07T21:07:03+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23664538",
+    "date_received": "6/29/2026",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Took or threatened to take negative or legal action",
+    "sub_issue": "Threatened or suggested your credit would be damaged",
+    "state": "AZ",
+    "narrative": "The collection agency representative raised his voice and told me this would go on my permanent record forever if I didn't pay today. I felt pressured and intimidated during the entire call.",
+    "account_id": "ACC-029",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1424,
+      "output_tokens": 202
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4705,
+      "output_tokens": 984
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Collection agency representative raised his voice during a call",
+      "Representative said the debt would go on the customer's permanent record forever if not paid today",
+      "Customer felt pressured and intimidated throughout the call"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "today"
+    ],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "distressed but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-029",
+      "loan_balance": 2500.0,
+      "origination_date": "2025-02-19",
+      "payment_status": "past_due",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, past due. Opened 2025-02-19."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-029",
+        "date": "2026-02-19",
+        "type": "payment",
+        "amount": 210.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2026-03-19",
+        "type": "payment",
+        "amount": 210.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2026-04-19",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $210.00 not received"
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2026-05-19",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $210.00 not received"
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2026-05-25",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Account moved to in-house collections. Past-due total $420.00"
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2026-06-26",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Outbound collections call to customer, 11 min, recorded"
+      },
+      {
+        "account_id": "ACC-029",
+        "date": "2026-06-26",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Customer requested supervisor review of call. QA review opened (tone and statements); result pending"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The central allegation is that the collector raised his voice and said the debt would stay on the customer's permanent record forever if not paid today, which left the customer feeling pressured and intimidated. The records confirm only background: an 11-minute recorded outbound collections call on 2026-06-26, on a past-due account (installments of $210 missed on 2026-04-19 and 2026-05-19, past-due total $420.00, moved to in-house collections 2026-05-25). That the call took place does not confirm what was said or how. The customer asked for supervisor review, and a QA review of tone and statements was opened on 2026-06-26 with the result still pending. The call is recorded, but no one has reviewed it, and the deciding finding is still open. Missing: the QA review outcome and/or a review of the call recording for tone and the 'permanent record' statement.",
+    "risk_tier": "High",
+    "risk_rationale": "Reg F (policy 03) influenced this tier: the customer alleges a collector made a statement about credit consequences ('permanent record forever if not paid today') while raising his voice, and the records do not contradict it. An unverified allegation of this kind is still serious. The tier is not raised because the claim is unverifiable. The $420 past-due balance would only have supported Medium.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Risk tier is High under the Reg F collector-conduct allegation (credit-consequence statement and raised voice), so the case needs human escalation. Separately, the evidence is unverifiable because the QA review of the recorded call is still pending.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "The collection agency representative raised his voice and told me this would go on my permanent record forever if I didn't pay today. I felt pressured and intimidated during the entire call.",
+    "extraction": {
+      "allegations": [
+        "Collection agency representative raised his voice during a call",
+        "Representative said the debt would go on the customer's permanent record forever if not paid today",
+        "Customer felt pressured and intimidated throughout the call"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "today"
+      ],
+      "account_details_mentioned": null,
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "distressed but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The central allegation is that the collector raised his voice and said the debt would stay on the customer's permanent record forever if not paid today, which left the customer feeling pressured and intimidated. The records confirm only background: an 11-minute recorded outbound collections call on 2026-06-26, on a past-due account (installments of $210 missed on 2026-04-19 and 2026-05-19, past-due total $420.00, moved to in-house collections 2026-05-25). That the call took place does not confirm what was said or how. The customer asked for supervisor review, and a QA review of tone and statements was opened on 2026-06-26 with the result still pending. The call is recorded, but no one has reviewed it, and the deciding finding is still open. Missing: the QA review outcome and/or a review of the call recording for tone and the 'permanent record' statement.",
+      "risk_tier": "High",
+      "risk_rationale": "Reg F (policy 03) influenced this tier: the customer alleges a collector made a statement about credit consequences ('permanent record forever if not paid today') while raising his voice, and the records do not contradict it. An unverified allegation of this kind is still serious. The tier is not raised because the claim is unverifiable. The $420 past-due balance would only have supported Medium.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-029",
+        "loan_balance": 2500.0,
+        "origination_date": "2025-02-19",
+        "payment_status": "past_due",
+        "product_type": "installment_loan",
+        "account_note": "Installment loan, past due. Opened 2025-02-19."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-029",
+          "date": "2026-02-19",
+          "type": "payment",
+          "amount": 210.0,
+          "note": "Scheduled installment received"
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2026-03-19",
+          "type": "payment",
+          "amount": 210.0,
+          "note": "Scheduled installment received"
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2026-04-19",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled installment $210.00 not received"
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2026-05-19",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled installment $210.00 not received"
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2026-05-25",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Account moved to in-house collections. Past-due total $420.00"
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2026-06-26",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Outbound collections call to customer, 11 min, recorded"
+        },
+        {
+          "account_id": "ACC-029",
+          "date": "2026-06-26",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Customer requested supervisor review of call. QA review opened (tone and statements); result pending"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Risk tier is High under the Reg F collector-conduct allegation (credit-consequence statement and raised voice), so the case needs human escalation. Separately, the evidence is unverifiable because the QA review of the recorded call is still pending.",
+    "unresolved": "The central allegation is that the collector raised his voice and said the debt would stay on the customer's permanent record forever if not paid today, which left the customer feeling pressured and intimidated. The records confirm only background: an 11-minute recorded outbound collections call on 2026-06-26, on a past-due account (installments of $210 missed on 2026-04-19 and 2026-05-19, past-due total $420.00, moved to in-house collections 2026-05-25). That the call took place does not confirm what was said or how. The customer asked for supervisor review, and a QA review of tone and statements was opened on 2026-06-26 with the result still pending. The call is recorded, but no one has reviewed it, and the deciding finding is still open. Missing: the QA review outcome and/or a review of the call recording for tone and the 'permanent record' statement.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Took or threatened to take negative or legal action - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T21:07:13+00:00"
+}

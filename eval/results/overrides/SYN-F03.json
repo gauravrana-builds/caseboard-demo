@@ -1,0 +1,253 @@
+{
+  "complaint_id": "SYN-F03",
+  "run_started": "2026-10-08T18:02:15+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-F03",
+    "date_received": "6/19/2026",
+    "product": "Debt collection",
+    "sub_product": "Credit card debt",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt is not yours",
+    "state": "NC",
+    "narrative": "I am being contacted about a $560 debt that is not mine. I have never had any account with this original creditor.",
+    "account_id": "ACC-F03",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1395,
+      "output_tokens": 177
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4429,
+      "output_tokens": 1326
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4184,
+      "output_tokens": 1185
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4376,
+      "output_tokens": 1312
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4302,
+      "output_tokens": 1375
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4448,
+      "output_tokens": 1435
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Being contacted about a $560 debt that is not theirs",
+      "Never had any account with the original creditor"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      560.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Customer states they have never had an account with the original creditor",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-F03",
+      "loan_balance": 0.0,
+      "origination_date": null,
+      "payment_status": "no_account",
+      "product_type": "installment_loan",
+      "account_note": "No account of any kind, open or closed, exists for this customer with this company. The $560 debt referenced does not match any record. Complaint's claim is NOT supported by internal records."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-F03",
+        "date": "N/A",
+        "type": "none",
+        "amount": 0.0,
+        "note": "No account of any kind exists for this customer."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The central allegation is that the $560 debt is not the customer's and that they never had an account with the original creditor. Account ACC-F03 shows no account of any kind, open or closed, for this customer with this company, and the transaction history is empty (type 'none', $0.00). The note saying the claim is 'NOT supported by internal records' does not contradict the customer. The absence of an account here is consistent with what they say, and it cannot show whether they had an account with a different original creditor. The records also contain no contact or collection log, so there is nothing to show who contacted the customer about the $560, on whose behalf, or on what basis. Missing: the collection or contact log for this customer, the origin and ownership of the $560 debt (whether this company is collecting or servicing it for another party), and any identity-matching information linking the customer to that debt.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The disputed amount is $560, over the $200 threshold, and the complaint is a dispute over whether a debt is the customer's at all, which raises collection-validation concerns. It does not reach automatic High because the customer does not allege identity theft or fraud, mentions no attorney or regulator, and has no hardship, vulnerability, or UDAAP-pattern language.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the records cannot show who contacted the customer about the $560 or whether the debt belongs to them. A human reviewer must obtain the collection and contact records and the debt's origin and ownership before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I am being contacted about a $560 debt that is not mine. I have never had any account with this original creditor.",
+    "extraction": {
+      "allegations": [
+        "Being contacted about a $560 debt that is not theirs",
+        "Never had any account with the original creditor"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        560.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Customer states they have never had an account with the original creditor",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "brief and factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The central allegation is that the $560 debt is not the customer's and that they never had an account with the original creditor. Account ACC-F03 shows no account of any kind, open or closed, for this customer with this company, and the transaction history is empty (type 'none', $0.00). The note saying the claim is 'NOT supported by internal records' does not contradict the customer. The absence of an account here is consistent with what they say, and it cannot show whether they had an account with a different original creditor. The records also contain no contact or collection log, so there is nothing to show who contacted the customer about the $560, on whose behalf, or on what basis. Missing: the collection or contact log for this customer, the origin and ownership of the $560 debt (whether this company is collecting or servicing it for another party), and any identity-matching information linking the customer to that debt.",
+      "risk_tier": "Medium",
+      "risk_rationale": "The disputed amount is $560, over the $200 threshold, and the complaint is a dispute over whether a debt is the customer's at all, which raises collection-validation concerns. It does not reach automatic High because the customer does not allege identity theft or fraud, mentions no attorney or regulator, and has no hardship, vulnerability, or UDAAP-pattern language.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-F03",
+        "loan_balance": 0.0,
+        "origination_date": null,
+        "payment_status": "no_account",
+        "product_type": "installment_loan",
+        "account_note": "No account of any kind, open or closed, exists for this customer with this company. The $560 debt referenced does not match any record. Complaint's claim is NOT supported by internal records."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-F03",
+          "date": "N/A",
+          "type": "none",
+          "amount": 0.0,
+          "note": "No account of any kind exists for this customer."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the records cannot show who contacted the customer about the $560 or whether the debt belongs to them. A human reviewer must obtain the collection and contact records and the debt's origin and ownership before any response is drafted.",
+    "unresolved": "The central allegation is that the $560 debt is not the customer's and that they never had an account with the original creditor. Account ACC-F03 shows no account of any kind, open or closed, for this customer with this company, and the transaction history is empty (type 'none', $0.00). The note saying the claim is 'NOT supported by internal records' does not contradict the customer. The absence of an account here is consistent with what they say, and it cannot show whether they had an account with a different original creditor. The records also contain no contact or collection log, so there is nothing to show who contacted the customer about the $560, on whose behalf, or on what basis. Missing: the collection or contact log for this customer, the origin and ownership of the $560 debt (whether this company is collecting or servicing it for another party), and any identity-matching information linking the customer to that debt.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - Medium risk - draft ready for review",
+  "run_finished": "2026-10-09T19:24:55+00:00",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us because you were told you owe a $560 debt that you say isn't yours, and because you have never had an account with the original creditor. We understand how unsettling it is to be contacted about a debt you don't recognize.\n\nHere is what we found:\n\n1. The $560 debt not being yours: We searched our records and found no account of any kind, open or closed, in your name with us, and no transactions. We also did not find a record of who contacted you about the $560, or where the debt came from. Because of that, we can't confirm or rule out whether this debt is connected to you.\n\n2. Never having an account with the original creditor: Our records don't show an account for you with us, which is consistent with what you've told us. They don't tell us anything about a different original creditor, so we can't verify this part either.\n\nBecause we can't verify either point from what we have, we have no remedy to offer yet. What would help most is any detail about the contact you received. This could be a copy of the letter or notice, the name of the company or creditor that contacted you, the date and how they reached you (mail, phone, or email), and any account number they quoted. You can reply to this message or call the number on your account, and we will review whatever you send. You are also free to raise this with any other organization or agency you choose.\n\nCase reference: SYN-F03",
+        "policy_cited": "08 General Dispute Handling Process, Standard process steps 3\u20134 (outcome classified as unable to verify; every allegation addressed individually with a stated next step)",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Being contacted about a $560 debt that is not theirs",
+          "Never had any account with the original creditor"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 the draft says \"call the number on your account,\" but its own findings (and the verification output) say there is no account of any kind for this customer. No such number exists, and no contact channel is supported by the verification output or the cited policy.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: \"call the number on your account\" contradicts the draft's own finding that no account exists for the customer. It points them to a channel that is not supported by the records. Replace it with a verified contact method, such as replying to the message or a general customer-service number supplied by the reviewer."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "Thank you for telling us about the $560 debt you were contacted about, which you say isn't yours, and about never having had an account with the original creditor. Being contacted about money you don't believe you owe is stressful, and we want to be clear about what we could and couldn't confirm.\n\nHere is what we found on each point:\n\n1. The $560 debt not being yours: We could not verify this either way. Our records show no account of any kind, open or closed, under your name with us, and no transaction history. However, the records we reviewed don't show who contacted you about the $560, on whose behalf, or where the debt originated, so we can't yet say whether it is connected to you.\n\n2. Never having had an account with the original creditor: Our records don't contradict this. We found no account for you with us. Those records can't tell us about an account with a different company, so we can't confirm this point from our side.\n\nWhat happens next: we are requesting the contact records for this debt and the details of where it came from, so we can complete our review. We'll write to you with what we find.\n\nYou can help by replying to this message with anything you have about the contact. That could include a letter or message you received, the date it arrived, the name of whoever contacted you, the creditor named, or any reference number. You are welcome to send more information at any time, and we will review it.\n\nCase reference: SYN-F03",
+        "policy_cited": "08 General Dispute Handling Process, Standard process step 3 (unable to verify) and 'What counts as a complete response'",
+        "remedy_stated": null,
+        "referral_stated": "Draft says we are requesting the contact/collection records and the origin and ownership details of the $560 debt (including whether this company is collecting or servicing it for another party). The reviewer should make this request, or edit the wording, before sending.",
+        "allegations_addressed": [
+          "Being contacted about a $560 debt that is not theirs",
+          "Never had any account with the original creditor"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed individually: (1) the $560 debt not being the customer's, and (2) never having had an account with the original creditor.",
+        "groundedness_check": "pass \u2014 The draft's factual claims match the verification output: no account of any kind (open or closed) for this customer, an empty transaction history, and no contact or collection log showing who contacted the customer, on whose behalf, or where the debt originated. 'Original creditor' is a neutral descriptor taken from the customer's complaint. The draft does not state any refund, credit, or approval as granted. The statement that the contact records and debt-origin details are being requested is declared in `referral_stated`, so the reviewer carries it out before sending.",
+        "policy_authorization_check": "pass \u2014 No remedy is stated (`remedy_stated` is null). The draft promises no refund, waiver, debt cancellation, or account change. The 'unable to verify' classification matches Policy 08, step 3.",
+        "prohibited_language_check": "pass \u2014 The draft has no fault admission beyond confirmed fact, no guarantee about the future, no legal conclusion about the debt's validity or the customer's rights, and no language discouraging other channels. The phrase 'is stressful' acknowledges the customer's situation without admitting fault, which Policy 10 allows.",
+        "tone_structure_check": "pass \u2014 The draft follows Policy 11's order: a specific acknowledgment, findings in a separate numbered item for each allegation, a clear statement of the 'unable to verify' outcome and the next step, what the customer can provide, and the case reference SYN-F03. The paragraphs are short and in plain language, and the length is appropriate for a multi-allegation response. The outcome and next-steps sections are somewhat combined, but both are present and clear.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "Thank you for telling us about the $560 debt you were contacted about, which you say isn't yours, and about never having had an account with the original creditor. Being contacted about money you don't believe you owe is stressful, and we want to be clear about what we could and couldn't confirm.\n\nHere is what we found on each point:\n\n1. The $560 debt not being yours: We could not verify this either way. Our records show no account of any kind, open or closed, under your name with us, and no transaction history. However, the records we reviewed don't show who contacted you about the $560, on whose behalf, or where the debt originated, so we can't yet say whether it is connected to you.\n\n2. Never having had an account with the original creditor: Our records don't contradict this. We found no account for you with us. Those records can't tell us about an account with a different company, so we can't confirm this point from our side.\n\nWhat happens next: we are requesting the contact records for this debt and the details of where it came from, so we can complete our review. We'll write to you with what we find.\n\nYou can help by replying to this message with anything you have about the contact. That could include a letter or message you received, the date it arrived, the name of whoever contacted you, the creditor named, or any reference number. You are welcome to send more information at any time, and we will review it.\n\nCase reference: SYN-F03",
+    "policy_cited": "08 General Dispute Handling Process, Standard process step 3 (unable to verify) and 'What counts as a complete response'",
+    "remedy_stated": null,
+    "referral_stated": "Draft says we are requesting the contact/collection records and the origin and ownership details of the $560 debt (including whether this company is collecting or servicing it for another party). The reviewer should make this request, or edit the wording, before sending.",
+    "allegations_addressed": [
+      "Being contacted about a $560 debt that is not theirs",
+      "Never had any account with the original creditor"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed individually: (1) the $560 debt not being the customer's, and (2) never having had an account with the original creditor.",
+    "groundedness_check": "pass \u2014 The draft's factual claims match the verification output: no account of any kind (open or closed) for this customer, an empty transaction history, and no contact or collection log showing who contacted the customer, on whose behalf, or where the debt originated. 'Original creditor' is a neutral descriptor taken from the customer's complaint. The draft does not state any refund, credit, or approval as granted. The statement that the contact records and debt-origin details are being requested is declared in `referral_stated`, so the reviewer carries it out before sending.",
+    "policy_authorization_check": "pass \u2014 No remedy is stated (`remedy_stated` is null). The draft promises no refund, waiver, debt cancellation, or account change. The 'unable to verify' classification matches Policy 08, step 3.",
+    "prohibited_language_check": "pass \u2014 The draft has no fault admission beyond confirmed fact, no guarantee about the future, no legal conclusion about the debt's validity or the customer's rights, and no language discouraging other channels. The phrase 'is stressful' acknowledges the customer's situation without admitting fault, which Policy 10 allows.",
+    "tone_structure_check": "pass \u2014 The draft follows Policy 11's order: a specific acknowledgment, findings in a separate numbered item for each allegation, a clear statement of the 'unable to verify' outcome and the next step, what the customer can provide, and the case reference SYN-F03. The paragraphs are short and in plain language, and the length is appropriate for a multi-allegation response. The outcome and next-steps sections are somewhat combined, but both are present and clear.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": "Draft says we are requesting the contact/collection records and the origin and ownership details of the $560 debt (including whether this company is collecting or servicing it for another party). The reviewer should make this request, or edit the wording, before sending.",
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Evidence is unverifiable and the gap decides the outcome: the records cannot show who contacted the customer about the $560 or whether the debt belongs to them. A human reviewer must obtain the collection and contact records and the debt's origin and ownership before any response is drafted.",
+    "at": "2026-10-09T19:24:55+00:00"
+  }
+}

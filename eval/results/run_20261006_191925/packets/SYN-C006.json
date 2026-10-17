@@ -1,0 +1,277 @@
+{
+  "complaint_id": "SYN-C006",
+  "run_started": "2026-10-07T00:23:59+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C006",
+    "date_received": "2026-09-13",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt is not yours",
+    "state": "CA",
+    "narrative": "I am being contacted about a $300 debt that does not belong to me. I have asked for validation multiple times and have not received any documentation.",
+    "account_id": "ACC-056",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1402,
+      "output_tokens": 178
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3054,
+      "output_tokens": 1105
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Being contacted about a $300 debt that does not belong to the customer",
+      "Requested validation multiple times and received no documentation"
+    ],
+    "requested_outcome": "Validation documentation for the debt",
+    "dollar_amounts_mentioned": [
+      300.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-056",
+      "loan_balance": 2000.0,
+      "origination_date": "2025-04-11",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-056",
+        "date": "2025-04-11",
+        "type": "payment",
+        "amount": 125.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2025-05-11",
+        "type": "payment",
+        "amount": 68.97,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2025-06-10",
+        "type": "payment",
+        "amount": 117.65,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2025-07-10",
+        "type": "payment",
+        "amount": 166.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2025-08-09",
+        "type": "payment",
+        "amount": 86.96,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2025-09-08",
+        "type": "payment",
+        "amount": 105.26,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2025-10-08",
+        "type": "payment",
+        "amount": 166.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2025-11-07",
+        "type": "payment",
+        "amount": 153.85,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2025-12-07",
+        "type": "payment",
+        "amount": 80.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2026-01-06",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-056",
+        "date": "2026-02-05",
+        "type": "payment",
+        "amount": 55.56,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved evidence does not cover either allegation. ACC-056 is a current installment loan with a $2,000 balance, and its transactions (2025-04-11 to 2026-02-05) show only routine payments and one $30 fee on 2026-01-06. No $300 charge, balance, or collections item appears, so the data neither shows nor rules out that a $300 debt exists or belongs to this customer. Missing: (1) the identity, origin, and owner of the $300 debt, including whether it sits on a different account or with a third-party collector; (2) any collection-contact log showing who contacted the customer and when; (3) any record of the customer's validation requests or of validation notices sent. The complaint gives no dates, and the account note says the record is generic and not built to verify this complaint. No claim can be confirmed or contradicted from this data.",
+    "risk_tier": "High",
+    "risk_rationale": "Evidence is unverifiable and the gap could change the outcome, because the disputed $300 debt's ownership and the handling of the customer's repeated validation requests cannot be confirmed; this is an automatic High trigger.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central issue (whether the $300 debt is valid or belongs to the customer, and whether validation requests were received and answered), so a draft response could misstate facts. The alleged unanswered validation requests may also raise debt-collection compliance concerns, so a human reviewer should handle this case.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I am being contacted about a $300 debt that does not belong to me. I have asked for validation multiple times and have not received any documentation.",
+    "extraction": {
+      "allegations": [
+        "Being contacted about a $300 debt that does not belong to the customer",
+        "Requested validation multiple times and received no documentation"
+      ],
+      "requested_outcome": "Validation documentation for the debt",
+      "dollar_amounts_mentioned": [
+        300.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": null,
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved evidence does not cover either allegation. ACC-056 is a current installment loan with a $2,000 balance, and its transactions (2025-04-11 to 2026-02-05) show only routine payments and one $30 fee on 2026-01-06. No $300 charge, balance, or collections item appears, so the data neither shows nor rules out that a $300 debt exists or belongs to this customer. Missing: (1) the identity, origin, and owner of the $300 debt, including whether it sits on a different account or with a third-party collector; (2) any collection-contact log showing who contacted the customer and when; (3) any record of the customer's validation requests or of validation notices sent. The complaint gives no dates, and the account note says the record is generic and not built to verify this complaint. No claim can be confirmed or contradicted from this data.",
+      "risk_tier": "High",
+      "risk_rationale": "Evidence is unverifiable and the gap could change the outcome, because the disputed $300 debt's ownership and the handling of the customer's repeated validation requests cannot be confirmed; this is an automatic High trigger.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-056",
+        "loan_balance": 2000.0,
+        "origination_date": "2025-04-11",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-056",
+          "date": "2025-04-11",
+          "type": "payment",
+          "amount": 125.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2025-05-11",
+          "type": "payment",
+          "amount": 68.97,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2025-06-10",
+          "type": "payment",
+          "amount": 117.65,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2025-07-10",
+          "type": "payment",
+          "amount": 166.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2025-08-09",
+          "type": "payment",
+          "amount": 86.96,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2025-09-08",
+          "type": "payment",
+          "amount": 105.26,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2025-10-08",
+          "type": "payment",
+          "amount": 166.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2025-11-07",
+          "type": "payment",
+          "amount": 153.85,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2025-12-07",
+          "type": "payment",
+          "amount": 80.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2026-01-06",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-056",
+          "date": "2026-02-05",
+          "type": "payment",
+          "amount": 55.56,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central issue (whether the $300 debt is valid or belongs to the customer, and whether validation requests were received and answered), so a draft response could misstate facts. The alleged unanswered validation requests may also raise debt-collection compliance concerns, so a human reviewer should handle this case.",
+    "unresolved": "The retrieved evidence does not cover either allegation. ACC-056 is a current installment loan with a $2,000 balance, and its transactions (2025-04-11 to 2026-02-05) show only routine payments and one $30 fee on 2026-01-06. No $300 charge, balance, or collections item appears, so the data neither shows nor rules out that a $300 debt exists or belongs to this customer. Missing: (1) the identity, origin, and owner of the $300 debt, including whether it sits on a different account or with a third-party collector; (2) any collection-contact log showing who contacted the customer and when; (3) any record of the customer's validation requests or of validation notices sent. The complaint gives no dates, and the account note says the record is generic and not built to verify this complaint. No claim can be confirmed or contradicted from this data.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:24:11+00:00"
+}

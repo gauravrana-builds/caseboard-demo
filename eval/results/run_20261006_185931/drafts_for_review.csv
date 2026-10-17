@@ -1,0 +1,21 @@
+complaint_id,demo_case_type,narrative,extracted_allegations,fact_verification,risk_tier,policy_cited,draft_text,remedy_stated,verifier_result,verifier_issues,human_tag (Approve / Minor / Substantive),reviewer_notes
+SYN-F01,core_confirmed_false,I was charged a $35 late fee this month even though I paid on time. I pay the same way every month and this has never happened before.,Charged a $35 late fee this month despite paying on time | Pays the same way every month and this has never happened before,confirmed_false,Low,06 Fee Waiver and Goodwill Credit Authority (no waiver applicable: transaction history shows no fee was charged); 10 Prohibited Language; 11 Response Tone and Format,"You contacted us about a $35 late fee that you believe was charged to your account this month even though you paid on time.
+
+We reviewed your account activity for June 2026. Our records show your payment of $180.00 was received on June 8, two days before your June 10 due date. They also show no late fee, or any other fee, charged to your account this month. We could not find a $35 charge.
+
+You also mentioned that you pay the same way every month and that this has not happened before. Our review confirmed that your June payment was on time. Because no late fee was assessed, there is no fee for us to waive or reverse, so no credit or adjustment applies.
+
+If you are seeing a $35 charge somewhere, such as on a statement or in your online account, please reply to this message with the statement date or a screenshot, or contact us using the details on your account. We will review exactly what you are seeing.
+
+Case reference: SYN-F01",,pass,,Approve,
+SYN-P01,core_partially_true,"I was charged two separate fees this month, a $15 processing fee and a $35 late fee. I think both of these are wrong and should be refunded.",Charged a $15 processing fee this month that the customer believes is wrong | Charged a $35 late fee this month that the customer believes is wrong,partially_true,Medium,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee confirmed as correctly charged and disclosed; no fee charged in error). Format and language per Policy 10 and Policy 11.","You contacted us about two charges you believe are wrong on your account this month: a $15 processing fee and a $35 late fee. We reviewed your account and transaction history for both.
+
+$15 processing fee: Our records show a $15 processing fee was assessed on June 25, 2026. This is a standard fee disclosed in section 2.1 of your loan agreement.
+
+$35 late fee: Our transaction history shows no $35 late fee on your account during the relevant period, and your account is current. The $35 charge you mentioned does not appear in our records.
+
+Based on our review, no refund or fee adjustment applies to either charge. The $15 processing fee was charged as described in your loan agreement, and no $35 late fee was charged.
+
+If you're seeing a $35 charge on a statement or in your online account, please reply to this message with the statement date or a screenshot, and we will review it. You can also reply with any questions about the $15 processing fee or section 2.1 of your agreement.
+
+Case reference: SYN-P01",,pass,,Approve,

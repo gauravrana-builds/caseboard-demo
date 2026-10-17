@@ -1,0 +1,167 @@
+{
+  "complaint_id": "22245329",
+  "run_started": "2026-10-07T02:27:26+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "22245329",
+    "date_received": "5/15/2026",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt is not yours",
+    "state": "PA",
+    "narrative": "I am being contacted about a debt of $1,100 that I do not recognize. When I asked for validation of the debt, including the original creditor's name, they refused to provide it and just told me to pay or it would go to collections.",
+    "account_id": "ACC-027",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1428,
+      "output_tokens": 248
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3161,
+      "output_tokens": 1344
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Being contacted about a $1,100 debt the customer does not recognize",
+      "Collector refused to provide debt validation, including the original creditor's name, when asked",
+      "Collector said to pay or the debt would go to collections"
+    ],
+    "requested_outcome": "Validation of the debt, including the original creditor's name",
+    "dollar_amounts_mentioned": [
+      1100.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Debt of $1,100 that the customer does not recognize",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concise, factual, disputing the debt"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-027",
+      "loan_balance": 2000.0,
+      "origination_date": "2025-07-19",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, current. Opened 2025-07-19."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-027",
+        "date": "2026-03-19",
+        "type": "payment",
+        "amount": 185.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2026-04-19",
+        "type": "payment",
+        "amount": 185.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2026-05-12",
+        "type": "payment",
+        "amount": 185.0,
+        "note": "Scheduled installment received"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The account record for ACC-027 shows a $2,000 installment loan opened 2025-07-19 and current. Transactions on 2026-03-19, 2026-04-19 and 2026-05-12 are each a $185 scheduled installment, and no $1,100 balance, delinquency, charge-off, or collections placement appears. This does not contradict the complaint, because the $1,100 debt may belong to a different account, creditor, or third-party collector. The records contain nothing about the collector contact itself. Missing: (1) collection/contact logs or call recordings showing who contacted the customer and what was said; (2) any record linking an $1,100 debt to this customer, including other accounts, sold or placed debts, or third-party collection placements; (3) validation-request history and any validation notice sent. The allegations that the collector refused validation and threatened collections can be neither confirmed nor ruled out.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer alleges that a collector refused to give debt validation (the original creditor's name) and said to pay or the debt would go to collections. This is a UDAAP-pattern signal (withheld material information plus pressure tactics) on a $1,100 amount, so the pattern drove the tier to High. There is no attorney/regulator reference and the flag is FALSE, so the automatic High trigger does not apply, and the unverifiable status did not raise the tier.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "High-risk UDAAP-pattern allegation (refused debt validation and pressure to pay) requires human escalation. The evidence gap also independently blocks drafting: no collection contact records or link between the $1,100 debt and this customer's accounts.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I am being contacted about a debt of $1,100 that I do not recognize. When I asked for validation of the debt, including the original creditor's name, they refused to provide it and just told me to pay or it would go to collections.",
+    "extraction": {
+      "allegations": [
+        "Being contacted about a $1,100 debt the customer does not recognize",
+        "Collector refused to provide debt validation, including the original creditor's name, when asked",
+        "Collector said to pay or the debt would go to collections"
+      ],
+      "requested_outcome": "Validation of the debt, including the original creditor's name",
+      "dollar_amounts_mentioned": [
+        1100.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Debt of $1,100 that the customer does not recognize",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concise, factual, disputing the debt"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The account record for ACC-027 shows a $2,000 installment loan opened 2025-07-19 and current. Transactions on 2026-03-19, 2026-04-19 and 2026-05-12 are each a $185 scheduled installment, and no $1,100 balance, delinquency, charge-off, or collections placement appears. This does not contradict the complaint, because the $1,100 debt may belong to a different account, creditor, or third-party collector. The records contain nothing about the collector contact itself. Missing: (1) collection/contact logs or call recordings showing who contacted the customer and what was said; (2) any record linking an $1,100 debt to this customer, including other accounts, sold or placed debts, or third-party collection placements; (3) validation-request history and any validation notice sent. The allegations that the collector refused validation and threatened collections can be neither confirmed nor ruled out.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer alleges that a collector refused to give debt validation (the original creditor's name) and said to pay or the debt would go to collections. This is a UDAAP-pattern signal (withheld material information plus pressure tactics) on a $1,100 amount, so the pattern drove the tier to High. There is no attorney/regulator reference and the flag is FALSE, so the automatic High trigger does not apply, and the unverifiable status did not raise the tier.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-027",
+        "loan_balance": 2000.0,
+        "origination_date": "2025-07-19",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Installment loan, current. Opened 2025-07-19."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-027",
+          "date": "2026-03-19",
+          "type": "payment",
+          "amount": 185.0,
+          "note": "Scheduled installment received"
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2026-04-19",
+          "type": "payment",
+          "amount": 185.0,
+          "note": "Scheduled installment received"
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2026-05-12",
+          "type": "payment",
+          "amount": 185.0,
+          "note": "Scheduled installment received"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "High-risk UDAAP-pattern allegation (refused debt validation and pressure to pay) requires human escalation. The evidence gap also independently blocks drafting: no collection contact records or link between the $1,100 debt and this customer's accounts.",
+    "unresolved": "The account record for ACC-027 shows a $2,000 installment loan opened 2025-07-19 and current. Transactions on 2026-03-19, 2026-04-19 and 2026-05-12 are each a $185 scheduled installment, and no $1,100 balance, delinquency, charge-off, or collections placement appears. This does not contradict the complaint, because the $1,100 debt may belong to a different account, creditor, or third-party collector. The records contain nothing about the collector contact itself. Missing: (1) collection/contact logs or call recordings showing who contacted the customer and what was said; (2) any record linking an $1,100 debt to this customer, including other accounts, sold or placed debts, or third-party collection placements; (3) validation-request history and any validation notice sent. The allegations that the collector refused validation and threatened collections can be neither confirmed nor ruled out.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T02:27:40+00:00"
+}

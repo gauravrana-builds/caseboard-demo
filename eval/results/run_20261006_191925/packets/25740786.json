@@ -1,0 +1,293 @@
+{
+  "complaint_id": "25740786",
+  "run_started": "2026-10-07T00:20:46+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "25740786",
+    "date_received": "2026-08-24",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Problem with a company's investigation into an existing problem",
+    "sub_issue": "Their investigation did not fix an error on your report",
+    "state": "CA",
+    "narrative": "I've disputed the same incorrect late payment three separate times over the past six months and each time the company says it's verified as accurate without giving me any explanation of what they actually verified.",
+    "account_id": "ACC-023",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1437,
+      "output_tokens": 226
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3164,
+      "output_tokens": 1316
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Disputed the same incorrect late payment three separate times over the past six months",
+      "Company each time stated the late payment was verified as accurate",
+      "Company gave no explanation of what was actually verified"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "over the past six months"
+    ],
+    "account_details_mentioned": "Late payment on the account is reported incorrectly and has been disputed three times",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-023",
+      "loan_balance": 800.0,
+      "origination_date": "2025-02-25",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-023",
+        "date": "2025-02-25",
+        "type": "payment",
+        "amount": 28.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-03-27",
+        "type": "payment",
+        "amount": 27.59,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-04-26",
+        "type": "payment",
+        "amount": 53.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-05-26",
+        "type": "payment",
+        "amount": 30.77,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-06-25",
+        "type": "payment",
+        "amount": 27.59,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-07-25",
+        "type": "payment",
+        "amount": 22.22,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-08-24",
+        "type": "payment",
+        "amount": 25.81,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-09-23",
+        "type": "payment",
+        "amount": 28.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-10-23",
+        "type": "payment",
+        "amount": 27.59,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-11-22",
+        "type": "payment",
+        "amount": 47.06,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2025-12-22",
+        "type": "payment",
+        "amount": 29.63,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-023",
+        "date": "2026-01-21",
+        "type": "payment",
+        "amount": 22.22,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The records provided cannot confirm or contradict the claim. The transaction history shows 12 payments from 2025-02-25 to 2026-01-21, spaced about 30 days apart. All are noted as 'Routine scheduled payment', and no late fee or delinquency event appears. However, the data has no payment due dates, no contractual installment amount (payments vary from $22.22 to $53.33), and no credit-bureau reporting data, so it cannot show which payment was reported late or whether it was actually late. The customer did not say which payment is in question. There is also no dispute log showing the three disputes, the dates of those disputes, or what the verification involved, so the claim that the company gave no explanation cannot be checked. The history ends 2026-01-21, so it may not cover the full six-month dispute window. The account note says the record is generic and not built to verify this complaint. Current payment status ('current') does not rule out a past late payment. Missing: payment due dates and installment schedule, the credit-reporting/tradeline history, the specific late-payment date being disputed, the dispute and investigation records, and transactions after 2026-01-21 if the complaint period extends beyond that.",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable and the gap decides the outcome, because whether a late payment occurred and was reported inaccurately cannot be determined from the records. This is an automatic High trigger, and the customer's three prior disputes (repeated contact) and the boilerplate 'verified as accurate' responses with no explanation raise the risk further.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: there is no due-date, credit-reporting, or dispute-history data to determine whether the late payment is accurate or how the three prior disputes were handled. Human review is needed to pull those records.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I've disputed the same incorrect late payment three separate times over the past six months and each time the company says it's verified as accurate without giving me any explanation of what they actually verified.",
+    "extraction": {
+      "allegations": [
+        "Disputed the same incorrect late payment three separate times over the past six months",
+        "Company each time stated the late payment was verified as accurate",
+        "Company gave no explanation of what was actually verified"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "over the past six months"
+      ],
+      "account_details_mentioned": "Late payment on the account is reported incorrectly and has been disputed three times",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The records provided cannot confirm or contradict the claim. The transaction history shows 12 payments from 2025-02-25 to 2026-01-21, spaced about 30 days apart. All are noted as 'Routine scheduled payment', and no late fee or delinquency event appears. However, the data has no payment due dates, no contractual installment amount (payments vary from $22.22 to $53.33), and no credit-bureau reporting data, so it cannot show which payment was reported late or whether it was actually late. The customer did not say which payment is in question. There is also no dispute log showing the three disputes, the dates of those disputes, or what the verification involved, so the claim that the company gave no explanation cannot be checked. The history ends 2026-01-21, so it may not cover the full six-month dispute window. The account note says the record is generic and not built to verify this complaint. Current payment status ('current') does not rule out a past late payment. Missing: payment due dates and installment schedule, the credit-reporting/tradeline history, the specific late-payment date being disputed, the dispute and investigation records, and transactions after 2026-01-21 if the complaint period extends beyond that.",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable and the gap decides the outcome, because whether a late payment occurred and was reported inaccurately cannot be determined from the records. This is an automatic High trigger, and the customer's three prior disputes (repeated contact) and the boilerplate 'verified as accurate' responses with no explanation raise the risk further.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-023",
+        "loan_balance": 800.0,
+        "origination_date": "2025-02-25",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-023",
+          "date": "2025-02-25",
+          "type": "payment",
+          "amount": 28.57,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-03-27",
+          "type": "payment",
+          "amount": 27.59,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-04-26",
+          "type": "payment",
+          "amount": 53.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-05-26",
+          "type": "payment",
+          "amount": 30.77,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-06-25",
+          "type": "payment",
+          "amount": 27.59,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-07-25",
+          "type": "payment",
+          "amount": 22.22,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-08-24",
+          "type": "payment",
+          "amount": 25.81,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-09-23",
+          "type": "payment",
+          "amount": 28.57,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-10-23",
+          "type": "payment",
+          "amount": 27.59,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-11-22",
+          "type": "payment",
+          "amount": 47.06,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2025-12-22",
+          "type": "payment",
+          "amount": 29.63,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-023",
+          "date": "2026-01-21",
+          "type": "payment",
+          "amount": 22.22,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: there is no due-date, credit-reporting, or dispute-history data to determine whether the late payment is accurate or how the three prior disputes were handled. Human review is needed to pull those records.",
+    "unresolved": "The records provided cannot confirm or contradict the claim. The transaction history shows 12 payments from 2025-02-25 to 2026-01-21, spaced about 30 days apart. All are noted as 'Routine scheduled payment', and no late fee or delinquency event appears. However, the data has no payment due dates, no contractual installment amount (payments vary from $22.22 to $53.33), and no credit-bureau reporting data, so it cannot show which payment was reported late or whether it was actually late. The customer did not say which payment is in question. There is also no dispute log showing the three disputes, the dates of those disputes, or what the verification involved, so the claim that the company gave no explanation cannot be checked. The history ends 2026-01-21, so it may not cover the full six-month dispute window. The account note says the record is generic and not built to verify this complaint. Current payment status ('current') does not rule out a past late payment. Missing: payment due dates and installment schedule, the credit-reporting/tradeline history, the specific late-payment date being disputed, the dispute and investigation records, and transactions after 2026-01-21 if the complaint period extends beyond that.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem with a company's investigation into an existing problem - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:00+00:00"
+}

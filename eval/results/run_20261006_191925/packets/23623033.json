@@ -1,0 +1,293 @@
+{
+  "complaint_id": "23623033",
+  "run_started": "2026-10-07T00:20:46+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23623033",
+    "date_received": "2026-06-26",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account status incorrect",
+    "state": "TX",
+    "narrative": "My account is showing as 60 days past due on my credit report, but I have never missed a payment on this account. My bank statements show every payment was made on time for the past 18 months.",
+    "account_id": "ACC-022",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1422,
+      "output_tokens": 239
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3177,
+      "output_tokens": 1596
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Account is showing as 60 days past due on credit report",
+      "Customer states they have never missed a payment on this account",
+      "Bank statements show every payment was made on time for the past 18 months"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "past 18 months"
+    ],
+    "account_details_mentioned": "Account reported as 60 days past due on credit report; customer states all payments made on time for the past 18 months, as shown on bank statements",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-022",
+      "loan_balance": 1600.0,
+      "origination_date": "2025-09-16",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-022",
+        "date": "2025-09-16",
+        "type": "payment",
+        "amount": 114.29,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2025-10-16",
+        "type": "payment",
+        "amount": 48.48,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2025-11-15",
+        "type": "payment",
+        "amount": 72.73,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2025-12-15",
+        "type": "payment",
+        "amount": 44.44,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-01-14",
+        "type": "payment",
+        "amount": 76.19,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-02-13",
+        "type": "payment",
+        "amount": 88.89,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-03-15",
+        "type": "payment",
+        "amount": 123.08,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-04-14",
+        "type": "payment",
+        "amount": 59.26,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-05-14",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-06-13",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-07-13",
+        "type": "payment",
+        "amount": 47.06,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-08-12",
+        "type": "payment",
+        "amount": 59.26,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The core allegation is that the credit report shows the account 60 days past due. No credit bureau or furnisher reporting data was provided, so what is actually being reported cannot be confirmed. Internal records partly cut against the claim: payment_status is 'current', and payments are recorded monthly from 2025-09-16 through 2026-08-12 except one month. Two points stop the evidence from settling the claim. (1) No payment is recorded in May 2026. The only entry on 2026-05-14 is a $30.00 fee labeled 'Routine fee assessment', which may be a late fee and may indicate a missed or late payment. That conflicts with 'never missed a payment', but the record doesn't show the fee's purpose. A payment was then made on 2026-06-13, so there is no evidence of two consecutive missed cycles, which 60 days past due would require. (2) The account was originated 2025-09-16, so only about 11 months of history exists. The customer's '18 months of on-time payments' cannot apply to this account; it may refer to another account or to a bank statement period. The account_note is generic and does not support or refute the complaint. Missing: credit reporting/furnishing records, the scheduled payment due dates and amounts (payment amounts vary from $44.44 to $123.08), the reason for the 2026-05-14 fee, and clarification of the 18-month period.",
+    "risk_tier": "High",
+    "risk_rationale": "The verification is unverifiable, and the gap could change the outcome. We cannot tell whether a 60-day delinquency is being reported, or whether the unexplained May 2026 fee reflects a missed payment, so a credit reporting accuracy dispute cannot be resolved or answered from the evidence on hand.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central allegation (credit report shows 60 days past due) and the gap affects the outcome. No credit reporting data was provided, the May 2026 fee/missing payment is unexplained, and the 18-month claim doesn't match the ~11-month account history. Escalate to a human reviewer to pull the credit reporting records and payment due-date history.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "My account is showing as 60 days past due on my credit report, but I have never missed a payment on this account. My bank statements show every payment was made on time for the past 18 months.",
+    "extraction": {
+      "allegations": [
+        "Account is showing as 60 days past due on credit report",
+        "Customer states they have never missed a payment on this account",
+        "Bank statements show every payment was made on time for the past 18 months"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "past 18 months"
+      ],
+      "account_details_mentioned": "Account reported as 60 days past due on credit report; customer states all payments made on time for the past 18 months, as shown on bank statements",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The core allegation is that the credit report shows the account 60 days past due. No credit bureau or furnisher reporting data was provided, so what is actually being reported cannot be confirmed. Internal records partly cut against the claim: payment_status is 'current', and payments are recorded monthly from 2025-09-16 through 2026-08-12 except one month. Two points stop the evidence from settling the claim. (1) No payment is recorded in May 2026. The only entry on 2026-05-14 is a $30.00 fee labeled 'Routine fee assessment', which may be a late fee and may indicate a missed or late payment. That conflicts with 'never missed a payment', but the record doesn't show the fee's purpose. A payment was then made on 2026-06-13, so there is no evidence of two consecutive missed cycles, which 60 days past due would require. (2) The account was originated 2025-09-16, so only about 11 months of history exists. The customer's '18 months of on-time payments' cannot apply to this account; it may refer to another account or to a bank statement period. The account_note is generic and does not support or refute the complaint. Missing: credit reporting/furnishing records, the scheduled payment due dates and amounts (payment amounts vary from $44.44 to $123.08), the reason for the 2026-05-14 fee, and clarification of the 18-month period.",
+      "risk_tier": "High",
+      "risk_rationale": "The verification is unverifiable, and the gap could change the outcome. We cannot tell whether a 60-day delinquency is being reported, or whether the unexplained May 2026 fee reflects a missed payment, so a credit reporting accuracy dispute cannot be resolved or answered from the evidence on hand.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-022",
+        "loan_balance": 1600.0,
+        "origination_date": "2025-09-16",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-022",
+          "date": "2025-09-16",
+          "type": "payment",
+          "amount": 114.29,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2025-10-16",
+          "type": "payment",
+          "amount": 48.48,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2025-11-15",
+          "type": "payment",
+          "amount": 72.73,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2025-12-15",
+          "type": "payment",
+          "amount": 44.44,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2026-01-14",
+          "type": "payment",
+          "amount": 76.19,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2026-02-13",
+          "type": "payment",
+          "amount": 88.89,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2026-03-15",
+          "type": "payment",
+          "amount": 123.08,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2026-04-14",
+          "type": "payment",
+          "amount": 59.26,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2026-05-14",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2026-06-13",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2026-07-13",
+          "type": "payment",
+          "amount": 47.06,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-022",
+          "date": "2026-08-12",
+          "type": "payment",
+          "amount": 59.26,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central allegation (credit report shows 60 days past due) and the gap affects the outcome. No credit reporting data was provided, the May 2026 fee/missing payment is unexplained, and the 18-month claim doesn't match the ~11-month account history. Escalate to a human reviewer to pull the credit reporting records and payment due-date history.",
+    "unresolved": "The core allegation is that the credit report shows the account 60 days past due. No credit bureau or furnisher reporting data was provided, so what is actually being reported cannot be confirmed. Internal records partly cut against the claim: payment_status is 'current', and payments are recorded monthly from 2025-09-16 through 2026-08-12 except one month. Two points stop the evidence from settling the claim. (1) No payment is recorded in May 2026. The only entry on 2026-05-14 is a $30.00 fee labeled 'Routine fee assessment', which may be a late fee and may indicate a missed or late payment. That conflicts with 'never missed a payment', but the record doesn't show the fee's purpose. A payment was then made on 2026-06-13, so there is no evidence of two consecutive missed cycles, which 60 days past due would require. (2) The account was originated 2025-09-16, so only about 11 months of history exists. The customer's '18 months of on-time payments' cannot apply to this account; it may refer to another account or to a bank statement period. The account_note is generic and does not support or refute the complaint. Missing: credit reporting/furnishing records, the scheduled payment due dates and amounts (payment amounts vary from $44.44 to $123.08), the reason for the 2026-05-14 fee, and clarification of the 18-month period.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:02+00:00"
+}

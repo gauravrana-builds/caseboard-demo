@@ -1,0 +1,237 @@
+{
+  "complaint_id": "SYN-C008",
+  "run_started": "2026-10-07T00:24:11+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C008",
+    "date_received": "2026-05-02",
+    "product": "Debt collection",
+    "sub_product": "Payday loan debt",
+    "issue": "Communication tactics",
+    "sub_issue": "Frequent or repeated calls",
+    "state": "MN",
+    "narrative": "I am receiving repeated calls about a $15 balance, sometimes multiple times within the same hour, despite asking to only be contacted by mail.",
+    "account_id": "ACC-058",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1407,
+      "output_tokens": 207
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2869,
+      "output_tokens": 1375
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Receiving repeated calls about a $15 balance",
+      "Calls sometimes occur multiple times within the same hour",
+      "Calls continue despite asking to be contacted only by mail"
+    ],
+    "requested_outcome": "Contact by mail only",
+    "dollar_amounts_mentioned": [
+      15.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "$15 balance",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-058",
+      "loan_balance": 1800.0,
+      "origination_date": "2026-02-26",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-058",
+        "date": "2026-02-26",
+        "type": "payment",
+        "amount": 69.23,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-058",
+        "date": "2026-03-28",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-058",
+        "date": "2026-04-27",
+        "type": "payment",
+        "amount": 69.23,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-058",
+        "date": "2026-05-27",
+        "type": "payment",
+        "amount": 51.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-058",
+        "date": "2026-06-26",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-058",
+        "date": "2026-07-26",
+        "type": "payment",
+        "amount": 90.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-058",
+        "date": "2026-08-25",
+        "type": "payment",
+        "amount": 112.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-058",
+        "date": "2026-09-24",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The supplied data cannot confirm or contradict any of the three allegations. (1) Call frequency and 'multiple times within the same hour': the evidence has no call logs, contact-attempt records, or collections activity notes. (2) Request for mail-only contact: there is no communication-preference record or note of when or whether the customer made this request. (3) '$15 balance': no $15 amount appears anywhere. The account (ACC-058) is an installment loan with a $1,800.00 balance and status 'current'. Seven scheduled payments were made from 2026-02-26 to 2026-08-25 ($51.43 to $112.50), followed by a single $25.00 fee on 2026-09-24. Nothing shows what the $15 refers to, or whether any past-due amount exists that would trigger collection calls. The account_note says the record is generic and not built to verify this complaint. The complaint also gives no dates, so it can't be matched to a period. Missing: call/contact logs, the contact-preference history, the origin of the $15 balance, and the complaint date or period of the calls.",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable, and the missing evidence (whether calls occurred at this frequency after a documented mail-only request) decides the outcome, which triggers the automatic High tier even though the $15 amount is small and there is no attorney/regulator mention.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the core allegations (call frequency and a disregarded mail-only contact request), and the gap could change the outcome. A human must pull call/contact logs and the communication-preference history before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I am receiving repeated calls about a $15 balance, sometimes multiple times within the same hour, despite asking to only be contacted by mail.",
+    "extraction": {
+      "allegations": [
+        "Receiving repeated calls about a $15 balance",
+        "Calls sometimes occur multiple times within the same hour",
+        "Calls continue despite asking to be contacted only by mail"
+      ],
+      "requested_outcome": "Contact by mail only",
+      "dollar_amounts_mentioned": [
+        15.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "$15 balance",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The supplied data cannot confirm or contradict any of the three allegations. (1) Call frequency and 'multiple times within the same hour': the evidence has no call logs, contact-attempt records, or collections activity notes. (2) Request for mail-only contact: there is no communication-preference record or note of when or whether the customer made this request. (3) '$15 balance': no $15 amount appears anywhere. The account (ACC-058) is an installment loan with a $1,800.00 balance and status 'current'. Seven scheduled payments were made from 2026-02-26 to 2026-08-25 ($51.43 to $112.50), followed by a single $25.00 fee on 2026-09-24. Nothing shows what the $15 refers to, or whether any past-due amount exists that would trigger collection calls. The account_note says the record is generic and not built to verify this complaint. The complaint also gives no dates, so it can't be matched to a period. Missing: call/contact logs, the contact-preference history, the origin of the $15 balance, and the complaint date or period of the calls.",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable, and the missing evidence (whether calls occurred at this frequency after a documented mail-only request) decides the outcome, which triggers the automatic High tier even though the $15 amount is small and there is no attorney/regulator mention.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-058",
+        "loan_balance": 1800.0,
+        "origination_date": "2026-02-26",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-058",
+          "date": "2026-02-26",
+          "type": "payment",
+          "amount": 69.23,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-058",
+          "date": "2026-03-28",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-058",
+          "date": "2026-04-27",
+          "type": "payment",
+          "amount": 69.23,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-058",
+          "date": "2026-05-27",
+          "type": "payment",
+          "amount": 51.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-058",
+          "date": "2026-06-26",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-058",
+          "date": "2026-07-26",
+          "type": "payment",
+          "amount": 90.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-058",
+          "date": "2026-08-25",
+          "type": "payment",
+          "amount": 112.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-058",
+          "date": "2026-09-24",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the core allegations (call frequency and a disregarded mail-only contact request), and the gap could change the outcome. A human must pull call/contact logs and the communication-preference history before any response is drafted.",
+    "unresolved": "The supplied data cannot confirm or contradict any of the three allegations. (1) Call frequency and 'multiple times within the same hour': the evidence has no call logs, contact-attempt records, or collections activity notes. (2) Request for mail-only contact: there is no communication-preference record or note of when or whether the customer made this request. (3) '$15 balance': no $15 amount appears anywhere. The account (ACC-058) is an installment loan with a $1,800.00 balance and status 'current'. Seven scheduled payments were made from 2026-02-26 to 2026-08-25 ($51.43 to $112.50), followed by a single $25.00 fee on 2026-09-24. Nothing shows what the $15 refers to, or whether any past-due amount exists that would trigger collection calls. The account_note says the record is generic and not built to verify this complaint. The complaint also gives no dates, so it can't be matched to a period. Missing: call/contact logs, the contact-preference history, the origin of the $15 balance, and the complaint date or period of the calls.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Communication tactics - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:24:25+00:00"
+}

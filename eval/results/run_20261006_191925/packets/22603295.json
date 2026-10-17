@@ -1,0 +1,267 @@
+{
+  "complaint_id": "22603295",
+  "run_started": "2026-10-07T00:20:05+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "22603295",
+    "date_received": "2026-05-27",
+    "product": "Checking or savings account",
+    "sub_product": "Savings account",
+    "issue": "Problem with a lender or other company charging your account",
+    "sub_issue": "Transaction was not authorized",
+    "state": "CA",
+    "narrative": "There is a $150 withdrawal from my savings account that I did not authorize and do not recognize. I called my bank and they said I need to wait 10 business days for an investigation, but I need access to this money now.",
+    "account_id": "ACC-011",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1430,
+      "output_tokens": 217
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3032,
+      "output_tokens": 965
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "$150 withdrawal from savings account that was not authorized and not recognized",
+      "Bank said a 10 business day wait is required for an investigation"
+    ],
+    "requested_outcome": "Access to the money now",
+    "dollar_amounts_mentioned": [
+      150.0
+    ],
+    "dates_mentioned": [
+      "10 business days"
+    ],
+    "account_details_mentioned": "Savings account with a $150 withdrawal the customer did not authorize or recognize",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned and urgent but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-011",
+      "loan_balance": 1600.0,
+      "origination_date": "2025-11-21",
+      "payment_status": "past_due",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-011",
+        "date": "2025-11-21",
+        "type": "payment",
+        "amount": 66.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2025-12-21",
+        "type": "payment",
+        "amount": 106.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2026-01-20",
+        "type": "payment",
+        "amount": 88.89,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2026-02-19",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2026-03-21",
+        "type": "payment",
+        "amount": 80.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2026-04-20",
+        "type": "payment",
+        "amount": 114.29,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2026-05-20",
+        "type": "payment",
+        "amount": 55.17,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2026-06-19",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2026-07-19",
+        "type": "payment",
+        "amount": 133.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-011",
+        "date": "2026-08-18",
+        "type": "payment",
+        "amount": 44.44,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges an unauthorized $150 withdrawal from a savings account. The retrieved record for ACC-011 is an installment loan (balance $1,600.00, origination 2025-11-21, status past_due), not a savings account. Its transaction history has ten scheduled payments from 2025-11-21 to 2026-08-18 ($44.44 to $133.33) and no withdrawals or $150 debits. The complaint gives no date for the withdrawal, so the relevant period cannot be established. The account note says the record is generic and was not built to confirm or deny this complaint. Missing: the customer's savings account record and its transaction history covering the withdrawal. It is also unconfirmed that ACC-011 is the correct account for this customer. The claim that the bank required a 10 business day wait for an investigation also cannot be checked, because no case or communication records were provided.",
+    "risk_tier": "High",
+    "risk_rationale": "Evidence is unverifiable (the savings account and the disputed $150 withdrawal are absent from the retrieved data, and the record may be mismatched), and the gap could change the outcome because the unauthorized-transaction claim cannot be confirmed or refuted. This triggers the automatic High tier even though there is no attorney or regulator reference and attorney_regulator_flag is False.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable: the retrieved account is an installment loan with no savings account or $150 withdrawal, so the unauthorized-transaction claim cannot be verified. Human review is needed to locate the correct account and records and to review the unauthorized-transaction dispute handling and timelines.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "There is a $150 withdrawal from my savings account that I did not authorize and do not recognize. I called my bank and they said I need to wait 10 business days for an investigation, but I need access to this money now.",
+    "extraction": {
+      "allegations": [
+        "$150 withdrawal from savings account that was not authorized and not recognized",
+        "Bank said a 10 business day wait is required for an investigation"
+      ],
+      "requested_outcome": "Access to the money now",
+      "dollar_amounts_mentioned": [
+        150.0
+      ],
+      "dates_mentioned": [
+        "10 business days"
+      ],
+      "account_details_mentioned": "Savings account with a $150 withdrawal the customer did not authorize or recognize",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concerned and urgent but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges an unauthorized $150 withdrawal from a savings account. The retrieved record for ACC-011 is an installment loan (balance $1,600.00, origination 2025-11-21, status past_due), not a savings account. Its transaction history has ten scheduled payments from 2025-11-21 to 2026-08-18 ($44.44 to $133.33) and no withdrawals or $150 debits. The complaint gives no date for the withdrawal, so the relevant period cannot be established. The account note says the record is generic and was not built to confirm or deny this complaint. Missing: the customer's savings account record and its transaction history covering the withdrawal. It is also unconfirmed that ACC-011 is the correct account for this customer. The claim that the bank required a 10 business day wait for an investigation also cannot be checked, because no case or communication records were provided.",
+      "risk_tier": "High",
+      "risk_rationale": "Evidence is unverifiable (the savings account and the disputed $150 withdrawal are absent from the retrieved data, and the record may be mismatched), and the gap could change the outcome because the unauthorized-transaction claim cannot be confirmed or refuted. This triggers the automatic High tier even though there is no attorney or regulator reference and attorney_regulator_flag is False.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-011",
+        "loan_balance": 1600.0,
+        "origination_date": "2025-11-21",
+        "payment_status": "past_due",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-011",
+          "date": "2025-11-21",
+          "type": "payment",
+          "amount": 66.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2025-12-21",
+          "type": "payment",
+          "amount": 106.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2026-01-20",
+          "type": "payment",
+          "amount": 88.89,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2026-02-19",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2026-03-21",
+          "type": "payment",
+          "amount": 80.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2026-04-20",
+          "type": "payment",
+          "amount": 114.29,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2026-05-20",
+          "type": "payment",
+          "amount": 55.17,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2026-06-19",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2026-07-19",
+          "type": "payment",
+          "amount": 133.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-011",
+          "date": "2026-08-18",
+          "type": "payment",
+          "amount": 44.44,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable: the retrieved account is an installment loan with no savings account or $150 withdrawal, so the unauthorized-transaction claim cannot be verified. Human review is needed to locate the correct account and records and to review the unauthorized-transaction dispute handling and timelines.",
+    "unresolved": "The customer alleges an unauthorized $150 withdrawal from a savings account. The retrieved record for ACC-011 is an installment loan (balance $1,600.00, origination 2025-11-21, status past_due), not a savings account. Its transaction history has ten scheduled payments from 2025-11-21 to 2026-08-18 ($44.44 to $133.33) and no withdrawals or $150 debits. The complaint gives no date for the withdrawal, so the relevant period cannot be established. The account note says the record is generic and was not built to confirm or deny this complaint. Missing: the customer's savings account record and its transaction history covering the withdrawal. It is also unconfirmed that ACC-011 is the correct account for this customer. The claim that the bank required a 10 business day wait for an investigation also cannot be checked, because no case or communication records were provided.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem with a lender or other company charging your account - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:20:15+00:00"
+}

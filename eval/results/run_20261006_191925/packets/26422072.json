@@ -1,0 +1,183 @@
+{
+  "complaint_id": "26422072",
+  "run_started": "2026-10-07T00:21:44+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "26422072",
+    "date_received": "2026-09-03",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account status incorrect",
+    "state": "TX",
+    "narrative": "My loan is reporting as 30 days late on my credit report, but I have confirmation from the company's own app showing the payment was received before the due date. I want this corrected as soon as possible, and if it isn't fixed before my mortgage closes next month I will have no choice but to get my attorney and a consumer protection agency involved.",
+    "account_id": "ACC-040",
+    "attorney_regulator_flag": "True"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1475,
+      "output_tokens": 275
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2595,
+      "output_tokens": 1204
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Loan is reporting as 30 days late on credit report",
+      "Company's own app confirmation shows the payment was received before the due date"
+    ],
+    "requested_outcome": "Correction of the late payment reporting as soon as possible",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "before the due date",
+      "before my mortgage closes next month"
+    ],
+    "account_details_mentioned": "Loan reported as 30 days late on credit report; app confirmation shows payment received before the due date",
+    "risk_signal_phrases": [
+      "I will have no choice but to get my attorney and a consumer protection agency involved"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "firm, factual, time-pressured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-040",
+      "loan_balance": 1600.0,
+      "origination_date": "2026-07-27",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-040",
+        "date": "2026-07-27",
+        "type": "payment",
+        "amount": 114.29,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-040",
+        "date": "2026-08-26",
+        "type": "payment",
+        "amount": 72.73,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-040",
+        "date": "2026-09-25",
+        "type": "payment",
+        "amount": 44.44,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The account record shows payment_status 'current', and the transaction history shows three payments with no late fees or delinquency notations: $114.29 on 2026-07-27, $72.73 on 2026-08-26, and $44.44 on 2026-09-25. This is consistent with the customer's claim of on-time payment, but it cannot confirm or refute either allegation. Missing: (1) the contractual due dates, so no payment can be compared to a due date; (2) any credit-bureau furnishing or reporting data, so the '30 days late' tradeline cannot be checked; (3) the app confirmation or payment-received timestamps the customer cites; (4) an explanation for the declining payment amounts, which are all labeled 'routine scheduled payment'. The account_note also says this record is generic and not built to verify this complaint. The customer's mention of a mortgage closing is not tied to this installment loan in the record.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer explicitly threatens to involve an attorney and a consumer protection agency and attorney_regulator_flag is TRUE, which is an automatic High trigger. The unverifiable gap (whether the credit reporting is wrong) could also change the outcome, and the customer's mortgage closing next month adds time-sensitive harm.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "triggers": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "My loan is reporting as 30 days late on my credit report, but I have confirmation from the company's own app showing the payment was received before the due date. I want this corrected as soon as possible, and if it isn't fixed before my mortgage closes next month I will have no choice but to get my attorney and a consumer protection agency involved.",
+    "extraction": {
+      "allegations": [
+        "Loan is reporting as 30 days late on credit report",
+        "Company's own app confirmation shows the payment was received before the due date"
+      ],
+      "requested_outcome": "Correction of the late payment reporting as soon as possible",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "before the due date",
+        "before my mortgage closes next month"
+      ],
+      "account_details_mentioned": "Loan reported as 30 days late on credit report; app confirmation shows payment received before the due date",
+      "risk_signal_phrases": [
+        "I will have no choice but to get my attorney and a consumer protection agency involved"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "firm, factual, time-pressured"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The account record shows payment_status 'current', and the transaction history shows three payments with no late fees or delinquency notations: $114.29 on 2026-07-27, $72.73 on 2026-08-26, and $44.44 on 2026-09-25. This is consistent with the customer's claim of on-time payment, but it cannot confirm or refute either allegation. Missing: (1) the contractual due dates, so no payment can be compared to a due date; (2) any credit-bureau furnishing or reporting data, so the '30 days late' tradeline cannot be checked; (3) the app confirmation or payment-received timestamps the customer cites; (4) an explanation for the declining payment amounts, which are all labeled 'routine scheduled payment'. The account_note also says this record is generic and not built to verify this complaint. The customer's mention of a mortgage closing is not tied to this installment loan in the record.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer explicitly threatens to involve an attorney and a consumer protection agency and attorney_regulator_flag is TRUE, which is an automatic High trigger. The unverifiable gap (whether the credit reporting is wrong) could also change the outcome, and the customer's mortgage closing next month adds time-sensitive harm.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-040",
+        "loan_balance": 1600.0,
+        "origination_date": "2026-07-27",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-040",
+          "date": "2026-07-27",
+          "type": "payment",
+          "amount": 114.29,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-040",
+          "date": "2026-08-26",
+          "type": "payment",
+          "amount": 72.73,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-040",
+          "date": "2026-09-25",
+          "type": "payment",
+          "amount": 44.44,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "unresolved": "The account record shows payment_status 'current', and the transaction history shows three payments with no late fees or delinquency notations: $114.29 on 2026-07-27, $72.73 on 2026-08-26, and $44.44 on 2026-09-25. This is consistent with the customer's claim of on-time payment, but it cannot confirm or refute either allegation. Missing: (1) the contractual due dates, so no payment can be compared to a due date; (2) any credit-bureau furnishing or reporting data, so the '30 days late' tradeline cannot be checked; (3) the app confirmation or payment-received timestamps the customer cites; (4) an explanation for the declining payment amounts, which are all labeled 'routine scheduled payment'. The account_note also says this record is generic and not built to verify this complaint. The customer's mention of a mortgage closing is not tied to this installment loan in the record.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:56+00:00"
+}

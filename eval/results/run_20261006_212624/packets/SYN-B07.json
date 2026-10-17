@@ -1,0 +1,305 @@
+{
+  "complaint_id": "SYN-B07",
+  "run_started": "2026-10-07T02:27:15+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B07",
+    "date_received": "6/2/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Struggling to pay your loan",
+    "sub_issue": "",
+    "state": "GA",
+    "narrative": "I have reached out to this company five times about setting up a payment plan and keep getting transferred with no resolution. I am now filing this complaint with the CFPB as well as contacting my state banking regulator directly, since internal escalation has not worked.",
+    "account_id": "ACC-017",
+    "attorney_regulator_flag": "TRUE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1443,
+      "output_tokens": 219
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3811,
+      "output_tokens": 954
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Reached out to the company five times about setting up a payment plan",
+      "Kept getting transferred with no resolution",
+      "Internal escalation has not worked"
+    ],
+    "requested_outcome": "Setting up a payment plan",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [
+      "I am now filing this complaint with the CFPB as well as contacting my state banking regulator directly"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated, factual, escalating"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-017",
+      "loan_balance": 1800.0,
+      "origination_date": "2025-02-03",
+      "payment_status": "delinquent",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-017",
+        "date": "2025-02-03",
+        "type": "payment",
+        "amount": 138.46,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-03-05",
+        "type": "payment",
+        "amount": 60.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-04-04",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-05-04",
+        "type": "payment",
+        "amount": 85.71,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-06-03",
+        "type": "payment",
+        "amount": 138.46,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-07-03",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-08-02",
+        "type": "payment",
+        "amount": 54.55,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-09-01",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-10-01",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-10-31",
+        "type": "payment",
+        "amount": 51.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-11-30",
+        "type": "payment",
+        "amount": 94.74,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-017",
+        "date": "2025-12-30",
+        "type": "payment",
+        "amount": 105.88,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The complaint alleges five contacts about a payment plan, repeated transfers with no resolution, and failed internal escalation. The records provided are an account snapshot and a payment history, with no contact, call, transfer, or escalation logs. They do not show whether the contacts occurred. What the data does show: ACC-017 is an installment loan with a $1,800.00 balance and a 'delinquent' status. The last recorded payment was $105.88 on 2025-12-30, and no transaction or note shows a payment plan or hardship arrangement. That is consistent with the customer's account but does not confirm the contact or transfer allegations. Missing: customer-contact and call-transfer logs, any record of payment-plan requests or escalations, and the complaint's date range (the customer gave no dates).",
+    "risk_tier": "High",
+    "risk_rationale": "The customer says they are filing with the CFPB and contacting their state banking regulator, and attorney_regulator_flag is TRUE. Either one makes this an automatic High tier regardless of the underlying merits. The tier was not raised because the evidence is unverifiable.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "triggers": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'CFPB', 'regulator', 'state banking'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I have reached out to this company five times about setting up a payment plan and keep getting transferred with no resolution. I am now filing this complaint with the CFPB as well as contacting my state banking regulator directly, since internal escalation has not worked.",
+    "extraction": {
+      "allegations": [
+        "Reached out to the company five times about setting up a payment plan",
+        "Kept getting transferred with no resolution",
+        "Internal escalation has not worked"
+      ],
+      "requested_outcome": "Setting up a payment plan",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [],
+      "account_details_mentioned": null,
+      "risk_signal_phrases": [
+        "I am now filing this complaint with the CFPB as well as contacting my state banking regulator directly"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated, factual, escalating"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The complaint alleges five contacts about a payment plan, repeated transfers with no resolution, and failed internal escalation. The records provided are an account snapshot and a payment history, with no contact, call, transfer, or escalation logs. They do not show whether the contacts occurred. What the data does show: ACC-017 is an installment loan with a $1,800.00 balance and a 'delinquent' status. The last recorded payment was $105.88 on 2025-12-30, and no transaction or note shows a payment plan or hardship arrangement. That is consistent with the customer's account but does not confirm the contact or transfer allegations. Missing: customer-contact and call-transfer logs, any record of payment-plan requests or escalations, and the complaint's date range (the customer gave no dates).",
+      "risk_tier": "High",
+      "risk_rationale": "The customer says they are filing with the CFPB and contacting their state banking regulator, and attorney_regulator_flag is TRUE. Either one makes this an automatic High tier regardless of the underlying merits. The tier was not raised because the evidence is unverifiable.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-017",
+        "loan_balance": 1800.0,
+        "origination_date": "2025-02-03",
+        "payment_status": "delinquent",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-017",
+          "date": "2025-02-03",
+          "type": "payment",
+          "amount": 138.46,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-03-05",
+          "type": "payment",
+          "amount": 60.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-04-04",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-05-04",
+          "type": "payment",
+          "amount": 85.71,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-06-03",
+          "type": "payment",
+          "amount": 138.46,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-07-03",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-08-02",
+          "type": "payment",
+          "amount": 54.55,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-09-01",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-10-01",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-10-31",
+          "type": "payment",
+          "amount": 51.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-11-30",
+          "type": "payment",
+          "amount": 94.74,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-017",
+          "date": "2025-12-30",
+          "type": "payment",
+          "amount": 105.88,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'CFPB', 'regulator', 'state banking'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "unresolved": "The complaint alleges five contacts about a payment plan, repeated transfers with no resolution, and failed internal escalation. The records provided are an account snapshot and a payment history, with no contact, call, transfer, or escalation logs. They do not show whether the contacts occurred. What the data does show: ACC-017 is an installment loan with a $1,800.00 balance and a 'delinquent' status. The last recorded payment was $105.88 on 2025-12-30, and no transaction or note shows a payment plan or hardship arrangement. That is consistent with the customer's account but does not confirm the contact or transfer allegations. Missing: customer-contact and call-transfer logs, any record of payment-plan requests or escalations, and the complaint's date range (the customer gave no dates).",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Struggling to pay your loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T02:27:26+00:00"
+}

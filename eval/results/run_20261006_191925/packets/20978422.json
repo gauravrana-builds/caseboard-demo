@@ -1,0 +1,295 @@
+{
+  "complaint_id": "20978422",
+  "run_started": "2026-10-07T00:19:41+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20978422",
+    "date_received": "2026-04-06",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Improper use of your report",
+    "sub_issue": "Credit inquiries on your report that you don't recognize",
+    "state": "CA",
+    "narrative": "There are three hard inquiries on my credit report from companies I have never heard of and never applied with. I did not authorize anyone to pull my credit. This happened the same week I applied for a car loan and I'm worried someone used my information without permission.",
+    "account_id": "ACC-003",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1452,
+      "output_tokens": 270
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3209,
+      "output_tokens": 927
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Three hard inquiries on credit report from companies the customer has never heard of and never applied with",
+      "Did not authorize anyone to pull their credit",
+      "Inquiries occurred the same week the customer applied for a car loan",
+      "Customer is worried someone used their information without permission"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "the same week I applied for a car loan"
+    ],
+    "account_details_mentioned": "Three hard inquiries on credit report from unrecognized companies; customer applied for a car loan during the same week",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-003",
+      "loan_balance": 1800.0,
+      "origination_date": "2025-07-03",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-003",
+        "date": "2025-07-03",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2025-08-02",
+        "type": "payment",
+        "amount": 138.46,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2025-09-01",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2025-10-01",
+        "type": "payment",
+        "amount": 128.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2025-10-31",
+        "type": "payment",
+        "amount": 120.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2025-11-30",
+        "type": "payment",
+        "amount": 69.23,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2025-12-30",
+        "type": "payment",
+        "amount": 78.26,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2026-01-29",
+        "type": "payment",
+        "amount": 78.26,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2026-02-28",
+        "type": "payment",
+        "amount": 90.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2026-03-30",
+        "type": "payment",
+        "amount": 54.55,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2026-04-29",
+        "type": "payment",
+        "amount": 58.06,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-003",
+        "date": "2026-05-29",
+        "type": "payment",
+        "amount": 62.07,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges three hard credit inquiries from unrecognized companies, made without authorization during the same week as a car loan application. The retrieved evidence cannot confirm or contradict this. The account (ACC-003) is an installment loan opened 2025-07-03, status current, with 12 routine payments from 2025-07-03 to 2026-05-29 and no unusual activity. Neither the account record nor the transaction history contains credit bureau inquiry data, inquiry dates, or the names of the inquiring companies. The customer gave no specific date for the car loan application, so the inquiries cannot be matched to a timeframe. The account note says this is a generic record and was not built to confirm or deny the complaint. Missing: a credit report or inquiry log showing the three inquiries (dates, inquirers, permissible purpose) and the date and lender of the car loan application. Whether any inquiry came from the car loan shopping or from unauthorized use of the customer's information cannot be determined.",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable and the gap decides the outcome: without inquiry data we cannot tell whether the inquiries are legitimate rate-shopping or possible identity misuse or unauthorized credit pulls. The customer also says they fear their information was used without permission, which is a potential identity-theft concern.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the core allegation (no credit inquiry data available), and the gap could change the outcome, including a possible identity-theft or unauthorized-access finding. Escalate to a human reviewer to obtain the credit report or inquiry records before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "There are three hard inquiries on my credit report from companies I have never heard of and never applied with. I did not authorize anyone to pull my credit. This happened the same week I applied for a car loan and I'm worried someone used my information without permission.",
+    "extraction": {
+      "allegations": [
+        "Three hard inquiries on credit report from companies the customer has never heard of and never applied with",
+        "Did not authorize anyone to pull their credit",
+        "Inquiries occurred the same week the customer applied for a car loan",
+        "Customer is worried someone used their information without permission"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "the same week I applied for a car loan"
+      ],
+      "account_details_mentioned": "Three hard inquiries on credit report from unrecognized companies; customer applied for a car loan during the same week",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concerned and factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges three hard credit inquiries from unrecognized companies, made without authorization during the same week as a car loan application. The retrieved evidence cannot confirm or contradict this. The account (ACC-003) is an installment loan opened 2025-07-03, status current, with 12 routine payments from 2025-07-03 to 2026-05-29 and no unusual activity. Neither the account record nor the transaction history contains credit bureau inquiry data, inquiry dates, or the names of the inquiring companies. The customer gave no specific date for the car loan application, so the inquiries cannot be matched to a timeframe. The account note says this is a generic record and was not built to confirm or deny the complaint. Missing: a credit report or inquiry log showing the three inquiries (dates, inquirers, permissible purpose) and the date and lender of the car loan application. Whether any inquiry came from the car loan shopping or from unauthorized use of the customer's information cannot be determined.",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable and the gap decides the outcome: without inquiry data we cannot tell whether the inquiries are legitimate rate-shopping or possible identity misuse or unauthorized credit pulls. The customer also says they fear their information was used without permission, which is a potential identity-theft concern.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-003",
+        "loan_balance": 1800.0,
+        "origination_date": "2025-07-03",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-003",
+          "date": "2025-07-03",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2025-08-02",
+          "type": "payment",
+          "amount": 138.46,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2025-09-01",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2025-10-01",
+          "type": "payment",
+          "amount": 128.57,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2025-10-31",
+          "type": "payment",
+          "amount": 120.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2025-11-30",
+          "type": "payment",
+          "amount": 69.23,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2025-12-30",
+          "type": "payment",
+          "amount": 78.26,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2026-01-29",
+          "type": "payment",
+          "amount": 78.26,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2026-02-28",
+          "type": "payment",
+          "amount": 90.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2026-03-30",
+          "type": "payment",
+          "amount": 54.55,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2026-04-29",
+          "type": "payment",
+          "amount": 58.06,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-003",
+          "date": "2026-05-29",
+          "type": "payment",
+          "amount": 62.07,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the core allegation (no credit inquiry data available), and the gap could change the outcome, including a possible identity-theft or unauthorized-access finding. Escalate to a human reviewer to obtain the credit report or inquiry records before any response is drafted.",
+    "unresolved": "The customer alleges three hard credit inquiries from unrecognized companies, made without authorization during the same week as a car loan application. The retrieved evidence cannot confirm or contradict this. The account (ACC-003) is an installment loan opened 2025-07-03, status current, with 12 routine payments from 2025-07-03 to 2026-05-29 and no unusual activity. Neither the account record nor the transaction history contains credit bureau inquiry data, inquiry dates, or the names of the inquiring companies. The customer gave no specific date for the car loan application, so the inquiries cannot be matched to a timeframe. The account note says this is a generic record and was not built to confirm or deny the complaint. Missing: a credit report or inquiry log showing the three inquiries (dates, inquirers, permissible purpose) and the date and lender of the car loan application. Whether any inquiry came from the car loan shopping or from unauthorized use of the customer's information cannot be determined.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Improper use of your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:19:51+00:00"
+}

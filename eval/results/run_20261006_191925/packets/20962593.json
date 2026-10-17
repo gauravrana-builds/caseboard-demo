@@ -1,0 +1,285 @@
+{
+  "complaint_id": "20962593",
+  "run_started": "2026-10-07T00:19:41+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20962593",
+    "date_received": "2026-04-05",
+    "product": "Debt collection",
+    "sub_product": "Payday loan debt",
+    "issue": "Communication tactics",
+    "sub_issue": "Frequent or repeated calls",
+    "state": "AR",
+    "narrative": "This collection agency calls me 4 to 5 times a day, sometimes before 8am, about a payday loan debt. I have asked them multiple times to only contact me by mail and they keep calling anyway. It's gotten to the point where I'm afraid to answer my phone.",
+    "account_id": "ACC-005",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1447,
+      "output_tokens": 267
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3138,
+      "output_tokens": 1232
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Collection agency calls 4 to 5 times a day",
+      "Calls sometimes occur before 8am",
+      "Debt is a payday loan debt",
+      "Customer asked multiple times to be contacted only by mail and the agency continues to call",
+      "Customer is afraid to answer the phone"
+    ],
+    "requested_outcome": "Contact by mail only",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "4 to 5 times a day",
+      "sometimes before 8am"
+    ],
+    "account_details_mentioned": "Payday loan debt in collection",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "distressed but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-005",
+      "loan_balance": 600.0,
+      "origination_date": "2025-10-23",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-005",
+        "date": "2025-10-23",
+        "type": "payment",
+        "amount": 18.75,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2025-11-22",
+        "type": "payment",
+        "amount": 30.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2025-12-22",
+        "type": "payment",
+        "amount": 17.14,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-01-21",
+        "type": "payment",
+        "amount": 30.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-02-20",
+        "type": "payment",
+        "amount": 24.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-22",
+        "type": "payment",
+        "amount": 25.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-04-21",
+        "type": "payment",
+        "amount": 37.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-05-21",
+        "type": "payment",
+        "amount": 42.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-06-20",
+        "type": "payment",
+        "amount": 40.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-07-20",
+        "type": "payment",
+        "amount": 35.29,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-08-19",
+        "type": "payment",
+        "amount": 24.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The account and transaction data cannot confirm or refute any of the core allegations. Missing: (1) call logs or contact-attempt records showing frequency or time of day (4-5 calls/day, calls before 8am); (2) any record of the customer's mail-only contact request, or of a communication-preference or cease-contact flag; (3) any collection placement, third-party agency assignment, or agency identity on ACC-005. The record shows a payday loan (balance $600.00, originated 2025-10-23) with payment_status 'current' and eleven routine payments from 2025-10-23 through 2026-08-19, and no delinquency or collection activity. That is inconsistent with the customer's description of a debt 'in collection', so the calls may concern a different account, a different debt, or a third-party collector whose activity is not in this dataset. The account_note also states the record is a generic account not built to confirm or deny this complaint. Only the existence of a payday loan is corroborated.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap is outcome-determinative, since whether the calls occurred and whether the mail-only request was ignored cannot be established. The narrative also describes a UDAAP/collection-conduct pattern (repeated daily calls, calls before 8am, ignored contact-preference requests, customer fear), which elevates the tier. Customer vulnerability and repeated prior contact are further elevating factors, and the $600 balance exceeds $200.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: no call, contact-preference, or collection-placement records exist to confirm the alleged harassment (including pre-8am calls and ignored mail-only requests). The account data also conflicts with the claim of a debt in collection, so a human must locate the collection and communication records before any response.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "This collection agency calls me 4 to 5 times a day, sometimes before 8am, about a payday loan debt. I have asked them multiple times to only contact me by mail and they keep calling anyway. It's gotten to the point where I'm afraid to answer my phone.",
+    "extraction": {
+      "allegations": [
+        "Collection agency calls 4 to 5 times a day",
+        "Calls sometimes occur before 8am",
+        "Debt is a payday loan debt",
+        "Customer asked multiple times to be contacted only by mail and the agency continues to call",
+        "Customer is afraid to answer the phone"
+      ],
+      "requested_outcome": "Contact by mail only",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "4 to 5 times a day",
+        "sometimes before 8am"
+      ],
+      "account_details_mentioned": "Payday loan debt in collection",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "distressed but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The account and transaction data cannot confirm or refute any of the core allegations. Missing: (1) call logs or contact-attempt records showing frequency or time of day (4-5 calls/day, calls before 8am); (2) any record of the customer's mail-only contact request, or of a communication-preference or cease-contact flag; (3) any collection placement, third-party agency assignment, or agency identity on ACC-005. The record shows a payday loan (balance $600.00, originated 2025-10-23) with payment_status 'current' and eleven routine payments from 2025-10-23 through 2026-08-19, and no delinquency or collection activity. That is inconsistent with the customer's description of a debt 'in collection', so the calls may concern a different account, a different debt, or a third-party collector whose activity is not in this dataset. The account_note also states the record is a generic account not built to confirm or deny this complaint. Only the existence of a payday loan is corroborated.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap is outcome-determinative, since whether the calls occurred and whether the mail-only request was ignored cannot be established. The narrative also describes a UDAAP/collection-conduct pattern (repeated daily calls, calls before 8am, ignored contact-preference requests, customer fear), which elevates the tier. Customer vulnerability and repeated prior contact are further elevating factors, and the $600 balance exceeds $200.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-005",
+        "loan_balance": 600.0,
+        "origination_date": "2025-10-23",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-005",
+          "date": "2025-10-23",
+          "type": "payment",
+          "amount": 18.75,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2025-11-22",
+          "type": "payment",
+          "amount": 30.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2025-12-22",
+          "type": "payment",
+          "amount": 17.14,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-01-21",
+          "type": "payment",
+          "amount": 30.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-02-20",
+          "type": "payment",
+          "amount": 24.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-22",
+          "type": "payment",
+          "amount": 25.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-04-21",
+          "type": "payment",
+          "amount": 37.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-05-21",
+          "type": "payment",
+          "amount": 42.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-06-20",
+          "type": "payment",
+          "amount": 40.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-07-20",
+          "type": "payment",
+          "amount": 35.29,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-08-19",
+          "type": "payment",
+          "amount": 24.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: no call, contact-preference, or collection-placement records exist to confirm the alleged harassment (including pre-8am calls and ignored mail-only requests). The account data also conflicts with the claim of a debt in collection, so a human must locate the collection and communication records before any response.",
+    "unresolved": "The account and transaction data cannot confirm or refute any of the core allegations. Missing: (1) call logs or contact-attempt records showing frequency or time of day (4-5 calls/day, calls before 8am); (2) any record of the customer's mail-only contact request, or of a communication-preference or cease-contact flag; (3) any collection placement, third-party agency assignment, or agency identity on ACC-005. The record shows a payday loan (balance $600.00, originated 2025-10-23) with payment_status 'current' and eleven routine payments from 2025-10-23 through 2026-08-19, and no delinquency or collection activity. That is inconsistent with the customer's description of a debt 'in collection', so the calls may concern a different account, a different debt, or a third-party collector whose activity is not in this dataset. The account_note also states the record is a generic account not built to confirm or deny this complaint. Only the existence of a payday loan is corroborated.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Communication tactics - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:19:54+00:00"
+}

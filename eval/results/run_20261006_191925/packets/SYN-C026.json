@@ -1,0 +1,223 @@
+{
+  "complaint_id": "SYN-C026",
+  "run_started": "2026-10-07T00:25:25+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C026",
+    "date_received": "2026-06-22",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "MD",
+    "narrative": "I tried to make my $75 monthly payment through the mobile app and it failed twice with no error explanation. I'm concerned I'll be reported late through no fault of my own.",
+    "account_id": "ACC-076",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1419,
+      "output_tokens": 211
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3081,
+      "output_tokens": 1586
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3792,
+      "output_tokens": 1210
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4124,
+      "output_tokens": 1740
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Attempted to make a $75 monthly payment through the mobile app and it failed twice",
+      "No error explanation was provided for the failed payments"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      75.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "$75 monthly payment; payment attempts through the mobile app failed twice with no error explanation",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-076",
+      "loan_balance": 1800.0,
+      "origination_date": "2025-07-28",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-076",
+        "date": "2025-07-28",
+        "type": "payment",
+        "amount": 90.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2025-08-27",
+        "type": "payment",
+        "amount": 78.26,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2025-09-26",
+        "type": "payment",
+        "amount": 78.26,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2025-10-26",
+        "type": "payment",
+        "amount": 54.55,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2025-11-25",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2025-12-25",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2026-01-24",
+        "type": "payment",
+        "amount": 138.46,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2026-02-23",
+        "type": "payment",
+        "amount": 81.82,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2026-03-25",
+        "type": "payment",
+        "amount": 105.88,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2026-04-24",
+        "type": "payment",
+        "amount": 54.55,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-076",
+        "date": "2026-05-24",
+        "type": "payment",
+        "amount": 52.94,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The transaction history lists only completed payments (11 payments from 2025-07-28 to 2026-05-24) and has no record of failed or declined payment attempts, mobile app logs, or error codes. A failed app payment would not appear here, so the history can neither support nor contradict the claim. The complaint gives no dates, so the attempts cannot be tied to a period. None of the posted payments is $75.00 (amounts range from $50.00 to $138.46), so the $75 figure cannot be matched to a scheduled payment. The account is 'current', and the history shows no missed payments, late fees, or other adverse effects. Missing evidence: (1) mobile app/payment-gateway logs showing failed attempts and error codes, (2) the dates of the attempts, (3) the scheduled payment amount and due date for the period in question. The account_note is a generic placeholder and adds no verification.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is unverifiable, but the gap does not change the outcome: the account is current, no fees or adverse effects are alleged or visible, and no remedy is requested. Because the claim is neither confirmed true nor confirmed false, and it concerns a possible payment-channel failure on a payday loan, it sits above Low. There is no attorney/regulator reference, no hardship or vulnerability indicator, and the amount is under $200.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us because your $75 monthly payment through our mobile app failed twice, and you did not receive an explanation of why. We understand how frustrating that can be.\n\nWhat we found:\n\n1. Failed payment attempts: We reviewed your transaction history. It lists only completed payments, so a payment that did not go through would not appear in it. Because of this, we could not confirm or rule out that the two attempts failed. Your complaint did not include the dates of the attempts, so we could not match them to a specific period. Your account is currently in good standing, and we see no missed payments or late fees in your history.\n\n2. No error explanation: The records we reviewed contain no error message or app activity for these attempts, so we could not determine what error was shown or why it was not explained.\n\nOutcome: We could not verify either concern with the information currently available, so no remedy has been applied.\n\nNext steps: Please reply with the approximate dates and times of the two attempts and any error message or screenshot you have. We will use that to review the matter again and respond in writing. If you would like to raise this through another channel, you are welcome to do so.\n\nCase reference: SYN-C026",
+        "policy_cited": "08 General Dispute Handling Process (Standard process, step 3 'unable to verify' classification; 'What counts as a complete response'), applied with Policy 10 and Policy 11",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Attempted to make a $75 monthly payment through the mobile app and it failed twice",
+          "No error explanation was provided for the failed payments"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us because your $75 monthly payment through our mobile app failed twice, and you did not receive an explanation of why. We understand how frustrating that can be.\n\nWhat we found:\n\n1. Failed payment attempts: We reviewed your transaction history. It lists only completed payments, so a payment that did not go through would not appear in it. Because of this, we could not confirm or rule out that the two attempts failed. Your complaint did not include the dates of the attempts, so we could not match them to a specific period. Your account is currently in good standing, and we see no missed payments or late fees in your history.\n\n2. No error explanation: The records we reviewed contain no error message or app activity for these attempts, so we could not determine what error was shown or why it was not explained.\n\nOutcome: We could not verify either concern with the information currently available, so no remedy has been applied.\n\nNext steps: Please reply with the approximate dates and times of the two attempts and any error message or screenshot you have. We will use that to review the matter again and respond in writing. If you would like to raise this through another channel, you are welcome to do so.\n\nCase reference: SYN-C026",
+    "policy_cited": "08 General Dispute Handling Process (Standard process, step 3 'unable to verify' classification; 'What counts as a complete response'), applied with Policy 10 and Policy 11",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Attempted to make a $75 monthly payment through the mobile app and it failed twice",
+      "No error explanation was provided for the failed payments"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass",
+    "groundedness_check": "pass",
+    "policy_authorization_check": "pass",
+    "prohibited_language_check": "pass",
+    "tone_structure_check": "pass",
+    "specific_issues": []
+  },
+  "summary": "Problem when making payments - unverifiable - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T00:26:05+00:00"
+}

@@ -1,0 +1,173 @@
+{
+  "complaint_id": "20958806",
+  "run_started": "2026-10-07T00:19:41+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20958806",
+    "date_received": "2026-04-05",
+    "product": "Debt collection",
+    "sub_product": "Credit card debt",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt is not yours",
+    "state": "MD",
+    "narrative": "I keep getting calls about a credit card debt of $890 that is not mine. I have never had an account with this company. I asked them to send me proof this debt belongs to me and they just keep calling instead. I am a victim of identity theft from two years ago and I think this is related.",
+    "account_id": "ACC-004",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1446,
+      "output_tokens": 257
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2580,
+      "output_tokens": 1182
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Receiving repeated calls about a $890 credit card debt that is not theirs",
+      "Never had an account with this company",
+      "Requested proof the debt belongs to them, but the company continues calling instead of providing it",
+      "Believes the debt is related to identity theft from two years ago"
+    ],
+    "requested_outcome": "Proof that the debt belongs to them",
+    "dollar_amounts_mentioned": [
+      890.0
+    ],
+    "dates_mentioned": [
+      "two years ago"
+    ],
+    "account_details_mentioned": "Customer states they have never had an account with this company",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-004",
+      "loan_balance": 800.0,
+      "origination_date": "2026-07-09",
+      "payment_status": "past_due",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-004",
+        "date": "2026-07-09",
+        "type": "payment",
+        "amount": 36.36,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-004",
+        "date": "2026-08-08",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-004",
+        "date": "2026-09-07",
+        "type": "payment",
+        "amount": 36.36,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved record cannot confirm or refute the central claim that the $890 credit card debt is not the customer's. (1) Product mismatch: ACC-004 is an installment loan, not a credit card. (2) Amount mismatch: its balance is $800.00, not $890. Nothing links ACC-004 to the debt the customer describes. (3) Ownership is not established: the account note says it is a generic dataset record not built to confirm or deny this complaint, and there is no application, identity, or account-holder data. (4) The transactions are routine and do not address ownership or fraud: payments of $36.36 on 2026-07-09 and 2026-09-07 and a $25.00 fee on 2026-08-08. (5) Nothing covers the collection activity: no call logs, no record of a debt validation request or response, and no identity theft or fraud flag or report. (6) The origination date of 2026-07-09 does not clearly relate to the identity theft 'two years ago'. Missing: confirmation that this is the account being collected on, the original credit card account and its balance history, account-holder identity and application records, any fraud or identity theft dispute on file, collection contact logs, and validation request handling.",
+    "risk_tier": "High",
+    "risk_rationale": "Evidence is unverifiable on the deciding question of whether the debt belongs to the customer (the $890 vs. $800 and credit card vs. installment loan discrepancies leave it open), which is an automatic High trigger; the allegation that collectors kept calling after a proof-of-debt request without providing it adds a UDAAP-pattern signal.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Fact verification is unverifiable on the outcome-determining question (debt ownership and a possible identity theft/debt validation issue), so a response cannot be drafted without human review. Escalate to a human reviewer to locate the correct account and records. No prompt-injection content was detected.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I keep getting calls about a credit card debt of $890 that is not mine. I have never had an account with this company. I asked them to send me proof this debt belongs to me and they just keep calling instead. I am a victim of identity theft from two years ago and I think this is related.",
+    "extraction": {
+      "allegations": [
+        "Receiving repeated calls about a $890 credit card debt that is not theirs",
+        "Never had an account with this company",
+        "Requested proof the debt belongs to them, but the company continues calling instead of providing it",
+        "Believes the debt is related to identity theft from two years ago"
+      ],
+      "requested_outcome": "Proof that the debt belongs to them",
+      "dollar_amounts_mentioned": [
+        890.0
+      ],
+      "dates_mentioned": [
+        "two years ago"
+      ],
+      "account_details_mentioned": "Customer states they have never had an account with this company",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concerned and factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved record cannot confirm or refute the central claim that the $890 credit card debt is not the customer's. (1) Product mismatch: ACC-004 is an installment loan, not a credit card. (2) Amount mismatch: its balance is $800.00, not $890. Nothing links ACC-004 to the debt the customer describes. (3) Ownership is not established: the account note says it is a generic dataset record not built to confirm or deny this complaint, and there is no application, identity, or account-holder data. (4) The transactions are routine and do not address ownership or fraud: payments of $36.36 on 2026-07-09 and 2026-09-07 and a $25.00 fee on 2026-08-08. (5) Nothing covers the collection activity: no call logs, no record of a debt validation request or response, and no identity theft or fraud flag or report. (6) The origination date of 2026-07-09 does not clearly relate to the identity theft 'two years ago'. Missing: confirmation that this is the account being collected on, the original credit card account and its balance history, account-holder identity and application records, any fraud or identity theft dispute on file, collection contact logs, and validation request handling.",
+      "risk_tier": "High",
+      "risk_rationale": "Evidence is unverifiable on the deciding question of whether the debt belongs to the customer (the $890 vs. $800 and credit card vs. installment loan discrepancies leave it open), which is an automatic High trigger; the allegation that collectors kept calling after a proof-of-debt request without providing it adds a UDAAP-pattern signal.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-004",
+        "loan_balance": 800.0,
+        "origination_date": "2026-07-09",
+        "payment_status": "past_due",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-004",
+          "date": "2026-07-09",
+          "type": "payment",
+          "amount": 36.36,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-004",
+          "date": "2026-08-08",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-004",
+          "date": "2026-09-07",
+          "type": "payment",
+          "amount": 36.36,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Fact verification is unverifiable on the outcome-determining question (debt ownership and a possible identity theft/debt validation issue), so a response cannot be drafted without human review. Escalate to a human reviewer to locate the correct account and records. No prompt-injection content was detected.",
+    "unresolved": "The retrieved record cannot confirm or refute the central claim that the $890 credit card debt is not the customer's. (1) Product mismatch: ACC-004 is an installment loan, not a credit card. (2) Amount mismatch: its balance is $800.00, not $890. Nothing links ACC-004 to the debt the customer describes. (3) Ownership is not established: the account note says it is a generic dataset record not built to confirm or deny this complaint, and there is no application, identity, or account-holder data. (4) The transactions are routine and do not address ownership or fraud: payments of $36.36 on 2026-07-09 and 2026-09-07 and a $25.00 fee on 2026-08-08. (5) Nothing covers the collection activity: no call logs, no record of a debt validation request or response, and no identity theft or fraud flag or report. (6) The origination date of 2026-07-09 does not clearly relate to the identity theft 'two years ago'. Missing: confirmation that this is the account being collected on, the original credit card account and its balance history, account-holder identity and application records, any fraud or identity theft dispute on file, collection contact logs, and validation request handling.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:19:54+00:00"
+}

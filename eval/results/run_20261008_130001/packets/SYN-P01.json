@@ -1,0 +1,197 @@
+{
+  "complaint_id": "SYN-P01",
+  "run_started": "2026-10-08T18:02:24+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-P01",
+    "date_received": "6/28/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "CO",
+    "narrative": "I was charged two separate fees this month, a $15 processing fee and a $35 late fee. I think both of these are wrong and should be refunded.",
+    "account_id": "ACC-P01",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1417,
+      "output_tokens": 190
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4536,
+      "output_tokens": 871
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4142,
+      "output_tokens": 547
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4369,
+      "output_tokens": 1033
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4245,
+      "output_tokens": 1047
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4393,
+      "output_tokens": 1221
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $15 processing fee this month",
+      "Charged a $35 late fee this month",
+      "Believes both fees are wrong"
+    ],
+    "requested_outcome": "Refund of both fees",
+    "dollar_amounts_mentioned": [
+      15.0,
+      35.0
+    ],
+    "dates_mentioned": [
+      "this month"
+    ],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief, factual, uncertain"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-P01",
+      "loan_balance": 1875.0,
+      "origination_date": "1/20/2026",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Transaction log confirms a $15 processing fee on 2026-06-25 (CONFIRMED \u2014 this fee is standard and disclosed in loan agreement \u00a72.1). No $35 late fee appears anywhere in the transaction history for this account in the relevant period (NOT CONFIRMED). Customer is right about one fee, wrong about the other."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-P01",
+        "date": "2026-06-25",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Processing fee - standard, disclosed in loan agreement section 2.1."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "The customer reports two fees this month as the problem events. (1) $15 processing fee: the transaction log confirms it was charged on 2026-06-25. It is the standard fee disclosed in loan agreement section 2.1, so it was charged as described but is not an error. (2) $35 late fee: no such fee appears anywhere in the transaction history for this account in the relevant period, and the account is current, so this fee did not happen. The $15 fee happened and the $35 fee did not. The customer's belief that the $15 fee is wrong is contradicted by the disclosed terms.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true (one fee confirmed, one not found), which raises the tier to Medium. There is no attorney/regulator reference, no identity-theft or fraud allegation, no claim of being misled about terms, no hardship or vulnerability indicator, and the amounts are well under $200. The UDAAP-pattern signal did not influence the tier.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "06",
+    "topic": "Fee Waiver and Goodwill Credit Authority",
+    "category": "internal",
+    "matched_keywords": [
+      "refund",
+      "late fee"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Fee Waiver and Goodwill Credit Authority\n\n**Applies to:** Complaints where account/transaction data confirms a fee was charged in error, or where a goodwill gesture is being considered for a confirmed service failure.\n\n## Authority thresholds\n| Fee/credit amount | Who may approve |\n|---|---|\n| $0 \u2013 $50 | Complaints analyst, no additional sign-off required |\n| $50.01 \u2013 $200 | Complaints analyst with supervisor co-sign |\n| $200.01+ | Supervisor or manager approval required; analyst may not approve independently |\n\n## When a waiver is appropriate\n- The transaction history **confirms** the fee was charged in error (e.g., payment was received before the due date but a late fee was still assessed).\n- The fee was charged due to a documented system or processing error.\n- A documented goodwill exception for a first-time, low-dollar fee on an otherwise good-standing account (use sparingly, document the rationale).\n\n## When a waiver is NOT appropriate\n- The transaction history confirms the fee was correctly charged (no error occurred) \u2014 the response should explain the charge, not waive it.\n- The complaint's underlying fact could not be verified (missing/incomplete data) \u2014 route to manual review rather than waiving preemptively.\n- The complaint involves a dispute of right vs. convenience (e.g., customer disagrees with a disclosed, legitimate fee) \u2014 explain the fee and its basis; do not waive solely to end the complaint.\n\n## What an analyst or agent may say\n- May state the exact dollar amount being waived and the specific reason (tied to the confirmed error).\n- May NOT waive a fee \"as a one-time courtesy\" without a documented rationale on file \u2014 every waiver must cite either a confirmed error or an explicit goodwill justification.\n\n## Documentation requirement\nEvery waiver, regardless of amount, must be logged with: the confirming evidence (which transaction record), the dollar amount, and the approving party.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about two fees you saw on your account this month, a $15 processing fee and a $35 late fee, and asked for both to be refunded. We looked into each one separately.\n\nThe $15 processing fee: Our records show this fee was charged on June 25, 2026. It is the standard processing fee described in section 2.1 of your loan agreement, and our review found it was applied as the agreement describes. Because no error occurred, we are not able to refund it.\n\nThe $35 late fee: We checked your full transaction history for the period and found no $35 late fee on your account. Your account is also current. Since this charge does not appear in our records, there is nothing to refund. If you are seeing a $35 charge on a statement or in your online account, please send us a copy or a description of where you saw it and we will review it.\n\nNext steps: You do not need to do anything further unless you have additional information. You are welcome to send us anything else at any time, and we will review it. You can reply to this message or call the number on your account.\n\nCase reference: SYN-P01.",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee confirmed as correctly charged; no confirmed error). Also governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Charged a $15 processing fee this month",
+          "Charged a $35 late fee this month",
+          "Believes both fees are wrong"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 the draft states the customer \"asked for both to be refunded.\" The allegations list only says the customer was charged both fees and believes both are wrong. No refund request is recorded, so this is stated as fact without support. The other claims (the $15 fee charged June 25, 2026; section 2.1; no $35 fee in the transaction history; account current) trace to the verification output.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: \"asked for both to be refunded\" is not supported by the allegations list, which records only that the customer believes both fees are wrong. It should be removed or rephrased, for example \"you believe both fees are incorrect.\""
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us because you saw a $15 processing fee and a $35 late fee on your account this month and believe both are incorrect. We understand how unsettling it is to see charges you didn't expect, so we reviewed your account's transaction history for each one.\n\nThe $15 processing fee: Our records show this fee was charged on June 25, 2026. It is the standard processing fee described in section 2.1 of your loan agreement, and it was applied as that section describes. We found no error in how it was charged, so we are not able to remove it.\n\nThe $35 late fee: We did not find a $35 late fee anywhere in your account's transaction history for this period, and your account is current. This fee does not appear to have been charged, so there is nothing to refund. If you see a $35 charge on a statement or in your online account, please send us the date or a copy so we can look at exactly what you are seeing.\n\nBecause you believe both fees are incorrect, we have set out above what our records show for each. If you have any further information or documents you would like us to consider, you are welcome to send them at any time and we will review them. You can reply to this message or call the number on your account.\n\nCase reference: SYN-P01",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee correctly charged per disclosed terms; no fee found for the second item), with Policy 10 and Policy 11 applied",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Charged a $15 processing fee this month",
+          "Charged a $35 late fee this month",
+          "Believes both fees are wrong"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all three allegations are addressed: the $15 processing fee, the $35 late fee, and the belief that both fees are wrong. The last is handled by the individual explanations of each fee and the closing paragraph.",
+        "groundedness_check": "pass \u2014 the June 25, 2026 charge date, the section 2.1 reference, the finding that no $35 fee appears in the transaction history, and the statement that the account is current all trace to the verification output. The draft does not claim any refund, credit, or approval. The invitation to send the date or a copy of any $35 charge the customer sees is a next step, not a factual claim.",
+        "policy_authorization_check": "pass \u2014 remedy_stated and referral_stated are both null, and the draft promises no waiver, refund, or credit. Declining to waive the $15 fee matches Policy 06 ('When a waiver is NOT appropriate': fee correctly charged per disclosed terms). Not refunding the $35 is consistent with the finding that it was never charged.",
+        "prohibited_language_check": "pass \u2014 there is no fault admission, no guarantee about the future, no legal conclusion, and no promise outside documented authority. Nothing discourages the customer from pursuing other channels. 'We found no error in how it was charged' states a confirmed fact and is not a legal characterization.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: a specific acknowledgment, findings and outcome for each fee in separate short paragraphs, next steps, and the case reference SYN-P01. It is plain-language, in the second person, and free of marketing content. The length is acceptable for a multi-allegation response, and the empathy line is modest rather than performative.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us because you saw a $15 processing fee and a $35 late fee on your account this month and believe both are incorrect. We understand how unsettling it is to see charges you didn't expect, so we reviewed your account's transaction history for each one.\n\nThe $15 processing fee: Our records show this fee was charged on June 25, 2026. It is the standard processing fee described in section 2.1 of your loan agreement, and it was applied as that section describes. We found no error in how it was charged, so we are not able to remove it.\n\nThe $35 late fee: We did not find a $35 late fee anywhere in your account's transaction history for this period, and your account is current. This fee does not appear to have been charged, so there is nothing to refund. If you see a $35 charge on a statement or in your online account, please send us the date or a copy so we can look at exactly what you are seeing.\n\nBecause you believe both fees are incorrect, we have set out above what our records show for each. If you have any further information or documents you would like us to consider, you are welcome to send them at any time and we will review them. You can reply to this message or call the number on your account.\n\nCase reference: SYN-P01",
+    "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee correctly charged per disclosed terms; no fee found for the second item), with Policy 10 and Policy 11 applied",
+    "remedy_stated": null,
+    "referral_stated": null,
+    "allegations_addressed": [
+      "Charged a $15 processing fee this month",
+      "Charged a $35 late fee this month",
+      "Believes both fees are wrong"
+    ]
+  },
+  "action_required_before_sending": null,
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all three allegations are addressed: the $15 processing fee, the $35 late fee, and the belief that both fees are wrong. The last is handled by the individual explanations of each fee and the closing paragraph.",
+    "groundedness_check": "pass \u2014 the June 25, 2026 charge date, the section 2.1 reference, the finding that no $35 fee appears in the transaction history, and the statement that the account is current all trace to the verification output. The draft does not claim any refund, credit, or approval. The invitation to send the date or a copy of any $35 charge the customer sees is a next step, not a factual claim.",
+    "policy_authorization_check": "pass \u2014 remedy_stated and referral_stated are both null, and the draft promises no waiver, refund, or credit. Declining to waive the $15 fee matches Policy 06 ('When a waiver is NOT appropriate': fee correctly charged per disclosed terms). Not refunding the $35 is consistent with the finding that it was never charged.",
+    "prohibited_language_check": "pass \u2014 there is no fault admission, no guarantee about the future, no legal conclusion, and no promise outside documented authority. Nothing discourages the customer from pursuing other channels. 'We found no error in how it was charged' states a confirmed fact and is not a legal characterization.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: a specific acknowledgment, findings and outcome for each fee in separate short paragraphs, next steps, and the case reference SYN-P01. It is plain-language, in the second person, and free of marketing content. The length is acceptable for a multi-allegation response, and the empathy line is modest rather than performative.",
+    "specific_issues": []
+  },
+  "summary": "Charged fees or interest you didn't expect - partially_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-08T18:03:03+00:00"
+}

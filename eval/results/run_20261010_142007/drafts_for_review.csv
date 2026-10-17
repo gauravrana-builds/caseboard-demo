@@ -1,0 +1,14 @@
+complaint_id,demo_case_type,narrative,extracted_allegations,fact_verification,risk_tier,policy_cited,draft_text,remedy_stated,action_required_before_sending,verifier_result,verifier_issues,human_tag (Approve / Minor / Substantive),reviewer_notes
+20962593,core,"This collection agency calls me 4 to 5 times a day, sometimes before 8am, about a payday loan debt. I have asked them multiple times to only contact me by mail and they keep calling anyway. It's gotten to the point where I'm afraid to answer my phone.",Collection agency calls 4 to 5 times a day about a payday loan debt | Calls sometimes occur before 8am | Customer asked multiple times to be contacted only by mail and the agency continues to call,partially_true,Medium,"08 General Dispute Handling Process, Standard process step 4 and 'What counts as a complete response' (no remedy authorized; calls and timing confirmed, mail-only request unable to verify). Policy 10 and Policy 11 applied.","You told us a collection agency is calling you four or five times a day about a payday loan, sometimes before 8am, and that it keeps happening even though you've asked for contact by mail only. Being called that often, and that early, is stressful, and we understand why you wrote to us.
+
+Here's what we found for each part of your complaint.
+
+The number of calls: You're right about this. Our call log shows 4 calls on March 30, 2026 (7:41 am, 12:15 pm, 4:30 pm and 6:45 pm) and 5 calls on March 31, 2026 (7:55 am, 11:00 am, 2:20 pm, 5:05 pm and 7:10 pm). There was also a call on April 1, 2026 at 12:05 pm that was answered and lasted 2 minutes.
+
+Calls before 8am: This is also confirmed. The log shows a call at 7:41 am on March 30 and another at 7:55 am on March 31.
+
+Your requests for mail-only contact: We couldn't confirm this part. We don't have a record of a mail-only or contact-preference request on your account, and we have no record of what was said on the April 1 call. Requests like this are often made directly to the agency, so not finding one in our records doesn't mean you didn't make it. The only mailed contact we have on file is the collection notice dated March 2, 2026.
+
+Because we can't see your request in our records, we can't tell you today that mail-only contact has been put in place. If you can tell us when and how you asked (for example, the date of a call, or a copy of a letter or message you sent), please reply to this message or call us at the number on your account. We'll review whatever you send. You're welcome to send us more information at any time.
+
+Case reference: 20962593.",,,pass,,,

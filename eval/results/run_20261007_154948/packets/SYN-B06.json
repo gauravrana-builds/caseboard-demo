@@ -1,0 +1,217 @@
+{
+  "complaint_id": "SYN-B06",
+  "run_started": "2026-10-07T20:51:29+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B06",
+    "date_received": "5/29/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "MI",
+    "narrative": "I called in March and spoke to someone named Derek who told me my $30 fee would be waived and it would show on my next statement. It's now two statements later and the fee is still there and nobody can find any record of that call ever happening.",
+    "account_id": "ACC-B06",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1440,
+      "output_tokens": 238
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4387,
+      "output_tokens": 1600
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3830,
+      "output_tokens": 1372
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4167,
+      "output_tokens": 2233
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4099,
+      "output_tokens": 2020
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4247,
+      "output_tokens": 3136
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Representative named Derek said on a March call that a $30 fee would be waived and would show on the next statement",
+      "The $30 fee is still on the account two statements later",
+      "No one can find any record of the March call"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      30.0
+    ],
+    "dates_mentioned": [
+      "March",
+      "next statement",
+      "two statements later"
+    ],
+    "account_details_mentioned": "A $30 fee that was promised to be waived remains on the account after two statements",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-B06",
+      "loan_balance": 1320.0,
+      "origination_date": "2026-01-12",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Transaction log shows a $30 fee charged on 2026-03-18 and still present as of the complaint date (fee was NOT waived in the system). Call log shows one inbound call on 2026-03-15, logged by agent 'D. Reyes' (matches 'Derek') with internal note: 'Cust requesting fee waiver, escalated to supervisor for review' \u2014 but NO follow-up note confirming approval or denial exists. The system cannot confirm whether a waiver was actually promised or approved; the call happened, but its outcome was never logged."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-B06",
+        "date": "2026-03-15",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Inbound call, agent D. Reyes, fee waiver requested, escalated to supervisor - no outcome logged."
+      },
+      {
+        "account_id": "ACC-B06",
+        "date": "2026-03-18",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Fee charged, remains on account - not waived in system."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "Confirmed: a $30 fee was charged on 2026-03-18 and is still on the account, not waived in the system. Confirmed background, not a finding for the customer: an inbound call on 2026-03-15 from agent D. Reyes (matches 'Derek') requested a fee waiver and was escalated to a supervisor. This also shows the customer's statement that no record of the March call exists is inaccurate. Cannot be confirmed: that Derek promised the fee would be waived and appear on the next statement. The call log has no supervisor follow-up and no approval or denial, and the system does not record what was said on the call. The fee remaining is confirmed, but whether it is wrong depends on a promise the records neither confirm nor rule out. Any response must not state that a waiver was promised or that one was denied. Missing: the supervisor review outcome and any call recording or notes of what was said on 2026-03-15.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true, and the customer alleges a company representative made a promise that was not honored. That is a possible misleading-statement (UDAAP-pattern) signal and it influenced the tier. It stops at Medium rather than High because the amount is only $30, there is no attorney or regulator reference, there is no hardship or vulnerability indicator, and the call log shows the waiver request was escalated rather than dismissed.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_failed_verification",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a $30 fee that you were told would be waived and that still appears on your account two statements later. We reviewed your account and call history, and here is what we found on each point.\n\nThe $30 fee: Our records show the fee was charged on March 18, 2026, and it is still on your account. It has not been waived in our system.\n\nThe March call: Our call log does show that you called us on March 15, 2026, and asked for the fee to be waived. The request was escalated to a supervisor. We could not find a supervisor follow-up, and the log does not show whether the request was approved or denied.\n\nWhat you were told: Our system does not record what was said during the call, so we cannot confirm what you were told about the waiver or when it would appear. We are therefore unable to say at this time whether the fee should be removed.\n\nNext steps: We are requesting the outcome of the supervisor's review, along with any notes or recording of the March 15 call. We will write to you with the result of that review. If you remember anything else about the call, such as the time of day or what was said, you can reply to this message with those details and we will add them to your case. You are also welcome to contact any other channel you choose about this matter.\n\nCase reference: SYN-B06",
+        "policy_cited": "08 General Dispute Handling Process (partially confirmed outcome; the remaining allegation cannot be verified from available records), applied with 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Representative named Derek said on a March call that a $30 fee would be waived and would show on the next statement",
+          "The $30 fee is still on the account two statements later",
+          "No one can find any record of the March call"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 the opening says \"a $30 fee that you were told would be waived\", which states as fact that the customer was told this. The verification output says that promise cannot be confirmed and that the response \"must not state that a waiver was promised.\" The draft later says \"we cannot confirm what you were told\", so it contradicts itself. Separately, \"asked for the fee to be waived\" is not supported. The verification only says the March 15 call requested \"a fee waiver\" and never says it was this $30 fee. The fee was charged on March 18, three days after the call. The draft presents the call as being about this fee without noting or resolving that sequence. Lastly, \"We are requesting the outcome of the supervisor's review...\" and \"We will write to you with the result\" assert actions and a commitment that nothing in the verification output shows were started or authorized.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: the opening treats the promise (\"you were told would be waived\") as established, contrary to the verification output and the draft's own later statement that this cannot be confirmed.",
+          "Groundedness: the draft links the March 15 call to this $30 fee, but the fee was charged on March 18 and the verification output does not say the call concerned this fee. The date discrepancy is unaddressed and should be resolved or worded neutrally.",
+          "Groundedness: the draft says \"we are requesting\" the supervisor outcome and notes/recording, and \"we will write to you\", with no timeframe. The verification output lists these only as missing items, not as requests already made, so the commitment is unsupported and the next step is open-ended under Policy 08."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us because a $30 fee is still on your account two statements after you say a representative named Derek told you in March that it would be waived. We reviewed your account and the call records, and here is what we found on each point.\n\nThe $30 fee remains on your account. Our records show it was applied on March 18, 2026, and it has not been waived in our system.\n\nThe March call. You mentioned that no one could find a record of it. Our call log does show an inbound call from you on March 15, 2026, handled by a representative named D. Reyes. On that call a fee waiver was requested, and the request was passed to a supervisor. The log does not show an approval or a denial. The $30 fee was applied on March 18, three days after the call, and the records we have do not show whether the March 15 request was about this fee.\n\nWhat Derek told you. Our system does not record what was said during calls, so we cannot confirm or rule out that you were told the fee would be waived. The supervisor's decision and any notes or recording of the call are not in the records available to us.\n\nBecause of this, no waiver has been approved or denied on this fee, and it stays on your account for now. We understand how frustrating it is to see a charge you expected to be removed.\n\nIf you can share the date and time of any other call, the name of anyone else you spoke with, or any confirmation you received, please reply to this message or call the number on your account. We will add that information to your case. Please include case reference SYN-B06 in any further correspondence.",
+        "policy_cited": "08 General Dispute Handling Process (standard process; outcome classified as partially confirmed; every allegation addressed individually), with 10 Prohibited Language and 11 Response Tone and Format applied",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Representative named Derek said on a March call that a $30 fee would be waived and would show on the next statement",
+          "The $30 fee is still on the account two statements later",
+          "No one can find any record of the March call"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 \"Because of this, no waiver has been approved or denied on this fee\" is unsupported. The verification says only that the call log shows no supervisor follow-up and that the supervisor review outcome is missing. It does not say no decision was made, so the draft turns an absence of records into a definitive statement about the decision. Also \"the records we have do not show whether the March 15 request was about this fee\" is not in the verification output, which says only that a fee waiver was requested. The draft adds this inference, and the 3-day gap framing, on its own, and it undercuts the customer's account without support.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "fail \u2014 The order is correct (acknowledgment, findings, outcome, next steps, case reference). However, the \"The March call\" paragraph runs six sentences, against Policy 11's 2\u20134 sentence limit. Next steps also name no company action or timeline for locating the supervisor's decision or call notes, so under Policy 08 the open case has no clear company-side next step. The customer is only asked to send more information.",
+        "specific_issues": [
+          "Groundedness: \"no waiver has been approved or denied on this fee\" overstates the verification, which says only that the supervisor outcome is not in the records. Reword to say the records available do not show a decision.",
+          "Groundedness: the statement that the records do not show whether the March 15 request concerned this fee is the drafter's own inference. It does not appear in the verification output and should be removed or backed by evidence.",
+          "Tone/structure: the \"The March call\" paragraph is six sentences, over Policy 11's 2\u20134 sentence limit, and should be split.",
+          "Tone/structure: next steps do not say what the company will do to obtain the supervisor decision or call notes, or when the customer will hear back, contrary to Policy 08's clear-next-step requirement."
+        ]
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us because a $30 fee is still on your account two statements after you say a representative named Derek told you in March that it would be waived. We reviewed your account and the call records, and here is what we found on each point.\n\nThe $30 fee remains on your account. Our records show it was applied on March 18, 2026, and it has not been waived in our system.\n\nThe March call. You mentioned that no one could find a record of it. Our call log does show an inbound call from you on March 15, 2026, handled by a representative named D. Reyes. On that call a fee waiver was requested, and the request was passed to a supervisor. The log does not show an approval or a denial. The $30 fee was applied on March 18, three days after the call, and the records we have do not show whether the March 15 request was about this fee.\n\nWhat Derek told you. Our system does not record what was said during calls, so we cannot confirm or rule out that you were told the fee would be waived. The supervisor's decision and any notes or recording of the call are not in the records available to us.\n\nBecause of this, no waiver has been approved or denied on this fee, and it stays on your account for now. We understand how frustrating it is to see a charge you expected to be removed.\n\nIf you can share the date and time of any other call, the name of anyone else you spoke with, or any confirmation you received, please reply to this message or call the number on your account. We will add that information to your case. Please include case reference SYN-B06 in any further correspondence.",
+    "policy_cited": "08 General Dispute Handling Process (standard process; outcome classified as partially confirmed; every allegation addressed individually), with 10 Prohibited Language and 11 Response Tone and Format applied",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Representative named Derek said on a March call that a $30 fee would be waived and would show on the next statement",
+      "The $30 fee is still on the account two statements later",
+      "No one can find any record of the March call"
+    ]
+  },
+  "verifier": {
+    "overall_result": "fail",
+    "completeness_check": "pass",
+    "groundedness_check": "fail \u2014 \"Because of this, no waiver has been approved or denied on this fee\" is unsupported. The verification says only that the call log shows no supervisor follow-up and that the supervisor review outcome is missing. It does not say no decision was made, so the draft turns an absence of records into a definitive statement about the decision. Also \"the records we have do not show whether the March 15 request was about this fee\" is not in the verification output, which says only that a fee waiver was requested. The draft adds this inference, and the 3-day gap framing, on its own, and it undercuts the customer's account without support.",
+    "policy_authorization_check": "pass",
+    "prohibited_language_check": "pass",
+    "tone_structure_check": "fail \u2014 The order is correct (acknowledgment, findings, outcome, next steps, case reference). However, the \"The March call\" paragraph runs six sentences, against Policy 11's 2\u20134 sentence limit. Next steps also name no company action or timeline for locating the supervisor's decision or call notes, so under Policy 08 the open case has no clear company-side next step. The customer is only asked to send more information.",
+    "specific_issues": [
+      "Groundedness: \"no waiver has been approved or denied on this fee\" overstates the verification, which says only that the supervisor outcome is not in the records. Reword to say the records available do not show a decision.",
+      "Groundedness: the statement that the records do not show whether the March 15 request concerned this fee is the drafter's own inference. It does not appear in the verification output and should be removed or backed by evidence.",
+      "Tone/structure: the \"The March call\" paragraph is six sentences, over Policy 11's 2\u20134 sentence limit, and should be split.",
+      "Tone/structure: next steps do not say what the company will do to obtain the supervisor decision or call notes, or when the customer will hear back, contrary to Policy 08's clear-next-step requirement."
+    ]
+  },
+  "summary": "Charged fees or interest you didn't expect - partially_true - Medium risk - draft failed verification twice - needs manual drafting",
+  "run_finished": "2026-10-07T20:52:52+00:00"
+}

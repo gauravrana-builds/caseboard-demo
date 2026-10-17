@@ -1,0 +1,154 @@
+{
+  "complaint_id": "SYN-P03",
+  "run_started": "2026-10-11T15:54:16+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-P03",
+    "date_received": "7/6/2026",
+    "product": "Debt collection",
+    "sub_product": "Payday loan debt",
+    "issue": "Communication tactics",
+    "sub_issue": "Frequent or repeated calls",
+    "state": "IN",
+    "narrative": "This collector calls me multiple times a day and has also called my workplace, which I never gave them permission to contact.",
+    "account_id": "ACC-P03",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1394,
+      "output_tokens": 163
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4957,
+      "output_tokens": 968
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4773,
+      "output_tokens": 1403
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4308,
+      "output_tokens": 1544
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Collector calls multiple times a day",
+      "Collector called the customer's workplace without permission"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-P03",
+      "loan_balance": 410.0,
+      "origination_date": "3/1/2026",
+      "payment_status": "delinquent",
+      "product_type": "installment_loan",
+      "account_note": "Call log shows 6 calls to customer's personal number in the past 7 days (CONFIRMED \u2014 frequent contact, consistent with complaint). No record of any call placed to a workplace or employer number exists in the system; only one phone number (personal, customer-provided) is on file (NOT CONFIRMED \u2014 no workplace contact)."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-P03",
+        "date": "2026-03-01",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "6 calls to personal number in 7-day window. No workplace contact on record."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "The customer reports two problem events. (1) Frequent calls: CONFIRMED. The call log shows 6 calls to the customer's personal number in the past 7 days, consistent with the complaint. The log gives only a 7-day total, not a per-day breakdown, so the exact 'multiple times a day' pattern is not itemized, but frequent contact is established. (2) Call to the customer's workplace: NOT CONFIRMED. The system has no record of any call to a workplace or employer number, and the only number on file is the customer's personal one. The customer is right about the call frequency, but the workplace contact cannot be confirmed from our records. It is also not ruled out, because a call by a third party or from outside this log would not appear here.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true (frequent calls confirmed, workplace contact unconfirmed) on a delinquent account; call frequency and alleged workplace contact are collector-conduct issues under Reg F that rate Medium and do not reach High on their own, since no threats, false statements, or abusive language are alleged.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You told us that a collector has been calling you several times a day, and that they called you at your workplace without your permission. Calls like that can be stressful and disruptive, especially when they reach you at work. We've looked into both concerns, and here is what we found.\n\nThe frequency of the calls: Our records show 6 calls to your personal number in the past 7 days, so we can confirm you've been contacted frequently. The records give us a total for the week rather than a day-by-day breakdown, so they don't show how many of those calls came on any single day.\n\nThe call to your workplace: We can't confirm this one from our records. They show no call to a workplace or employer number, and the only number we have on file for you is your personal one. That is what our records show, and we want to hear more from you. If you can tell us the date and time of the call, the number it came from, and the number it reached, we'll review it.\n\nOutcome: The call frequency is confirmed. The workplace call can't be confirmed with the information we have right now.\n\nNext steps: You can send us those details, or anything else you'd like us to consider, at any time by replying to this message or calling the number on your account. We'll review whatever you send. Case reference: SYN-P03.",
+        "policy_cited": "08 General Dispute Handling Process, Standard process and What counts as a complete response (partially confirmed outcome); also Policy 10 Prohibited Language and Policy 11 Response Tone and Format",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Collector calls multiple times a day",
+          "Collector called the customer's workplace without permission"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed individually: (1) frequent calls, and (2) the call to the customer's workplace without permission.",
+        "groundedness_check": "pass \u2014 the 6 calls to the personal number in the past 7 days, the lack of a day-by-day breakdown, the absence of any workplace or employer number in the records, and the personal number being the only one on file all match the verification output. The draft states no refund, credit, remedy, or referral. The 'call frequency is confirmed' outcome matches the verification's 'CONFIRMED' finding, and the draft states the 7-day-total limitation in the findings.",
+        "policy_authorization_check": "pass \u2014 remedy_stated and referral_stated are both null and the draft promises nothing, so nothing exceeds the cited policy's authority.",
+        "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no guarantees about the future, no legal conclusions, and nothing discouraging other channels. The empathy line ('Calls like that can be stressful and disruptive') is a measured acknowledgment and not an apology or admission. The workplace allegation is stated as unconfirmed, not denied.",
+        "tone_structure_check": "pass \u2014 follows Policy 11's order: acknowledgment, findings (one paragraph per allegation), outcome, next steps, case reference SYN-P03. It uses second person, plain language, short paragraphs, and no marketing content. The next step is concrete: send the date, time, and numbers involved, and the draft says what happens with them.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You told us that a collector has been calling you several times a day, and that they called you at your workplace without your permission. Calls like that can be stressful and disruptive, especially when they reach you at work. We've looked into both concerns, and here is what we found.\n\nThe frequency of the calls: Our records show 6 calls to your personal number in the past 7 days, so we can confirm you've been contacted frequently. The records give us a total for the week rather than a day-by-day breakdown, so they don't show how many of those calls came on any single day.\n\nThe call to your workplace: We can't confirm this one from our records. They show no call to a workplace or employer number, and the only number we have on file for you is your personal one. That is what our records show, and we want to hear more from you. If you can tell us the date and time of the call, the number it came from, and the number it reached, we'll review it.\n\nOutcome: The call frequency is confirmed. The workplace call can't be confirmed with the information we have right now.\n\nNext steps: You can send us those details, or anything else you'd like us to consider, at any time by replying to this message or calling the number on your account. We'll review whatever you send. Case reference: SYN-P03.",
+    "policy_cited": "08 General Dispute Handling Process, Standard process and What counts as a complete response (partially confirmed outcome); also Policy 10 Prohibited Language and Policy 11 Response Tone and Format",
+    "remedy_stated": null,
+    "referral_stated": null,
+    "allegations_addressed": [
+      "Collector calls multiple times a day",
+      "Collector called the customer's workplace without permission"
+    ]
+  },
+  "action_required_before_sending": null,
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed individually: (1) frequent calls, and (2) the call to the customer's workplace without permission.",
+    "groundedness_check": "pass \u2014 the 6 calls to the personal number in the past 7 days, the lack of a day-by-day breakdown, the absence of any workplace or employer number in the records, and the personal number being the only one on file all match the verification output. The draft states no refund, credit, remedy, or referral. The 'call frequency is confirmed' outcome matches the verification's 'CONFIRMED' finding, and the draft states the 7-day-total limitation in the findings.",
+    "policy_authorization_check": "pass \u2014 remedy_stated and referral_stated are both null and the draft promises nothing, so nothing exceeds the cited policy's authority.",
+    "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no guarantees about the future, no legal conclusions, and nothing discouraging other channels. The empathy line ('Calls like that can be stressful and disruptive') is a measured acknowledgment and not an apology or admission. The workplace allegation is stated as unconfirmed, not denied.",
+    "tone_structure_check": "pass \u2014 follows Policy 11's order: acknowledgment, findings (one paragraph per allegation), outcome, next steps, case reference SYN-P03. It uses second person, plain language, short paragraphs, and no marketing content. The next step is concrete: send the date, time, and numbers involved, and the draft says what happens with them.",
+    "specific_issues": []
+  },
+  "summary": "Communication tactics - partially_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-11T15:54:49+00:00"
+}

@@ -1,0 +1,242 @@
+{
+  "complaint_id": "SYN-C025",
+  "run_started": "2026-10-07T00:25:25+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C025",
+    "date_received": "2026-05-02",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "NY",
+    "narrative": "I was charged a $200 fee on my installment loan this month that was never disclosed in my original loan agreement. I've reviewed the paperwork twice and cannot find any mention of this charge.",
+    "account_id": "ACC-075",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1432,
+      "output_tokens": 215
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2888,
+      "output_tokens": 2933
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3791,
+      "output_tokens": 1513
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4237,
+      "output_tokens": 2048
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3993,
+      "output_tokens": 1818
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4202,
+      "output_tokens": 1771
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $200 fee on installment loan this month that was never disclosed in the original loan agreement",
+      "Reviewed the paperwork twice and found no mention of the charge"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      200.0
+    ],
+    "dates_mentioned": [
+      "this month"
+    ],
+    "account_details_mentioned": "Installment loan; original loan agreement does not mention the $200 fee per customer's review",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and measured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-075",
+      "loan_balance": 2200.0,
+      "origination_date": "2026-02-04",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-075",
+        "date": "2026-02-04",
+        "type": "fee",
+        "amount": 35.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-075",
+        "date": "2026-03-06",
+        "type": "payment",
+        "amount": 73.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-075",
+        "date": "2026-04-05",
+        "type": "payment",
+        "amount": 137.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-075",
+        "date": "2026-05-05",
+        "type": "payment",
+        "amount": 183.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-075",
+        "date": "2026-06-04",
+        "type": "payment",
+        "amount": 115.79,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-075",
+        "date": "2026-07-04",
+        "type": "payment",
+        "amount": 129.41,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-075",
+        "date": "2026-08-03",
+        "type": "payment",
+        "amount": 157.14,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-075",
+        "date": "2026-09-02",
+        "type": "fee",
+        "amount": 35.0,
+        "note": "Routine fee assessment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The $200 fee the customer describes does not appear anywhere in the transaction history for ACC-075 (2026-02-04 through 2026-09-02). The only fees on the account are two $35.00 'routine fee assessments', on 2026-02-04 and 2026-09-02. Every other entry is a scheduled payment. The 2026-09-02 fee is the only fee in the most recent period, so it is the likely referent, and it is $165 less than the amount alleged. Limits on this finding: (1) the complaint gives no date beyond 'this month', and the history ends on 2026-09-02, so a fee posted after that date would not appear; (2) no loan agreement or fee schedule was supplied, so the non-disclosure allegation cannot be checked either way and no draft should state or imply the fee was disclosed; (3) the account_note says the record is a generic dataset account, not individually verified, so the evidence should be treated as moderately reliable.",
+    "risk_tier": "Medium",
+    "risk_rationale": "There is no attorney or regulator reference, no hardship or vulnerability indicator and the amount is not over $200, but the allegation of an undisclosed fee on a payday loan is a UDAAP-pattern signal that lifts the tier above Low, and the disclosure question cannot be resolved from the evidence available.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a $200 fee on your installment loan this month that you could not find in your original loan agreement. We reviewed your account's transaction history, which runs through September 2, 2026.\n\nWhat we found on the $200 fee: our records do not show a $200 fee on your account. The only fees we found are two $35.00 fees, one on February 4, 2026 and one on September 2, 2026. Every other entry is a scheduled payment. If the September 2 fee is the charge you saw, the amount in our records is $35.00, not $200. If you are seeing a $200 charge somewhere else, such as a statement or an online account view, it may have posted after September 2 or may be something we have not located yet.\n\nWhat we found on whether the fee was disclosed: we were not able to verify this. The records we reviewed did not include your loan agreement or fee schedule, so we cannot say whether the fee is described in your paperwork.\n\nOutcome: because no $200 fee was found and we could not verify the disclosure question, no refund or adjustment has been made at this time.\n\nNext steps: please reply with the date and amount of the charge as it appears to you, or a copy of the statement showing it. With that, we can confirm whether the charge you are seeing matches the $35.00 fee or is a separate item, and we will review it against your loan agreement terms. You are also welcome to contact us at the number on your account.\n\nCase reference: SYN-C025.",
+        "policy_cited": "08 General Dispute Handling Process (Standard process step 4 and 'What counts as a complete response'; outcome classified as not confirmed for the $200 fee and unable to verify for the disclosure allegation), with Policy 10 and Policy 11 applied",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Charged a $200 fee on installment loan this month that was never disclosed in the original loan agreement",
+          "Reviewed the paperwork twice and found no mention of the charge"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "fail \u2014 the five sections appear in the correct order, but the 'What we found on the $200 fee' paragraph runs five sentences. Policy 11 asks for short paragraphs of 2-4 sentences and for multiple allegations to be kept clearly separated. The paragraph also mixes the confirmed finding ($35.00 fees only) with speculation about where a $200 charge might appear. Splitting it would fix this.",
+        "specific_issues": [
+          "Tone/structure: the findings paragraph on the $200 fee exceeds the 2-4 sentence guideline in Policy 11 (five sentences). This is a minor formatting defect, not a structural or substantive one. Split the paragraph, for example confirmed fees in one and 'if you are seeing a different charge' in another.",
+          "Non-blocking note: the case reference 'SYN-C025' does not appear in the verification output or the cited policies provided to this check. Confirm it matches the Prompt 1 extraction output before sending."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us about a $200 fee on your installment loan this month that you say is not mentioned in your original loan agreement. We understand how frustrating it is to see a charge you don't recognize.\n\nFee amount: We reviewed the activity on your account from February 4, 2026 through September 2, 2026. We did not find a $200 fee. The only fees are two $35.00 fees, posted on February 4, 2026 and September 2, 2026, and every other entry is a scheduled payment.\n\nOur review only covers activity through September 2, 2026. If the charge you are seeing is for a different amount, or posted after that date, it would not appear in what we reviewed.\n\nDisclosure in your loan agreement: You told us you reviewed your paperwork twice and found no mention of the charge. Your loan agreement was not part of the records we reviewed, so we cannot confirm from our review whether any fee is covered in it, either way.\n\nOutcome: Because no $200 fee appears on your account, we have not made any adjustment at this time.\n\nNext steps: Please reply with the date and amount of the charge as it appears on your statement. If you can, include the pages of your loan agreement you reviewed. We will compare them against your account records and respond in writing. You are also welcome to contact us at the number on your account.\n\nCase reference: SYN-C025",
+        "policy_cited": "08 General Dispute Handling Process (fee-amount allegation: not confirmed; disclosure allegation: unable to verify). Drafted per Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Charged a $200 fee on installment loan this month that was never disclosed in the original loan agreement",
+          "Reviewed the paperwork twice and found no mention of the charge"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed. The $200 undisclosed fee is addressed under 'Fee amount' (not found; only two $35.00 fees). The claim that the customer reviewed the paperwork twice and found no mention is addressed under 'Disclosure in your loan agreement' (cannot confirm either way, since no agreement was in the records reviewed).",
+        "groundedness_check": "pass \u2014 the review period (Feb 4 to Sep 2, 2026), the two $35.00 fees on those dates, and the 'every other entry is a scheduled payment' statement all match the verification output. The date-range caveat and the statement that the loan agreement was not reviewed also match the stated limits. The draft does not claim or imply that the fee was disclosed. The 'number on your account' reference is generic and states no invented fact.",
+        "policy_authorization_check": "pass \u2014 no remedy is stated (remedy_stated is null) and the draft says no adjustment was made. Nothing exceeds the cited policy's authority. The written-response commitment is consistent with Policy 08.",
+        "prohibited_language_check": "pass \u2014 there are no fault admissions, future guarantees, legal conclusions, or promises outside authority. Nothing discourages the customer from other channels. 'We understand how frustrating it is' is the kind of non-performative acknowledgment Policy 10 permits.",
+        "tone_structure_check": "pass \u2014 the order follows Policy 11: specific acknowledgment, findings with dates and amounts, outcome, next steps, then case reference SYN-C025. It uses second person, plain language, short paragraphs, one section per allegation, and no marketing content. The length is acceptable for a multi-allegation response.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about a $200 fee on your installment loan this month that you say is not mentioned in your original loan agreement. We understand how frustrating it is to see a charge you don't recognize.\n\nFee amount: We reviewed the activity on your account from February 4, 2026 through September 2, 2026. We did not find a $200 fee. The only fees are two $35.00 fees, posted on February 4, 2026 and September 2, 2026, and every other entry is a scheduled payment.\n\nOur review only covers activity through September 2, 2026. If the charge you are seeing is for a different amount, or posted after that date, it would not appear in what we reviewed.\n\nDisclosure in your loan agreement: You told us you reviewed your paperwork twice and found no mention of the charge. Your loan agreement was not part of the records we reviewed, so we cannot confirm from our review whether any fee is covered in it, either way.\n\nOutcome: Because no $200 fee appears on your account, we have not made any adjustment at this time.\n\nNext steps: Please reply with the date and amount of the charge as it appears on your statement. If you can, include the pages of your loan agreement you reviewed. We will compare them against your account records and respond in writing. You are also welcome to contact us at the number on your account.\n\nCase reference: SYN-C025",
+    "policy_cited": "08 General Dispute Handling Process (fee-amount allegation: not confirmed; disclosure allegation: unable to verify). Drafted per Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Charged a $200 fee on installment loan this month that was never disclosed in the original loan agreement",
+      "Reviewed the paperwork twice and found no mention of the charge"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed. The $200 undisclosed fee is addressed under 'Fee amount' (not found; only two $35.00 fees). The claim that the customer reviewed the paperwork twice and found no mention is addressed under 'Disclosure in your loan agreement' (cannot confirm either way, since no agreement was in the records reviewed).",
+    "groundedness_check": "pass \u2014 the review period (Feb 4 to Sep 2, 2026), the two $35.00 fees on those dates, and the 'every other entry is a scheduled payment' statement all match the verification output. The date-range caveat and the statement that the loan agreement was not reviewed also match the stated limits. The draft does not claim or imply that the fee was disclosed. The 'number on your account' reference is generic and states no invented fact.",
+    "policy_authorization_check": "pass \u2014 no remedy is stated (remedy_stated is null) and the draft says no adjustment was made. Nothing exceeds the cited policy's authority. The written-response commitment is consistent with Policy 08.",
+    "prohibited_language_check": "pass \u2014 there are no fault admissions, future guarantees, legal conclusions, or promises outside authority. Nothing discourages the customer from other channels. 'We understand how frustrating it is' is the kind of non-performative acknowledgment Policy 10 permits.",
+    "tone_structure_check": "pass \u2014 the order follows Policy 11: specific acknowledgment, findings with dates and amounts, outcome, next steps, then case reference SYN-C025. It uses second person, plain language, short paragraphs, one section per allegation, and no marketing content. The length is acceptable for a multi-allegation response.",
+    "specific_issues": []
+  },
+  "summary": "Charged fees or interest you didn't expect - confirmed_false - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T00:26:47+00:00"
+}

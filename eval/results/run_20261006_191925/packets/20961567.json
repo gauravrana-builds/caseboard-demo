@@ -1,0 +1,275 @@
+{
+  "complaint_id": "20961567",
+  "run_started": "2026-10-07T00:19:28+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20961567",
+    "date_received": "2026-04-05",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Other personal consumer report",
+    "issue": "Problem with a company's investigation into an existing issue",
+    "sub_issue": "Their investigation did not fix an error on your report",
+    "state": "FL",
+    "narrative": "I disputed an account on my credit report in February because it wasn't mine. The company said they investigated and the account is still showing up exactly the same. I sent them a copy of my ID and a police report for identity theft and nothing changed. This has been going on for over two months now and it's affecting my ability to get approved for an apartment.",
+    "account_id": "ACC-001",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1485,
+      "output_tokens": 299
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3106,
+      "output_tokens": 1277
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Disputed an account on credit report in February because it wasn't theirs",
+      "Company said it investigated but the account still shows up exactly the same",
+      "Sent a copy of ID and a police report for identity theft and nothing changed",
+      "Issue has gone on for over two months",
+      "Account on credit report is affecting ability to get approved for an apartment"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "February",
+      "over two months"
+    ],
+    "account_details_mentioned": "Disputed account on credit report that the customer says is not theirs; still reporting unchanged after the company's investigation",
+    "risk_signal_phrases": [
+      "a police report for identity theft"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-001",
+      "loan_balance": 2200.0,
+      "origination_date": "2025-01-24",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-001",
+        "date": "2025-01-24",
+        "type": "payment",
+        "amount": 62.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-02-23",
+        "type": "payment",
+        "amount": 62.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-03-25",
+        "type": "payment",
+        "amount": 157.14,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-04-24",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-05-24",
+        "type": "payment",
+        "amount": 115.79,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-06-23",
+        "type": "payment",
+        "amount": 183.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-07-23",
+        "type": "payment",
+        "amount": 64.71,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-08-22",
+        "type": "payment",
+        "amount": 75.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-09-21",
+        "type": "payment",
+        "amount": 84.62,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-001",
+        "date": "2025-10-21",
+        "type": "payment",
+        "amount": 183.33,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The transaction history (2025-01-24 to 2025-10-21) shows only routine payments and one $25 fee on 2025-04-24 for installment loan ACC-001. It contains nothing about credit reporting, a dispute filed in February, an investigation, receipt of an ID copy or police report, or the tradeline's reporting status. Three things are missing: (1) confirmation that ACC-001 is the account the customer disputes, since the complaint names no account and the account note says it is a generic record; (2) any dispute, investigation or identity-theft documentation log; (3) credit bureau reporting data, and the history ends in October 2025, before the February dispute and the 'two months' of inaction. The ten regular payments on ACC-001 could suggest the borrower is the customer, but they do not show who made them, so they neither confirm nor contradict the identity-theft claim. The core allegations (fraudulent account, inadequate investigation, ignored police report) cannot be verified or refuted from this data.",
+    "risk_tier": "High",
+    "risk_rationale": "The evidence is unverifiable on the question that decides the outcome, namely whether the account is fraudulent and whether the dispute was properly investigated. This is an automatic High trigger. The customer also reports a police report for identity theft, an unchanged tradeline after the investigation, and a concrete harm (apartment approval at risk), which indicate possible FCRA/identity-theft dispute-handling exposure.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: nothing in the retrieved data establishes whether the disputed account is ACC-001, or whether the identity-theft dispute and police report were received and investigated. Escalate to a human reviewer with dispute-handling and credit-reporting records before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I disputed an account on my credit report in February because it wasn't mine. The company said they investigated and the account is still showing up exactly the same. I sent them a copy of my ID and a police report for identity theft and nothing changed. This has been going on for over two months now and it's affecting my ability to get approved for an apartment.",
+    "extraction": {
+      "allegations": [
+        "Disputed an account on credit report in February because it wasn't theirs",
+        "Company said it investigated but the account still shows up exactly the same",
+        "Sent a copy of ID and a police report for identity theft and nothing changed",
+        "Issue has gone on for over two months",
+        "Account on credit report is affecting ability to get approved for an apartment"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "February",
+        "over two months"
+      ],
+      "account_details_mentioned": "Disputed account on credit report that the customer says is not theirs; still reporting unchanged after the company's investigation",
+      "risk_signal_phrases": [
+        "a police report for identity theft"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The transaction history (2025-01-24 to 2025-10-21) shows only routine payments and one $25 fee on 2025-04-24 for installment loan ACC-001. It contains nothing about credit reporting, a dispute filed in February, an investigation, receipt of an ID copy or police report, or the tradeline's reporting status. Three things are missing: (1) confirmation that ACC-001 is the account the customer disputes, since the complaint names no account and the account note says it is a generic record; (2) any dispute, investigation or identity-theft documentation log; (3) credit bureau reporting data, and the history ends in October 2025, before the February dispute and the 'two months' of inaction. The ten regular payments on ACC-001 could suggest the borrower is the customer, but they do not show who made them, so they neither confirm nor contradict the identity-theft claim. The core allegations (fraudulent account, inadequate investigation, ignored police report) cannot be verified or refuted from this data.",
+      "risk_tier": "High",
+      "risk_rationale": "The evidence is unverifiable on the question that decides the outcome, namely whether the account is fraudulent and whether the dispute was properly investigated. This is an automatic High trigger. The customer also reports a police report for identity theft, an unchanged tradeline after the investigation, and a concrete harm (apartment approval at risk), which indicate possible FCRA/identity-theft dispute-handling exposure.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-001",
+        "loan_balance": 2200.0,
+        "origination_date": "2025-01-24",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-001",
+          "date": "2025-01-24",
+          "type": "payment",
+          "amount": 62.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-02-23",
+          "type": "payment",
+          "amount": 62.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-03-25",
+          "type": "payment",
+          "amount": 157.14,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-04-24",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-05-24",
+          "type": "payment",
+          "amount": 115.79,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-06-23",
+          "type": "payment",
+          "amount": 183.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-07-23",
+          "type": "payment",
+          "amount": 64.71,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-08-22",
+          "type": "payment",
+          "amount": 75.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-09-21",
+          "type": "payment",
+          "amount": 84.62,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-001",
+          "date": "2025-10-21",
+          "type": "payment",
+          "amount": 183.33,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: nothing in the retrieved data establishes whether the disputed account is ACC-001, or whether the identity-theft dispute and police report were received and investigated. Escalate to a human reviewer with dispute-handling and credit-reporting records before any response is drafted.",
+    "unresolved": "The transaction history (2025-01-24 to 2025-10-21) shows only routine payments and one $25 fee on 2025-04-24 for installment loan ACC-001. It contains nothing about credit reporting, a dispute filed in February, an investigation, receipt of an ID copy or police report, or the tradeline's reporting status. Three things are missing: (1) confirmation that ACC-001 is the account the customer disputes, since the complaint names no account and the account note says it is a generic record; (2) any dispute, investigation or identity-theft documentation log; (3) credit bureau reporting data, and the history ends in October 2025, before the February dispute and the 'two months' of inaction. The ten regular payments on ACC-001 could suggest the borrower is the customer, but they do not show who made them, so they neither confirm nor contradict the identity-theft claim. The core allegations (fraudulent account, inadequate investigation, ignored police report) cannot be verified or refuted from this data.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem with a company's investigation into an existing issue - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:19:41+00:00"
+}

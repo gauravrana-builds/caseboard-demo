@@ -1,0 +1,167 @@
+{
+  "complaint_id": "24984944",
+  "run_started": "2026-10-07T00:21:41+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "24984944",
+    "date_received": "2026-08-05",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Personal line of credit",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "UT",
+    "narrative": "I tried to make my monthly payment through the website three times this week and the payment keeps failing with no error message explaining why. Now I'm worried I'll be reported late through no fault of my own.",
+    "account_id": "ACC-038",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1425,
+      "output_tokens": 196
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2514,
+      "output_tokens": 1305
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3636,
+      "output_tokens": 1229
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4000,
+      "output_tokens": 1377
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Attempted to make monthly payment through the website three times this week and each payment failed",
+      "No error message explaining why the payment failed"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "this week"
+    ],
+    "account_details_mentioned": "Monthly payment attempted through the website failed three times with no error message",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "worried but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-038",
+      "loan_balance": 2500.0,
+      "origination_date": "2026-07-09",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-038",
+        "date": "2026-07-09",
+        "type": "payment",
+        "amount": 178.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-038",
+        "date": "2026-08-08",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-038",
+        "date": "2026-09-07",
+        "type": "payment",
+        "amount": 80.65,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The transaction history shows only three successful payments (2026-07-09 $178.57, 2026-08-08 $100.00, 2026-09-07 $80.65). It contains no failed or declined payment attempts, website/portal logs, or error-message records, so neither the three failed attempts nor the missing error message can be confirmed or contradicted. The complaint says 'this week' without a date, so it cannot be matched to the transaction window. The account shows payment_status 'current', and the account_note says the record is generic and not built to verify this complaint. Missing: web/payment-gateway attempt logs and the complaint submission date.",
+    "risk_tier": "Medium",
+    "risk_rationale": "There are no attorney/regulator references, no hardship or vulnerability indicators, and no disputed dollar amount, but the claim is unverifiable and failed payments on a $2,500 payday loan could lead to a missed payment if unresolved, so Medium rather than Low.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us because your monthly payment failed three times this week when you tried to pay through our website, and you did not receive an error message explaining why. We understand how worrying that can be.\n\nWhat we found: We reviewed your account's payment history. It shows three completed payments, the most recent on September 7, 2026 for $80.65. Your account is currently listed as current. The history shows no failed or declined payment attempts, and it does not include website activity or error-message records.\n\nYour two concerns:\n\n1. Three failed payment attempts: We are unable to verify this. Without records of the website attempts, we can neither confirm nor rule out that they happened.\n\n2. No error message: We are also unable to verify this, for the same reason. We do not have a record of what appeared on your screen.\n\nNext steps: To help us look further, please reply to this message or contact us using the contact information on your account. Please include the dates and approximate times of each attempt, the payment method you used, and any screenshots or messages you saw. We will review whatever you send and let you know what we find.\n\nYou are also welcome to contact any other channel you choose about this matter.\n\nCase reference: 24984944",
+        "policy_cited": "08 General Dispute Handling Process, Standard process (steps 3-4) and 'What counts as a complete response' (unable to verify classification); also Policy 10 Prohibited Language and Policy 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Attempted to make monthly payment through the website three times this week and each payment failed",
+          "No error message explaining why the payment failed"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed individually: (1) three failed payment attempts and (2) no error message. Each is classified as unable to verify.",
+        "groundedness_check": "pass \u2014 the three completed payments, the most recent on September 7, 2026 for $80.65, the 'current' account status, and the absence of failed attempts or error-message records all match the verification output. Note: case reference 24984944 does not appear in the inputs provided to this check, so confirm it against the intake record before sending.",
+        "policy_authorization_check": "pass \u2014 the draft states no remedy (remedy_stated is null) and makes no promise of a waiver, refund, or account change. The 'unable to verify' classification and the next-step request for more information are within Policy 08.",
+        "prohibited_language_check": "pass \u2014 the draft contains no fault admission, no future guarantee, no legal conclusion, and no promise outside documented authority. 'You are also welcome to contact any other channel you choose about this matter' does not discourage other channels. 'We understand how worrying that can be' is measured acknowledgment, not excessive apology.",
+        "tone_structure_check": "pass \u2014 the order follows Policy 11: specific acknowledgment, findings with dates and amounts, a per-allegation outcome (unable to verify, with reasons), next steps, then the case reference. It uses second person, plain language, short paragraphs, and a separated list for the multiple allegations, with no marketing content.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us because your monthly payment failed three times this week when you tried to pay through our website, and you did not receive an error message explaining why. We understand how worrying that can be.\n\nWhat we found: We reviewed your account's payment history. It shows three completed payments, the most recent on September 7, 2026 for $80.65. Your account is currently listed as current. The history shows no failed or declined payment attempts, and it does not include website activity or error-message records.\n\nYour two concerns:\n\n1. Three failed payment attempts: We are unable to verify this. Without records of the website attempts, we can neither confirm nor rule out that they happened.\n\n2. No error message: We are also unable to verify this, for the same reason. We do not have a record of what appeared on your screen.\n\nNext steps: To help us look further, please reply to this message or contact us using the contact information on your account. Please include the dates and approximate times of each attempt, the payment method you used, and any screenshots or messages you saw. We will review whatever you send and let you know what we find.\n\nYou are also welcome to contact any other channel you choose about this matter.\n\nCase reference: 24984944",
+    "policy_cited": "08 General Dispute Handling Process, Standard process (steps 3-4) and 'What counts as a complete response' (unable to verify classification); also Policy 10 Prohibited Language and Policy 11 Response Tone and Format",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Attempted to make monthly payment through the website three times this week and each payment failed",
+      "No error message explaining why the payment failed"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed individually: (1) three failed payment attempts and (2) no error message. Each is classified as unable to verify.",
+    "groundedness_check": "pass \u2014 the three completed payments, the most recent on September 7, 2026 for $80.65, the 'current' account status, and the absence of failed attempts or error-message records all match the verification output. Note: case reference 24984944 does not appear in the inputs provided to this check, so confirm it against the intake record before sending.",
+    "policy_authorization_check": "pass \u2014 the draft states no remedy (remedy_stated is null) and makes no promise of a waiver, refund, or account change. The 'unable to verify' classification and the next-step request for more information are within Policy 08.",
+    "prohibited_language_check": "pass \u2014 the draft contains no fault admission, no future guarantee, no legal conclusion, and no promise outside documented authority. 'You are also welcome to contact any other channel you choose about this matter' does not discourage other channels. 'We understand how worrying that can be' is measured acknowledgment, not excessive apology.",
+    "tone_structure_check": "pass \u2014 the order follows Policy 11: specific acknowledgment, findings with dates and amounts, a per-allegation outcome (unable to verify, with reasons), next steps, then the case reference. It uses second person, plain language, short paragraphs, and a separated list for the multiple allegations, with no marketing content.",
+    "specific_issues": []
+  },
+  "summary": "Problem when making payments - unverifiable - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T00:22:16+00:00"
+}

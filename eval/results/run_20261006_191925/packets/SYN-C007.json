@@ -1,0 +1,295 @@
+{
+  "complaint_id": "SYN-C007",
+  "run_started": "2026-10-07T00:24:09+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C007",
+    "date_received": "2026-06-20",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Written notification about debt",
+    "sub_issue": "Didn't receive enough information to verify debt",
+    "state": "IN",
+    "narrative": "I received a collection notice for $75 with no breakdown of fees or interest included in the total, and my written request for this information has gone unanswered for weeks.",
+    "account_id": "ACC-057",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1410,
+      "output_tokens": 236
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3178,
+      "output_tokens": 1317
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Received a collection notice for $75 with no breakdown of fees or interest included in the total",
+      "Written request for a breakdown of the debt has gone unanswered for weeks"
+    ],
+    "requested_outcome": "Breakdown of fees and interest included in the $75 total",
+    "dollar_amounts_mentioned": [
+      75.0
+    ],
+    "dates_mentioned": [
+      "for weeks"
+    ],
+    "account_details_mentioned": "Collection notice totaling $75 with no itemization of fees or interest",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-057",
+      "loan_balance": 2000.0,
+      "origination_date": "2025-08-17",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-057",
+        "date": "2025-08-17",
+        "type": "payment",
+        "amount": 60.61,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2025-09-16",
+        "type": "payment",
+        "amount": 76.92,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2025-10-16",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2025-11-15",
+        "type": "payment",
+        "amount": 83.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2025-12-15",
+        "type": "payment",
+        "amount": 133.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2026-01-14",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2026-02-13",
+        "type": "payment",
+        "amount": 90.91,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2026-03-15",
+        "type": "payment",
+        "amount": 142.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2026-04-14",
+        "type": "payment",
+        "amount": 64.52,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2026-05-14",
+        "type": "payment",
+        "amount": 68.97,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2026-06-13",
+        "type": "payment",
+        "amount": 83.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-057",
+        "date": "2026-07-13",
+        "type": "payment",
+        "amount": 71.43,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The data provided cannot confirm or contradict either allegation. (1) Collection notice for $75: no collection notice, collection placement, or collections-related transaction appears in the record. The account (ACC-057, installment loan) is listed as 'current'. The only fee transactions are $30.00 on 2025-10-16 and $25.00 on 2026-01-14, totaling $55.00, which does not match $75. No interest charges are recorded as separate transactions, so the $75 cannot be reconciled to any fees or interest. (2) Unanswered written request: no correspondence log, inbound request record, or response record was supplied, and the complaint gives only 'for weeks' as a date, so the request cannot be located or its timing assessed. Missing: the collection notice and its itemization, any record of what makes up the $75, interest accrual data, and the correspondence/request-handling log. The account_note states the record is a generic placeholder and was not built to support fact verification.",
+    "risk_tier": "High",
+    "risk_rationale": "Evidence is unverifiable on a disputed dollar amount: the $75 collection total cannot be reconciled to the $55 in recorded fees, and the 'current' account status conflicts with a collection notice. This gap could change the outcome, which is an automatic High trigger. The unanswered written request for a debt breakdown is also a compliance-sensitive item for human review.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: the $75 collection amount cannot be reconciled to account records, and no collection notice or correspondence log exists to verify the unanswered written request. Human review is needed to retrieve the missing records.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I received a collection notice for $75 with no breakdown of fees or interest included in the total, and my written request for this information has gone unanswered for weeks.",
+    "extraction": {
+      "allegations": [
+        "Received a collection notice for $75 with no breakdown of fees or interest included in the total",
+        "Written request for a breakdown of the debt has gone unanswered for weeks"
+      ],
+      "requested_outcome": "Breakdown of fees and interest included in the $75 total",
+      "dollar_amounts_mentioned": [
+        75.0
+      ],
+      "dates_mentioned": [
+        "for weeks"
+      ],
+      "account_details_mentioned": "Collection notice totaling $75 with no itemization of fees or interest",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The data provided cannot confirm or contradict either allegation. (1) Collection notice for $75: no collection notice, collection placement, or collections-related transaction appears in the record. The account (ACC-057, installment loan) is listed as 'current'. The only fee transactions are $30.00 on 2025-10-16 and $25.00 on 2026-01-14, totaling $55.00, which does not match $75. No interest charges are recorded as separate transactions, so the $75 cannot be reconciled to any fees or interest. (2) Unanswered written request: no correspondence log, inbound request record, or response record was supplied, and the complaint gives only 'for weeks' as a date, so the request cannot be located or its timing assessed. Missing: the collection notice and its itemization, any record of what makes up the $75, interest accrual data, and the correspondence/request-handling log. The account_note states the record is a generic placeholder and was not built to support fact verification.",
+      "risk_tier": "High",
+      "risk_rationale": "Evidence is unverifiable on a disputed dollar amount: the $75 collection total cannot be reconciled to the $55 in recorded fees, and the 'current' account status conflicts with a collection notice. This gap could change the outcome, which is an automatic High trigger. The unanswered written request for a debt breakdown is also a compliance-sensitive item for human review.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-057",
+        "loan_balance": 2000.0,
+        "origination_date": "2025-08-17",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-057",
+          "date": "2025-08-17",
+          "type": "payment",
+          "amount": 60.61,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2025-09-16",
+          "type": "payment",
+          "amount": 76.92,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2025-10-16",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2025-11-15",
+          "type": "payment",
+          "amount": 83.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2025-12-15",
+          "type": "payment",
+          "amount": 133.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2026-01-14",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2026-02-13",
+          "type": "payment",
+          "amount": 90.91,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2026-03-15",
+          "type": "payment",
+          "amount": 142.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2026-04-14",
+          "type": "payment",
+          "amount": 64.52,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2026-05-14",
+          "type": "payment",
+          "amount": 68.97,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2026-06-13",
+          "type": "payment",
+          "amount": 83.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-057",
+          "date": "2026-07-13",
+          "type": "payment",
+          "amount": 71.43,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: the $75 collection amount cannot be reconciled to account records, and no collection notice or correspondence log exists to verify the unanswered written request. Human review is needed to retrieve the missing records.",
+    "unresolved": "The data provided cannot confirm or contradict either allegation. (1) Collection notice for $75: no collection notice, collection placement, or collections-related transaction appears in the record. The account (ACC-057, installment loan) is listed as 'current'. The only fee transactions are $30.00 on 2025-10-16 and $25.00 on 2026-01-14, totaling $55.00, which does not match $75. No interest charges are recorded as separate transactions, so the $75 cannot be reconciled to any fees or interest. (2) Unanswered written request: no correspondence log, inbound request record, or response record was supplied, and the complaint gives only 'for weeks' as a date, so the request cannot be located or its timing assessed. Missing: the collection notice and its itemization, any record of what makes up the $75, interest accrual data, and the correspondence/request-handling log. The account_note states the record is a generic placeholder and was not built to support fact verification.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Written notification about debt - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:24:23+00:00"
+}

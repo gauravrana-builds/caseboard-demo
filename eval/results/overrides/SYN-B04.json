@@ -1,0 +1,264 @@
+{
+  "complaint_id": "SYN-B04",
+  "run_started": "2026-10-08T18:01:01+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B04",
+    "date_received": "5/20/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "WA",
+    "narrative": "I was charged a late fee on this loan back in January, which I never agreed to and was never properly disclosed. I want this fee refunded and I want an explanation for why it was charged.",
+    "account_id": "ACC-B04",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1427,
+      "output_tokens": 183
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4594,
+      "output_tokens": 719
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4192,
+      "output_tokens": 1525
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4519,
+      "output_tokens": 1500
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4412,
+      "output_tokens": 1580
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4594,
+      "output_tokens": 1433
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a late fee in January that the customer never agreed to",
+      "The late fee was never properly disclosed"
+    ],
+    "requested_outcome": "Refund of the late fee and an explanation for why it was charged",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "back in January"
+    ],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "direct and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-B04",
+      "loan_balance": 2600.0,
+      "origination_date": "10/5/2025",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Transaction and fee history in this system is retained for 90 days only as of the complaint date \u2014 visible window covers 2026-02-20 through 2026-05-20. Complaint references a late fee from 'January 2026', which falls OUTSIDE the visible transaction window. Cannot confirm or deny the January charge from available data. Flag for manual review / request extended history from archive team."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-B04",
+        "date": "2026-02-20",
+        "type": "payment",
+        "amount": 220.0,
+        "note": "Within visible 90-day window."
+      },
+      {
+        "account_id": "ACC-B04",
+        "date": "2026-05-18",
+        "type": "payment",
+        "amount": 220.0,
+        "note": "Most recent payment in visible window. January 2026 activity outside retained history."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges a late fee was charged in January that was never agreed to or properly disclosed. The visible transaction history covers only 2026-02-20 through 2026-05-20 (two payments of $220.00, on 2026-02-20 and 2026-05-18). The account note confirms that January 2026 activity is outside the retained 90-day window. The January fee can be neither confirmed nor ruled out, and the records on file do not show what was disclosed at origination (10/5/2025). Missing: January 2026 transaction and fee history from the archive, and the fee disclosure documents for this loan.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer says the late fee was never properly disclosed, which is a misled-about-terms allegation (undisclosed fee) and an automatic High trigger under policy 05 whether or not the records confirm it. The tier is not raised because the evidence is unverifiable.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "High risk under policy 05: the customer alleges an undisclosed late fee, so the case needs human review and no draft may be prepared. Separately, January 2026 fee history is outside the retained window, so extended history should be requested from the archive team.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I was charged a late fee on this loan back in January, which I never agreed to and was never properly disclosed. I want this fee refunded and I want an explanation for why it was charged.",
+    "extraction": {
+      "allegations": [
+        "Charged a late fee in January that the customer never agreed to",
+        "The late fee was never properly disclosed"
+      ],
+      "requested_outcome": "Refund of the late fee and an explanation for why it was charged",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "back in January"
+      ],
+      "account_details_mentioned": null,
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "direct and factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges a late fee was charged in January that was never agreed to or properly disclosed. The visible transaction history covers only 2026-02-20 through 2026-05-20 (two payments of $220.00, on 2026-02-20 and 2026-05-18). The account note confirms that January 2026 activity is outside the retained 90-day window. The January fee can be neither confirmed nor ruled out, and the records on file do not show what was disclosed at origination (10/5/2025). Missing: January 2026 transaction and fee history from the archive, and the fee disclosure documents for this loan.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer says the late fee was never properly disclosed, which is a misled-about-terms allegation (undisclosed fee) and an automatic High trigger under policy 05 whether or not the records confirm it. The tier is not raised because the evidence is unverifiable.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-B04",
+        "loan_balance": 2600.0,
+        "origination_date": "10/5/2025",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Transaction and fee history in this system is retained for 90 days only as of the complaint date \u2014 visible window covers 2026-02-20 through 2026-05-20. Complaint references a late fee from 'January 2026', which falls OUTSIDE the visible transaction window. Cannot confirm or deny the January charge from available data. Flag for manual review / request extended history from archive team."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-B04",
+          "date": "2026-02-20",
+          "type": "payment",
+          "amount": 220.0,
+          "note": "Within visible 90-day window."
+        },
+        {
+          "account_id": "ACC-B04",
+          "date": "2026-05-18",
+          "type": "payment",
+          "amount": 220.0,
+          "note": "Most recent payment in visible window. January 2026 activity outside retained history."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "High risk under policy 05: the customer alleges an undisclosed late fee, so the case needs human review and no draft may be prepared. Separately, January 2026 fee history is outside the retained window, so extended history should be requested from the archive team.",
+    "unresolved": "The customer alleges a late fee was charged in January that was never agreed to or properly disclosed. The visible transaction history covers only 2026-02-20 through 2026-05-20 (two payments of $220.00, on 2026-02-20 and 2026-05-18). The account note confirms that January 2026 activity is outside the retained 90-day window. The January fee can be neither confirmed nor ruled out, and the records on file do not show what was disclosed at origination (10/5/2025). Missing: January 2026 transaction and fee history from the archive, and the fee disclosure documents for this loan.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - unverifiable - High risk - draft ready for review",
+  "run_finished": "2026-10-09T19:24:10+00:00",
+  "policy": {
+    "policy_id": "06",
+    "topic": "Fee Waiver and Goodwill Credit Authority",
+    "category": "internal",
+    "matched_keywords": [
+      "refund",
+      "late fee"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Fee Waiver and Goodwill Credit Authority\n\n**Applies to:** Complaints where account/transaction data confirms a fee was charged in error, or where a goodwill gesture is being considered for a confirmed service failure.\n\n## Authority thresholds\n| Fee/credit amount | Who may approve |\n|---|---|\n| $0 \u2013 $50 | Complaints analyst, no additional sign-off required |\n| $50.01 \u2013 $200 | Complaints analyst with supervisor co-sign |\n| $200.01+ | Supervisor or manager approval required; analyst may not approve independently |\n\n## When a waiver is appropriate\n- The transaction history **confirms** the fee was charged in error (e.g., payment was received before the due date but a late fee was still assessed).\n- The fee was charged due to a documented system or processing error.\n- A documented goodwill exception for a first-time, low-dollar fee on an otherwise good-standing account (use sparingly, document the rationale).\n\n## When a waiver is NOT appropriate\n- The transaction history confirms the fee was correctly charged (no error occurred) \u2014 the response should explain the charge, not waive it.\n- The complaint's underlying fact could not be verified (missing/incomplete data) \u2014 route to manual review rather than waiving preemptively.\n- The complaint involves a dispute of right vs. convenience (e.g., customer disagrees with a disclosed, legitimate fee) \u2014 explain the fee and its basis; do not waive solely to end the complaint.\n\n## What an analyst or agent may say\n- May state the exact dollar amount being waived and the specific reason (tied to the confirmed error).\n- May NOT waive a fee \"as a one-time courtesy\" without a documented rationale on file \u2014 every waiver must cite either a confirmed error or an explicit goodwill justification.\n\n## Documentation requirement\nEvery waiver, regardless of amount, must be logged with: the confirming evidence (which transaction record), the dollar amount, and the approving party.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a late fee that you say was charged back in January, that you never agreed to, and that was never properly disclosed to you. We understand how frustrating it is to see a charge you don't recognize, and you asked for a clear explanation of it.\n\nHere is what we found. The account history we can currently see runs from February 20 through May 20, so January falls outside it. Because of that, we can't yet confirm whether a late fee was charged in January, or why. We also haven't been able to review what fee information was provided when your loan was opened.\n\nOn your two concerns:\n\n\u2022 Whether a late fee was charged in January: we can't confirm or rule this out until we review the archived January records. We have referred your request for a manual review so those records can be retrieved and checked.\n\n\u2022 Whether the fee was properly disclosed: as part of the same review, the fee disclosure documents for your loan will be pulled and checked against your concern.\n\nWe haven't made a decision on your request for a refund, and no refund or fee waiver has been approved at this point. Once the review is complete, we will write to you with what the records show and what it means for the fee.\n\nYou don't need to do anything right now. If you have a January statement, a notice, or anything else showing the fee, you're welcome to send it to us at any time, and we will review it as part of your case. You can reply to this message or call the number on your account.\n\nCase reference: SYN-B04",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (underlying fact could not be verified; route to manual review rather than waiving preemptively)",
+        "remedy_stated": null,
+        "referral_stated": "Request for manual review: retrieve the January 2026 transaction and fee history from the archive and the fee disclosure documents for the loan originated 10/5/2025, to determine whether a January late fee was charged and whether it was disclosed. No waiver or refund has been approved.",
+        "allegations_addressed": [
+          "Charged a late fee in January that the customer never agreed to",
+          "The late fee was never properly disclosed"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 \"We haven't made a decision on your request for a refund\" and \"you asked for a clear explanation of it\" attribute requests to the customer that do not appear in the allegations list (late fee never agreed to; fee never properly disclosed) or in the verification output. Neither a refund request nor an explanation request is established anywhere in the provided inputs.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: the draft refers to the customer's 'request for a refund' and says they 'asked for a clear explanation'. Neither is supported by the allegations list or the verification output. Remove these references, or confirm them against the original complaint text and add them to the extraction before sending.",
+          "All other checks pass. Both allegations are addressed. No remedy is stated and no refund or waiver is described as approved. The manual-review referral is declared in referral_stated and matches policy 06's 'route to manual review' for unverifiable facts. There is no prohibited language, and the structure follows Policy 11."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "We're writing about the late fee you say was charged in January, which you tell us you never agreed to and that wasn't properly disclosed to you. We understand why that would be frustrating, and we've looked into it.\n\nWhat we found: the account records available to us right now cover February 20 through May 20, 2026. In that period we see two payments of $220.00, on February 20 and May 18. January falls outside the records we could view, so we can't yet confirm whether a late fee was charged then, or rule it out.\n\nOn your concern that you never agreed to the fee: we can't say yet whether a fee was applied in January. Looking at what the fee was and why it was charged depends on that January account history.\n\nOn your concern that the fee wasn't properly disclosed: the documents from when your loan was opened on October 5, 2025 weren't part of what we could review, so we can't speak to what was disclosed at that time.\n\nWhat happens next: we're sending your case for manual review, which includes retrieving the January 2026 transaction and fee history and the fee disclosure documents for your loan. We haven't made a decision on the fee, and we aren't able to say yet what the outcome will be.\n\nIf you have anything that might help, such as a January statement, a notice you received, or the loan paperwork you were given, please send it to us at any time and we will review it. You're also welcome to contact other channels about this if you wish. Your case reference number is SYN-B04. Please include it in any further correspondence.",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (underlying fact unverifiable, so route to manual review rather than waive preemptively)",
+        "remedy_stated": null,
+        "referral_stated": "Case SYN-B04 is being referred for manual review: retrieve the January 2026 transaction and fee history from the archive, plus the fee disclosure documents for the loan originated 10/5/2025, and decide on the fee after that review. The draft makes no promise of a refund or waiver. The case was originally stopped as High risk (undisclosed-fee allegation) and later downgraded by an analyst, so the reviewer should confirm the referral is made before sending.",
+        "allegations_addressed": [
+          "Charged a late fee in January that the customer never agreed to",
+          "The late fee was never properly disclosed"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed in separate paragraphs: the January late fee the customer never agreed to, and the fee not being properly disclosed.",
+        "groundedness_check": "pass \u2014 the records window (Feb 20 to May 20, 2026), the two $220.00 payments on Feb 20 and May 18, the Oct 5, 2025 origination date, and the missing January and disclosure records all match the verification output. The statement that the case is being sent for manual review is grounded in the declared referral_stated. The draft does not claim any refund, credit, or approval has been granted or processed.",
+        "policy_authorization_check": "pass \u2014 remedy_stated is null and the draft promises no waiver or credit. Routing an unverifiable complaint to manual review matches Policy 06's 'When a waiver is NOT appropriate' section.",
+        "prohibited_language_check": "pass \u2014 there is no fault admission, future guarantee, legal conclusion, or promise outside authority. The draft says no decision has been made. The line 'You're also welcome to contact other channels about this if you wish' invites other channels rather than discouraging them.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: acknowledgment, findings (one paragraph per allegation), pending outcome with next steps, then the case reference SYN-B04. It uses plain second-person language and short paragraphs, and the length is acceptable for a multi-allegation response. The pending outcome and next steps share one paragraph, which is acceptable because no decision exists yet.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "We're writing about the late fee you say was charged in January, which you tell us you never agreed to and that wasn't properly disclosed to you. We understand why that would be frustrating, and we've looked into it.\n\nWhat we found: the account records available to us right now cover February 20 through May 20, 2026. In that period we see two payments of $220.00, on February 20 and May 18. January falls outside the records we could view, so we can't yet confirm whether a late fee was charged then, or rule it out.\n\nOn your concern that you never agreed to the fee: we can't say yet whether a fee was applied in January. Looking at what the fee was and why it was charged depends on that January account history.\n\nOn your concern that the fee wasn't properly disclosed: the documents from when your loan was opened on October 5, 2025 weren't part of what we could review, so we can't speak to what was disclosed at that time.\n\nWhat happens next: we're sending your case for manual review, which includes retrieving the January 2026 transaction and fee history and the fee disclosure documents for your loan. We haven't made a decision on the fee, and we aren't able to say yet what the outcome will be.\n\nIf you have anything that might help, such as a January statement, a notice you received, or the loan paperwork you were given, please send it to us at any time and we will review it. You're also welcome to contact other channels about this if you wish. Your case reference number is SYN-B04. Please include it in any further correspondence.",
+    "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (underlying fact unverifiable, so route to manual review rather than waive preemptively)",
+    "remedy_stated": null,
+    "referral_stated": "Case SYN-B04 is being referred for manual review: retrieve the January 2026 transaction and fee history from the archive, plus the fee disclosure documents for the loan originated 10/5/2025, and decide on the fee after that review. The draft makes no promise of a refund or waiver. The case was originally stopped as High risk (undisclosed-fee allegation) and later downgraded by an analyst, so the reviewer should confirm the referral is made before sending.",
+    "allegations_addressed": [
+      "Charged a late fee in January that the customer never agreed to",
+      "The late fee was never properly disclosed"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed in separate paragraphs: the January late fee the customer never agreed to, and the fee not being properly disclosed.",
+    "groundedness_check": "pass \u2014 the records window (Feb 20 to May 20, 2026), the two $220.00 payments on Feb 20 and May 18, the Oct 5, 2025 origination date, and the missing January and disclosure records all match the verification output. The statement that the case is being sent for manual review is grounded in the declared referral_stated. The draft does not claim any refund, credit, or approval has been granted or processed.",
+    "policy_authorization_check": "pass \u2014 remedy_stated is null and the draft promises no waiver or credit. Routing an unverifiable complaint to manual review matches Policy 06's 'When a waiver is NOT appropriate' section.",
+    "prohibited_language_check": "pass \u2014 there is no fault admission, future guarantee, legal conclusion, or promise outside authority. The draft says no decision has been made. The line 'You're also welcome to contact other channels about this if you wish' invites other channels rather than discouraging them.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: acknowledgment, findings (one paragraph per allegation), pending outcome with next steps, then the case reference SYN-B04. It uses plain second-person language and short paragraphs, and the length is acceptable for a multi-allegation response. The pending outcome and next steps share one paragraph, which is acceptable because no decision exists yet.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": "Case SYN-B04 is being referred for manual review: retrieve the January 2026 transaction and fee history from the archive, plus the fee disclosure documents for the loan originated 10/5/2025, and decide on the fee after that review. The draft makes no promise of a refund or waiver. The case was originally stopped as High risk (undisclosed-fee allegation) and later downgraded by an analyst, so the reviewer should confirm the referral is made before sending.",
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "High risk under policy 05: the customer alleges an undisclosed late fee, so the case needs human review and no draft may be prepared. Separately, January 2026 fee history is outside the retained window, so extended history should be requested from the archive team.",
+    "at": "2026-10-09T19:24:10+00:00"
+  }
+}

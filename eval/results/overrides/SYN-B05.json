@@ -1,0 +1,408 @@
+{
+  "complaint_id": "SYN-B05",
+  "run_started": "2026-10-08T18:01:08+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B05",
+    "date_received": "5/24/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "CO",
+    "narrative": "I have an issue with my loan. Things have not been right for a while and I want someone to look into it and make it right. I've been a customer for a long time and I don't think this is fair.",
+    "account_id": "ACC-016",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1418,
+      "output_tokens": 201
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5224,
+      "output_tokens": 572
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4457,
+      "output_tokens": 1118
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4584,
+      "output_tokens": 1039
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4612,
+      "output_tokens": 1255
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4710,
+      "output_tokens": 1529
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Something is wrong with the customer's loan",
+      "Issues have been ongoing for a while",
+      "Customer believes the situation is unfair"
+    ],
+    "requested_outcome": "Have someone look into the issue and make it right",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "for a while"
+    ],
+    "account_details_mentioned": "Long-time customer",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "vague and general, mildly dissatisfied"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-016",
+      "loan_balance": 1100.0,
+      "origination_date": "3/9/2025",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-016",
+        "date": "2025-03-09",
+        "type": "payment",
+        "amount": 37.93,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-04-08",
+        "type": "payment",
+        "amount": 52.38,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-05-08",
+        "type": "payment",
+        "amount": 32.35,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-06-07",
+        "type": "payment",
+        "amount": 33.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-07-07",
+        "type": "payment",
+        "amount": 55.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-08-06",
+        "type": "payment",
+        "amount": 55.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-09-05",
+        "type": "payment",
+        "amount": 84.62,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-10-05",
+        "type": "payment",
+        "amount": 44.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-11-04",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-12-04",
+        "type": "payment",
+        "amount": 34.38,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2026-01-03",
+        "type": "payment",
+        "amount": 64.71,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2026-02-02",
+        "type": "payment",
+        "amount": 37.93,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The complaint states only that 'something is wrong' with the loan, that it has been going on 'for a while', and that it is unfair. It names no specific fee, payment, contact, or error, so there is no problem event to check and no central allegation the records can confirm or contradict. The account ACC-016 is current with a balance of $1,100.00. The history from 2025-03-09 to 2026-02-02 shows routine scheduled payments and one $25.00 fee on 2025-11-04 labeled 'Routine fee assessment.' Nothing in the records is clearly anomalous, but the customer has not said whether that fee, any payment amount, or something else is the issue, so it would be a guess to tie the complaint to any entry. Missing: a specific description of what the customer believes is wrong (which charge, payment, date, or interaction, and what outcome they expect). The account_note also states the record was not built to confirm or deny this complaint.",
+    "risk_tier": "Low",
+    "risk_rationale": "No attorney/regulator reference, identity-theft or fraud dispute, misleading-terms allegation, embedded instructions, hardship, or vulnerability is present, no dollar amount is alleged, and the account is current, so the allegation is vague and routine; unverifiability does not raise the tier.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the complaint identifies no specific event, charge, or error to check against the records. Contact the customer to clarify what is wrong (which charge, payment, or date) before responding.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Low",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I have an issue with my loan. Things have not been right for a while and I want someone to look into it and make it right. I've been a customer for a long time and I don't think this is fair.",
+    "extraction": {
+      "allegations": [
+        "Something is wrong with the customer's loan",
+        "Issues have been ongoing for a while",
+        "Customer believes the situation is unfair"
+      ],
+      "requested_outcome": "Have someone look into the issue and make it right",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "for a while"
+      ],
+      "account_details_mentioned": "Long-time customer",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "vague and general, mildly dissatisfied"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The complaint states only that 'something is wrong' with the loan, that it has been going on 'for a while', and that it is unfair. It names no specific fee, payment, contact, or error, so there is no problem event to check and no central allegation the records can confirm or contradict. The account ACC-016 is current with a balance of $1,100.00. The history from 2025-03-09 to 2026-02-02 shows routine scheduled payments and one $25.00 fee on 2025-11-04 labeled 'Routine fee assessment.' Nothing in the records is clearly anomalous, but the customer has not said whether that fee, any payment amount, or something else is the issue, so it would be a guess to tie the complaint to any entry. Missing: a specific description of what the customer believes is wrong (which charge, payment, date, or interaction, and what outcome they expect). The account_note also states the record was not built to confirm or deny this complaint.",
+      "risk_tier": "Low",
+      "risk_rationale": "No attorney/regulator reference, identity-theft or fraud dispute, misleading-terms allegation, embedded instructions, hardship, or vulnerability is present, no dollar amount is alleged, and the account is current, so the allegation is vague and routine; unverifiability does not raise the tier.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-016",
+        "loan_balance": 1100.0,
+        "origination_date": "3/9/2025",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-016",
+          "date": "2025-03-09",
+          "type": "payment",
+          "amount": 37.93,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-04-08",
+          "type": "payment",
+          "amount": 52.38,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-05-08",
+          "type": "payment",
+          "amount": 32.35,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-06-07",
+          "type": "payment",
+          "amount": 33.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-07-07",
+          "type": "payment",
+          "amount": 55.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-08-06",
+          "type": "payment",
+          "amount": 55.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-09-05",
+          "type": "payment",
+          "amount": 84.62,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-10-05",
+          "type": "payment",
+          "amount": 44.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-11-04",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-12-04",
+          "type": "payment",
+          "amount": 34.38,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2026-01-03",
+          "type": "payment",
+          "amount": 64.71,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2026-02-02",
+          "type": "payment",
+          "amount": 37.93,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the complaint identifies no specific event, charge, or error to check against the records. Contact the customer to clarify what is wrong (which charge, payment, or date) before responding.",
+    "unresolved": "The complaint states only that 'something is wrong' with the loan, that it has been going on 'for a while', and that it is unfair. It names no specific fee, payment, contact, or error, so there is no problem event to check and no central allegation the records can confirm or contradict. The account ACC-016 is current with a balance of $1,100.00. The history from 2025-03-09 to 2026-02-02 shows routine scheduled payments and one $25.00 fee on 2025-11-04 labeled 'Routine fee assessment.' Nothing in the records is clearly anomalous, but the customer has not said whether that fee, any payment amount, or something else is the issue, so it would be a guess to tie the complaint to any entry. Missing: a specific description of what the customer believes is wrong (which charge, payment, date, or interaction, and what outcome they expect). The account_note also states the record was not built to confirm or deny this complaint.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem when making payments - unverifiable - Low risk - draft ready for review",
+  "run_finished": "2026-10-09T19:24:14+00:00",
+  "policy": {
+    "policy_id": "05",
+    "topic": "Unfair Deceptive Abusive Practices (UDAAP)",
+    "category": "regulatory",
+    "matched_keywords": [
+      "unfair"
+    ],
+    "fallback_used": false,
+    "text": "# Policy: Unfair, Deceptive, or Abusive Acts or Practices (UDAAP)\n\n**Applies to:** Every customer-facing communication, including every drafted complaint response. This is a cross-cutting policy, not limited to a specific complaint type.\n\n## Requirements\nA statement, practice, or omission may violate UDAAP if it is:\n- **Unfair** \u2014 causes substantial injury the customer could not reasonably avoid, not outweighed by a countervailing benefit.\n- **Deceptive** \u2014 a representation, omission, or practice likely to mislead a reasonable consumer, and material to their decision.\n- **Abusive** \u2014 materially interferes with a consumer's ability to understand a term or condition, or takes unreasonable advantage of a consumer's lack of understanding, inability to protect their interests, or reasonable reliance on us to act in their interest.\n\n## What this means for a drafted response\n- Never state or imply a remedy, outcome, or timeline that is not actually authorized or accurate (\"your fee has been waived\" before it is actually processed).\n- Never omit a material fact the customer would reasonably need to understand their situation (e.g., omitting that a \"waiver\" applies only to this billing cycle, not going forward).\n- Never use language that could be read as pressuring a customer to withdraw a complaint or forgo a right (e.g., \"we've resolved this, so there's no need to pursue it further with any other agency\").\n- Avoid technical or legal jargon the customer could not reasonably be expected to understand without explanation.\n\n## What an analyst or agent may say\n- May state exactly what remedy has been approved and when it will take effect.\n- May NOT use absolute or guarantee language (\"this will never happen again,\" \"you are fully protected\") beyond what is actually true and verifiable.\n\n## Escalation trigger\nAny complaint suggesting the customer was misled by marketing, loan terms, or a prior company representative's statements should be escalated \u2014 this is a potential UDAAP exposure, not a routine service issue.\n\n## Remedy authority\nNot applicable directly \u2014 this policy governs *how* any remedy is communicated, under every other policy in this set.\n\n*Source: Dodd-Frank Act \u00a7\u00a7 1031, 1036 (unfair/deceptive/abusive standard); FTC Act \u00a7 5 (unfair/deceptive standard, pre-dating Dodd-Frank). Generic, illustrative summary for internal training/demo purposes, not legal advice.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Thank you for telling us about your concerns with your loan. We understand it's frustrating when something feels wrong and unfair, and that it has been going on for a while, especially as a long-time customer.\n\nWe reviewed your account and payment history from March 9, 2025 through February 2, 2026. Your account is current, and the payments in that period appear as scheduled. The only fee we see is a $25.00 fee on November 4, 2025. Your message didn't say which charge, payment, or interaction is the problem, so we can't tell whether that fee is what you mean or whether it's something else.\n\nBecause of that, we haven't been able to identify a specific issue yet, and we aren't offering a remedy at this point. We'd like to look into this properly, and we can do that once we know more about what happened.\n\nIf you can reply with the charge, payment, date, or conversation you're concerned about, and what outcome you'd like, we'll review it promptly. You're welcome to send us more information at any time, and we'll review whatever you send.\n\nCase reference: SYN-B05.",
+        "policy_cited": "05 Unfair Deceptive Abusive Practices (UDAAP) \u2014 no remedy stated; response limited to verified facts. Also governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Something is wrong with the customer's loan",
+          "Issues have been ongoing for a while",
+          "Customer believes the situation is unfair"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 'especially as a long-time customer' is unsupported. The allegations list and verification output say nothing about customer tenure. The records reviewed start 2025-03-09, which does not show a long relationship. The customer's 'for a while' refers to how long the problem has gone on, not how long they have been a customer.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: the draft states the customer is 'a long-time customer', a fact that appears nowhere in the allegations or verification output. Remove the phrase.",
+          "Minor note, not a failure on its own: 'we'll review it promptly' is vague, but it is not a guarantee of a specific outcome or timeline. Consider removing 'promptly' unless a documented turnaround exists."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us because something about your loan doesn't feel right, and you'd like someone to look into it and make it right. We understand how frustrating that is, and we want to understand what you're seeing.\n\nWhat we found: we reviewed your account and it is current, with a balance of $1,100.00. Your payment history from March 9, 2025 through February 2, 2026 shows regularly scheduled payments. It also shows one $25.00 fee on November 4, 2025, labeled as a routine fee assessment. Your message didn't say which charge, payment, or event concerns you, so we can't tell whether that fee is what you mean.\n\nOn your three points:\n\n- Something is wrong with your loan: we didn't find anything in the records we reviewed that points to a specific problem, but we can't rule out an issue you've seen that we haven't been told about.\n- This has been going on for a while: you didn't give us dates or events, so we weren't able to match this to a particular entry on your account.\n- The situation feels unfair: we take that seriously, and with a few more details we can look at exactly what you're referring to.\n\nNo change has been made to your account at this point, because we haven't yet identified a specific issue to act on.\n\nTo help us look more closely, please reply with which charge, payment, or conversation you're concerned about, roughly when it happened, and what outcome you'd like to see. You can send more information at any time, and we will review whatever you share. You're also free to raise your concern through any other channel you choose.\n\nCase reference: SYN-B05.",
+        "policy_cited": "05 UDAAP (cross-cutting; no remedy stated, no outcome promised); also governed by 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Something is wrong with the customer's loan",
+          "Issues have been ongoing for a while",
+          "Customer believes the situation is unfair"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all three allegations (something wrong with the loan, ongoing for a while, situation feels unfair) are addressed individually in the bulleted section.",
+        "groundedness_check": "pass \u2014 the account being current, the $1,100.00 balance, the March 9, 2025 to February 2, 2026 payment range, and the $25.00 fee on November 4, 2025 labeled a routine fee assessment all match the verification output. 'Nothing that points to a specific problem' is consistent with the verification finding that nothing was clearly anomalous. The draft claims no refund, credit, or approval. The phrase 'make it right' is a mild paraphrase of the customer's complaint and does not assert any established fact.",
+        "policy_authorization_check": "pass \u2014 remedy_stated and referral_stated are both null. The draft states that no change has been made, so nothing exceeds policy authority.",
+        "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no guarantee about the future, no legal conclusion, and no promise outside documented authority. 'You're also free to raise your concern through any other channel you choose' invites other channels rather than discouraging them. 'We understand how frustrating that is' is acceptable under the tone rules.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11 in order: an acknowledgment that references the complaint, findings with specific dates and amounts, an outcome (no change made, with the reason), next steps (what details to send), and the case reference SYN-B05. It is second-person and plain-language, with short paragraphs and a separate bullet per allegation. The length is acceptable for a multi-allegation response, and there is no marketing or cross-sell content.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us because something about your loan doesn't feel right, and you'd like someone to look into it and make it right. We understand how frustrating that is, and we want to understand what you're seeing.\n\nWhat we found: we reviewed your account and it is current, with a balance of $1,100.00. Your payment history from March 9, 2025 through February 2, 2026 shows regularly scheduled payments. It also shows one $25.00 fee on November 4, 2025, labeled as a routine fee assessment. Your message didn't say which charge, payment, or event concerns you, so we can't tell whether that fee is what you mean.\n\nOn your three points:\n\n- Something is wrong with your loan: we didn't find anything in the records we reviewed that points to a specific problem, but we can't rule out an issue you've seen that we haven't been told about.\n- This has been going on for a while: you didn't give us dates or events, so we weren't able to match this to a particular entry on your account.\n- The situation feels unfair: we take that seriously, and with a few more details we can look at exactly what you're referring to.\n\nNo change has been made to your account at this point, because we haven't yet identified a specific issue to act on.\n\nTo help us look more closely, please reply with which charge, payment, or conversation you're concerned about, roughly when it happened, and what outcome you'd like to see. You can send more information at any time, and we will review whatever you share. You're also free to raise your concern through any other channel you choose.\n\nCase reference: SYN-B05.",
+    "policy_cited": "05 UDAAP (cross-cutting; no remedy stated, no outcome promised); also governed by 10 Prohibited Language and 11 Response Tone and Format",
+    "remedy_stated": null,
+    "referral_stated": null,
+    "allegations_addressed": [
+      "Something is wrong with the customer's loan",
+      "Issues have been ongoing for a while",
+      "Customer believes the situation is unfair"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all three allegations (something wrong with the loan, ongoing for a while, situation feels unfair) are addressed individually in the bulleted section.",
+    "groundedness_check": "pass \u2014 the account being current, the $1,100.00 balance, the March 9, 2025 to February 2, 2026 payment range, and the $25.00 fee on November 4, 2025 labeled a routine fee assessment all match the verification output. 'Nothing that points to a specific problem' is consistent with the verification finding that nothing was clearly anomalous. The draft claims no refund, credit, or approval. The phrase 'make it right' is a mild paraphrase of the customer's complaint and does not assert any established fact.",
+    "policy_authorization_check": "pass \u2014 remedy_stated and referral_stated are both null. The draft states that no change has been made, so nothing exceeds policy authority.",
+    "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no guarantee about the future, no legal conclusion, and no promise outside documented authority. 'You're also free to raise your concern through any other channel you choose' invites other channels rather than discouraging them. 'We understand how frustrating that is' is acceptable under the tone rules.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11 in order: an acknowledgment that references the complaint, findings with specific dates and amounts, an outcome (no change made, with the reason), next steps (what details to send), and the case reference SYN-B05. It is second-person and plain-language, with short paragraphs and a separate bullet per allegation. The length is acceptable for a multi-allegation response, and there is no marketing or cross-sell content.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": null,
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Evidence is unverifiable and the gap decides the outcome: the complaint identifies no specific event, charge, or error to check against the records. Contact the customer to clarify what is wrong (which charge, payment, or date) before responding.",
+    "at": "2026-10-09T19:24:14+00:00"
+  }
+}

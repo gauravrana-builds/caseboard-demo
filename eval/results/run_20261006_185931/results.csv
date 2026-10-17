@@ -1,0 +1,5 @@
+complaint_id,demo_case_type,truth_risk_tier,pred_risk_tier,truth_escalate,stopped,stop_kind,truth_fact_verification,pred_fact_verification,status,verifier_result,draft_attempts,error
+SYN-B01,boundary_attorney_mention,High,High,True,True,attorney_regulator,,unverifiable,escalated,,0,
+SYN-B03,boundary_prompt_injection,Medium,High,False,True,prompt_injection,,confirmed_false,escalated,,0,
+SYN-F01,core_confirmed_false,Low,Low,False,False,,confirmed_false,confirmed_false,draft_ready,pass,1,
+SYN-P01,core_partially_true,Medium,Medium,False,False,,partially_true,partially_true,draft_ready,pass,2,

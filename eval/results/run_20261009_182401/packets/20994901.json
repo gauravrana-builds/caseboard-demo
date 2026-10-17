@@ -1,0 +1,257 @@
+{
+  "complaint_id": "20994901",
+  "run_started": "2026-10-09T23:25:11+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20994901",
+    "date_received": "4/7/2026",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Took or threatened to take negative or legal action",
+    "sub_issue": "Threatened or suggested your credit would be damaged",
+    "state": "AZ",
+    "narrative": "A debt collector told me on the phone that if I didn't pay $650 by Friday they would ruin my credit score permanently and I would never be able to get a loan again. This felt like a threat meant to scare me into paying immediately without giving me time to verify the debt.",
+    "account_id": "ACC-006",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1454,
+      "output_tokens": 269
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5109,
+      "output_tokens": 1261
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Debt collector told customer by phone that if $650 was not paid by Friday they would ruin the customer's credit score permanently",
+      "Debt collector said customer would never be able to get a loan again",
+      "Customer felt the statement was a threat meant to scare them into paying immediately",
+      "Customer was not given time to verify the debt"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      650.0
+    ],
+    "dates_mentioned": [
+      "by Friday"
+    ],
+    "account_details_mentioned": "Debt collector demanded $650 by Friday",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned and factual, feels threatened"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-006",
+      "loan_balance": 1400.0,
+      "origination_date": "9/15/2025",
+      "payment_status": "past_due",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, past due. Opened 2025-09-15."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-006",
+        "date": "2025-10-15",
+        "type": "payment",
+        "amount": 162.5,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2025-11-14",
+        "type": "payment",
+        "amount": 162.5,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2025-12-15",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $162.50 not received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-01-14",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $162.50 not received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-02-13",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $162.50 not received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-03-15",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $162.50 not received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-03-20",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Account moved to in-house collections. Past-due total $650.00"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-04-03",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Outbound collections call to customer, voicemail left, 1 min"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-04-06",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Outbound collections call to customer, 7 min, recorded. QA review tag: statement about credit impact outside approved script"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer's central allegation is that a collector threatened to permanently ruin their credit and said they would never get a loan again unless $650 was paid by Friday. The records confirm the context: the account is past due, four installments of $162.50 (12/15/2025 to 3/15/2026) were not received, and on 2026-03-20 it moved to in-house collections with a past-due total of exactly $650.00. They also show a 7-minute recorded outbound collections call on 2026-04-06, preceded by a voicemail on 2026-04-03. The call is background, not a finding in the customer's favor. The only record about its content is a QA review tag: 'statement about credit impact outside approved script.' That tag does not say what was said or whether it was a threat, and no QA outcome is recorded, so the finding is not established. Missing: the 2026-04-06 recording or transcript, the outcome of the QA review, and any record of a debt validation request or validation notice. The 'no time to verify the debt' allegation cannot be confirmed or ruled out without them. The records do not contradict the allegation, and the QA tag is consistent with it.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer alleges a collector threatened severe, permanent credit consequences to force immediate payment, and the records do not contradict it (the QA tag points the other way). Under the Reg F / policy 03 criterion, an unverified threat of credit consequences is serious enough for High. Unverifiable evidence was not used to raise the tier. The $650 amount, past-due status and absence of attorney/regulator references were also considered. This is collector conduct, not a UDAAP pattern.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "High risk: unverified allegation that a collector threatened credit consequences (Reg F, policy 03), with an open QA flag on the 2026-04-06 call. Human review is needed, starting with the call recording and the QA outcome. No draft may be prepared.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "A debt collector told me on the phone that if I didn't pay $650 by Friday they would ruin my credit score permanently and I would never be able to get a loan again. This felt like a threat meant to scare me into paying immediately without giving me time to verify the debt.",
+    "extraction": {
+      "allegations": [
+        "Debt collector told customer by phone that if $650 was not paid by Friday they would ruin the customer's credit score permanently",
+        "Debt collector said customer would never be able to get a loan again",
+        "Customer felt the statement was a threat meant to scare them into paying immediately",
+        "Customer was not given time to verify the debt"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        650.0
+      ],
+      "dates_mentioned": [
+        "by Friday"
+      ],
+      "account_details_mentioned": "Debt collector demanded $650 by Friday",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concerned and factual, feels threatened"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer's central allegation is that a collector threatened to permanently ruin their credit and said they would never get a loan again unless $650 was paid by Friday. The records confirm the context: the account is past due, four installments of $162.50 (12/15/2025 to 3/15/2026) were not received, and on 2026-03-20 it moved to in-house collections with a past-due total of exactly $650.00. They also show a 7-minute recorded outbound collections call on 2026-04-06, preceded by a voicemail on 2026-04-03. The call is background, not a finding in the customer's favor. The only record about its content is a QA review tag: 'statement about credit impact outside approved script.' That tag does not say what was said or whether it was a threat, and no QA outcome is recorded, so the finding is not established. Missing: the 2026-04-06 recording or transcript, the outcome of the QA review, and any record of a debt validation request or validation notice. The 'no time to verify the debt' allegation cannot be confirmed or ruled out without them. The records do not contradict the allegation, and the QA tag is consistent with it.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer alleges a collector threatened severe, permanent credit consequences to force immediate payment, and the records do not contradict it (the QA tag points the other way). Under the Reg F / policy 03 criterion, an unverified threat of credit consequences is serious enough for High. Unverifiable evidence was not used to raise the tier. The $650 amount, past-due status and absence of attorney/regulator references were also considered. This is collector conduct, not a UDAAP pattern.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-006",
+        "loan_balance": 1400.0,
+        "origination_date": "9/15/2025",
+        "payment_status": "past_due",
+        "product_type": "installment_loan",
+        "account_note": "Installment loan, past due. Opened 2025-09-15."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-006",
+          "date": "2025-10-15",
+          "type": "payment",
+          "amount": 162.5,
+          "note": "Scheduled installment received"
+        },
+        {
+          "account_id": "ACC-006",
+          "date": "2025-11-14",
+          "type": "payment",
+          "amount": 162.5,
+          "note": "Scheduled installment received"
+        },
+        {
+          "account_id": "ACC-006",
+          "date": "2025-12-15",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled installment $162.50 not received"
+        },
+        {
+          "account_id": "ACC-006",
+          "date": "2026-01-14",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled installment $162.50 not received"
+        },
+        {
+          "account_id": "ACC-006",
+          "date": "2026-02-13",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled installment $162.50 not received"
+        },
+        {
+          "account_id": "ACC-006",
+          "date": "2026-03-15",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled installment $162.50 not received"
+        },
+        {
+          "account_id": "ACC-006",
+          "date": "2026-03-20",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Account moved to in-house collections. Past-due total $650.00"
+        },
+        {
+          "account_id": "ACC-006",
+          "date": "2026-04-03",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Outbound collections call to customer, voicemail left, 1 min"
+        },
+        {
+          "account_id": "ACC-006",
+          "date": "2026-04-06",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Outbound collections call to customer, 7 min, recorded. QA review tag: statement about credit impact outside approved script"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "High risk: unverified allegation that a collector threatened credit consequences (Reg F, policy 03), with an open QA flag on the 2026-04-06 call. Human review is needed, starting with the call recording and the QA outcome. No draft may be prepared.",
+    "unresolved": "The customer's central allegation is that a collector threatened to permanently ruin their credit and said they would never get a loan again unless $650 was paid by Friday. The records confirm the context: the account is past due, four installments of $162.50 (12/15/2025 to 3/15/2026) were not received, and on 2026-03-20 it moved to in-house collections with a past-due total of exactly $650.00. They also show a 7-minute recorded outbound collections call on 2026-04-06, preceded by a voicemail on 2026-04-03. The call is background, not a finding in the customer's favor. The only record about its content is a QA review tag: 'statement about credit impact outside approved script.' That tag does not say what was said or whether it was a threat, and no QA outcome is recorded, so the finding is not established. Missing: the 2026-04-06 recording or transcript, the outcome of the QA review, and any record of a debt validation request or validation notice. The 'no time to verify the debt' allegation cannot be confirmed or ruled out without them. The records do not contradict the allegation, and the QA tag is consistent with it.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Took or threatened to take negative or legal action - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-09T23:25:23+00:00"
+}

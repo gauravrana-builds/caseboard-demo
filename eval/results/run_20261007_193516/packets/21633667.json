@@ -1,0 +1,206 @@
+{
+  "complaint_id": "21633667",
+  "run_started": "2026-10-08T00:35:18+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "21633667",
+    "date_received": "4/27/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "NJ",
+    "narrative": "My installment loan payment was due on the 14th and I paid it on the 13th through the mobile app. I still got charged a $35 late fee. I have a screenshot of the app showing the payment confirmation dated the 13th.",
+    "account_id": "ACC-009",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1442,
+      "output_tokens": 221
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4712,
+      "output_tokens": 1064
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4122,
+      "output_tokens": 1432
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4160,
+      "output_tokens": 1811
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4309,
+      "output_tokens": 1300
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4186,
+      "output_tokens": 2423
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $35 late fee despite paying on the 13th, before the 14th due date"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      35.0
+    ],
+    "dates_mentioned": [
+      "the 14th",
+      "the 13th"
+    ],
+    "account_details_mentioned": "Installment loan payment due on the 14th; payment made on the 13th through the mobile app; has a screenshot of the app showing payment confirmation dated the 13th",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-009",
+      "loan_balance": 950.0,
+      "origination_date": "1/14/2026",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, current. Opened 2026-01-14. Payments due on the 14th."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-009",
+        "date": "2026-02-12",
+        "type": "payment",
+        "amount": 118.75,
+        "note": "Payment received via mobile app; ledger posting date 2026-02-12"
+      },
+      {
+        "account_id": "ACC-009",
+        "date": "2026-03-12",
+        "type": "payment",
+        "amount": 118.75,
+        "note": "Payment received via mobile app; ledger posting date 2026-03-12"
+      },
+      {
+        "account_id": "ACC-009",
+        "date": "2026-04-13",
+        "type": "payment",
+        "amount": 118.75,
+        "note": "Payment received via mobile app; due date 2026-04-14; ledger posting date 2026-04-15"
+      },
+      {
+        "account_id": "ACC-009",
+        "date": "2026-04-15",
+        "type": "fee",
+        "amount": 35.0,
+        "note": "Late fee assessed"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_true",
+    "fact_verification_explanation": "The customer reports one problem event, a $35 late fee, and says it was wrong because they paid on the 13th, before the 14th due date. The records match this. The transaction log shows a payment of $118.75 received via the mobile app on 2026-04-13, one day before the 2026-04-14 due date. A $35.00 late fee was then assessed on 2026-04-15. The payment's note shows a ledger posting date of 2026-04-15, so the fee appears to have been triggered by the posting lag, not by a late payment. The February and March payments were received and posted on the same day, which shows the 04-13 payment was not unusual. The customer's screenshot is not on file, but the company's own records already establish the payment date, so it is not needed.",
+    "risk_tier": "Low",
+    "risk_rationale": "The amount is $35, the account is current, and the extraction shows no attorney/regulator reference, no embedded instructions, no hardship or vulnerability, no allegation of being misled about terms, and no UDAAP-pattern language. The claim is confirmed true on a routine fee matter.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Low",
+  "policy": {
+    "policy_id": "06",
+    "topic": "Fee Waiver and Goodwill Credit Authority",
+    "category": "internal",
+    "matched_keywords": [
+      "late fee"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Fee Waiver and Goodwill Credit Authority\n\n**Applies to:** Complaints where account/transaction data confirms a fee was charged in error, or where a goodwill gesture is being considered for a confirmed service failure.\n\n## Authority thresholds\n| Fee/credit amount | Who may approve |\n|---|---|\n| $0 \u2013 $50 | Complaints analyst, no additional sign-off required |\n| $50.01 \u2013 $200 | Complaints analyst with supervisor co-sign |\n| $200.01+ | Supervisor or manager approval required; analyst may not approve independently |\n\n## When a waiver is appropriate\n- The transaction history **confirms** the fee was charged in error (e.g., payment was received before the due date but a late fee was still assessed).\n- The fee was charged due to a documented system or processing error.\n- A documented goodwill exception for a first-time, low-dollar fee on an otherwise good-standing account (use sparingly, document the rationale).\n\n## When a waiver is NOT appropriate\n- The transaction history confirms the fee was correctly charged (no error occurred) \u2014 the response should explain the charge, not waive it.\n- The complaint's underlying fact could not be verified (missing/incomplete data) \u2014 route to manual review rather than waiving preemptively.\n- The complaint involves a dispute of right vs. convenience (e.g., customer disagrees with a disclosed, legitimate fee) \u2014 explain the fee and its basis; do not waive solely to end the complaint.\n\n## What an analyst or agent may say\n- May state the exact dollar amount being waived and the specific reason (tied to the confirmed error).\n- May NOT waive a fee \"as a one-time courtesy\" without a documented rationale on file \u2014 every waiver must cite either a confirmed error or an explicit goodwill justification.\n\n## Documentation requirement\nEvery waiver, regardless of amount, must be logged with: the confirming evidence (which transaction record), the dollar amount, and the approving party.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a $35 late fee on your installment loan, even though you made your payment through the mobile app on the 13th, ahead of the 14th due date. We understand how frustrating it is to pay early and still be charged.\n\nWe reviewed your account and our records confirm your payment of $118.75 was received through the mobile app on April 13, 2026, one day before the due date. The $35 late fee was then applied on April 15. It appears the fee was triggered because your payment was not posted to your account until April 15, not because it arrived late.\n\nBecause the fee was applied even though your payment arrived before the due date, we have referred the correction of this fee for approval. We will let you know the outcome of that review.\n\nYou don't need to send your screenshot, since our records already show your payment date. If you have anything else you'd like us to look at, you can send it at any time and we will review it. You can reply to this message or call the number on your account.\n\nCase reference: 21633667",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, $0\u2013$50 tier (fee confirmed as charged in error; payment received before the due date)",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Charged a $35 late fee despite paying on the 13th, before the 14th due date"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 'your installment loan' appears in the draft's own voice, but the loan type is not in the allegations list or the verification output, so it is not covered by the customer-descriptor allowance. Also, 'we have referred the correction of this fee for approval' states that an action was taken. Nothing in the verification output shows a referral was made, and the cited policy says a $35 fee needs no additional sign-off. That makes the claimed referral and pending review unsupported.",
+        "policy_authorization_check": "pass \u2014 no remedy is stated (remedy_stated is null), and a $35 fee is within the $0\u2013$50 analyst tier of Policy 06. Nothing exceeds authority.",
+        "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no future guarantees, no legal conclusions, and no language discouraging other channels. 'We understand how frustrating it is' is acceptable under Policy 10. The statement that the fee was applied though payment arrived before the due date matches the confirmed facts.",
+        "tone_structure_check": "pass \u2014 follows Policy 11 order (acknowledgment \u2192 findings \u2192 outcome \u2192 next steps \u2192 case reference), uses short paragraphs and plain second-person language, and is about 190 words, within the 100\u2013200 range for a single-issue complaint. The outcome is vague, but that is a consequence of the unsupported referral claim flagged under groundedness.",
+        "specific_issues": [
+          "Groundedness: 'installment loan' is not found in the allegations list or the verification output, so it is an unsupported descriptor stated as fact.",
+          "Groundedness: 'we have referred the correction of this fee for approval' and 'we will let you know the outcome of that review' assert a referral and pending review that are not in the verification output. Under Policy 06 a $35 correction needs no extra sign-off, so the draft should state the confirmed error and the specific outcome instead of an invented pending status."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us about a $35 late fee on your account, saying you paid on the 13th, a day before your payment was due on the 14th.\n\nWe reviewed your account records. They show your payment of $118.75 was received through the mobile app on April 13, 2026, one day before the April 14 due date. The payment was recorded on our ledger on April 15, and the $35 late fee was applied that same day. That recording delay appears to be why the fee was applied. Our records confirm the fee was applied in error.\n\nWe are waiving the $35 late fee. This falls within the amount our complaints analysts can approve, so no further sign-off is needed. Our own records show when your payment was received, so you don't need to send your app screenshot.\n\nYou don't need to do anything else. If you have anything further you'd like us to look at, you can send it at any time and we will review it. Please include your case reference number in any follow-up.\n\nCase reference: 21633667",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, $0\u2013$50 tier (fee confirmed charged in error: payment received before due date but late fee still assessed)",
+        "remedy_stated": "Waiver of the $35.00 late fee assessed on 2026-04-15",
+        "allegations_addressed": [
+          "Charged a $35 late fee despite paying on the 13th, before the 14th due date"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 the only allegation (a $35 late fee charged despite payment on the 13th, before the 14th due date) is addressed in the opening, findings, and outcome.",
+        "groundedness_check": "pass \u2014 the $118.75 payment, the April 13, 2026 receipt via the mobile app, the April 14 due date, the April 15 ledger posting, and the $35 fee applied April 15 all match the verification output. The posting-delay explanation is hedged ('appears to be why'), as in the verification. 'Applied in error' matches the confirmed_true finding and Policy 06's confirmed-error criterion. The statement that the screenshot isn't needed is supported by the verification output.",
+        "policy_authorization_check": "pass \u2014 the $35 waiver is within the $0\u2013$50 tier, where a complaints analyst can approve with no additional sign-off. The stated reason is a confirmed error, which Policy 06 requires.",
+        "prohibited_language_check": "pass \u2014 no apology or liability admission beyond confirmed fact (it uses the approved phrasing 'our records confirm the fee was applied in error'), no future guarantees, no legal conclusions, and no promise outside documented authority. 'You don't need to do anything else' refers to the fee resolution and does not discourage the customer from other channels. The invitation to send further information is neutral.",
+        "tone_structure_check": "pass \u2014 the order is acknowledgment, findings, outcome, next steps, case reference. It is in second person and plain language, with no marketing content, and runs about 180 words, within the 100\u2013200 range for a routine single-issue response. Minor non-blocking note: the findings paragraph has 5 sentences against Policy 11's 2\u20134 sentence guideline.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about a $35 late fee on your account, saying you paid on the 13th, a day before your payment was due on the 14th.\n\nWe reviewed your account records. They show your payment of $118.75 was received through the mobile app on April 13, 2026, one day before the April 14 due date. The payment was recorded on our ledger on April 15, and the $35 late fee was applied that same day. That recording delay appears to be why the fee was applied. Our records confirm the fee was applied in error.\n\nWe are waiving the $35 late fee. This falls within the amount our complaints analysts can approve, so no further sign-off is needed. Our own records show when your payment was received, so you don't need to send your app screenshot.\n\nYou don't need to do anything else. If you have anything further you'd like us to look at, you can send it at any time and we will review it. Please include your case reference number in any follow-up.\n\nCase reference: 21633667",
+    "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, $0\u2013$50 tier (fee confirmed charged in error: payment received before due date but late fee still assessed)",
+    "remedy_stated": "Waiver of the $35.00 late fee assessed on 2026-04-15",
+    "allegations_addressed": [
+      "Charged a $35 late fee despite paying on the 13th, before the 14th due date"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 the only allegation (a $35 late fee charged despite payment on the 13th, before the 14th due date) is addressed in the opening, findings, and outcome.",
+    "groundedness_check": "pass \u2014 the $118.75 payment, the April 13, 2026 receipt via the mobile app, the April 14 due date, the April 15 ledger posting, and the $35 fee applied April 15 all match the verification output. The posting-delay explanation is hedged ('appears to be why'), as in the verification. 'Applied in error' matches the confirmed_true finding and Policy 06's confirmed-error criterion. The statement that the screenshot isn't needed is supported by the verification output.",
+    "policy_authorization_check": "pass \u2014 the $35 waiver is within the $0\u2013$50 tier, where a complaints analyst can approve with no additional sign-off. The stated reason is a confirmed error, which Policy 06 requires.",
+    "prohibited_language_check": "pass \u2014 no apology or liability admission beyond confirmed fact (it uses the approved phrasing 'our records confirm the fee was applied in error'), no future guarantees, no legal conclusions, and no promise outside documented authority. 'You don't need to do anything else' refers to the fee resolution and does not discourage the customer from other channels. The invitation to send further information is neutral.",
+    "tone_structure_check": "pass \u2014 the order is acknowledgment, findings, outcome, next steps, case reference. It is in second person and plain language, with no marketing content, and runs about 180 words, within the 100\u2013200 range for a routine single-issue response. Minor non-blocking note: the findings paragraph has 5 sentences against Policy 11's 2\u20134 sentence guideline.",
+    "specific_issues": []
+  },
+  "summary": "Charged fees or interest you didn't expect - confirmed_true - Low risk - draft ready for review",
+  "run_finished": "2026-10-08T00:36:18+00:00"
+}

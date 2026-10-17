@@ -1,0 +1,209 @@
+{
+  "complaint_id": "26286287",
+  "run_started": "2026-10-07T00:22:22+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "26286287",
+    "date_received": "2026-09-02",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account status incorrect",
+    "state": "MS",
+    "narrative": "This loan is reporting as charged off on my credit report, but I have been making payments on time every month according to my own bank records and my online account portal, which shows the account as current.",
+    "account_id": "ACC-048",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1424,
+      "output_tokens": 228
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2753,
+      "output_tokens": 1523
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Loan is reporting as charged off on credit report",
+      "Customer has made on-time payments every month according to own bank records",
+      "Online account portal shows the account as current"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "every month"
+    ],
+    "account_details_mentioned": "Online account portal shows the account as current; customer's bank records show on-time monthly payments; credit report shows the loan as charged off",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-048",
+      "loan_balance": 1600.0,
+      "origination_date": "2026-04-13",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-048",
+        "date": "2026-04-13",
+        "type": "payment",
+        "amount": 66.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-048",
+        "date": "2026-05-13",
+        "type": "payment",
+        "amount": 53.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-048",
+        "date": "2026-06-12",
+        "type": "payment",
+        "amount": 47.06,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-048",
+        "date": "2026-07-12",
+        "type": "payment",
+        "amount": 48.48,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-048",
+        "date": "2026-08-11",
+        "type": "payment",
+        "amount": 133.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-048",
+        "date": "2026-09-10",
+        "type": "payment",
+        "amount": 48.48,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "Supported: the account record shows payment_status 'current', which matches the customer's portal claim. The transaction log shows six payments roughly 30 days apart (2026-04-13, 05-13, 06-12, 07-12, 08-11, 09-10) with no missed payment, late fee, delinquency or charge-off event, which is consistent with the customer's claim of monthly payments. Not verifiable: the core allegation is that the loan is reported as charged off on the customer's credit report. No credit bureau furnishing data (reported status, date of report, or which bureau) was provided, so the claim can be neither confirmed nor contradicted. The internal record (current status, no delinquency, loan originated only about 5 months ago) is inconsistent with a charge-off, which could point to a reporting error, but that is an inference and not evidence. Also missing: contractual due dates and scheduled payment amounts, so 'on-time' cannot be fully confirmed. Payment amounts vary (47.06 to 133.33), and the 2026-08-11 payment of 133.33 is well above the others. The account_note says the record is generic and not built to confirm or deny this complaint.",
+    "risk_tier": "High",
+    "risk_rationale": "Automatic High: the claim is unverifiable and the gap decides the outcome, because we cannot tell whether inaccurate charge-off information is being furnished to credit bureaus without the credit reporting data. No attorney or regulator reference is present, and attorney_regulator_flag is False.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Credit bureau reporting data is missing, so the central allegation (a charge-off reported on a loan the internal record shows as current) cannot be verified. A human reviewer must obtain the furnished-data record and assess possible inaccurate credit reporting before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "This loan is reporting as charged off on my credit report, but I have been making payments on time every month according to my own bank records and my online account portal, which shows the account as current.",
+    "extraction": {
+      "allegations": [
+        "Loan is reporting as charged off on credit report",
+        "Customer has made on-time payments every month according to own bank records",
+        "Online account portal shows the account as current"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "every month"
+      ],
+      "account_details_mentioned": "Online account portal shows the account as current; customer's bank records show on-time monthly payments; credit report shows the loan as charged off",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "Supported: the account record shows payment_status 'current', which matches the customer's portal claim. The transaction log shows six payments roughly 30 days apart (2026-04-13, 05-13, 06-12, 07-12, 08-11, 09-10) with no missed payment, late fee, delinquency or charge-off event, which is consistent with the customer's claim of monthly payments. Not verifiable: the core allegation is that the loan is reported as charged off on the customer's credit report. No credit bureau furnishing data (reported status, date of report, or which bureau) was provided, so the claim can be neither confirmed nor contradicted. The internal record (current status, no delinquency, loan originated only about 5 months ago) is inconsistent with a charge-off, which could point to a reporting error, but that is an inference and not evidence. Also missing: contractual due dates and scheduled payment amounts, so 'on-time' cannot be fully confirmed. Payment amounts vary (47.06 to 133.33), and the 2026-08-11 payment of 133.33 is well above the others. The account_note says the record is generic and not built to confirm or deny this complaint.",
+      "risk_tier": "High",
+      "risk_rationale": "Automatic High: the claim is unverifiable and the gap decides the outcome, because we cannot tell whether inaccurate charge-off information is being furnished to credit bureaus without the credit reporting data. No attorney or regulator reference is present, and attorney_regulator_flag is False.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-048",
+        "loan_balance": 1600.0,
+        "origination_date": "2026-04-13",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-048",
+          "date": "2026-04-13",
+          "type": "payment",
+          "amount": 66.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-048",
+          "date": "2026-05-13",
+          "type": "payment",
+          "amount": 53.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-048",
+          "date": "2026-06-12",
+          "type": "payment",
+          "amount": 47.06,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-048",
+          "date": "2026-07-12",
+          "type": "payment",
+          "amount": 48.48,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-048",
+          "date": "2026-08-11",
+          "type": "payment",
+          "amount": 133.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-048",
+          "date": "2026-09-10",
+          "type": "payment",
+          "amount": 48.48,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Credit bureau reporting data is missing, so the central allegation (a charge-off reported on a loan the internal record shows as current) cannot be verified. A human reviewer must obtain the furnished-data record and assess possible inaccurate credit reporting before any response is drafted.",
+    "unresolved": "Supported: the account record shows payment_status 'current', which matches the customer's portal claim. The transaction log shows six payments roughly 30 days apart (2026-04-13, 05-13, 06-12, 07-12, 08-11, 09-10) with no missed payment, late fee, delinquency or charge-off event, which is consistent with the customer's claim of monthly payments. Not verifiable: the core allegation is that the loan is reported as charged off on the customer's credit report. No credit bureau furnishing data (reported status, date of report, or which bureau) was provided, so the claim can be neither confirmed nor contradicted. The internal record (current status, no delinquency, loan originated only about 5 months ago) is inconsistent with a charge-off, which could point to a reporting error, but that is an inference and not evidence. Also missing: contractual due dates and scheduled payment amounts, so 'on-time' cannot be fully confirmed. Payment amounts vary (47.06 to 133.33), and the 2026-08-11 payment of 133.33 is well above the others. The account_note says the record is generic and not built to confirm or deny this complaint.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:22:37+00:00"
+}

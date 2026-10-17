@@ -1,0 +1,189 @@
+{
+  "complaint_id": "26593443",
+  "run_started": "2026-10-07T00:22:29+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "26593443",
+    "date_received": "2026-09-05",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Getting the loan",
+    "sub_issue": "",
+    "state": "CA",
+    "narrative": "I was never given a clear breakdown of the total cost of this loan, including all fees, before I signed. I only found out the true APR after looking at my first statement.",
+    "account_id": "ACC-049",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1412,
+      "output_tokens": 194
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2644,
+      "output_tokens": 1039
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Never given a clear breakdown of the total cost of the loan, including all fees, before signing",
+      "Only found out the true APR after looking at the first statement"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Customer saw the true APR on the first statement",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "calm and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-049",
+      "loan_balance": 450.0,
+      "origination_date": "2026-05-25",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-049",
+        "date": "2026-05-25",
+        "type": "payment",
+        "amount": 14.06,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-049",
+        "date": "2026-06-24",
+        "type": "payment",
+        "amount": 22.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-049",
+        "date": "2026-07-24",
+        "type": "payment",
+        "amount": 12.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-049",
+        "date": "2026-08-23",
+        "type": "payment",
+        "amount": 13.64,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-049",
+        "date": "2026-09-22",
+        "type": "payment",
+        "amount": 14.06,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges that no clear total-cost breakdown (including fees) was given before signing, and that the true APR was only discovered on the first statement. The evidence retrieved cannot confirm or contradict either point. The account record (ACC-049, installment_loan, originated 2026-05-25, balance $450.00, status current) has no APR, finance charge, fee schedule, or disclosure fields. Its account_note says it is a generic record not built to verify this complaint. The transaction history shows only five routine payments (2026-05-25 $14.06, 2026-06-24 $22.50, 2026-07-24 $12.86, 2026-08-23 $13.64, 2026-09-22 $14.06) and no fees or other charges. Missing: the signed loan agreement, the pre-consummation cost/APR disclosures and proof they were delivered, the origination fee details, the first billing statement, and the contractual APR. The payment amounts also vary even though they are labeled 'scheduled'. That does not bear on the allegation, but the payment schedule was not verified either.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is 'unverifiable' and the missing disclosure and APR records are the entire basis of the claim, so the gap could change the outcome. The allegation of withheld material cost information also fits a UDAAP pattern.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central issue (pre-signing cost/APR disclosure), and the gap affects the outcome. A human reviewer must retrieve the loan agreement, disclosures, and first statement before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was never given a clear breakdown of the total cost of this loan, including all fees, before I signed. I only found out the true APR after looking at my first statement.",
+    "extraction": {
+      "allegations": [
+        "Never given a clear breakdown of the total cost of the loan, including all fees, before signing",
+        "Only found out the true APR after looking at the first statement"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Customer saw the true APR on the first statement",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "calm and factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges that no clear total-cost breakdown (including fees) was given before signing, and that the true APR was only discovered on the first statement. The evidence retrieved cannot confirm or contradict either point. The account record (ACC-049, installment_loan, originated 2026-05-25, balance $450.00, status current) has no APR, finance charge, fee schedule, or disclosure fields. Its account_note says it is a generic record not built to verify this complaint. The transaction history shows only five routine payments (2026-05-25 $14.06, 2026-06-24 $22.50, 2026-07-24 $12.86, 2026-08-23 $13.64, 2026-09-22 $14.06) and no fees or other charges. Missing: the signed loan agreement, the pre-consummation cost/APR disclosures and proof they were delivered, the origination fee details, the first billing statement, and the contractual APR. The payment amounts also vary even though they are labeled 'scheduled'. That does not bear on the allegation, but the payment schedule was not verified either.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is 'unverifiable' and the missing disclosure and APR records are the entire basis of the claim, so the gap could change the outcome. The allegation of withheld material cost information also fits a UDAAP pattern.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-049",
+        "loan_balance": 450.0,
+        "origination_date": "2026-05-25",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-049",
+          "date": "2026-05-25",
+          "type": "payment",
+          "amount": 14.06,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-049",
+          "date": "2026-06-24",
+          "type": "payment",
+          "amount": 22.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-049",
+          "date": "2026-07-24",
+          "type": "payment",
+          "amount": 12.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-049",
+          "date": "2026-08-23",
+          "type": "payment",
+          "amount": 13.64,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-049",
+          "date": "2026-09-22",
+          "type": "payment",
+          "amount": 14.06,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central issue (pre-signing cost/APR disclosure), and the gap affects the outcome. A human reviewer must retrieve the loan agreement, disclosures, and first statement before any response is drafted.",
+    "unresolved": "The customer alleges that no clear total-cost breakdown (including fees) was given before signing, and that the true APR was only discovered on the first statement. The evidence retrieved cannot confirm or contradict either point. The account record (ACC-049, installment_loan, originated 2026-05-25, balance $450.00, status current) has no APR, finance charge, fee schedule, or disclosure fields. Its account_note says it is a generic record not built to verify this complaint. The transaction history shows only five routine payments (2026-05-25 $14.06, 2026-06-24 $22.50, 2026-07-24 $12.86, 2026-08-23 $13.64, 2026-09-22 $14.06) and no fees or other charges. Missing: the signed loan agreement, the pre-consummation cost/APR disclosures and proof they were delivered, the origination fee details, the first billing statement, and the contractual APR. The payment amounts also vary even though they are labeled 'scheduled'. That does not bear on the allegation, but the payment schedule was not verified either.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Getting the loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:22:39+00:00"
+}

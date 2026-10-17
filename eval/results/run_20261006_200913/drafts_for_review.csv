@@ -1,0 +1,96 @@
+complaint_id,demo_case_type,narrative,extracted_allegations,fact_verification,risk_tier,policy_cited,draft_text,remedy_stated,verifier_result,verifier_issues,human_tag (Approve / Minor / Substantive),reviewer_notes
+21633667,core,My installment loan payment was due on the 14th and I paid it on the 13th through the mobile app. I still got charged a $35 late fee. I have a screenshot of the app showing the payment confirmation dated the 13th.,"Charged a $35 late fee despite paying on the 13th, before the 14th due date | Payment was made through the mobile app",confirmed_true,Low,"06 Fee Waiver and Goodwill Credit Authority, $0–$50 tier (transaction history confirms payment was received before the due date but a late fee was still assessed)","You contacted us about a $35 late fee on your account even though you made your payment through the mobile app on the 13th, before the 14th due date.
+
+We reviewed your transaction history. Our records show your payment of $118.75 was received through the mobile app on April 13th, which matches the confirmation screenshot you described. The payment was posted to your account on April 15th, after the due date, and the $35.00 late fee was assessed that same day. Our records confirm this fee was applied in error, because your payment was received before the due date.
+
+We have waived the $35.00 late fee.
+
+You don't need to do anything further. If you still see this charge on a future statement, please reply to this message or call the number on your account and reference the case number below. We understand this has been frustrating.
+
+Case reference: 21633667",Waiver of the $35.00 late fee assessed on April 15th,pass,,,
+22853918,core,"I set up autopay for this loan six months ago and it worked fine until last month, when my payment was never withdrawn and I was charged a late fee as a result. I have a screenshot of my autopay settings still showing as active.",Autopay was set up six months ago and worked fine until last month | Payment was never withdrawn last month | Charged a late fee as a result of the payment not being withdrawn | Autopay settings still show as active,partially_true,Medium,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee confirmed as correctly charged; explain the charge, do not waive). Also governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).","Thank you for contacting us about the missed autopay withdrawal and the late fee on your account. We reviewed your account activity, and here is what we found on each point you raised.
+
+Autopay worked until last month: Our records agree. Autopay withdrawals of $100.00 posted on March 27, 2026 and April 27, 2026.
+
+Payment not withdrawn last month: This is correct. The $100.00 installment due May 27, 2026 was not received. Our records show autopay was turned off through the mobile app on May 9, 2026, and no active autopay instruction was on file on May 27.
+
+Late fee: A $25.00 late fee was assessed on June 1, 2026 because the May installment had not been received. Since our records show the payment was not received and no autopay instruction was active, we did not find an error in how the fee was applied. For that reason, no fee waiver applies.
+
+Autopay showing as active: We understand that your screenshot shows autopay as active. We do not have that screenshot, so we can't tell what it displayed or when it was taken. Our records do not show autopay as active on May 27.
+
+Next steps: If you reply with your screenshot and the date it was taken, we will review it alongside your account record. To resume automatic payments, you can check your autopay settings in the mobile app or call us at the number on your account.
+
+Case reference: 22853918",,pass,,,
+23623033,core,"My account is showing as 60 days past due on my credit report, but I have never missed a payment on this account. My bank statements show every payment was made on time for the past 18 months.",Account is showing as 60 days past due on credit report | Customer states they have never missed a payment on this account | Customer states bank statements show every payment was made on time for the past 18 months,partially_true,Medium,"04 Credit Reporting Disputes (FCRA) — investigation timeline (30/45 days), internal records review, and remedy authority for correcting our own furnished data; Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format) applied","You contacted us because your account is showing as 60 days past due on your credit report, and because you believe every payment over the past 18 months was made on time. We reviewed your payment history and the reporting on your account. Here is what we found on each point.
+
+The 60-day past due reporting: Our records show the account was reported to the credit bureaus as 60 days past due on April 20, 2026. Your first missed installment was due March 18, 2026, which means the account was about 33 days past due on April 20. The reported status does not match your payment timeline, so we are reviewing it for accuracy. Our records do not show whether the status was updated after your May payment.
+
+Your statement that no payments were missed: Our records show the $140.00 installments due March 18 and April 18, 2026 were not received. On May 18, 2026, we received a $280.00 payment covering both installments. The June 18 installment was also received, and your account is now current. If your bank statements show payments on those March and April dates that we did not receive, please send them to us.
+
+Your statement that the past 18 months were on time: The payment records we reviewed cover January 18 through June 18, 2026, so we cannot confirm or dispute the earlier months. This does not change our review, because the reporting you are disputing relates to March and April 2026.
+
+Next steps: We will complete our review of the reported status and send you the results within 30 days of receiving your dispute. If you send additional information, such as your bank statements, the review may take up to 45 days. We cannot control how quickly a credit bureau processes any update on its end. If you are not satisfied with the result, you may ask us to include a statement of your dispute in your credit file. You are also free to pursue any other channel you choose.
+
+Case reference: 23623033","Internal review of the 60-day past due status we reported on April 20, 2026. No correction, deletion, or bureau update is promised; the customer will be told the results of the investigation within 30 days (up to 45 if additional information is provided).",pass,,,
+SYN-F01,core_confirmed_false,I was charged a $35 late fee this month even though I paid on time. I pay the same way every month and this has never happened before.,Charged a $35 late fee this month despite paying on time | Pays the same way every month and this has never happened before,confirmed_false,Low,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (no fee was charged and no error found, so no waiver applies); structured per Policy 11 and worded per Policy 10","You contacted us about a $35 late fee you believe was charged to your account this month even though you paid on time. We understand how frustrating an unexpected charge can be, so we reviewed your account.
+
+What we found: your payment of $180.00 was received on June 8, 2026, two days before your June 10, 2026 due date. This matches what you told us about paying on time. No late fee was assessed on your account in June, and the $35 charge you mentioned does not appear in our transaction records.
+
+You also mentioned that you pay the same way every month and that this has never happened before. Our review confirms your June payment arrived on time. Because there is no late fee on the account, there is no charge for us to reverse or waive, so no credit or adjustment applies.
+
+Next steps: if you are seeing a $35 charge on a statement or in your online account, please reply to this message or call the number on your account. We would be glad to go through that statement with you to find the source of the amount you are seeing. You are also welcome to pursue any other channel you choose.
+
+Case reference: SYN-F01",,pass,,,
+SYN-F04,core_confirmed_false,"I was double charged my monthly payment of $180 this month, once on the 1st and once on the 15th.","Double charged monthly payment of $180 this month, once on the 1st and once on the 15th",confirmed_false,Low,"08 General Dispute Handling Process (not confirmed, no error found), applied with 10 Prohibited Language and 11 Response Tone and Format","You contacted us about being charged your $180 monthly payment twice this month, on the 1st and the 15th. We understand how concerning an unexpected duplicate charge can be.
+
+We reviewed the transaction history on your account. Our records show one $180 payment, processed on June 1st. We found no second $180 charge on June 15th or on any other date this month.
+
+Because our records show only one payment, we found no duplicate charge to correct, and no refund or adjustment applies.
+
+If you're seeing a second charge on your bank or card statement, please reply to this message with the date, the amount, and how it appears on your statement. We will review that information against our records. You are also welcome to call us at the number on your account.
+
+Case reference: [case_id]",,pass,,,
+SYN-P01,core_partially_true,"I was charged two separate fees this month, a $15 processing fee and a $35 late fee. I think both of these are wrong and should be refunded.",Charged a $15 processing fee this month that the customer believes is wrong | Charged a $35 late fee this month that the customer believes is wrong,partially_true,Medium,06 Fee Waiver and Goodwill Credit Authority ('When a waiver is NOT appropriate': fee charged as disclosed and not in error; no waiver applicable). Also governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).,"You contacted us about two charges on your account this month: a $15 processing fee and a $35 late fee. We looked into both.
+
+Processing fee ($15): Our transaction records show a $15 processing fee posted to your account on June 25, 2026. This is a standard fee described in section 2.1 of your loan agreement. Because it was charged as described there, we are not able to remove it.
+
+Late fee ($35): We did not find a $35 late fee anywhere in your transaction history for this period, and your account is currently showing as current. If a $35 charge appears on your statement, please reply with the date and a description of it so we can look at that specific item.
+
+Next steps: You don't need to do anything further unless you see a different charge than the ones described above. You can reply to this message with any additional details and we will review them. If you would like to raise this with another party, you are free to do so.
+
+Case reference: SYN-P01",,pass,,,
+SYN-P02,core_partially_true,"My payment this month was taken out twice from my bank account, for $220 total instead of $110. This has caused an overdraft on my checking account.","Monthly payment was taken out twice from bank account, $220 total instead of $110 | Double payment caused an overdraft on checking account",partially_true,Medium,"08 General Dispute Handling Process (partially confirmed classification; no remedy stated because none is authorized in the cited policy), with Policy 10 and Policy 11 applied","You contacted us because your monthly payment was taken from your bank account twice, and you said this overdrew your checking account. We reviewed both concerns.
+
+What we found:
+
+1. Duplicate payment: Our records confirm two payments of $110.00 on your account, one on June 30, 2026 and one on July 1, 2026, for a total of $220 against a $110 monthly payment. The second payment was a duplicate caused by a payment-processing retry issue.
+
+2. Overdraft on your checking account: We can't confirm or rule this out. Overdrafts are assessed by your bank, and we don't have access to your bank's records. We also see no overdraft fee or related charge on your account with us.
+
+Outcome: The duplicate payment is confirmed. We understand this has been frustrating. This message does not include an approved refund or other remedy for the extra $110, so we can't state an outcome or date for it here. We also can't say whether the overdraft is something we can address until we know more about it.
+
+Next steps: If you'd like us to consider the overdraft, please reply with a copy of the bank statement or notice showing the overdraft and any related fees. You can also reply or call the number on your account at any time to ask about the duplicate payment. You are also free to contact your bank about the overdraft.
+
+Case reference: SYN-P02",,pass,,,
+SYN-P03,core_partially_true,"This collector calls me multiple times a day and has also called my workplace, which I never gave them permission to contact.",Collector calls multiple times a day | Collector called the customer's workplace without permission,partially_true,Medium,08 General Dispute Handling Process (standard process; outcome classified as partially confirmed). Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format) also applied.,"We received your complaint about the collection calls you've been getting and about a call to your workplace. We understand how frustrating this has been, and we reviewed our records on both points.
+
+Calls to you: Our call records show 6 calls to your personal phone number within a 7-day period. The records we reviewed don't break the calls down by day, so we could not confirm how many took place on any single day, including whether there were multiple calls in one day.
+
+Call to your workplace: We found no record of any call to a workplace or employer number. The only phone number on file for your account is your personal number. Our records may not capture every call, so this does not settle the question. If you can send the approximate date and time of the call, the number it was placed to, and the name the caller gave, we will review that information.
+
+No change has been made to your account as a result of this review. To follow up, reply to this message or call the number on your account and reference your case number.
+
+Case reference: SYN-P03",,pass,,,
+SYN-P04,core_partially_true,"I was told my loan had no prepayment penalty, but when I paid it off early I was charged an extra $60 fee that wasn't in my original disclosures.",Told the loan had no prepayment penalty | Charged an extra $60 fee after paying off the loan early | The fee was not in the original disclosures,partially_true,Medium,"08 General Dispute Handling Process (Standard process, steps 3–4, and 'What counts as a complete response'); formatted per Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format). No remedy applicable, so no fee waiver tier is invoked.","Thank you for contacting us about the $60 fee charged when you paid off your loan early. You raised three points, and we've addressed each one below.
+
+1. The $60 fee after your early payoff: Our records confirm that you paid off your loan early on July 8, 2026, and that a $60.00 early payoff processing fee was charged to your account the same day.
+
+2. Whether the fee was in your original disclosures: Our review found that the fee is listed in your loan agreement, in section 4.3 (""Payoff Terms""). Because of this, we can't confirm that the fee was left out of your original disclosures.
+
+3. Being told there was no prepayment penalty: We can't confirm or refute this from our records. We have no call recordings, sales notes, or origination communications showing what was said when you took out the loan. Our records identify the charge as an early payoff processing fee, and they do not show how it was described to you at the time.
+
+Based on what we could verify, we have not identified an error in how this fee was applied, so no refund or adjustment is being made at this time.
+
+If you remember more about the conversation where you were told there was no prepayment penalty, such as the approximate date, how you were contacted, or the name of the person you spoke with, please reply to this message. We will add those details to your case record. You can also reply with any other questions about your account.
+
+Case reference: SYN-P04.",,pass,,,

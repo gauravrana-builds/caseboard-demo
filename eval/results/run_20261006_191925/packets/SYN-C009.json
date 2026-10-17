@@ -1,0 +1,235 @@
+{
+  "complaint_id": "SYN-C009",
+  "run_started": "2026-10-07T00:24:17+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C009",
+    "date_received": "2026-06-20",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account information incorrect",
+    "state": "NC",
+    "narrative": "My credit report shows an incorrect balance of $18 on an account I believe is fully paid off, and my dispute has not resolved the error.",
+    "account_id": "ACC-059",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1413,
+      "output_tokens": 201
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2869,
+      "output_tokens": 1603
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Credit report shows an incorrect balance of $18 on an account the customer believes is fully paid off",
+      "Dispute has not resolved the error"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      18.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Account believed to be fully paid off but reported with a balance of $18 on the credit report",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-059",
+      "loan_balance": 600.0,
+      "origination_date": "2026-02-24",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-059",
+        "date": "2026-02-24",
+        "type": "payment",
+        "amount": 46.15,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-059",
+        "date": "2026-03-26",
+        "type": "payment",
+        "amount": 20.69,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-059",
+        "date": "2026-04-25",
+        "type": "payment",
+        "amount": 18.18,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-059",
+        "date": "2026-05-25",
+        "type": "payment",
+        "amount": 26.09,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-059",
+        "date": "2026-06-24",
+        "type": "payment",
+        "amount": 16.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-059",
+        "date": "2026-07-24",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-059",
+        "date": "2026-08-23",
+        "type": "payment",
+        "amount": 19.35,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-059",
+        "date": "2026-09-22",
+        "type": "payment",
+        "amount": 40.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The account record does not show a paid-off account. ACC-059 is an installment loan originated 2026-02-24 with a loan_balance of $600.00 and status 'current'. There is no payoff or zero-balance transaction. Seven payments totaling $187.13 (2026-02-24 through 2026-09-22) and one $30.00 fee on 2026-07-24 appear in the history. However, the claim cannot be confirmed or contradicted for these reasons: (1) no credit-reporting or furnishing data was retrieved, so the $18 balance the customer says is reported cannot be checked; (2) no figure in the account or transaction data reconciles to $18, which is neither the $600.00 balance, the payment sum, nor the $30.00 fee; (3) it is unclear whether loan_balance is the current or the original balance; (4) the account_note says this is a generic record not built for fact verification, and the customer gave no identifiers to confirm ACC-059 is the account they mean; (5) no dispute history was provided to show what the prior dispute covered or how it was resolved.",
+    "risk_tier": "High",
+    "risk_rationale": "Fact verification is unverifiable and the gaps (what is actually being reported to the credit bureau, and whether the account is paid off or carries a balance) could change the outcome, which is an automatic High trigger; the customer's statement that a prior dispute failed to fix the error is also a repeated-contact signal.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the unresolved gap (the reported $18 balance versus the account's actual balance and payoff status) could change the outcome; escalate to a human reviewer with access to credit-reporting and dispute records.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "My credit report shows an incorrect balance of $18 on an account I believe is fully paid off, and my dispute has not resolved the error.",
+    "extraction": {
+      "allegations": [
+        "Credit report shows an incorrect balance of $18 on an account the customer believes is fully paid off",
+        "Dispute has not resolved the error"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        18.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Account believed to be fully paid off but reported with a balance of $18 on the credit report",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "brief and factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The account record does not show a paid-off account. ACC-059 is an installment loan originated 2026-02-24 with a loan_balance of $600.00 and status 'current'. There is no payoff or zero-balance transaction. Seven payments totaling $187.13 (2026-02-24 through 2026-09-22) and one $30.00 fee on 2026-07-24 appear in the history. However, the claim cannot be confirmed or contradicted for these reasons: (1) no credit-reporting or furnishing data was retrieved, so the $18 balance the customer says is reported cannot be checked; (2) no figure in the account or transaction data reconciles to $18, which is neither the $600.00 balance, the payment sum, nor the $30.00 fee; (3) it is unclear whether loan_balance is the current or the original balance; (4) the account_note says this is a generic record not built for fact verification, and the customer gave no identifiers to confirm ACC-059 is the account they mean; (5) no dispute history was provided to show what the prior dispute covered or how it was resolved.",
+      "risk_tier": "High",
+      "risk_rationale": "Fact verification is unverifiable and the gaps (what is actually being reported to the credit bureau, and whether the account is paid off or carries a balance) could change the outcome, which is an automatic High trigger; the customer's statement that a prior dispute failed to fix the error is also a repeated-contact signal.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-059",
+        "loan_balance": 600.0,
+        "origination_date": "2026-02-24",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-059",
+          "date": "2026-02-24",
+          "type": "payment",
+          "amount": 46.15,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-059",
+          "date": "2026-03-26",
+          "type": "payment",
+          "amount": 20.69,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-059",
+          "date": "2026-04-25",
+          "type": "payment",
+          "amount": 18.18,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-059",
+          "date": "2026-05-25",
+          "type": "payment",
+          "amount": 26.09,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-059",
+          "date": "2026-06-24",
+          "type": "payment",
+          "amount": 16.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-059",
+          "date": "2026-07-24",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-059",
+          "date": "2026-08-23",
+          "type": "payment",
+          "amount": 19.35,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-059",
+          "date": "2026-09-22",
+          "type": "payment",
+          "amount": 40.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the unresolved gap (the reported $18 balance versus the account's actual balance and payoff status) could change the outcome; escalate to a human reviewer with access to credit-reporting and dispute records.",
+    "unresolved": "The account record does not show a paid-off account. ACC-059 is an installment loan originated 2026-02-24 with a loan_balance of $600.00 and status 'current'. There is no payoff or zero-balance transaction. Seven payments totaling $187.13 (2026-02-24 through 2026-09-22) and one $30.00 fee on 2026-07-24 appear in the history. However, the claim cannot be confirmed or contradicted for these reasons: (1) no credit-reporting or furnishing data was retrieved, so the $18 balance the customer says is reported cannot be checked; (2) no figure in the account or transaction data reconciles to $18, which is neither the $600.00 balance, the payment sum, nor the $30.00 fee; (3) it is unclear whether loan_balance is the current or the original balance; (4) the account_note says this is a generic record not built for fact verification, and the customer gave no identifiers to confirm ACC-059 is the account they mean; (5) no dispute history was provided to show what the prior dispute covered or how it was resolved.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:24:33+00:00"
+}

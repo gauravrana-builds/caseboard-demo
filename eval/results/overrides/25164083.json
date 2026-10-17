@@ -1,0 +1,284 @@
+{
+  "complaint_id": "25164083",
+  "run_started": "2026-10-08T18:01:40+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "25164083",
+    "date_received": "8/10/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Received a loan you didn't apply for",
+    "sub_issue": "",
+    "state": "CA",
+    "narrative": "I received a notice that a payday loan was opened in my name that I never applied for. I think my identity may have been stolen and I am worried about the impact on my credit.",
+    "account_id": "ACC-037",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1419,
+      "output_tokens": 226
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4830,
+      "output_tokens": 542
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4305,
+      "output_tokens": 1787
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4751,
+      "output_tokens": 2002
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Received a notice that a payday loan was opened in their name",
+      "Never applied for the payday loan",
+      "Believes identity may have been stolen",
+      "Worried about the impact on credit"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [],
+    "account_details_mentioned": "A payday loan was opened in the customer's name without their application; customer received a notice about it",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned and worried, lacking specifics"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-037",
+      "loan_balance": 1100.0,
+      "origination_date": "7/2/2026",
+      "payment_status": "delinquent",
+      "product_type": "payday_loan",
+      "account_note": "Payday loan, delinquent. Opened 2026-07-02."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-037",
+        "date": "2026-07-02",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Online application received; loan funded $1,100.00 to bank account ending 6620"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-07-02",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Identity verification: address and phone on application differ from customer master record"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-08-01",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled payment not received"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-08-03",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Delinquency notice mailed to address on customer master record"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-08-06",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Inbound call from customer disputing the loan, 9 min"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-08-07",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Fraud review opened; collections activity paused"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The central allegation is that the customer never applied for this payday loan and that their identity may have been stolen. The records partly support it but do not settle it. Supporting: on 2026-07-02 the identity verification note shows the address and phone on the online application differ from the customer master record. The loan of $1,100.00 was funded to a bank account ending 6620, and the customer's own account details are not matched to it in these records. A delinquency notice was mailed 2026-08-03 to the address on the master record, which is consistent with how the customer says they found out. The customer called on 2026-08-06 to dispute the loan. Open: a fraud review was opened on 2026-08-07 and has no recorded outcome, and a pending fraud review is not an established finding. Missing: the fraud review result, and confirmation of whether bank account ending 6620 belongs to the customer. The mismatch is a warning sign but does not prove who applied.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer alleges identity theft and disputes that the loan is theirs at all ('never applied'), which is an automatic High trigger under policy 09 mandatory escalation, even though the records cannot yet confirm it.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Mandatory escalation under policy 09: identity theft allegation with the customer disputing that the loan is theirs. No draft may be prepared. The fraud review opened 2026-08-07 is also still pending, so the central finding is not decided.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I received a notice that a payday loan was opened in my name that I never applied for. I think my identity may have been stolen and I am worried about the impact on my credit.",
+    "extraction": {
+      "allegations": [
+        "Received a notice that a payday loan was opened in their name",
+        "Never applied for the payday loan",
+        "Believes identity may have been stolen",
+        "Worried about the impact on credit"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [],
+      "account_details_mentioned": "A payday loan was opened in the customer's name without their application; customer received a notice about it",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concerned and worried, lacking specifics"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The central allegation is that the customer never applied for this payday loan and that their identity may have been stolen. The records partly support it but do not settle it. Supporting: on 2026-07-02 the identity verification note shows the address and phone on the online application differ from the customer master record. The loan of $1,100.00 was funded to a bank account ending 6620, and the customer's own account details are not matched to it in these records. A delinquency notice was mailed 2026-08-03 to the address on the master record, which is consistent with how the customer says they found out. The customer called on 2026-08-06 to dispute the loan. Open: a fraud review was opened on 2026-08-07 and has no recorded outcome, and a pending fraud review is not an established finding. Missing: the fraud review result, and confirmation of whether bank account ending 6620 belongs to the customer. The mismatch is a warning sign but does not prove who applied.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer alleges identity theft and disputes that the loan is theirs at all ('never applied'), which is an automatic High trigger under policy 09 mandatory escalation, even though the records cannot yet confirm it.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-037",
+        "loan_balance": 1100.0,
+        "origination_date": "7/2/2026",
+        "payment_status": "delinquent",
+        "product_type": "payday_loan",
+        "account_note": "Payday loan, delinquent. Opened 2026-07-02."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-037",
+          "date": "2026-07-02",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Online application received; loan funded $1,100.00 to bank account ending 6620"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-07-02",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Identity verification: address and phone on application differ from customer master record"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-08-01",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled payment not received"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-08-03",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Delinquency notice mailed to address on customer master record"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-08-06",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Inbound call from customer disputing the loan, 9 min"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-08-07",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Fraud review opened; collections activity paused"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Mandatory escalation under policy 09: identity theft allegation with the customer disputing that the loan is theirs. No draft may be prepared. The fraud review opened 2026-08-07 is also still pending, so the central finding is not decided.",
+    "unresolved": "The central allegation is that the customer never applied for this payday loan and that their identity may have been stolen. The records partly support it but do not settle it. Supporting: on 2026-07-02 the identity verification note shows the address and phone on the online application differ from the customer master record. The loan of $1,100.00 was funded to a bank account ending 6620, and the customer's own account details are not matched to it in these records. A delinquency notice was mailed 2026-08-03 to the address on the master record, which is consistent with how the customer says they found out. The customer called on 2026-08-06 to dispute the loan. Open: a fraud review was opened on 2026-08-07 and has no recorded outcome, and a pending fraud review is not an established finding. Missing: the fraud review result, and confirmation of whether bank account ending 6620 belongs to the customer. The mismatch is a warning sign but does not prove who applied.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Received a loan you didn't apply for - unverifiable - High risk - draft ready for review",
+  "run_finished": "2026-10-09T19:23:46+00:00",
+  "policy": {
+    "policy_id": "06",
+    "topic": "Fee Waiver and Goodwill Credit Authority",
+    "category": "internal",
+    "matched_keywords": [
+      "credit"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Fee Waiver and Goodwill Credit Authority\n\n**Applies to:** Complaints where account/transaction data confirms a fee was charged in error, or where a goodwill gesture is being considered for a confirmed service failure.\n\n## Authority thresholds\n| Fee/credit amount | Who may approve |\n|---|---|\n| $0 \u2013 $50 | Complaints analyst, no additional sign-off required |\n| $50.01 \u2013 $200 | Complaints analyst with supervisor co-sign |\n| $200.01+ | Supervisor or manager approval required; analyst may not approve independently |\n\n## When a waiver is appropriate\n- The transaction history **confirms** the fee was charged in error (e.g., payment was received before the due date but a late fee was still assessed).\n- The fee was charged due to a documented system or processing error.\n- A documented goodwill exception for a first-time, low-dollar fee on an otherwise good-standing account (use sparingly, document the rationale).\n\n## When a waiver is NOT appropriate\n- The transaction history confirms the fee was correctly charged (no error occurred) \u2014 the response should explain the charge, not waive it.\n- The complaint's underlying fact could not be verified (missing/incomplete data) \u2014 route to manual review rather than waiving preemptively.\n- The complaint involves a dispute of right vs. convenience (e.g., customer disagrees with a disclosed, legitimate fee) \u2014 explain the fee and its basis; do not waive solely to end the complaint.\n\n## What an analyst or agent may say\n- May state the exact dollar amount being waived and the specific reason (tied to the confirmed error).\n- May NOT waive a fee \"as a one-time courtesy\" without a documented rationale on file \u2014 every waiver must cite either a confirmed error or an explicit goodwill justification.\n\n## Documentation requirement\nEvery waiver, regardless of amount, must be logged with: the confirming evidence (which transaction record), the dollar amount, and the approving party.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You told us you received a notice about a payday loan you never applied for, that you're worried your identity may have been stolen, and that you're concerned about your credit. That's a worrying thing to find in the mail, and we want to set out clearly what we found.\n\nThe loan you didn't apply for: Our records show a $1,100.00 loan was funded after an online application. When the application was checked on 2026-07-02, the address and phone number on it did not match the details we hold for you. The funds went to a bank account ending in 6620, and our records don't link that account to you. These differences don't prove who submitted the application, but we are treating them seriously. If that account isn't yours, please tell us.\n\nYour concern about identity theft: We opened a fraud review on 2026-08-07, after you called us on 2026-08-06 to dispute the loan. That review is still open and has no recorded result yet, so we can't yet confirm whether your identity was misused.\n\nThe notice you received: Our records show a past-due notice about this loan was mailed on 2026-08-03 to the address we have on file for you. That fits with how you describe finding out about it.\n\nYour concern about your credit: We don't yet have enough information to say how this loan will be treated, because the fraud review hasn't finished. We aren't able to state an outcome until it has.\n\nWhat happens next: Your dispute and the fraud review are still open, and no outcome has been decided. We will contact you once the review has a result. You're welcome to send us anything else at any time, such as a copy of the notice you received, anything that looks unfamiliar on your accounts, or a note on whether the account ending in 6620 is yours. We will review whatever you send. You can reply to this message or call the number on your account.\n\nCase reference: 25164083",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority (no waiver or credit applicable; underlying fact is unverified and the case is routed to review rather than a preemptive remedy). Also governed by 10 Prohibited Language and 11 Response Tone and Format.",
+        "remedy_stated": null,
+        "referral_stated": "The draft says the customer's loan dispute remains with the open fraud review (opened 2026-08-07, no recorded outcome) and that we will contact them once it has a result. The reviewer should confirm the fraud team will follow up with the customer before sending.",
+        "allegations_addressed": [
+          "Received a notice that a payday loan was opened in their name",
+          "Never applied for the payday loan",
+          "Believes identity may have been stolen",
+          "Worried about the impact on credit"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all four allegations are addressed: the notice of a payday loan (the 'notice you received' paragraph), never applying (the 'loan you didn't apply for' paragraph), possible identity theft (the 'identity theft' paragraph), and worry about credit (the 'credit' paragraph).",
+        "groundedness_check": "pass \u2014 every date and amount traces to the verification output: the $1,100.00 loan, the 2026-07-02 address and phone mismatch, account ending 6620 with no link to the customer, the 2026-08-03 notice mailed to the address on file, the 2026-08-06 call, and the fraud review opened 2026-08-07 with no recorded result. The draft correctly says the mismatches do not prove who applied and that the identity-theft question is unresolved. The commitment to contact the customer once the review has a result is declared in referral_stated for the reviewer to confirm. No refund, credit, or approval is stated as granted or processed.",
+        "policy_authorization_check": "pass \u2014 remedy_stated is null and the draft promises no waiver, credit, refund, or account change. Withholding a remedy while the underlying fact is unverified is consistent with policy 06's 'route to manual review' guidance.",
+        "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no guarantee about the future, no legal conclusion, no promise outside documented authority, and nothing that discourages other channels. 'That's a worrying thing to find in the mail' is a measured acknowledgment, not an admission of liability.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: it opens by referencing the specific complaint, then gives findings with dates and amounts, then states that no outcome exists yet and why, then next steps, then the case reference 25164083. It uses second person and plain language, has no marketing content, and uses separate paragraphs for each allegation. Two paragraphs ('The loan you didn't apply for' and 'What happens next') run to five sentences against the 2\u20134 sentence guideline, which is minor and does not affect structure.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You told us you received a notice about a payday loan you never applied for, that you're worried your identity may have been stolen, and that you're concerned about your credit. That's a worrying thing to find in the mail, and we want to set out clearly what we found.\n\nThe loan you didn't apply for: Our records show a $1,100.00 loan was funded after an online application. When the application was checked on 2026-07-02, the address and phone number on it did not match the details we hold for you. The funds went to a bank account ending in 6620, and our records don't link that account to you. These differences don't prove who submitted the application, but we are treating them seriously. If that account isn't yours, please tell us.\n\nYour concern about identity theft: We opened a fraud review on 2026-08-07, after you called us on 2026-08-06 to dispute the loan. That review is still open and has no recorded result yet, so we can't yet confirm whether your identity was misused.\n\nThe notice you received: Our records show a past-due notice about this loan was mailed on 2026-08-03 to the address we have on file for you. That fits with how you describe finding out about it.\n\nYour concern about your credit: We don't yet have enough information to say how this loan will be treated, because the fraud review hasn't finished. We aren't able to state an outcome until it has.\n\nWhat happens next: Your dispute and the fraud review are still open, and no outcome has been decided. We will contact you once the review has a result. You're welcome to send us anything else at any time, such as a copy of the notice you received, anything that looks unfamiliar on your accounts, or a note on whether the account ending in 6620 is yours. We will review whatever you send. You can reply to this message or call the number on your account.\n\nCase reference: 25164083",
+    "policy_cited": "06 Fee Waiver and Goodwill Credit Authority (no waiver or credit applicable; underlying fact is unverified and the case is routed to review rather than a preemptive remedy). Also governed by 10 Prohibited Language and 11 Response Tone and Format.",
+    "remedy_stated": null,
+    "referral_stated": "The draft says the customer's loan dispute remains with the open fraud review (opened 2026-08-07, no recorded outcome) and that we will contact them once it has a result. The reviewer should confirm the fraud team will follow up with the customer before sending.",
+    "allegations_addressed": [
+      "Received a notice that a payday loan was opened in their name",
+      "Never applied for the payday loan",
+      "Believes identity may have been stolen",
+      "Worried about the impact on credit"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all four allegations are addressed: the notice of a payday loan (the 'notice you received' paragraph), never applying (the 'loan you didn't apply for' paragraph), possible identity theft (the 'identity theft' paragraph), and worry about credit (the 'credit' paragraph).",
+    "groundedness_check": "pass \u2014 every date and amount traces to the verification output: the $1,100.00 loan, the 2026-07-02 address and phone mismatch, account ending 6620 with no link to the customer, the 2026-08-03 notice mailed to the address on file, the 2026-08-06 call, and the fraud review opened 2026-08-07 with no recorded result. The draft correctly says the mismatches do not prove who applied and that the identity-theft question is unresolved. The commitment to contact the customer once the review has a result is declared in referral_stated for the reviewer to confirm. No refund, credit, or approval is stated as granted or processed.",
+    "policy_authorization_check": "pass \u2014 remedy_stated is null and the draft promises no waiver, credit, refund, or account change. Withholding a remedy while the underlying fact is unverified is consistent with policy 06's 'route to manual review' guidance.",
+    "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no guarantee about the future, no legal conclusion, no promise outside documented authority, and nothing that discourages other channels. 'That's a worrying thing to find in the mail' is a measured acknowledgment, not an admission of liability.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11's order: it opens by referencing the specific complaint, then gives findings with dates and amounts, then states that no outcome exists yet and why, then next steps, then the case reference 25164083. It uses second person and plain language, has no marketing content, and uses separate paragraphs for each allegation. Two paragraphs ('The loan you didn't apply for' and 'What happens next') run to five sentences against the 2\u20134 sentence guideline, which is minor and does not affect structure.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": "The draft says the customer's loan dispute remains with the open fraud review (opened 2026-08-07, no recorded outcome) and that we will contact them once it has a result. The reviewer should confirm the fraud team will follow up with the customer before sending.",
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Mandatory escalation under policy 09: identity theft allegation with the customer disputing that the loan is theirs. No draft may be prepared. The fraud review opened 2026-08-07 is also still pending, so the central finding is not decided.",
+    "at": "2026-10-09T19:23:46+00:00"
+  }
+}

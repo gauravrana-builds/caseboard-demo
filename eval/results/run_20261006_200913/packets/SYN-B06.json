@@ -1,0 +1,161 @@
+{
+  "complaint_id": "SYN-B06",
+  "run_started": "2026-10-07T01:10:02+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B06",
+    "date_received": "2026-05-29",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "MI",
+    "narrative": "I called in March and spoke to someone named Derek who told me my $30 fee would be waived and it would show on my next statement. It's now two statements later and the fee is still there and nobody can find any record of that call ever happening.",
+    "account_id": "ACC-B06",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1440,
+      "output_tokens": 242
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2659,
+      "output_tokens": 1849
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Representative named Derek said in a March call that a $30 fee would be waived and would show on the next statement",
+      "The $30 fee is still on the account two statements later",
+      "Nobody can find any record of the March call"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      30.0
+    ],
+    "dates_mentioned": [
+      "March",
+      "next statement",
+      "two statements later"
+    ],
+    "account_details_mentioned": "A $30 fee that was promised to be waived is still appearing two statements after the call",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-B06",
+      "loan_balance": 1320.0,
+      "origination_date": "2026-01-12",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Transaction log shows a $30 fee charged on 2026-03-18 and still present as of the complaint date (fee was NOT waived in the system). Call log shows one inbound call on 2026-03-15, logged by agent 'D. Reyes' (matches 'Derek') with internal note: 'Cust requesting fee waiver, escalated to supervisor for review' \u2014 but NO follow-up note confirming approval or denial exists. The system cannot confirm whether a waiver was actually promised or approved; the call happened, but its outcome was never logged."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-B06",
+        "date": "2026-03-15",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Inbound call, agent D. Reyes, fee waiver requested, escalated to supervisor - no outcome logged."
+      },
+      {
+        "account_id": "ACC-B06",
+        "date": "2026-03-18",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Fee charged, remains on account - not waived in system."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "Core allegation (Derek promised the $30 fee would be waived) cannot be verified. Supported: a call occurred on 2026-03-15 with agent D. Reyes (matches 'Derek') where a fee waiver was requested and escalated to a supervisor, and the $30 fee (charged 2026-03-18) remains on the account and was not waived. Contradicted: the claim that nobody can find a record of the call, since a call log entry exists. Missing: no outcome of the supervisor escalation is logged, so the system cannot confirm whether a waiver was promised, approved, or denied. Also needs human review: the call (2026-03-15) predates the only logged fee (2026-03-18) by three days, so it is unclear which fee was discussed on the call, or whether the customer was told about a fee that had not yet posted. Needed to resolve: the supervisor's decision, any call recording or transcript, and fee history before 2026-03-18.",
+    "risk_tier": "High",
+    "risk_rationale": "Evidence is unverifiable and the gap (whether a waiver was promised or approved) directly determines the outcome of the dispute, which triggers the automatic High rule even though the amount is only $30 and no attorney/regulator is mentioned.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Outcome of the 2026-03-15 fee-waiver escalation was never logged, so it cannot be determined whether the waiver was promised or approved, and a draft response would require guessing at a fact that decides the outcome. Route to a human reviewer to obtain the supervisor's decision and any call recording. A possible UDAAP-type concern (an unfulfilled representative promise about a fee) is also noted for the reviewer, but it was a secondary input, not the basis of the stop.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I called in March and spoke to someone named Derek who told me my $30 fee would be waived and it would show on my next statement. It's now two statements later and the fee is still there and nobody can find any record of that call ever happening.",
+    "extraction": {
+      "allegations": [
+        "Representative named Derek said in a March call that a $30 fee would be waived and would show on the next statement",
+        "The $30 fee is still on the account two statements later",
+        "Nobody can find any record of the March call"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        30.0
+      ],
+      "dates_mentioned": [
+        "March",
+        "next statement",
+        "two statements later"
+      ],
+      "account_details_mentioned": "A $30 fee that was promised to be waived is still appearing two statements after the call",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "Core allegation (Derek promised the $30 fee would be waived) cannot be verified. Supported: a call occurred on 2026-03-15 with agent D. Reyes (matches 'Derek') where a fee waiver was requested and escalated to a supervisor, and the $30 fee (charged 2026-03-18) remains on the account and was not waived. Contradicted: the claim that nobody can find a record of the call, since a call log entry exists. Missing: no outcome of the supervisor escalation is logged, so the system cannot confirm whether a waiver was promised, approved, or denied. Also needs human review: the call (2026-03-15) predates the only logged fee (2026-03-18) by three days, so it is unclear which fee was discussed on the call, or whether the customer was told about a fee that had not yet posted. Needed to resolve: the supervisor's decision, any call recording or transcript, and fee history before 2026-03-18.",
+      "risk_tier": "High",
+      "risk_rationale": "Evidence is unverifiable and the gap (whether a waiver was promised or approved) directly determines the outcome of the dispute, which triggers the automatic High rule even though the amount is only $30 and no attorney/regulator is mentioned.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-B06",
+        "loan_balance": 1320.0,
+        "origination_date": "2026-01-12",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Transaction log shows a $30 fee charged on 2026-03-18 and still present as of the complaint date (fee was NOT waived in the system). Call log shows one inbound call on 2026-03-15, logged by agent 'D. Reyes' (matches 'Derek') with internal note: 'Cust requesting fee waiver, escalated to supervisor for review' \u2014 but NO follow-up note confirming approval or denial exists. The system cannot confirm whether a waiver was actually promised or approved; the call happened, but its outcome was never logged."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-B06",
+          "date": "2026-03-15",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Inbound call, agent D. Reyes, fee waiver requested, escalated to supervisor - no outcome logged."
+        },
+        {
+          "account_id": "ACC-B06",
+          "date": "2026-03-18",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Fee charged, remains on account - not waived in system."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Outcome of the 2026-03-15 fee-waiver escalation was never logged, so it cannot be determined whether the waiver was promised or approved, and a draft response would require guessing at a fact that decides the outcome. Route to a human reviewer to obtain the supervisor's decision and any call recording. A possible UDAAP-type concern (an unfulfilled representative promise about a fee) is also noted for the reviewer, but it was a secondary input, not the basis of the stop.",
+    "unresolved": "Core allegation (Derek promised the $30 fee would be waived) cannot be verified. Supported: a call occurred on 2026-03-15 with agent D. Reyes (matches 'Derek') where a fee waiver was requested and escalated to a supervisor, and the $30 fee (charged 2026-03-18) remains on the account and was not waived. Contradicted: the claim that nobody can find a record of the call, since a call log entry exists. Missing: no outcome of the supervisor escalation is logged, so the system cannot confirm whether a waiver was promised, approved, or denied. Also needs human review: the call (2026-03-15) predates the only logged fee (2026-03-18) by three days, so it is unclear which fee was discussed on the call, or whether the customer was told about a fee that had not yet posted. Needed to resolve: the supervisor's decision, any call recording or transcript, and fee history before 2026-03-18.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T01:10:19+00:00"
+}

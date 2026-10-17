@@ -1,0 +1,189 @@
+{
+  "complaint_id": "SYN-P03",
+  "run_started": "2026-10-07T23:47:55+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-P03",
+    "date_received": "7/6/2026",
+    "product": "Debt collection",
+    "sub_product": "Payday loan debt",
+    "issue": "Communication tactics",
+    "sub_issue": "Frequent or repeated calls",
+    "state": "IN",
+    "narrative": "This collector calls me multiple times a day and has also called my workplace, which I never gave them permission to contact.",
+    "account_id": "ACC-P03",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1394,
+      "output_tokens": 163
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4486,
+      "output_tokens": 937
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3677,
+      "output_tokens": 1339
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4051,
+      "output_tokens": 1307
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3841,
+      "output_tokens": 1459
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4119,
+      "output_tokens": 1893
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Collector calls multiple times a day",
+      "Collector called the customer's workplace without permission"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-P03",
+      "loan_balance": 410.0,
+      "origination_date": "3/1/2026",
+      "payment_status": "delinquent",
+      "product_type": "installment_loan",
+      "account_note": "Call log shows 6 calls to customer's personal number in the past 7 days (CONFIRMED \u2014 frequent contact, consistent with complaint). No record of any call placed to a workplace or employer number exists in the system; only one phone number (personal, customer-provided) is on file (NOT CONFIRMED \u2014 no workplace contact)."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-P03",
+        "date": "2026-03-01",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "6 calls to personal number in 7-day window. No workplace contact on record."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "The customer's central allegation is collector harassment, made up of two problem events. (1) Frequent calls: CONFIRMED. The call log shows 6 calls to the customer's personal number in a 7-day window, which is consistent with the complaint. The log does not show how many calls fell on any one day, so 'multiple times a day' is only roughly supported. (2) Call to the workplace: NOT CONFIRMED. The system has no record of any call to a workplace or employer number, and the only number on file is the customer's personal one. This does not disprove the allegation, because a call to a number not in our system might not be logged. So the workplace contact can be neither confirmed nor ruled out.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true: the call frequency is confirmed and the workplace contact is unconfirmed. Call frequency and third-party contact do not raise the tier to High on their own under the Reg F bullet. There is no attorney/regulator reference, no threat or false-statement allegation, no hardship or vulnerability indicator, and no embedded instructions. The Reg F bullet did not push the tier to High, and no UDAAP pattern influenced it.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Thank you for telling us about the collection calls you've been receiving, including the call to your workplace. We understand this has been frustrating, and we reviewed both concerns individually.\n\n**Frequency of calls:** Our call records show 6 calls to the personal phone number on your account over a 7-day period. The records do not show how many of those calls fell on any single day, so we can't confirm from them how many calls were made on a given day.\n\n**Call to your workplace:** We found no record of a call to a workplace or employer number. The only phone number we have on file for you is your personal one. This does not mean the call didn't happen, because a call to a number that isn't in our system might not appear in our records. For now, we can neither confirm nor rule it out.\n\n**Next steps:** To look further into the workplace call, please reply to this message or call us at the number on your account. Please include the workplace phone number, the approximate date and time of the call, and anything the caller said. We will review whatever you send. You are also free to contact any other agency or resource about this complaint if you choose.\n\nCase reference: SYN-P03",
+        "policy_cited": "08 General Dispute Handling Process (Standard process step 4 and 'What counts as a complete response'); formatted and worded per Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format)",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Collector calls multiple times a day",
+          "Collector called the customer's workplace without permission"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "fail \u2014 Policy 11 requires an explicit 'Outcome/resolution' element between findings and next steps. The draft has no outcome statement. It never says that no remedy or account change is being made for the confirmed call frequency, or why. It also never states the overall result of the review (partially confirmed). The frequency finding ends with an inability to confirm daily counts and gives no outcome or next step for that allegation. The structure runs acknowledgment, findings, next steps, case reference, so one required step is missing.",
+        "specific_issues": [
+          "Tone/structure: the Policy 11 'Outcome/resolution' step is missing. The draft does not state that no remedy applies, or explain why, for the confirmed call frequency. It also does not state the overall outcome of the review.",
+          "Tone/structure: the call-frequency allegation has no outcome or next step, while the workplace allegation does. Policy 08 asks for a clear outcome or next step for each allegation."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "We received your complaint that a collector has been calling you multiple times a day and has called your workplace without your permission. We understand this has been frustrating. We reviewed our call records for your account, and our findings on each concern are below.\n\nCalls multiple times a day: Our call log shows 6 calls to your personal number within a 7-day period, which is consistent with your concern about frequent calls. The log does not show how many of those calls fell on any single day, so we can confirm the overall frequency but not the daily pattern. This complaint does not involve a fee or charge, so no account adjustment applies, and no remedy has been applied to your account. Your complaint and the call history are documented under the case reference below.\n\nCall to your workplace: We found no record of a call to a workplace or employer number. The only phone number on file for your account is your personal number. This does not rule out your concern, because a call to a number we do not have on file may not appear in our records. We therefore could not confirm or rule out this allegation.\n\nNext steps: To look further into the workplace call, please reply with the approximate date and time of the call, the number it was made to, and the name the caller gave, if you have them. If you would like to tell us which days or times calls are a problem, you can include that in your reply as well. We will review whatever you send and write back to you.\n\nCase reference: SYN-P03",
+        "policy_cited": "08 General Dispute Handling Process (Standard process steps 3\u20134 and 'What counts as a complete response'); formatted per 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Collector calls multiple times a day",
+          "Collector called the customer's workplace without permission"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations (multiple calls per day; call to workplace without permission) are addressed individually.",
+        "groundedness_check": "pass \u2014 the 6 calls in a 7-day window, the lack of a per-day breakdown, the absence of any workplace or employer number on file, and the 'cannot confirm or rule out' conclusion all trace to the verification output. The statement that no fee is involved is consistent with the allegations list. The next-step commitment to review and reply is consistent with Policy 08's requirement for a clear next step.",
+        "policy_authorization_check": "pass \u2014 no remedy is stated or promised (remedy_stated is null, and the draft says no remedy has been applied), so nothing exceeds policy authority.",
+        "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no future guarantees, no legal conclusions, no unapproved promises, and nothing discouraging other channels. 'We understand this has been frustrating' is expressly permitted by Policy 10.",
+        "tone_structure_check": "pass \u2014 the order is acknowledgment, findings, outcome, next steps, then case reference (SYN-P03). The outcome is folded into the per-allegation paragraphs rather than set apart, which Policy 11 allows for multi-allegation responses. Paragraphs are short, in second person and plain language, with no marketing content.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "We received your complaint that a collector has been calling you multiple times a day and has called your workplace without your permission. We understand this has been frustrating. We reviewed our call records for your account, and our findings on each concern are below.\n\nCalls multiple times a day: Our call log shows 6 calls to your personal number within a 7-day period, which is consistent with your concern about frequent calls. The log does not show how many of those calls fell on any single day, so we can confirm the overall frequency but not the daily pattern. This complaint does not involve a fee or charge, so no account adjustment applies, and no remedy has been applied to your account. Your complaint and the call history are documented under the case reference below.\n\nCall to your workplace: We found no record of a call to a workplace or employer number. The only phone number on file for your account is your personal number. This does not rule out your concern, because a call to a number we do not have on file may not appear in our records. We therefore could not confirm or rule out this allegation.\n\nNext steps: To look further into the workplace call, please reply with the approximate date and time of the call, the number it was made to, and the name the caller gave, if you have them. If you would like to tell us which days or times calls are a problem, you can include that in your reply as well. We will review whatever you send and write back to you.\n\nCase reference: SYN-P03",
+    "policy_cited": "08 General Dispute Handling Process (Standard process steps 3\u20134 and 'What counts as a complete response'); formatted per 10 Prohibited Language and 11 Response Tone and Format",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Collector calls multiple times a day",
+      "Collector called the customer's workplace without permission"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations (multiple calls per day; call to workplace without permission) are addressed individually.",
+    "groundedness_check": "pass \u2014 the 6 calls in a 7-day window, the lack of a per-day breakdown, the absence of any workplace or employer number on file, and the 'cannot confirm or rule out' conclusion all trace to the verification output. The statement that no fee is involved is consistent with the allegations list. The next-step commitment to review and reply is consistent with Policy 08's requirement for a clear next step.",
+    "policy_authorization_check": "pass \u2014 no remedy is stated or promised (remedy_stated is null, and the draft says no remedy has been applied), so nothing exceeds policy authority.",
+    "prohibited_language_check": "pass \u2014 no fault admission beyond confirmed fact, no future guarantees, no legal conclusions, no unapproved promises, and nothing discouraging other channels. 'We understand this has been frustrating' is expressly permitted by Policy 10.",
+    "tone_structure_check": "pass \u2014 the order is acknowledgment, findings, outcome, next steps, then case reference (SYN-P03). The outcome is folded into the per-allegation paragraphs rather than set apart, which Policy 11 allows for multi-allegation responses. Paragraphs are short, in second person and plain language, with no marketing content.",
+    "specific_issues": []
+  },
+  "summary": "Communication tactics - partially_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T23:48:49+00:00"
+}

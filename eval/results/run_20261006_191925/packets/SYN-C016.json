@@ -1,0 +1,195 @@
+{
+  "complaint_id": "SYN-C016",
+  "run_started": "2026-10-07T00:24:48+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C016",
+    "date_received": "2026-07-01",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Getting the loan",
+    "sub_issue": "",
+    "state": "MN",
+    "narrative": "I was approved for $35 but only received a partial deposit with no explanation for the shortfall, despite my signed agreement showing the full amount.",
+    "account_id": "ACC-066",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1408,
+      "output_tokens": 207
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2671,
+      "output_tokens": 1149
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Approved for $35 but received only a partial deposit",
+      "No explanation given for the shortfall",
+      "Signed agreement shows the full amount"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      35.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Approved for $35; signed agreement shows the full amount; only a partial deposit was received",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief, factual, aggrieved"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-066",
+      "loan_balance": 2200.0,
+      "origination_date": "2026-05-19",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-066",
+        "date": "2026-05-19",
+        "type": "payment",
+        "amount": 84.62,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-066",
+        "date": "2026-06-18",
+        "type": "payment",
+        "amount": 169.23,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-066",
+        "date": "2026-07-18",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-066",
+        "date": "2026-08-17",
+        "type": "payment",
+        "amount": 70.97,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-066",
+        "date": "2026-09-16",
+        "type": "payment",
+        "amount": 91.67,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved data cannot confirm or contradict the claim. (1) The transaction history has no disbursement or deposit entry, so the amount actually funded cannot be determined. The first entry is a $84.62 payment on 2026-05-19, the origination date. (2) There is no record of the approved amount or the signed agreement, so the 'full amount' the customer cites cannot be compared with anything. (3) The customer's $35 figure does not match the account, which is an installment loan with a $2,200.00 balance. It is unclear whether $35 is the approved amount, the shortfall, or an error. (4) The account_note says the record is generic and not built to verify this complaint. The only fee on file is $25.00 on 2026-07-18, labeled 'Routine fee assessment', and it cannot be tied to the alleged shortfall. Missing: loan disbursement record, approved/contracted loan amount, loan agreement terms, and any origination fee or deduction schedule.",
+    "risk_tier": "High",
+    "risk_rationale": "The evidence is unverifiable and the gap goes to the core of the dispute: without disbursement and approved-amount data, we cannot tell whether the customer was shorted and by how much, so the outcome could change either way.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable, and the missing disbursement and approved-amount data would determine the outcome. Route to a human reviewer to retrieve the funding records and signed agreement before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was approved for $35 but only received a partial deposit with no explanation for the shortfall, despite my signed agreement showing the full amount.",
+    "extraction": {
+      "allegations": [
+        "Approved for $35 but received only a partial deposit",
+        "No explanation given for the shortfall",
+        "Signed agreement shows the full amount"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        35.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Approved for $35; signed agreement shows the full amount; only a partial deposit was received",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "brief, factual, aggrieved"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved data cannot confirm or contradict the claim. (1) The transaction history has no disbursement or deposit entry, so the amount actually funded cannot be determined. The first entry is a $84.62 payment on 2026-05-19, the origination date. (2) There is no record of the approved amount or the signed agreement, so the 'full amount' the customer cites cannot be compared with anything. (3) The customer's $35 figure does not match the account, which is an installment loan with a $2,200.00 balance. It is unclear whether $35 is the approved amount, the shortfall, or an error. (4) The account_note says the record is generic and not built to verify this complaint. The only fee on file is $25.00 on 2026-07-18, labeled 'Routine fee assessment', and it cannot be tied to the alleged shortfall. Missing: loan disbursement record, approved/contracted loan amount, loan agreement terms, and any origination fee or deduction schedule.",
+      "risk_tier": "High",
+      "risk_rationale": "The evidence is unverifiable and the gap goes to the core of the dispute: without disbursement and approved-amount data, we cannot tell whether the customer was shorted and by how much, so the outcome could change either way.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-066",
+        "loan_balance": 2200.0,
+        "origination_date": "2026-05-19",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-066",
+          "date": "2026-05-19",
+          "type": "payment",
+          "amount": 84.62,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-066",
+          "date": "2026-06-18",
+          "type": "payment",
+          "amount": 169.23,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-066",
+          "date": "2026-07-18",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-066",
+          "date": "2026-08-17",
+          "type": "payment",
+          "amount": 70.97,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-066",
+          "date": "2026-09-16",
+          "type": "payment",
+          "amount": 91.67,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable, and the missing disbursement and approved-amount data would determine the outcome. Route to a human reviewer to retrieve the funding records and signed agreement before any response is drafted.",
+    "unresolved": "The retrieved data cannot confirm or contradict the claim. (1) The transaction history has no disbursement or deposit entry, so the amount actually funded cannot be determined. The first entry is a $84.62 payment on 2026-05-19, the origination date. (2) There is no record of the approved amount or the signed agreement, so the 'full amount' the customer cites cannot be compared with anything. (3) The customer's $35 figure does not match the account, which is an installment loan with a $2,200.00 balance. It is unclear whether $35 is the approved amount, the shortfall, or an error. (4) The account_note says the record is generic and not built to verify this complaint. The only fee on file is $25.00 on 2026-07-18, labeled 'Routine fee assessment', and it cannot be tied to the alleged shortfall. Missing: loan disbursement record, approved/contracted loan amount, loan agreement terms, and any origination fee or deduction schedule.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Getting the loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:24:59+00:00"
+}

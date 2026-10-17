@@ -1,0 +1,137 @@
+{
+  "complaint_id": "SYN-F03",
+  "run_started": "2026-10-11T15:41:35+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-F03",
+    "date_received": "6/19/2026",
+    "product": "Debt collection",
+    "sub_product": "Credit card debt",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt is not yours",
+    "state": "NC",
+    "narrative": "I am being contacted about a $560 debt that is not mine. I have never had any account with this original creditor.",
+    "account_id": "ACC-F03",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1395,
+      "output_tokens": 178
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4901,
+      "output_tokens": 1601
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Being contacted about a $560 debt that is not theirs",
+      "Has never had an account with the original creditor"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      560.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Customer states they have never had any account with the original creditor",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-F03",
+      "loan_balance": 0.0,
+      "origination_date": null,
+      "payment_status": "no_account",
+      "product_type": "installment_loan",
+      "account_note": "No account of any kind, open or closed, exists for this customer with this company. The $560 debt referenced does not match any record. Complaint's claim is NOT supported by internal records."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-F03",
+        "date": "N/A",
+        "type": "none",
+        "amount": 0.0,
+        "note": "No account of any kind exists for this customer."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer says a $560 debt being collected from them is not theirs and that they never had an account with the original creditor. The internal records show no account of any kind, open or closed, for this customer (ACC-F03: balance $0.00, payment_status 'no_account'), no transactions, and no record matching a $560 debt. The account note calls the claim 'not supported by internal records', but that overreaches. Having no account with this company does not contradict the customer. It is also consistent with their claim that the debt is not theirs. It does not establish that the debt is not theirs either. Whether the customer had an account with the original creditor is third-party information this system would not hold. The records also contain no log of the contact the customer received, so neither the contact nor the source of the $560 can be confirmed. Missing: the identity of the original creditor, where the $560 debt came from and how it was linked to this customer, and any contact or collection log showing who contacted the customer.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The disputed amount is $560, over the $200 threshold, which puts the tier at Medium. There is no attorney/regulator reference, no embedded instructions, and no allegation of misleading loan terms. The customer disputes that the debt is theirs but does not allege identity theft or fraud, so the policy 09 automatic-High rule does not apply. The unverifiable status did not raise the tier.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome. The internal records cannot show whether the $560 debt belongs to this customer, who the original creditor is, or how the debt was attributed to them. A human must obtain the debt's origin and the contact or collection records before any response is drafted. If the customer later alleges identity theft or fraud, escalate under policy 09.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I am being contacted about a $560 debt that is not mine. I have never had any account with this original creditor.",
+    "extraction": {
+      "allegations": [
+        "Being contacted about a $560 debt that is not theirs",
+        "Has never had an account with the original creditor"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        560.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Customer states they have never had any account with the original creditor",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "brief and factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer says a $560 debt being collected from them is not theirs and that they never had an account with the original creditor. The internal records show no account of any kind, open or closed, for this customer (ACC-F03: balance $0.00, payment_status 'no_account'), no transactions, and no record matching a $560 debt. The account note calls the claim 'not supported by internal records', but that overreaches. Having no account with this company does not contradict the customer. It is also consistent with their claim that the debt is not theirs. It does not establish that the debt is not theirs either. Whether the customer had an account with the original creditor is third-party information this system would not hold. The records also contain no log of the contact the customer received, so neither the contact nor the source of the $560 can be confirmed. Missing: the identity of the original creditor, where the $560 debt came from and how it was linked to this customer, and any contact or collection log showing who contacted the customer.",
+      "risk_tier": "Medium",
+      "risk_rationale": "The disputed amount is $560, over the $200 threshold, which puts the tier at Medium. There is no attorney/regulator reference, no embedded instructions, and no allegation of misleading loan terms. The customer disputes that the debt is theirs but does not allege identity theft or fraud, so the policy 09 automatic-High rule does not apply. The unverifiable status did not raise the tier.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-F03",
+        "loan_balance": 0.0,
+        "origination_date": null,
+        "payment_status": "no_account",
+        "product_type": "installment_loan",
+        "account_note": "No account of any kind, open or closed, exists for this customer with this company. The $560 debt referenced does not match any record. Complaint's claim is NOT supported by internal records."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-F03",
+          "date": "N/A",
+          "type": "none",
+          "amount": 0.0,
+          "note": "No account of any kind exists for this customer."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome. The internal records cannot show whether the $560 debt belongs to this customer, who the original creditor is, or how the debt was attributed to them. A human must obtain the debt's origin and the contact or collection records before any response is drafted. If the customer later alleges identity theft or fraud, escalate under policy 09.",
+    "unresolved": "The customer says a $560 debt being collected from them is not theirs and that they never had an account with the original creditor. The internal records show no account of any kind, open or closed, for this customer (ACC-F03: balance $0.00, payment_status 'no_account'), no transactions, and no record matching a $560 debt. The account note calls the claim 'not supported by internal records', but that overreaches. Having no account with this company does not contradict the customer. It is also consistent with their claim that the debt is not theirs. It does not establish that the debt is not theirs either. Whether the customer had an account with the original creditor is third-party information this system would not hold. The records also contain no log of the contact the customer received, so neither the contact nor the source of the $560 can be confirmed. Missing: the identity of the original creditor, where the $560 debt came from and how it was linked to this customer, and any contact or collection log showing who contacted the customer.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - Medium risk - ESCALATED - no draft",
+  "run_finished": "2026-10-11T15:41:50+00:00"
+}

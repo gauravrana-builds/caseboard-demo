@@ -1,0 +1,215 @@
+{
+  "complaint_id": "SYN-F02",
+  "run_started": "2026-10-08T18:02:09+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-F02",
+    "date_received": "6/14/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Received a loan you didn't apply for",
+    "sub_issue": "",
+    "state": "AZ",
+    "narrative": "There is a $400 payday loan on my account that I never applied for. I think someone used my information without my knowledge.",
+    "account_id": "ACC-F02",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1404,
+      "output_tokens": 195
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4486,
+      "output_tokens": 457
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4109,
+      "output_tokens": 1404
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4369,
+      "output_tokens": 1620
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "A $400 payday loan appears on the account that the customer never applied for",
+      "Customer believes someone used their information without their knowledge"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      400.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "A $400 payday loan is on the account that the customer did not apply for",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief, concerned, tentative"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-F02",
+      "loan_balance": 0.0,
+      "origination_date": null,
+      "payment_status": "no_active_loan",
+      "product_type": "installment_loan",
+      "account_note": "No payday loan record exists for this customer in the system as of complaint date. No loan origination, no funding transaction, no account on file matching the $400 amount described. Complaint's claim is NOT supported \u2014 recommend fraud/identity-verification review rather than a billing dispute path."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-F02",
+        "date": "N/A",
+        "type": "none",
+        "amount": 0.0,
+        "note": "No payday loan record exists for this customer."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The customer says a $400 payday loan appears on their account that they never applied for. The account record (ACC-F02) shows loan_balance $0.00, payment_status 'no_active_loan', and no origination date. The transaction history contains no funding, origination, or payment entries; the only entry is a placeholder with type 'none' and amount $0.00. No $400 loan exists in the system, so the problem event (a $400 loan appearing on the account) did not happen as described. The records do not show that anyone used the customer's information to open a loan. The account note recommends a fraud/identity-verification review, but this is a recommendation, not a pending finding that would make the claim unverifiable.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer alleges identity theft (someone used their information) and disputes that the $400 loan is theirs at all ('never applied for'), which is an automatic High trigger under policy 09 even though the records do not confirm the loan exists.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Identity-theft/fraud allegation disputing the debt as the customer's own triggers mandatory escalation under policy 09. No draft may be prepared; route to human fraud/identity-verification review.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "There is a $400 payday loan on my account that I never applied for. I think someone used my information without my knowledge.",
+    "extraction": {
+      "allegations": [
+        "A $400 payday loan appears on the account that the customer never applied for",
+        "Customer believes someone used their information without their knowledge"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        400.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "A $400 payday loan is on the account that the customer did not apply for",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "brief, concerned, tentative"
+    },
+    "verification": {
+      "fact_verification": "confirmed_false",
+      "fact_verification_explanation": "The customer says a $400 payday loan appears on their account that they never applied for. The account record (ACC-F02) shows loan_balance $0.00, payment_status 'no_active_loan', and no origination date. The transaction history contains no funding, origination, or payment entries; the only entry is a placeholder with type 'none' and amount $0.00. No $400 loan exists in the system, so the problem event (a $400 loan appearing on the account) did not happen as described. The records do not show that anyone used the customer's information to open a loan. The account note recommends a fraud/identity-verification review, but this is a recommendation, not a pending finding that would make the claim unverifiable.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer alleges identity theft (someone used their information) and disputes that the $400 loan is theirs at all ('never applied for'), which is an automatic High trigger under policy 09 even though the records do not confirm the loan exists.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-F02",
+        "loan_balance": 0.0,
+        "origination_date": null,
+        "payment_status": "no_active_loan",
+        "product_type": "installment_loan",
+        "account_note": "No payday loan record exists for this customer in the system as of complaint date. No loan origination, no funding transaction, no account on file matching the $400 amount described. Complaint's claim is NOT supported \u2014 recommend fraud/identity-verification review rather than a billing dispute path."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-F02",
+          "date": "N/A",
+          "type": "none",
+          "amount": 0.0,
+          "note": "No payday loan record exists for this customer."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Identity-theft/fraud allegation disputing the debt as the customer's own triggers mandatory escalation under policy 09. No draft may be prepared; route to human fraud/identity-verification review.",
+    "unresolved": null,
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Received a loan you didn't apply for - confirmed_false - High risk - draft ready for review",
+  "run_finished": "2026-10-09T19:24:36+00:00",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us because a $400 payday loan appears on your account that you say you never applied for. It's unsettling to see something you don't recognize, and we took your concern seriously.\n\nHere is what we found on each point you raised:\n\n1. The $400 payday loan: We reviewed your account record and transaction history. Our records show no $400 loan on your account. The loan balance is $0.00, there is no active loan, and there is no loan funding, origination, or payment entry of any kind.\n\n2. Your concern that someone used your information: Our records do not show that anyone used your information to open a loan with us. Because you have raised this concern, we are also referring your account for an identity-verification review. We cannot tell you the result of that review yet, but we will let you know what we learn.\n\nIf you saw the $400 loan somewhere specific, such as a statement, an email, a text message, or a notice from another company, please send us a copy or a description of where you saw it. We will review anything you send, now or later, and it may help us look into this further. You can reply to this message or call the number on your account. You are also free to contact any other agency or organization about this if you wish.\n\nCase reference: SYN-F02.",
+        "policy_cited": "08 General Dispute Handling Process (standard process; outcome classified as not confirmed, with every allegation addressed individually)",
+        "remedy_stated": null,
+        "referral_stated": "The draft says the account is being referred for an identity-verification/fraud review, based on the account note recommending one. Please make this referral before sending and confirm the case reference SYN-F02 is attached. Also note that the analyst downgraded the stop on this High-tier identity-theft allegation, but the analyst's stated reason was left as an unfilled placeholder. Please confirm the reason before sending.",
+        "allegations_addressed": [
+          "A $400 payday loan appears on the account that the customer never applied for",
+          "Customer believes someone used their information without their knowledge"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed individually: (1) the $400 payday loan the customer never applied for, and (2) the belief that someone used their information.",
+        "groundedness_check": "pass \u2014 The loan balance of $0.00, no active loan, and no funding, origination, or payment entries all match the verification output. The statement that records do not show anyone using the customer's information also matches it. The identity-verification referral is declared in referral_stated and is based on the account note recommending one. The draft does not claim any refund, credit, or approval has been granted or processed.",
+        "policy_authorization_check": "pass \u2014 remedy_stated is null and the draft promises no refund, credit, waiver, or account change. The only action is the declared identity-verification referral, which is not a remedy that needs threshold authority.",
+        "prohibited_language_check": "pass \u2014 The draft contains no fault admission, no guarantee about the future, and no legal conclusion. It does not discourage other channels; it says 'You are also free to contact any other agency or organization about this if you wish.'",
+        "tone_structure_check": "pass \u2014 The draft follows Policy 11's order: specific acknowledgment, findings (one numbered item per allegation), outcome, next steps (send documentation, reply or call), and case reference SYN-F02. The outcome is stated within the findings (no loan on the account) together with the referral. The tone is plain and non-performative.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us because a $400 payday loan appears on your account that you say you never applied for. It's unsettling to see something you don't recognize, and we took your concern seriously.\n\nHere is what we found on each point you raised:\n\n1. The $400 payday loan: We reviewed your account record and transaction history. Our records show no $400 loan on your account. The loan balance is $0.00, there is no active loan, and there is no loan funding, origination, or payment entry of any kind.\n\n2. Your concern that someone used your information: Our records do not show that anyone used your information to open a loan with us. Because you have raised this concern, we are also referring your account for an identity-verification review. We cannot tell you the result of that review yet, but we will let you know what we learn.\n\nIf you saw the $400 loan somewhere specific, such as a statement, an email, a text message, or a notice from another company, please send us a copy or a description of where you saw it. We will review anything you send, now or later, and it may help us look into this further. You can reply to this message or call the number on your account. You are also free to contact any other agency or organization about this if you wish.\n\nCase reference: SYN-F02.",
+    "policy_cited": "08 General Dispute Handling Process (standard process; outcome classified as not confirmed, with every allegation addressed individually)",
+    "remedy_stated": null,
+    "referral_stated": "The draft says the account is being referred for an identity-verification/fraud review, based on the account note recommending one. Please make this referral before sending and confirm the case reference SYN-F02 is attached. Also note that the analyst downgraded the stop on this High-tier identity-theft allegation, but the analyst's stated reason was left as an unfilled placeholder. Please confirm the reason before sending.",
+    "allegations_addressed": [
+      "A $400 payday loan appears on the account that the customer never applied for",
+      "Customer believes someone used their information without their knowledge"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed individually: (1) the $400 payday loan the customer never applied for, and (2) the belief that someone used their information.",
+    "groundedness_check": "pass \u2014 The loan balance of $0.00, no active loan, and no funding, origination, or payment entries all match the verification output. The statement that records do not show anyone using the customer's information also matches it. The identity-verification referral is declared in referral_stated and is based on the account note recommending one. The draft does not claim any refund, credit, or approval has been granted or processed.",
+    "policy_authorization_check": "pass \u2014 remedy_stated is null and the draft promises no refund, credit, waiver, or account change. The only action is the declared identity-verification referral, which is not a remedy that needs threshold authority.",
+    "prohibited_language_check": "pass \u2014 The draft contains no fault admission, no guarantee about the future, and no legal conclusion. It does not discourage other channels; it says 'You are also free to contact any other agency or organization about this if you wish.'",
+    "tone_structure_check": "pass \u2014 The draft follows Policy 11's order: specific acknowledgment, findings (one numbered item per allegation), outcome, next steps (send documentation, reply or call), and case reference SYN-F02. The outcome is stated within the findings (no loan on the account) together with the referral. The tone is plain and non-performative.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": "The draft says the account is being referred for an identity-verification/fraud review, based on the account note recommending one. Please make this referral before sending and confirm the case reference SYN-F02 is attached. Also note that the analyst downgraded the stop on this High-tier identity-theft allegation, but the analyst's stated reason was left as an unfilled placeholder. Please confirm the reason before sending.",
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Identity-theft/fraud allegation disputing the debt as the customer's own triggers mandatory escalation under policy 09. No draft may be prepared; route to human fraud/identity-verification review.",
+    "at": "2026-10-09T19:24:36+00:00"
+  }
+}

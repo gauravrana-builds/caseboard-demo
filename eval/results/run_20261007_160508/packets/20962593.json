@@ -1,0 +1,294 @@
+{
+  "complaint_id": "20962593",
+  "run_started": "2026-10-07T21:05:10+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20962593",
+    "date_received": "4/5/2026",
+    "product": "Debt collection",
+    "sub_product": "Payday loan debt",
+    "issue": "Communication tactics",
+    "sub_issue": "Frequent or repeated calls",
+    "state": "AR",
+    "narrative": "This collection agency calls me 4 to 5 times a day, sometimes before 8am, about a payday loan debt. I have asked them multiple times to only contact me by mail and they keep calling anyway. It's gotten to the point where I'm afraid to answer my phone.",
+    "account_id": "ACC-005",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1447,
+      "output_tokens": 273
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5254,
+      "output_tokens": 1322
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3996,
+      "output_tokens": 1933
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4595,
+      "output_tokens": 1368
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4151,
+      "output_tokens": 1570
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4459,
+      "output_tokens": 1805
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Collection agency calls 4 to 5 times a day",
+      "Calls sometimes occur before 8am",
+      "Calls concern a payday loan debt",
+      "Customer asked multiple times to be contacted only by mail and the agency continues to call",
+      "Customer is afraid to answer their phone"
+    ],
+    "requested_outcome": "Contact by mail only",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "4 to 5 times a day",
+      "sometimes before 8am"
+    ],
+    "account_details_mentioned": "Payday loan debt in collection",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated and distressed, factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-005",
+      "loan_balance": 600.0,
+      "origination_date": "2025-10-23",
+      "payment_status": "past_due",
+      "product_type": "payday_loan",
+      "account_note": "Payday loan, past due. Opened 2025-10-23."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-005",
+        "date": "2026-02-20",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled payment not received"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-01",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Account placed with third-party collection agency; past-due total $600.00"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-02",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Collection agency notice mailed to address on file"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 07:41, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 12:15, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 16:30, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 18:45, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 07:55, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 11:00, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 14:20, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 17:05, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 19:10, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-04-01",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 12:05, answered, 2 min"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "Confirmed: The call log shows 4 outbound collection-agency calls on 2026-03-30 (07:41, 12:15, 16:30, 18:45) and 5 on 2026-03-31 (07:55, 11:00, 14:20, 17:05, 19:10), all unanswered. This matches the '4 to 5 times a day' claim. Two of these calls (07:41 on 3/30 and 07:55 on 3/31) were placed before 8am, which matches the 'sometimes before 8am' claim, assuming the logged times are in the customer's local time zone. The debt is a past-due payday loan ($600.00), placed with the agency on 2026-03-01, which matches the customer's description. Cannot be confirmed: The customer says they repeatedly asked to be contacted by mail only and the agency kept calling. The records contain no logged mail-only or contact-preference request, and the only mailed item is the 2026-03-02 notice. Requests made directly to the agency may not be in this company's system. The call on 2026-04-01 (12:05, answered, 2 min) has no recorded content. So the call frequency and early-morning calls are confirmed, but whether the agency ignored a mail-only request cannot be established. Missing: agency contact-preference records or call recordings/notes.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true and the loan balance is $600 (over $200). The confirmed conduct is high call frequency, calls before 8am, and a possibly ignored contact preference, which fall under Reg F (policy 03). The customer alleges no threats, false statements, or abusive language, and there is no attorney/regulator reference, so the Reg F High bullet did not apply. The customer's fear of answering the phone shows distress but not a listed vulnerability.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_failed_verification",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about repeated calls from a collection agency regarding a payday loan, including calls before 8am and your request to be contacted by mail only. We understand this has been distressing, and we reviewed your account and the call records.\n\nWhat we found:\n\n1. Number of calls per day: Our records show 4 calls from the agency on March 30, 2026 and 5 calls on March 31, 2026. All of these went unanswered. This matches what you described.\n\n2. Calls before 8am: Two of those calls were logged before 8am, at 7:41am on March 30 and 7:55am on March 31. These times are as recorded in our system, and we have not confirmed that they reflect your local time zone.\n\n3. The debt: The calls relate to a past-due payday loan balance of $600.00, which was placed with the agency on March 1, 2026. A notice about this was mailed to you on March 2, 2026.\n\n4. Your request to be contacted by mail only: We could not find a mail-only or contact-preference request in our records. Requests made directly to the agency may not appear in our system, so we cannot confirm whether the agency received your request or continued to call after it. Our records also show one answered call on April 1, 2026 at 12:05pm, lasting about 2 minutes. We have no record of what was discussed.\n\n5. Being afraid to answer your phone: We take this seriously. We cannot verify this from our records, but we have noted how these calls have affected you.\n\nOutcome: We are not able to confirm that the agency ignored a mail-only request. We are forwarding your request to be contacted by mail only, along with the call dates and times above, for review. We cannot say at this time what the result of that review will be.\n\nNext steps: To help with the review, please reply with the approximate dates you asked for mail-only contact and how you made the request (phone, letter, or other). You are also free to raise your concerns through any other channel you choose.\n\nCase reference: 20962593",
+        "policy_cited": "08 General Dispute Handling Process (Standard process, step 4: respond to every allegation individually; outcome classified as partially confirmed), applied together with 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Collection agency calls 4 to 5 times a day",
+          "Calls sometimes occur before 8am",
+          "Calls concern a payday loan debt",
+          "Customer asked multiple times to be contacted only by mail and the agency continues to call",
+          "Customer is afraid to answer their phone"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 'We are forwarding your request to be contacted by mail only, along with the call dates and times above, for review' and 'we have noted how these calls have affected you' state company actions that appear nowhere in the verification output or the cited policy. Neither the forwarding nor the note is documented as having happened or as being an approved step.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: the draft claims a forwarding/review action ('We are forwarding your request... for review') that is not supported by the verification output or policy 08. Either confirm the action is real and add it to the record, or reword it as a next step that is actually available.",
+          "Groundedness: 'we have noted how these calls have affected you' claims an account-note action with no support in the inputs. Remove it or document it."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You contacted us about repeated calls from a collection agency about your payday loan, and about your request to be contacted by mail only. We understand how stressful these calls have been for you. Here is what we found for each concern.\n\nCalls 4 to 5 times a day: Our call log confirms this. It shows 4 calls on March 30, 2026 (7:41 am, 12:15 pm, 4:30 pm, 6:45 pm) and 5 calls on March 31, 2026 (7:55 am, 11:00 am, 2:20 pm, 5:05 pm, 7:10 pm). All of these went unanswered.\n\nCalls before 8 am: Our call log confirms this. The 7:41 am call on March 30 and the 7:55 am call on March 31 were placed before 8 am, based on the times as logged.\n\nThe debt: Our records show a past-due payday loan balance of $600.00 that was placed with the agency on March 1, 2026.\n\nYour request for mail-only contact: We could not verify this. Our records contain no mail-only or contact-preference request from you, and the only mailed item on file is a notice dated March 2, 2026. Requests made directly to the agency may not appear in our system. We cannot confirm that a mail-only preference is in place.\n\nNext steps: Please reply to this message with when and how you asked to be contacted by mail only. Include any dates, phone numbers, or copies of written requests you have. This will help us review the part we could not verify. Your complaint is still open on that point.\n\nCase reference: 20962593.",
+        "policy_cited": "08 General Dispute Handling Process (standard process: classify as partially confirmed; address every allegation and request individually); governed also by 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Collection agency calls 4 to 5 times a day",
+          "Calls sometimes occur before 8am",
+          "Calls concern a payday loan debt",
+          "Customer asked multiple times to be contacted only by mail and the agency continues to call",
+          "Customer is afraid to answer their phone"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "fail \u2014 Policy 11 requires an Outcome/resolution section between findings and next steps. The draft has none. It confirms the call frequency and the pre-8am calls but never says what happens as a result, or why no remedy applies. Policy 08 also requires a clear outcome or next step for each allegation, and the only next step given covers the unverified mail-only request.",
+        "specific_issues": [
+          "Tone/structure: no distinct outcome/resolution section. The draft does not say what, if anything, will be done about the confirmed call frequency and pre-8am calls, and does not explain why no remedy applies (remedy_stated is null). The only stated next step is the request for more information on the mail-only claim.",
+          "The customer's fear of answering the phone is acknowledged only through the generic line 'how stressful these calls have been'. This is borderline but acceptable for completeness, though the revised draft could address it more directly."
+        ]
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about repeated calls from a collection agency about your payday loan, and about your request to be contacted by mail only. We understand how stressful these calls have been for you. Here is what we found for each concern.\n\nCalls 4 to 5 times a day: Our call log confirms this. It shows 4 calls on March 30, 2026 (7:41 am, 12:15 pm, 4:30 pm, 6:45 pm) and 5 calls on March 31, 2026 (7:55 am, 11:00 am, 2:20 pm, 5:05 pm, 7:10 pm). All of these went unanswered.\n\nCalls before 8 am: Our call log confirms this. The 7:41 am call on March 30 and the 7:55 am call on March 31 were placed before 8 am, based on the times as logged.\n\nThe debt: Our records show a past-due payday loan balance of $600.00 that was placed with the agency on March 1, 2026.\n\nYour request for mail-only contact: We could not verify this. Our records contain no mail-only or contact-preference request from you, and the only mailed item on file is a notice dated March 2, 2026. Requests made directly to the agency may not appear in our system. We cannot confirm that a mail-only preference is in place.\n\nNext steps: Please reply to this message with when and how you asked to be contacted by mail only. Include any dates, phone numbers, or copies of written requests you have. This will help us review the part we could not verify. Your complaint is still open on that point.\n\nCase reference: 20962593.",
+    "policy_cited": "08 General Dispute Handling Process (standard process: classify as partially confirmed; address every allegation and request individually); governed also by 10 Prohibited Language and 11 Response Tone and Format",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Collection agency calls 4 to 5 times a day",
+      "Calls sometimes occur before 8am",
+      "Calls concern a payday loan debt",
+      "Customer asked multiple times to be contacted only by mail and the agency continues to call",
+      "Customer is afraid to answer their phone"
+    ]
+  },
+  "verifier": {
+    "overall_result": "fail",
+    "completeness_check": "pass",
+    "groundedness_check": "pass",
+    "policy_authorization_check": "pass",
+    "prohibited_language_check": "pass",
+    "tone_structure_check": "fail \u2014 Policy 11 requires an Outcome/resolution section between findings and next steps. The draft has none. It confirms the call frequency and the pre-8am calls but never says what happens as a result, or why no remedy applies. Policy 08 also requires a clear outcome or next step for each allegation, and the only next step given covers the unverified mail-only request.",
+    "specific_issues": [
+      "Tone/structure: no distinct outcome/resolution section. The draft does not say what, if anything, will be done about the confirmed call frequency and pre-8am calls, and does not explain why no remedy applies (remedy_stated is null). The only stated next step is the request for more information on the mail-only claim.",
+      "The customer's fear of answering the phone is acknowledged only through the generic line 'how stressful these calls have been'. This is borderline but acceptable for completeness, though the revised draft could address it more directly."
+    ]
+  },
+  "summary": "Communication tactics - partially_true - Medium risk - draft failed verification twice - needs manual drafting",
+  "run_finished": "2026-10-07T21:06:19+00:00"
+}

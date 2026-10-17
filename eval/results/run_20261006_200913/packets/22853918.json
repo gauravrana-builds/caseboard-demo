@@ -1,0 +1,183 @@
+{
+  "complaint_id": "22853918",
+  "run_started": "2026-10-07T01:10:32+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "22853918",
+    "date_received": "2026-06-03",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "NJ",
+    "narrative": "I set up autopay for this loan six months ago and it worked fine until last month, when my payment was never withdrawn and I was charged a late fee as a result. I have a screenshot of my autopay settings still showing as active.",
+    "account_id": "ACC-039",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1433,
+      "output_tokens": 265
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2705,
+      "output_tokens": 1143
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3996,
+      "output_tokens": 2173
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4407,
+      "output_tokens": 1779
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Autopay was set up six months ago and worked fine until last month",
+      "Payment was never withdrawn last month",
+      "Charged a late fee as a result of the payment not being withdrawn",
+      "Autopay settings still show as active"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "six months ago",
+      "last month"
+    ],
+    "account_details_mentioned": "Autopay set up six months ago; autopay settings still showing as active per customer's screenshot; payment not withdrawn last month; late fee charged",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "calm, factual, documented"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-039",
+      "loan_balance": 600.0,
+      "origination_date": "2025-10-27",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, current. Opened 2025-10-27. Payments due on the 27th."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-039",
+        "date": "2026-03-27",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Autopay withdrawal"
+      },
+      {
+        "account_id": "ACC-039",
+        "date": "2026-04-27",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Autopay withdrawal"
+      },
+      {
+        "account_id": "ACC-039",
+        "date": "2026-05-09",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Autopay disabled by customer via mobile app"
+      },
+      {
+        "account_id": "ACC-039",
+        "date": "2026-05-27",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $100.00 not received; no autopay instruction active"
+      },
+      {
+        "account_id": "ACC-039",
+        "date": "2026-06-01",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Late fee assessed"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "SUPPORTED: The customer said autopay worked until last month, and the log agrees. Autopay withdrawals of $100.00 posted on 2026-03-27 and 2026-04-27. The customer also said the payment was not withdrawn and a late fee followed. The 2026-05-27 entry shows the $100.00 installment was not received, and a $25.00 late fee was assessed on 2026-06-01. CONTRADICTED: The customer implies autopay was active and the failure was not their doing. The log shows 'Autopay disabled by customer via mobile app' on 2026-05-09, and the 2026-05-27 entry notes 'no autopay instruction active.' NOT VERIFIABLE FROM DATA: The customer says their screenshot shows autopay as active. The screenshot is not part of the evidence, and its date is unknown. The records do not show whether the app displayed the wrong status, or whether the customer re-enabled autopay and it did not register. The disabling event is directly logged, so this gap is unlikely to reverse the finding. It should still be acknowledged and not dismissed.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true (the missed payment and $25 late fee are confirmed, but the customer's account of why is contradicted by the log showing they disabled autopay on 2026-05-09), which elevates it to Medium. There is no attorney or regulator reference, the amount is under $200, and there are no hardship or vulnerability indicators.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "06",
+    "topic": "Fee Waiver and Goodwill Credit Authority",
+    "category": "internal",
+    "matched_keywords": [
+      "late fee"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Fee Waiver and Goodwill Credit Authority\n\n**Applies to:** Complaints where account/transaction data confirms a fee was charged in error, or where a goodwill gesture is being considered for a confirmed service failure.\n\n## Authority thresholds\n| Fee/credit amount | Who may approve |\n|---|---|\n| $0 \u2013 $50 | Complaints analyst, no additional sign-off required |\n| $50.01 \u2013 $200 | Complaints analyst with supervisor co-sign |\n| $200.01+ | Supervisor or manager approval required; analyst may not approve independently |\n\n## When a waiver is appropriate\n- The transaction history **confirms** the fee was charged in error (e.g., payment was received before the due date but a late fee was still assessed).\n- The fee was charged due to a documented system or processing error.\n- A documented goodwill exception for a first-time, low-dollar fee on an otherwise good-standing account (use sparingly, document the rationale).\n\n## When a waiver is NOT appropriate\n- The transaction history confirms the fee was correctly charged (no error occurred) \u2014 the response should explain the charge, not waive it.\n- The complaint's underlying fact could not be verified (missing/incomplete data) \u2014 route to manual review rather than waiving preemptively.\n- The complaint involves a dispute of right vs. convenience (e.g., customer disagrees with a disclosed, legitimate fee) \u2014 explain the fee and its basis; do not waive solely to end the complaint.\n\n## What an analyst or agent may say\n- May state the exact dollar amount being waived and the specific reason (tied to the confirmed error).\n- May NOT waive a fee \"as a one-time courtesy\" without a documented rationale on file \u2014 every waiver must cite either a confirmed error or an explicit goodwill justification.\n\n## Documentation requirement\nEvery waiver, regardless of amount, must be logged with: the confirming evidence (which transaction record), the dollar amount, and the approving party.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Thank you for contacting us about the missed autopay withdrawal and the late fee on your account. We reviewed your account activity, and here is what we found on each point you raised.\n\nAutopay worked until last month: Our records agree. Autopay withdrawals of $100.00 posted on March 27, 2026 and April 27, 2026.\n\nPayment not withdrawn last month: This is correct. The $100.00 installment due May 27, 2026 was not received. Our records show autopay was turned off through the mobile app on May 9, 2026, and no active autopay instruction was on file on May 27.\n\nLate fee: A $25.00 late fee was assessed on June 1, 2026 because the May installment had not been received. Since our records show the payment was not received and no autopay instruction was active, we did not find an error in how the fee was applied. For that reason, no fee waiver applies.\n\nAutopay showing as active: We understand that your screenshot shows autopay as active. We do not have that screenshot, so we can't tell what it displayed or when it was taken. Our records do not show autopay as active on May 27.\n\nNext steps: If you reply with your screenshot and the date it was taken, we will review it alongside your account record. To resume automatic payments, you can check your autopay settings in the mobile app or call us at the number on your account.\n\nCase reference: 22853918",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee confirmed as correctly charged; explain the charge, do not waive). Also governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Autopay was set up six months ago and worked fine until last month",
+          "Payment was never withdrawn last month",
+          "Charged a late fee as a result of the payment not being withdrawn",
+          "Autopay settings still show as active"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "Thank you for contacting us about the missed autopay withdrawal and the late fee on your account. We reviewed your account activity, and here is what we found on each point you raised.\n\nAutopay worked until last month: Our records agree. Autopay withdrawals of $100.00 posted on March 27, 2026 and April 27, 2026.\n\nPayment not withdrawn last month: This is correct. The $100.00 installment due May 27, 2026 was not received. Our records show autopay was turned off through the mobile app on May 9, 2026, and no active autopay instruction was on file on May 27.\n\nLate fee: A $25.00 late fee was assessed on June 1, 2026 because the May installment had not been received. Since our records show the payment was not received and no autopay instruction was active, we did not find an error in how the fee was applied. For that reason, no fee waiver applies.\n\nAutopay showing as active: We understand that your screenshot shows autopay as active. We do not have that screenshot, so we can't tell what it displayed or when it was taken. Our records do not show autopay as active on May 27.\n\nNext steps: If you reply with your screenshot and the date it was taken, we will review it alongside your account record. To resume automatic payments, you can check your autopay settings in the mobile app or call us at the number on your account.\n\nCase reference: 22853918",
+    "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee confirmed as correctly charged; explain the charge, do not waive). Also governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Autopay was set up six months ago and worked fine until last month",
+      "Payment was never withdrawn last month",
+      "Charged a late fee as a result of the payment not being withdrawn",
+      "Autopay settings still show as active"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass",
+    "groundedness_check": "pass",
+    "policy_authorization_check": "pass",
+    "prohibited_language_check": "pass",
+    "tone_structure_check": "pass",
+    "specific_issues": []
+  },
+  "summary": "Problem when making payments - partially_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T01:11:12+00:00"
+}

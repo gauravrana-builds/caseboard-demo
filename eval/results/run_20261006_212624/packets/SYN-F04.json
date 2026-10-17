@@ -1,0 +1,154 @@
+{
+  "complaint_id": "SYN-F04",
+  "run_started": "2026-10-07T02:28:19+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-F04",
+    "date_received": "6/24/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "GA",
+    "narrative": "I was double charged my monthly payment of $180 this month, once on the 1st and once on the 15th.",
+    "account_id": "ACC-F04",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1404,
+      "output_tokens": 203
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3086,
+      "output_tokens": 623
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3676,
+      "output_tokens": 997
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3850,
+      "output_tokens": 1243
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Double charged monthly payment of $180 this month, once on the 1st and once on the 15th"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      180.0
+    ],
+    "dates_mentioned": [
+      "this month",
+      "the 1st",
+      "the 15th"
+    ],
+    "account_details_mentioned": "Monthly payment of $180 charged twice this month, on the 1st and on the 15th",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-F04",
+      "loan_balance": 1450.0,
+      "origination_date": "2026-02-14",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Transaction log shows exactly ONE payment of $180 processed on 2026-06-01. No second $180 transaction appears on 2026-06-15 or any other June date. Only one charge occurred. Complaint's claim of a double charge is NOT supported by transaction history."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-F04",
+        "date": "2026-06-01",
+        "type": "payment",
+        "amount": 180.0,
+        "note": "Single payment processed. No duplicate charge on 2026-06-15 or elsewhere."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The customer alleges the $180 monthly payment was charged twice this month, on the 1st and the 15th. The transaction history shows exactly ONE payment of $180, processed on 2026-06-01. No second $180 transaction appears on 2026-06-15 or on any other June date, and the account note confirms only one charge occurred. The 1st-of-the-month payment is real, but the claimed second charge on the 15th is not supported. The account is also current, with no sign of an erroneous debit. 'This month' is read as June 2026, the month of the recorded payment.",
+    "risk_tier": "Low",
+    "risk_rationale": "The amount is $180 (under $200). There is no attorney/regulator reference, the attorney_regulator_flag is FALSE, and the customer states no hardship, vulnerability, or repeated prior contact. The tone is brief and factual with no UDAAP-pattern language. The claim is directly contradicted by clear transaction evidence, so this is a routine misunderstanding.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Low",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about your $180 monthly payment, which you believe was charged twice this month, once on the 1st and again on the 15th.\n\nWe reviewed your account's transaction history. Our records show one $180 payment, processed on June 1, 2026. We did not find a second $180 charge on June 15 or on any other date in June.\n\nBecause our records show a single payment, we found no duplicate charge on your account, so no refund or adjustment applies.\n\nIf your bank or card statement shows a second $180 transaction, please reply with its date and a copy or screenshot of the entry. We will compare it against our records. You can also call us at the number on your account.\n\nCase reference: SYN-F04",
+        "policy_cited": "08 General Dispute Handling Process (standard process, outcome 'not confirmed'; no remedy applicable because no error was found). Also governed by 10 Prohibited Language and 11 Response Tone and Format.",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Double charged monthly payment of $180 this month, once on the 1st and once on the 15th"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 the only allegation (a $180 payment charged twice, on the 1st and the 15th) is addressed directly, with the finding and outcome stated.",
+        "groundedness_check": "pass \u2014 the $180 amount, the single June 1, 2026 payment, and the absence of a second charge on June 15 or any other June date all match the verification output. Note: the case reference 'SYN-F04' does not appear in the provided inputs, so confirm it matches the case system before sending.",
+        "policy_authorization_check": "pass \u2014 the draft states no remedy (remedy_stated is null) and correctly says no refund or adjustment applies. Nothing exceeds policy authority. The offer to compare a customer-supplied statement entry against records is an investigative step, not a remedy.",
+        "prohibited_language_check": "pass \u2014 no fault admission, future guarantee, legal conclusion, or unapproved promise. Nothing discourages other channels; the draft invites the customer to send more information and to call.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11 order: specific acknowledgment, findings with dates and amounts, outcome with explanation, next steps, then case reference. It is plain-language, in second person, in short paragraphs, about 120 words, with no marketing content.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about your $180 monthly payment, which you believe was charged twice this month, once on the 1st and again on the 15th.\n\nWe reviewed your account's transaction history. Our records show one $180 payment, processed on June 1, 2026. We did not find a second $180 charge on June 15 or on any other date in June.\n\nBecause our records show a single payment, we found no duplicate charge on your account, so no refund or adjustment applies.\n\nIf your bank or card statement shows a second $180 transaction, please reply with its date and a copy or screenshot of the entry. We will compare it against our records. You can also call us at the number on your account.\n\nCase reference: SYN-F04",
+    "policy_cited": "08 General Dispute Handling Process (standard process, outcome 'not confirmed'; no remedy applicable because no error was found). Also governed by 10 Prohibited Language and 11 Response Tone and Format.",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Double charged monthly payment of $180 this month, once on the 1st and once on the 15th"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 the only allegation (a $180 payment charged twice, on the 1st and the 15th) is addressed directly, with the finding and outcome stated.",
+    "groundedness_check": "pass \u2014 the $180 amount, the single June 1, 2026 payment, and the absence of a second charge on June 15 or any other June date all match the verification output. Note: the case reference 'SYN-F04' does not appear in the provided inputs, so confirm it matches the case system before sending.",
+    "policy_authorization_check": "pass \u2014 the draft states no remedy (remedy_stated is null) and correctly says no refund or adjustment applies. Nothing exceeds policy authority. The offer to compare a customer-supplied statement entry against records is an investigative step, not a remedy.",
+    "prohibited_language_check": "pass \u2014 no fault admission, future guarantee, legal conclusion, or unapproved promise. Nothing discourages other channels; the draft invites the customer to send more information and to call.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11 order: specific acknowledgment, findings with dates and amounts, outcome with explanation, next steps, then case reference. It is plain-language, in second person, in short paragraphs, about 120 words, with no marketing content.",
+    "specific_issues": []
+  },
+  "summary": "Charged fees or interest you didn't expect - confirmed_false - Low risk - draft ready for review",
+  "run_finished": "2026-10-07T02:28:45+00:00"
+}

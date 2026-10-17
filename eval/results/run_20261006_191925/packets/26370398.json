@@ -1,0 +1,291 @@
+{
+  "complaint_id": "26370398",
+  "run_started": "2026-10-07T00:21:00+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "26370398",
+    "date_received": "2026-09-03",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Information belongs to someone else",
+    "state": "TX",
+    "narrative": "An account that is not mine keeps appearing and disappearing from my credit report. Every time I dispute it, it's removed, but then it comes back a month later without any new dispute from me.",
+    "account_id": "ACC-026",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1428,
+      "output_tokens": 240
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3179,
+      "output_tokens": 1220
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "An account that is not the customer's keeps appearing and disappearing from their credit report",
+      "After each dispute the account is removed, but it returns about a month later without any new dispute from the customer"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "a month later"
+    ],
+    "account_details_mentioned": "An account that is not theirs repeatedly appears on the credit report, is removed after a dispute, and reappears a month later without a new dispute",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-026",
+      "loan_balance": 1400.0,
+      "origination_date": "2025-04-27",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-026",
+        "date": "2025-04-27",
+        "type": "payment",
+        "amount": 58.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2025-05-27",
+        "type": "payment",
+        "amount": 60.87,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2025-06-26",
+        "type": "payment",
+        "amount": 58.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2025-07-26",
+        "type": "payment",
+        "amount": 56.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2025-08-25",
+        "type": "payment",
+        "amount": 40.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2025-09-24",
+        "type": "payment",
+        "amount": 45.16,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2025-10-24",
+        "type": "payment",
+        "amount": 51.85,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2025-11-23",
+        "type": "payment",
+        "amount": 56.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2025-12-23",
+        "type": "payment",
+        "amount": 58.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2026-01-22",
+        "type": "payment",
+        "amount": 42.42,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2026-02-21",
+        "type": "payment",
+        "amount": 40.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-026",
+        "date": "2026-03-23",
+        "type": "payment",
+        "amount": 53.85,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges that an account that is not theirs repeatedly disappears from and reappears on their credit report after disputes. The retrieved data cannot confirm or contradict this. ACC-026 is an installment loan (balance $1,400.00, originated 2025-04-27, status current) with 12 routine payments from 2025-04-27 to 2026-03-23. The account note says it is generic and was not built to verify this complaint. Missing: (1) which account or tradeline the customer is disputing, since the complaint does not identify it and it cannot be tied to ACC-026; (2) any credit bureau reporting or furnishing history, including deletion and reinsertion dates; (3) any dispute records, such as dates filed, outcomes, and whether reinsertion notices were sent; (4) any identity-theft or mixed-file indicators; (5) specific dates, since the complaint says only 'a month later'. The regular payment history on ACC-026 does not show the account is the customer's or that it is the one in dispute, so no inference is drawn from it.",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable and the gap could change the outcome: whether the tradeline belongs to the customer and whether a deleted item was reinserted after a dispute (a potential FCRA compliance issue) cannot be determined from the data. The customer also reports repeated disputes, which is a further elevating factor. This is an automatic High under the unverifiable-with-outcome-impact rule.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central issue (account ownership and the dispute/reinsertion history on the credit report), so a draft would risk an inaccurate or non-compliant response. Escalate to human review, and obtain the credit reporting and dispute records before any response.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "An account that is not mine keeps appearing and disappearing from my credit report. Every time I dispute it, it's removed, but then it comes back a month later without any new dispute from me.",
+    "extraction": {
+      "allegations": [
+        "An account that is not the customer's keeps appearing and disappearing from their credit report",
+        "After each dispute the account is removed, but it returns about a month later without any new dispute from the customer"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "a month later"
+      ],
+      "account_details_mentioned": "An account that is not theirs repeatedly appears on the credit report, is removed after a dispute, and reappears a month later without a new dispute",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges that an account that is not theirs repeatedly disappears from and reappears on their credit report after disputes. The retrieved data cannot confirm or contradict this. ACC-026 is an installment loan (balance $1,400.00, originated 2025-04-27, status current) with 12 routine payments from 2025-04-27 to 2026-03-23. The account note says it is generic and was not built to verify this complaint. Missing: (1) which account or tradeline the customer is disputing, since the complaint does not identify it and it cannot be tied to ACC-026; (2) any credit bureau reporting or furnishing history, including deletion and reinsertion dates; (3) any dispute records, such as dates filed, outcomes, and whether reinsertion notices were sent; (4) any identity-theft or mixed-file indicators; (5) specific dates, since the complaint says only 'a month later'. The regular payment history on ACC-026 does not show the account is the customer's or that it is the one in dispute, so no inference is drawn from it.",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable and the gap could change the outcome: whether the tradeline belongs to the customer and whether a deleted item was reinserted after a dispute (a potential FCRA compliance issue) cannot be determined from the data. The customer also reports repeated disputes, which is a further elevating factor. This is an automatic High under the unverifiable-with-outcome-impact rule.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-026",
+        "loan_balance": 1400.0,
+        "origination_date": "2025-04-27",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-026",
+          "date": "2025-04-27",
+          "type": "payment",
+          "amount": 58.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2025-05-27",
+          "type": "payment",
+          "amount": 60.87,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2025-06-26",
+          "type": "payment",
+          "amount": 58.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2025-07-26",
+          "type": "payment",
+          "amount": 56.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2025-08-25",
+          "type": "payment",
+          "amount": 40.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2025-09-24",
+          "type": "payment",
+          "amount": 45.16,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2025-10-24",
+          "type": "payment",
+          "amount": 51.85,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2025-11-23",
+          "type": "payment",
+          "amount": 56.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2025-12-23",
+          "type": "payment",
+          "amount": 58.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2026-01-22",
+          "type": "payment",
+          "amount": 42.42,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2026-02-21",
+          "type": "payment",
+          "amount": 40.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-026",
+          "date": "2026-03-23",
+          "type": "payment",
+          "amount": 53.85,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central issue (account ownership and the dispute/reinsertion history on the credit report), so a draft would risk an inaccurate or non-compliant response. Escalate to human review, and obtain the credit reporting and dispute records before any response.",
+    "unresolved": "The customer alleges that an account that is not theirs repeatedly disappears from and reappears on their credit report after disputes. The retrieved data cannot confirm or contradict this. ACC-026 is an installment loan (balance $1,400.00, originated 2025-04-27, status current) with 12 routine payments from 2025-04-27 to 2026-03-23. The account note says it is generic and was not built to verify this complaint. Missing: (1) which account or tradeline the customer is disputing, since the complaint does not identify it and it cannot be tied to ACC-026; (2) any credit bureau reporting or furnishing history, including deletion and reinsertion dates; (3) any dispute records, such as dates filed, outcomes, and whether reinsertion notices were sent; (4) any identity-theft or mixed-file indicators; (5) specific dates, since the complaint says only 'a month later'. The regular payment history on ACC-026 does not show the account is the customer's or that it is the one in dispute, so no inference is drawn from it.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:12+00:00"
+}

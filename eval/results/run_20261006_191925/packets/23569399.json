@@ -1,0 +1,141 @@
+{
+  "complaint_id": "23569399",
+  "run_started": "2026-10-07T00:20:53+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23569399",
+    "date_received": "2026-06-25",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account information incorrect",
+    "state": "NJ",
+    "narrative": "The credit limit shown on my report for this account is $500 but my actual credit limit is $2000. This is making my credit utilization look much worse than it actually is and I believe it's hurting my score.",
+    "account_id": "ACC-024",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1430,
+      "output_tokens": 243
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2424,
+      "output_tokens": 863
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Credit limit reported on credit report is $500 but actual credit limit is $2000",
+      "Incorrect credit limit makes credit utilization look much worse than it actually is",
+      "Believes the incorrect reporting is hurting their credit score"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      500.0,
+      2000.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Reported credit limit is $500; customer states actual credit limit is $2000",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-024",
+      "loan_balance": 2200.0,
+      "origination_date": "2026-09-16",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-024",
+        "date": "2026-09-16",
+        "type": "payment",
+        "amount": 157.14,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer claims the credit limit reported to the credit bureaus is $500 when the actual limit is $2000. The retrieved evidence cannot confirm or contradict either figure. Account ACC-024 is an installment_loan (loan_balance $2,200.00, originated 2026-09-16, status current) with no credit limit field, and installment loans do not normally carry a revolving credit limit. The only transaction is a $157.14 scheduled payment on 2026-09-16. There is no credit bureau reporting data, no furnished-data record showing what limit was reported, and no card or line-of-credit record showing a $500 or $2000 limit. The account may not be the one the customer is describing, or a second account may exist that was not retrieved. The account_note also says this is a generic record and not built to verify this complaint.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap decides the outcome: the disputed $500 vs $2000 credit limit cannot be confirmed from the data, and the account type (installment loan) does not match the complaint's premise of a credit limit.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central claim (reported vs. actual credit limit). No credit reporting data or matching revolving account was retrieved, and any draft would require guessing. Escalate to a human reviewer to confirm the correct account and obtain the credit bureau furnishing data.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "The credit limit shown on my report for this account is $500 but my actual credit limit is $2000. This is making my credit utilization look much worse than it actually is and I believe it's hurting my score.",
+    "extraction": {
+      "allegations": [
+        "Credit limit reported on credit report is $500 but actual credit limit is $2000",
+        "Incorrect credit limit makes credit utilization look much worse than it actually is",
+        "Believes the incorrect reporting is hurting their credit score"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        500.0,
+        2000.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Reported credit limit is $500; customer states actual credit limit is $2000",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer claims the credit limit reported to the credit bureaus is $500 when the actual limit is $2000. The retrieved evidence cannot confirm or contradict either figure. Account ACC-024 is an installment_loan (loan_balance $2,200.00, originated 2026-09-16, status current) with no credit limit field, and installment loans do not normally carry a revolving credit limit. The only transaction is a $157.14 scheduled payment on 2026-09-16. There is no credit bureau reporting data, no furnished-data record showing what limit was reported, and no card or line-of-credit record showing a $500 or $2000 limit. The account may not be the one the customer is describing, or a second account may exist that was not retrieved. The account_note also says this is a generic record and not built to verify this complaint.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap decides the outcome: the disputed $500 vs $2000 credit limit cannot be confirmed from the data, and the account type (installment loan) does not match the complaint's premise of a credit limit.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-024",
+        "loan_balance": 2200.0,
+        "origination_date": "2026-09-16",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-024",
+          "date": "2026-09-16",
+          "type": "payment",
+          "amount": 157.14,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central claim (reported vs. actual credit limit). No credit reporting data or matching revolving account was retrieved, and any draft would require guessing. Escalate to a human reviewer to confirm the correct account and obtain the credit bureau furnishing data.",
+    "unresolved": "The customer claims the credit limit reported to the credit bureaus is $500 when the actual limit is $2000. The retrieved evidence cannot confirm or contradict either figure. Account ACC-024 is an installment_loan (loan_balance $2,200.00, originated 2026-09-16, status current) with no credit limit field, and installment loans do not normally carry a revolving credit limit. The only transaction is a $157.14 scheduled payment on 2026-09-16. There is no credit bureau reporting data, no furnished-data record showing what limit was reported, and no card or line-of-credit record showing a $500 or $2000 limit. The account may not be the one the customer is describing, or a second account may exist that was not retrieved. The account_note also says this is a generic record and not built to verify this complaint.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:03+00:00"
+}

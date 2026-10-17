@@ -1,0 +1,233 @@
+{
+  "complaint_id": "SYN-P04",
+  "run_started": "2026-10-08T18:02:39+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-P04",
+    "date_received": "7/10/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "TN",
+    "narrative": "I was told my loan had no prepayment penalty, but when I paid it off early I was charged an extra $60 fee that wasn't in my original disclosures.",
+    "account_id": "ACC-P04",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1421,
+      "output_tokens": 203
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4663,
+      "output_tokens": 1131
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4167,
+      "output_tokens": 1309
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4400,
+      "output_tokens": 1732
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Told the loan had no prepayment penalty",
+      "Charged an extra $60 fee upon early payoff",
+      "The fee was not in the original disclosures"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      60.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Loan was paid off early; the customer says they were told there was no prepayment penalty",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-P04",
+      "loan_balance": 0.0,
+      "origination_date": "8/15/2025",
+      "payment_status": "paid_off",
+      "product_type": "installment_loan",
+      "account_note": "Loan was paid in full on 2026-07-08 (CONFIRMED \u2014 early payoff occurred as described). Transaction log shows a $60 'early payoff processing fee' was charged (CONFIRMED \u2014 fee was charged). However, loan agreement on file, section 4.3, does list this fee under 'Payoff Terms' \u2014 it was disclosed, just easy to miss (customer's claim of non-disclosure is NOT CONFIRMED, though the fee itself is real)."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-P04",
+        "date": "2026-07-08",
+        "type": "payoff",
+        "amount": 0.0,
+        "note": "Loan paid in full."
+      },
+      {
+        "account_id": "ACC-P04",
+        "date": "2026-07-08",
+        "type": "fee",
+        "amount": 60.0,
+        "note": "Early payoff processing fee - disclosed in loan agreement section 4.3."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "Confirmed: the loan was paid off early on 2026-07-08, and a $60 'early payoff processing fee' was charged the same day, as the customer describes. Contradicted: the customer says the fee was not in the original disclosures, but the loan agreement on file (section 4.3, 'Payoff Terms') lists it. The fee was disclosed, though it is easy to miss. Cannot be confirmed: the customer says they were told there was no prepayment penalty. That is a verbal statement, and no call recording or notes were provided. The fee is real and was disclosed, but whether the customer was misled by what they were told cannot be determined from the records.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer alleges they were told there was no prepayment penalty and were then charged a $60 early payoff fee they say was undisclosed. This is a misled-about-loan-terms allegation, which is automatic High under policy 05 whether or not the records confirm it and even though the disclosure claim is contradicted. The partially_true finding also points toward Medium, but the policy 05 trigger sets the tier.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Policy 05 (UDAAP) mandatory human review: the customer alleges they were misled about a prepayment penalty and an undisclosed fee. No draft may be prepared until a human reviews the case, including what the customer was told verbally, which the records cannot verify.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I was told my loan had no prepayment penalty, but when I paid it off early I was charged an extra $60 fee that wasn't in my original disclosures.",
+    "extraction": {
+      "allegations": [
+        "Told the loan had no prepayment penalty",
+        "Charged an extra $60 fee upon early payoff",
+        "The fee was not in the original disclosures"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        60.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Loan was paid off early; the customer says they were told there was no prepayment penalty",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "partially_true",
+      "fact_verification_explanation": "Confirmed: the loan was paid off early on 2026-07-08, and a $60 'early payoff processing fee' was charged the same day, as the customer describes. Contradicted: the customer says the fee was not in the original disclosures, but the loan agreement on file (section 4.3, 'Payoff Terms') lists it. The fee was disclosed, though it is easy to miss. Cannot be confirmed: the customer says they were told there was no prepayment penalty. That is a verbal statement, and no call recording or notes were provided. The fee is real and was disclosed, but whether the customer was misled by what they were told cannot be determined from the records.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer alleges they were told there was no prepayment penalty and were then charged a $60 early payoff fee they say was undisclosed. This is a misled-about-loan-terms allegation, which is automatic High under policy 05 whether or not the records confirm it and even though the disclosure claim is contradicted. The partially_true finding also points toward Medium, but the policy 05 trigger sets the tier.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-P04",
+        "loan_balance": 0.0,
+        "origination_date": "8/15/2025",
+        "payment_status": "paid_off",
+        "product_type": "installment_loan",
+        "account_note": "Loan was paid in full on 2026-07-08 (CONFIRMED \u2014 early payoff occurred as described). Transaction log shows a $60 'early payoff processing fee' was charged (CONFIRMED \u2014 fee was charged). However, loan agreement on file, section 4.3, does list this fee under 'Payoff Terms' \u2014 it was disclosed, just easy to miss (customer's claim of non-disclosure is NOT CONFIRMED, though the fee itself is real)."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-P04",
+          "date": "2026-07-08",
+          "type": "payoff",
+          "amount": 0.0,
+          "note": "Loan paid in full."
+        },
+        {
+          "account_id": "ACC-P04",
+          "date": "2026-07-08",
+          "type": "fee",
+          "amount": 60.0,
+          "note": "Early payoff processing fee - disclosed in loan agreement section 4.3."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Policy 05 (UDAAP) mandatory human review: the customer alleges they were misled about a prepayment penalty and an undisclosed fee. No draft may be prepared until a human reviews the case, including what the customer was told verbally, which the records cannot verify.",
+    "unresolved": null,
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - partially_true - High risk - draft ready for review",
+  "run_finished": "2026-10-09T19:24:39+00:00",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Thank you for writing to us about the $60 fee charged when you paid off your loan early. We understand it is frustrating to be charged something you did not expect, especially if you were told otherwise. We looked at each part of your concern.\n\nTold there was no prepayment penalty: We could not confirm this. What you were told was a verbal conversation, and we did not find a call recording or notes in the records we reviewed. If you can tell us roughly when you spoke with us, who you spoke with, or share anything in writing, we will review it.\n\nCharged an extra $60 fee at early payoff: Our records confirm this. Your loan was paid off early on July 8, 2026, and a $60 early payoff processing fee was charged on the same day.\n\nFee not in the original disclosures: Our records show something different. Your loan agreement, in section 4.3, \"Payoff Terms,\" lists this fee. We are not questioning that it was a surprise to you, only telling you what the agreement on file says.\n\nBased on our review, we have not found a basis to reverse the $60 fee, so no refund or adjustment is being made at this time. You are welcome to send us any further information at any time, and we will review it. You can reply to this message or call the number on your account. If you would like to raise this with anyone outside our company, that is entirely your choice.\n\nCase reference: SYN-P04.",
+        "policy_cited": "08 General Dispute Handling Process (standard process: investigate, classify as partially confirmed, respond to every allegation individually); governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format)",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Told the loan had no prepayment penalty",
+          "Charged an extra $60 fee upon early payoff",
+          "The fee was not in the original disclosures"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "Thank you for writing to us about the $60 fee charged when you paid off your loan early. We understand it is frustrating to be charged something you did not expect, especially if you were told otherwise. We looked at each part of your concern.\n\nTold there was no prepayment penalty: We could not confirm this. What you were told was a verbal conversation, and we did not find a call recording or notes in the records we reviewed. If you can tell us roughly when you spoke with us, who you spoke with, or share anything in writing, we will review it.\n\nCharged an extra $60 fee at early payoff: Our records confirm this. Your loan was paid off early on July 8, 2026, and a $60 early payoff processing fee was charged on the same day.\n\nFee not in the original disclosures: Our records show something different. Your loan agreement, in section 4.3, \"Payoff Terms,\" lists this fee. We are not questioning that it was a surprise to you, only telling you what the agreement on file says.\n\nBased on our review, we have not found a basis to reverse the $60 fee, so no refund or adjustment is being made at this time. You are welcome to send us any further information at any time, and we will review it. You can reply to this message or call the number on your account. If you would like to raise this with anyone outside our company, that is entirely your choice.\n\nCase reference: SYN-P04.",
+    "policy_cited": "08 General Dispute Handling Process (standard process: investigate, classify as partially confirmed, respond to every allegation individually); governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format)",
+    "remedy_stated": null,
+    "referral_stated": null,
+    "allegations_addressed": [
+      "Told the loan had no prepayment penalty",
+      "Charged an extra $60 fee upon early payoff",
+      "The fee was not in the original disclosures"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass",
+    "groundedness_check": "pass",
+    "policy_authorization_check": "pass",
+    "prohibited_language_check": "pass",
+    "tone_structure_check": "pass",
+    "specific_issues": []
+  },
+  "action_required_before_sending": null,
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Policy 05 (UDAAP) mandatory human review: the customer alleges they were misled about a prepayment penalty and an undisclosed fee. No draft may be prepared until a human reviews the case, including what the customer was told verbally, which the records cannot verify.",
+    "at": "2026-10-09T19:24:39+00:00"
+  }
+}

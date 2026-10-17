@@ -1,0 +1,237 @@
+{
+  "complaint_id": "23623033",
+  "run_started": "2026-10-10T19:57:43+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23623033",
+    "date_received": "6/26/2026",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account status incorrect",
+    "state": "TX",
+    "narrative": "My account is showing as 60 days past due on my credit report, but I have never missed a payment on this account. My bank statements show every payment was made on time for the past 18 months.",
+    "account_id": "ACC-022",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1422,
+      "output_tokens": 240
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5094,
+      "output_tokens": 1468
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4913,
+      "output_tokens": 1686
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4637,
+      "output_tokens": 2295
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5140,
+      "output_tokens": 2683
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4676,
+      "output_tokens": 2502
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Account is reported as 60 days past due on credit report",
+      "Customer states they have never missed a payment on this account",
+      "Customer states bank statements show every payment was made on time for the past 18 months"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "the past 18 months"
+    ],
+    "account_details_mentioned": "Account shown as 60 days past due on credit report; customer states all payments were made on time for the past 18 months per bank statements",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and measured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-022",
+      "loan_balance": 1600.0,
+      "origination_date": "11/18/2024",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, current. Opened 2024-11-18."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-022",
+        "date": "2026-01-18",
+        "type": "payment",
+        "amount": 140.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-02-18",
+        "type": "payment",
+        "amount": 140.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-03-18",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $140.00 not received"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-04-18",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $140.00 not received"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-04-20",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Account reported to credit bureaus: 60 days past due"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-05-18",
+        "type": "payment",
+        "amount": 280.0,
+        "note": "Payment received covering 2 installments"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-06-18",
+        "type": "payment",
+        "amount": 140.0,
+        "note": "Scheduled installment received"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The customer's central allegation is that the 60-days-past-due credit report entry is wrong because they never missed a payment. The records contradict this. The scheduled $140.00 installments due 2026-03-18 and 2026-04-18 were both logged as 'not received'. On 2026-04-20 the account was reported to the bureaus as 60 days past due. The customer is right that the entry exists, but wrong that it is an error. A catch-up payment of $280.00 covering two installments arrived on 2026-05-18, and the 2026-06-18 installment was received on time, which is why the account now shows as current. The history only covers 2026-01-18 onward, so the earlier months of the '18 months on time' claim cannot be checked. That does not change the outcome, because the missed March and April installments directly contradict 'never missed a payment.' One point for the reviewer: only about 33 days had passed since the first missed installment (03-18) on the 04-20 report date, so the '60 days' label presumably counts two missed installments. The drafted response should state the missed payments and should not assert that the 60-day delinquency bucket is correct.",
+    "risk_tier": "Low",
+    "risk_rationale": "There is no attorney/regulator reference, identity-theft dispute, misleading-terms allegation, collector conduct, hardship or vulnerability indicator, or embedded instruction, no dollar amount is in dispute, and the records clearly contradict the claim.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Low",
+  "policy": {
+    "policy_id": "04",
+    "topic": "Credit Reporting Disputes (FCRA)",
+    "category": "regulatory",
+    "matched_keywords": [
+      "credit report",
+      "incorrect information"
+    ],
+    "fallback_used": false,
+    "text": "# Policy: Credit Reporting Disputes (Fair Credit Reporting Act)\n\n**Applies to:** Any complaint alleging inaccurate, incomplete, or unverifiable information reported to a consumer reporting agency (credit bureau).\n\n## Requirements\n- As a furnisher of information, we must investigate a dispute (received either directly from the consumer or relayed by a credit bureau) within **30 days**, extendable to **45 days** if the consumer provides additional information during the 30-day window.\n- We must review all relevant information provided by the consumer, correct any inaccuracy found, and report the results of the investigation back to the consumer and, if applicable, to the credit bureau.\n- If an item is found to be inaccurate or unverifiable, it must be corrected or deleted from our reporting **promptly**.\n- We may not resume reporting an item we previously deleted unless we can certify the information is accurate and complete.\n- A consumer may request a statement of the dispute to be included in their credit file if the dispute is not resolved to their satisfaction.\n\n## What an analyst or agent may say\n- May confirm whether our internal records match or contradict what is reported (e.g., payment history, account status).\n- May state the applicable 30/45-day investigation timeline.\n- May NOT promise a specific bureau will update within a specific number of days \u2014 we control our own furnishing, not the bureau's processing timeline.\n\n## Escalation trigger\nA **third or subsequent dispute on the same item**, or any complaint stating an investigation was closed with no explanation of what was actually checked, should be escalated \u2014 repeated unresolved disputes carry elevated regulatory risk.\n\n## Remedy authority\nFront-line staff may initiate a correction to our own furnished data (status, balance, payment history) when the internal transaction record clearly supports the correction. Removing an account entirely, or correcting identity-mismatch issues, requires supervisor or fraud-team review.\n\n*Source: Fair Credit Reporting Act, 15 U.S.C. \u00a7 1681 et seq. Generic, illustrative summary for internal training/demo purposes, not legal advice.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Seeing a 60-days-past-due mark on your credit report when you believe you've paid on time is worrying, and we want you to know we looked into it carefully.\n\nHere's what we found, point by point.\n\nThe credit report entry: Our records confirm that on April 20, 2026, your account was reported to the credit bureaus as 60 days past due.\n\nPayments never missed: Our records show that the $140.00 installments due March 18 and April 18, 2026 were not received. On May 18, we received a $280.00 payment covering two installments. Your June 18 installment arrived on time, and our records now show your account as current.\n\nOn-time payments for the past 18 months: The payment history we can see starts January 18, 2026, so we can't check the months before that. For the months we can see, the March and April 2026 installments are the two that don't show as received.\n\nBased on this, we haven't found anything in our records that needs correcting, so no change to the reported information is being made right now. We're not able to say how quickly any credit bureau would update its own records.\n\nIf you have bank statements showing payments for the March or April 2026 installments, please send them to us. You're welcome to send anything else you think is relevant at any time, and we'll review it. Disputes like this are investigated within 30 days, and that can extend to 45 days if you send additional information during the first 30. If you're still not satisfied with the outcome, you can ask for a statement of your dispute to be included in your credit file.\n\nYou can reply to this message or call the number on your account. Please quote case reference 23623033.",
+        "policy_cited": "04 Credit Reporting Disputes (FCRA), investigation timeline, permitted statements, and remedy authority (no correction applicable, as internal records do not support one)",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Account is reported as 60 days past due on credit report",
+          "Customer states they have never missed a payment on this account",
+          "Customer states bank statements show every payment was made on time for the past 18 months"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass \u2014 all three allegations are addressed: the 60-days-past-due report entry, the 'never missed a payment' claim, and the '18 months on time per bank statements' claim.",
+        "groundedness_check": "fail \u2014 'we haven't found anything in our records that needs correcting, so no change to the reported information is being made right now.' This implicitly endorses the 60-day delinquency label, which the verification output explicitly warned against. The verification notes that only about 33 days had passed since the first missed installment on the 04-20 report date, and that the '60 days' label 'presumably' counts two missed installments. The draft therefore concludes that nothing needs correcting without support. Minor: 'the March and April 2026 installments are the two that don't show as received' implies the January and February installments were received, but the verification output does not state this.",
+        "policy_authorization_check": "pass \u2014 `remedy_stated` and `referral_stated` are both null and no remedy is promised. The 30/45-day timeline and the statement-of-dispute option come directly from the cited policy, and the draft makes no promise about bureau update timing.",
+        "prohibited_language_check": "pass \u2014 no fault admissions, future guarantees, or legal conclusions. The draft does not discourage other channels, and it invites further documentation and mentions the dispute-statement option. The 'nothing needs correcting' phrasing is handled under groundedness, not as a legal conclusion.",
+        "tone_structure_check": "pass \u2014 follows Policy 11: specific opening acknowledgment, findings in separate paragraphs per allegation, outcome, next steps, and case reference 23623033. The tone is plain and non-performative, and the length is acceptable for a multi-allegation response.",
+        "specific_issues": [
+          "Groundedness: the statement that nothing in the records 'needs correcting' and that no change is being made implicitly validates the 60-day delinquency label. The verification output says the draft should state the missed payments and should not assert the 60-day bucket is correct, and it flags the 33-day discrepancy for the reviewer. The draft should state only that the missed March/April installments are confirmed. It should not imply the reported delinquency level is accurate, and the 60-day question should go to the reviewer.",
+          "Minor groundedness: 'the two that don't show as received' implies all other visible installments were received, which the verification output does not establish."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "You told us your account is showing as 60 days past due on your credit report, even though you believe every payment has been made on time. It's upsetting to see a mark like that when you've kept track of your payments, so we've looked closely at your account history.\n\nThe 60-day entry: Our records show the account was reported to the credit bureaus as 60 days past due on April 20, 2026. We've asked for that 60-day status to be reviewed, and we'll let you know what the review finds.\n\nYour payments: Our records show that the $140.00 installments due on March 18, 2026 and April 18, 2026 weren't received. On May 18, 2026 we received a $280.00 payment covering two installments, and the June 18, 2026 installment came in on time. In our records, your account now shows as current.\n\nYour bank statements and the past 18 months: The payment history we can see starts on January 18, 2026, so we can't check the months before that. If your bank statements show the March or April 2026 payments leaving your account, please send them to us. We'll review anything you send, whenever you send it.\n\nNext steps: We'll investigate and tell you the results within 30 days. If you send us additional information during that time, the review can take up to 45 days. You can reply to this message or call us at the number on your account, and please have your case reference handy.\n\nCase reference: 23623033",
+        "policy_cited": "04 Credit Reporting Disputes (FCRA), 30/45-day investigation timeline and 'What an analyst or agent may say'; Policy 10 Prohibited Language; Policy 11 Response Tone and Format",
+        "remedy_stated": null,
+        "referral_stated": "The draft says a review of the 60-day past-due status reported to the credit bureaus on April 20, 2026 has been requested. The reviewer should make this referral before sending. Records show only about 33 days had passed since the first missed installment (March 18) on the report date, so the 60-day label needs checking.",
+        "allegations_addressed": [
+          "Account is reported as 60 days past due on credit report",
+          "Customer states they have never missed a payment on this account",
+          "Customer states bank statements show every payment was made on time for the past 18 months"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all three allegations are addressed: the 60-day past-due report (60-day entry paragraph), the 'never missed a payment' claim (the missed March 18 and April 18 installments and the catch-up payment are stated in the payments paragraph), and the 18-months-on-time bank statement claim (the history starts January 18, 2026, and the customer is invited to send statements).",
+        "groundedness_check": "pass \u2014 every date and amount traces to the verification output: the $140.00 installments due 3/18 and 4/18 not received, the 4/20/2026 bureau report, the $280.00 catch-up on 5/18, the on-time 6/18 installment, the account now current, and history available only from 1/18/2026. The 30/45-day timeline comes from Policy 04. The statement that a review of the 60-day status has been requested is declared in `referral_stated`, and the verification output itself flags the 60-day label for checking. The reviewer must make that referral before sending. No refund, credit, correction, or approval is claimed as granted or processed. The draft does not assert that the 60-day bucket is correct.",
+        "policy_authorization_check": "pass \u2014 `remedy_stated` is null and the draft promises no correction, deletion, or bureau update timing. Requesting a review of our own furnished data is within front-line authority under Policy 04. The draft does not promise that a bureau will update within a set number of days.",
+        "prohibited_language_check": "pass \u2014 there is no fault admission beyond confirmed fact (the draft states the missed installments plainly), no guarantee about the future, no legal conclusion, and no promise outside documented authority. Nothing discourages the customer from other channels. 'It's upsetting to see a mark like that' is a measured acknowledgment, not an excessive apology.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11: it opens by referencing the specific complaint, gives findings with specific dates and amounts, states the pending outcome (a review of the 60-day status with results to follow), lists next steps (send bank statements, reply or call, 30/45-day timeline), and ends with the case reference 23623033. It uses second person, plain language, short labeled paragraphs per allegation, and no marketing content. Minor note: the outcome is blended into the 60-day paragraph and could be labeled separately, but it is present and adequate.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You told us your account is showing as 60 days past due on your credit report, even though you believe every payment has been made on time. It's upsetting to see a mark like that when you've kept track of your payments, so we've looked closely at your account history.\n\nThe 60-day entry: Our records show the account was reported to the credit bureaus as 60 days past due on April 20, 2026. We've asked for that 60-day status to be reviewed, and we'll let you know what the review finds.\n\nYour payments: Our records show that the $140.00 installments due on March 18, 2026 and April 18, 2026 weren't received. On May 18, 2026 we received a $280.00 payment covering two installments, and the June 18, 2026 installment came in on time. In our records, your account now shows as current.\n\nYour bank statements and the past 18 months: The payment history we can see starts on January 18, 2026, so we can't check the months before that. If your bank statements show the March or April 2026 payments leaving your account, please send them to us. We'll review anything you send, whenever you send it.\n\nNext steps: We'll investigate and tell you the results within 30 days. If you send us additional information during that time, the review can take up to 45 days. You can reply to this message or call us at the number on your account, and please have your case reference handy.\n\nCase reference: 23623033",
+    "policy_cited": "04 Credit Reporting Disputes (FCRA), 30/45-day investigation timeline and 'What an analyst or agent may say'; Policy 10 Prohibited Language; Policy 11 Response Tone and Format",
+    "remedy_stated": null,
+    "referral_stated": "The draft says a review of the 60-day past-due status reported to the credit bureaus on April 20, 2026 has been requested. The reviewer should make this referral before sending. Records show only about 33 days had passed since the first missed installment (March 18) on the report date, so the 60-day label needs checking.",
+    "allegations_addressed": [
+      "Account is reported as 60 days past due on credit report",
+      "Customer states they have never missed a payment on this account",
+      "Customer states bank statements show every payment was made on time for the past 18 months"
+    ]
+  },
+  "action_required_before_sending": "The draft says a review of the 60-day past-due status reported to the credit bureaus on April 20, 2026 has been requested. The reviewer should make this referral before sending. Records show only about 33 days had passed since the first missed installment (March 18) on the report date, so the 60-day label needs checking.",
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all three allegations are addressed: the 60-day past-due report (60-day entry paragraph), the 'never missed a payment' claim (the missed March 18 and April 18 installments and the catch-up payment are stated in the payments paragraph), and the 18-months-on-time bank statement claim (the history starts January 18, 2026, and the customer is invited to send statements).",
+    "groundedness_check": "pass \u2014 every date and amount traces to the verification output: the $140.00 installments due 3/18 and 4/18 not received, the 4/20/2026 bureau report, the $280.00 catch-up on 5/18, the on-time 6/18 installment, the account now current, and history available only from 1/18/2026. The 30/45-day timeline comes from Policy 04. The statement that a review of the 60-day status has been requested is declared in `referral_stated`, and the verification output itself flags the 60-day label for checking. The reviewer must make that referral before sending. No refund, credit, correction, or approval is claimed as granted or processed. The draft does not assert that the 60-day bucket is correct.",
+    "policy_authorization_check": "pass \u2014 `remedy_stated` is null and the draft promises no correction, deletion, or bureau update timing. Requesting a review of our own furnished data is within front-line authority under Policy 04. The draft does not promise that a bureau will update within a set number of days.",
+    "prohibited_language_check": "pass \u2014 there is no fault admission beyond confirmed fact (the draft states the missed installments plainly), no guarantee about the future, no legal conclusion, and no promise outside documented authority. Nothing discourages the customer from other channels. 'It's upsetting to see a mark like that' is a measured acknowledgment, not an excessive apology.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11: it opens by referencing the specific complaint, gives findings with specific dates and amounts, states the pending outcome (a review of the 60-day status with results to follow), lists next steps (send bank statements, reply or call, 30/45-day timeline), and ends with the case reference 23623033. It uses second person, plain language, short labeled paragraphs per allegation, and no marketing content. Minor note: the outcome is blended into the 60-day paragraph and could be labeled separately, but it is present and adequate.",
+    "specific_issues": []
+  },
+  "summary": "Incorrect information on your report - confirmed_false - Low risk - draft ready for review",
+  "run_finished": "2026-10-10T19:59:08+00:00"
+}

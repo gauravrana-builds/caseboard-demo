@@ -1,0 +1,153 @@
+{
+  "complaint_id": "20963338",
+  "run_started": "2026-10-11T15:39:58+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20963338",
+    "date_received": "4/6/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "FL",
+    "narrative": "I took out a payday loan for $300 and was told the fee would be $45. When the payment was withdrawn from my account it was actually $87, almost double what I was quoted. I have the original text message showing the $45 fee they promised me.",
+    "account_id": "ACC-007",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1444,
+      "output_tokens": 217
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5038,
+      "output_tokens": 767
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Was quoted a $45 fee on a $300 payday loan but the amount withdrawn was $87, almost double the quoted amount"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      300.0,
+      45.0,
+      87.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Payment of $87 was withdrawn from the customer's account; customer has the original text message showing the $45 fee",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and specific"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-007",
+      "loan_balance": 0.0,
+      "origination_date": "3/2/2026",
+      "payment_status": "paid_off",
+      "product_type": "payday_loan",
+      "account_note": "Payday loan, paid off. Opened 2026-03-02."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-007",
+        "date": "2026-03-02",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Loan funded: principal $300.00; finance charge $87.00 per e-signed loan agreement; total repayable $387.00 due 2026-03-30"
+      },
+      {
+        "account_id": "ACC-007",
+        "date": "2026-03-30",
+        "type": "payment",
+        "amount": 387.0,
+        "note": "ACH withdrawal: $300.00 principal + $87.00 finance charge"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "The customer reports two problem events: (1) an $87 charge, and (2) a quote of a $45 fee. (1) Confirmed: the 2026-03-02 loan funding record shows a $300.00 principal with an $87.00 finance charge per the e-signed loan agreement, and the 2026-03-30 ACH withdrawal was $387.00 ($300.00 principal + $87.00 finance charge). The customer's description of '$87 withdrawn' matches the finance charge, not the full withdrawal. The customer is right that the fee charged was $87. (2) Cannot be confirmed: the $45 quote was reportedly given in a text message, which the system does not record, and no copy of that message is on file. The signed agreement establishes the terms of the loan, not what the customer was told beforehand, so it neither supports nor contradicts the quote. The customer is therefore right about the amount charged, and the claim that $45 was quoted is unverified.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer alleges being quoted a $45 fee and charged $87, which is a misled-about-loan-cost allegation (policy 05) and an automatic High regardless of whether the records confirm it. The claim is also partially_true. Neither of these is a collector-conduct or attorney/regulator issue.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Policy 05 mandatory human review: the customer alleges a quoted fee ($45) different from the fee charged ($87). A human must review the text message the customer says they hold and the origination and disclosure process. No draft may be prepared.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I took out a payday loan for $300 and was told the fee would be $45. When the payment was withdrawn from my account it was actually $87, almost double what I was quoted. I have the original text message showing the $45 fee they promised me.",
+    "extraction": {
+      "allegations": [
+        "Was quoted a $45 fee on a $300 payday loan but the amount withdrawn was $87, almost double the quoted amount"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        300.0,
+        45.0,
+        87.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Payment of $87 was withdrawn from the customer's account; customer has the original text message showing the $45 fee",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and specific"
+    },
+    "verification": {
+      "fact_verification": "partially_true",
+      "fact_verification_explanation": "The customer reports two problem events: (1) an $87 charge, and (2) a quote of a $45 fee. (1) Confirmed: the 2026-03-02 loan funding record shows a $300.00 principal with an $87.00 finance charge per the e-signed loan agreement, and the 2026-03-30 ACH withdrawal was $387.00 ($300.00 principal + $87.00 finance charge). The customer's description of '$87 withdrawn' matches the finance charge, not the full withdrawal. The customer is right that the fee charged was $87. (2) Cannot be confirmed: the $45 quote was reportedly given in a text message, which the system does not record, and no copy of that message is on file. The signed agreement establishes the terms of the loan, not what the customer was told beforehand, so it neither supports nor contradicts the quote. The customer is therefore right about the amount charged, and the claim that $45 was quoted is unverified.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer alleges being quoted a $45 fee and charged $87, which is a misled-about-loan-cost allegation (policy 05) and an automatic High regardless of whether the records confirm it. The claim is also partially_true. Neither of these is a collector-conduct or attorney/regulator issue.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-007",
+        "loan_balance": 0.0,
+        "origination_date": "3/2/2026",
+        "payment_status": "paid_off",
+        "product_type": "payday_loan",
+        "account_note": "Payday loan, paid off. Opened 2026-03-02."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-007",
+          "date": "2026-03-02",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Loan funded: principal $300.00; finance charge $87.00 per e-signed loan agreement; total repayable $387.00 due 2026-03-30"
+        },
+        {
+          "account_id": "ACC-007",
+          "date": "2026-03-30",
+          "type": "payment",
+          "amount": 387.0,
+          "note": "ACH withdrawal: $300.00 principal + $87.00 finance charge"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Policy 05 mandatory human review: the customer alleges a quoted fee ($45) different from the fee charged ($87). A human must review the text message the customer says they hold and the origination and disclosure process. No draft may be prepared.",
+    "unresolved": null,
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - partially_true - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-11T15:40:06+00:00"
+}

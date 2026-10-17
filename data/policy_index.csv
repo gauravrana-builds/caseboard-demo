@@ -1,0 +1,13 @@
+policy_id,filename,topic,category,keywords
+01,01-reg-b-adverse-action.md,Adverse Action Notices (Reg B / ECOA),regulatory,"denial, adverse action, credit terms, denied, decline, reasons for denial"
+02,02-reg-e-error-resolution.md,Electronic Fund Transfer Errors (Reg E),regulatory,"unauthorized transaction, duplicate charge, electronic payment, ACH, debit, EFT, provisional credit"
+03,03-reg-f-debt-collection-conduct.md,Debt Collection Conduct (Reg F / FDCPA),regulatory,"collection calls, frequent calls, harassment, cease communication, 7-in-7, workplace contact, threats"
+04,04-fcra-dispute-handling.md,Credit Reporting Disputes (FCRA),regulatory,"credit report, incorrect information, dispute, furnisher, bureau, investigation, inaccurate"
+05,05-udaap-prohibited-practices.md,Unfair Deceptive Abusive Practices (UDAAP),regulatory,"misleading, deceptive, unfair, abusive, guarantee, promise, misrepresent"
+06,06-fee-waiver-authority.md,Fee Waiver and Goodwill Credit Authority,internal,"fee waiver, refund, late fee, credit, goodwill, waive, reimburse"
+07,07-hardship-deferral-options.md,Hardship and Payment Deferral Options,internal,"hardship, struggling to pay, payment plan, deferral, job loss, medical emergency, forbearance"
+08,08-dispute-handling-process.md,General Dispute Handling Process,internal,"general dispute, process, timeline, acknowledge, investigate, respond"
+09,09-escalation-criteria.md,Escalation Criteria,internal,"attorney, lawyer, regulator, CFPB, legal action, discrimination, identity theft, vulnerable, repeat complaint"
+10,10-prohibited-language-guidance.md,Prohibited Language Guidance,internal,"tone, language, apology, admission, promise, guarantee, wording"
+11,11-response-tone-format.md,Response Tone and Format Requirements,internal,"format, structure, tone, length, template, response structure"
+12,12-vulnerable-customer-handling.md,Vulnerable Customer Handling,internal,"elderly, disability, military, SCRA, limited English, vulnerable, deployment"

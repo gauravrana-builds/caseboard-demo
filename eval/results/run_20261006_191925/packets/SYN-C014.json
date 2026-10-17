@@ -1,0 +1,216 @@
+{
+  "complaint_id": "SYN-C014",
+  "run_started": "2026-10-07T00:24:35+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C014",
+    "date_received": "2026-09-27",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "CO",
+    "narrative": "I tried to make my $40 monthly payment through the mobile app and it failed twice with no error explanation. I'm concerned I'll be reported late through no fault of my own.",
+    "account_id": "ACC-064",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1419,
+      "output_tokens": 211
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3012,
+      "output_tokens": 1508
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3709,
+      "output_tokens": 1246
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4089,
+      "output_tokens": 1216
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Attempted to make a $40 monthly payment through the mobile app and it failed twice",
+      "No error explanation was provided for the failed payments"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      40.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Monthly payment of $40 attempted through the mobile app; failed twice with no error explanation",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-064",
+      "loan_balance": 1250.0,
+      "origination_date": "2025-10-15",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-064",
+        "date": "2025-10-15",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2025-11-14",
+        "type": "payment",
+        "amount": 65.79,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2025-12-14",
+        "type": "payment",
+        "amount": 52.08,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2026-01-13",
+        "type": "payment",
+        "amount": 52.08,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2026-02-12",
+        "type": "payment",
+        "amount": 35.71,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2026-03-14",
+        "type": "payment",
+        "amount": 56.82,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2026-04-13",
+        "type": "payment",
+        "amount": 89.29,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2026-05-13",
+        "type": "payment",
+        "amount": 83.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2026-06-12",
+        "type": "payment",
+        "amount": 69.44,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-064",
+        "date": "2026-07-12",
+        "type": "payment",
+        "amount": 54.35,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The transaction history (2025-10-15 to 2026-07-12) lists only completed payments. Failed or rejected app payment attempts would not appear in it, so it can neither confirm nor contradict the claim that two $40 attempts failed. Missing evidence: mobile app / payment-processing logs for failed attempts, the date of the attempts (the complaint gives none), and any error codes returned. The account is 'current' and no late fees or missed payments appear, so nothing indicates financial harm. The stated '$40 monthly payment' does not match any posted payment (amounts range from $35.71 to $89.29), which is a discrepancy to clarify. The account_note says the record is generic and not built for fact verification, so it adds no evidence either way.",
+    "risk_tier": "Medium",
+    "risk_rationale": "No attorney/regulator reference or UDAAP language is present and the account is current with no fees or harm, so the unverifiable gap does not change the outcome. The claim cannot be verified from available data, though, and an unresolved payment-channel failure could lead to a missed payment, so Medium is more appropriate than Low.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us because two attempts to make a $40 payment through our mobile app failed, and no explanation was given for the failures. We reviewed your account for both concerns.\n\nFailed payment attempts: Your transaction history shows completed payments only. A payment that failed in the app would not appear there, so we could not confirm or rule out the two failed attempts from the records we reviewed. We also could not find a $40 payment among your posted payments, which range from $35.71 to $89.29. Your account is currently in good standing, and our records show no late fees or missed payments.\n\nNo error explanation: The records we reviewed do not include the app's payment-processing logs or any error messages it displayed. We therefore could not verify what message, if any, appeared when the attempts failed.\n\nBecause we could not verify either point, we have classified this as unable to verify, and no remedy applies at this time. To help us look further, please reply to this message with:\n- the approximate date and time of each attempt,\n- the payment method or account you used,\n- any error message or screenshot you have.\n\nWith those details, we can review the app's payment-processing records for those attempts. You are welcome to reply here or call the number on your account. If you prefer to raise this through another channel, that is always your choice.\n\nCase reference: SYN-C014",
+        "policy_cited": "08 General Dispute Handling Process, Standard process (Classify: unable to verify; Respond: address every allegation individually); 10 Prohibited Language; 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Attempted to make a $40 monthly payment through the mobile app and it failed twice",
+          "No error explanation was provided for the failed payments"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed individually: the two failed $40 app payment attempts, and the lack of an error explanation.",
+        "groundedness_check": "pass \u2014 the transaction history showing only completed payments, the $35.71 to $89.29 range, the absence of a $40 payment, no late fees or missed payments, and the missing app logs and error messages all trace to the verification output. The 'unable to verify' classification comes from Policy 08. Minor wording notes that do not rise to a failure: 'good standing' paraphrases the account status 'current', and 'call the number on your account' is a generic contact instruction, not a factual claim.",
+        "policy_authorization_check": "pass \u2014 no remedy is stated (remedy_stated is null) and the draft says none applies at this time. This is consistent with an unable-to-verify classification and with Policy 08, so nothing exceeds authority.",
+        "prohibited_language_check": "pass \u2014 no fault admission, future guarantee, legal conclusion or unauthorized promise was found. 'If you prefer to raise this through another channel, that is always your choice' supports the customer's options and does not discourage further action.",
+        "tone_structure_check": "pass \u2014 the draft follows Policy 11: a specific opening acknowledgment, findings with amounts, an outcome explaining why no remedy applies, next steps (the three details requested and how to reply), and the case reference SYN-C014. It uses second person and plain language, has short paragraphs with a separate section per allegation, and contains no marketing content. The length is acceptable for a multi-allegation response.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us because two attempts to make a $40 payment through our mobile app failed, and no explanation was given for the failures. We reviewed your account for both concerns.\n\nFailed payment attempts: Your transaction history shows completed payments only. A payment that failed in the app would not appear there, so we could not confirm or rule out the two failed attempts from the records we reviewed. We also could not find a $40 payment among your posted payments, which range from $35.71 to $89.29. Your account is currently in good standing, and our records show no late fees or missed payments.\n\nNo error explanation: The records we reviewed do not include the app's payment-processing logs or any error messages it displayed. We therefore could not verify what message, if any, appeared when the attempts failed.\n\nBecause we could not verify either point, we have classified this as unable to verify, and no remedy applies at this time. To help us look further, please reply to this message with:\n- the approximate date and time of each attempt,\n- the payment method or account you used,\n- any error message or screenshot you have.\n\nWith those details, we can review the app's payment-processing records for those attempts. You are welcome to reply here or call the number on your account. If you prefer to raise this through another channel, that is always your choice.\n\nCase reference: SYN-C014",
+    "policy_cited": "08 General Dispute Handling Process, Standard process (Classify: unable to verify; Respond: address every allegation individually); 10 Prohibited Language; 11 Response Tone and Format",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Attempted to make a $40 monthly payment through the mobile app and it failed twice",
+      "No error explanation was provided for the failed payments"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed individually: the two failed $40 app payment attempts, and the lack of an error explanation.",
+    "groundedness_check": "pass \u2014 the transaction history showing only completed payments, the $35.71 to $89.29 range, the absence of a $40 payment, no late fees or missed payments, and the missing app logs and error messages all trace to the verification output. The 'unable to verify' classification comes from Policy 08. Minor wording notes that do not rise to a failure: 'good standing' paraphrases the account status 'current', and 'call the number on your account' is a generic contact instruction, not a factual claim.",
+    "policy_authorization_check": "pass \u2014 no remedy is stated (remedy_stated is null) and the draft says none applies at this time. This is consistent with an unable-to-verify classification and with Policy 08, so nothing exceeds authority.",
+    "prohibited_language_check": "pass \u2014 no fault admission, future guarantee, legal conclusion or unauthorized promise was found. 'If you prefer to raise this through another channel, that is always your choice' supports the customer's options and does not discourage further action.",
+    "tone_structure_check": "pass \u2014 the draft follows Policy 11: a specific opening acknowledgment, findings with amounts, an outcome explaining why no remedy applies, next steps (the three details requested and how to reply), and the case reference SYN-C014. It uses second person and plain language, has short paragraphs with a separate section per allegation, and contains no marketing content. The length is acceptable for a multi-allegation response.",
+    "specific_issues": []
+  },
+  "summary": "Problem when making payments - unverifiable - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T00:25:12+00:00"
+}

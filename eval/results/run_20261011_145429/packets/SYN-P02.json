@@ -1,0 +1,169 @@
+{
+  "complaint_id": "SYN-P02",
+  "run_started": "2026-10-11T19:55:57+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-P02",
+    "date_received": "7/2/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "WA",
+    "narrative": "My payment this month was taken out twice from my bank account, for $220 total instead of $110. This has caused an overdraft on my checking account.",
+    "account_id": "ACC-P02",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1408,
+      "output_tokens": 226
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5158,
+      "output_tokens": 756
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4992,
+      "output_tokens": 1898
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4534,
+      "output_tokens": 1868
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Monthly payment was taken out of bank account twice",
+      "Total of $220 withdrawn instead of $110",
+      "Double withdrawal caused an overdraft on checking account"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      220.0,
+      110.0
+    ],
+    "dates_mentioned": [
+      "this month"
+    ],
+    "account_details_mentioned": "Payment due was $110; $220 was withdrawn from bank account; checking account overdrawn as a result",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-P02",
+      "loan_balance": 990.0,
+      "origination_date": "9/10/2025",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Transaction log shows TWO payments of $110 processed on 2026-06-30 and 2026-07-01 (CONFIRMED \u2014 duplicate charge occurred due to a known payment-processor retry issue logged internally on 2026-07-01). However, no overdraft fee charge appears linked to this account or flows to the customer's bank (the overdraft, if any, would be charged by the customer's own bank, not us \u2014 NOT CONFIRMED on our end)."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-P02",
+        "date": "2026-06-30",
+        "type": "payment",
+        "amount": 110.0,
+        "note": "First of two payments (duplicate charge event)."
+      },
+      {
+        "account_id": "ACC-P02",
+        "date": "2026-07-01",
+        "type": "payment",
+        "amount": 110.0,
+        "note": "Second payment - duplicate, caused by processor retry issue logged 2026-07-01."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "The customer reports two problem events: (1) a duplicate monthly payment and (2) an overdraft on their checking account caused by it. (1) is CONFIRMED. The transaction log shows two payments of $110 on 2026-06-30 and 2026-07-01, totaling $220 against a $110 payment due. The account note attributes the second payment to a known payment-processor retry issue logged internally on 2026-07-01, so the duplicate was our error. (2) CANNOT BE CONFIRMED. An overdraft would be recorded and charged by the customer's own bank, not by this company, and nothing on this account shows an overdraft or related fee. The missing record does not count against the customer, since our system would not hold it. The customer is right about the duplicate $110 withdrawal. The overdraft and any resulting bank fees would need the customer's bank statement.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true (duplicate payment confirmed, overdraft unconfirmed) and the total withdrawn is $220, over the $200 threshold. There is no attorney/regulator reference, identity-theft dispute, misleading-terms allegation, collector conduct, or embedded instruction, so the tier stays Medium rather than High.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "Thank you for reaching out about the payment that came out of your bank account twice.\n\nYou were expecting $110 to be taken and instead $220 left your account, and you've told us that left your checking account overdrawn. That's a stressful thing to deal with, and we want to go through each part of it with you.\n\nThe double payment and the $220 total: Our records confirm your monthly payment was taken twice. We show one payment of $110 on June 30, 2026 and a second payment of $110 on July 1, 2026, which adds up to $220 against a payment due of $110.\n\nThe overdraft: We can't confirm this from our side. An overdraft on your checking account would be recorded by your bank, not by us, and we don't see an overdraft or any related fee on your account with us. That doesn't mean it didn't happen. It just means we can't see it from here.\n\nWhat happens next: We've referred the duplicate payment for approval of a correction. We can't promise the outcome or a date yet, and we'll be in touch once there's a decision. If your bank charged you an overdraft fee, please send us a copy of your bank statement showing the overdraft and any fees. We'll review it, and you're welcome to send us anything else you think is relevant at any time. You can reply to this message or call the number on your account. You're also free to take this up through any other channel you choose.\n\nCase reference: SYN-P02.",
+        "policy_cited": "08 General Dispute Handling Process, Standard process steps 3-4 (classification and individual response to every allegation); formatted per Policy 10 and Policy 11",
+        "remedy_stated": null,
+        "referral_stated": "Correction of the duplicate $110 payment (payments dated 2026-06-30 and 2026-07-01, $220 total against $110 due) is described as referred for approval. The reviewer should submit this referral before sending, since the retrieved policy sets no front-line refund authority.",
+        "allegations_addressed": [
+          "Monthly payment was taken out of bank account twice",
+          "Total of $220 withdrawn instead of $110",
+          "Double withdrawal caused an overdraft on checking account"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 all three allegations are addressed: the duplicate withdrawal, the $220 total versus $110 due, and the overdraft on the checking account.",
+        "groundedness_check": "pass \u2014 the two $110 payments on June 30, 2026 and July 1, 2026, the $220 total and the $110 due all match the verification output. The overdraft is correctly stated as unconfirmed, and the draft says it is recorded by the customer's bank. 'We've referred the duplicate payment for approval of a correction' is grounded: the verification output confirms the duplicate was the company's error, and `referral_stated` declares the referral for the reviewer to carry out before sending. The draft does not say a refund or credit has been granted or processed.",
+        "policy_authorization_check": "pass \u2014 `remedy_stated` is null and the draft promises no refund, credit or fee reimbursement. It says only that a correction is referred for approval and that no outcome or date can be promised.",
+        "prohibited_language_check": "pass \u2014 there is no fault admission beyond the confirmed fact (the draft only says the payment 'was taken twice'), no future guarantee, no legal conclusion and no unapproved promise. 'You're also free to take this up through any other channel you choose' invites other channels rather than discouraging them.",
+        "tone_structure_check": "pass \u2014 the draft follows the Policy 11 order: acknowledgment, findings with specific dates and amounts, outcome/next steps, then the case reference SYN-P02. It uses second person and plain language, has no marketing content, and handles each allegation in its own paragraph. Non-blocking note: the outcome (referral for correction) and the next steps share one paragraph, and that paragraph runs six sentences against the 2\u20134 sentence guideline. The reviewer may want to split it.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "Thank you for reaching out about the payment that came out of your bank account twice.\n\nYou were expecting $110 to be taken and instead $220 left your account, and you've told us that left your checking account overdrawn. That's a stressful thing to deal with, and we want to go through each part of it with you.\n\nThe double payment and the $220 total: Our records confirm your monthly payment was taken twice. We show one payment of $110 on June 30, 2026 and a second payment of $110 on July 1, 2026, which adds up to $220 against a payment due of $110.\n\nThe overdraft: We can't confirm this from our side. An overdraft on your checking account would be recorded by your bank, not by us, and we don't see an overdraft or any related fee on your account with us. That doesn't mean it didn't happen. It just means we can't see it from here.\n\nWhat happens next: We've referred the duplicate payment for approval of a correction. We can't promise the outcome or a date yet, and we'll be in touch once there's a decision. If your bank charged you an overdraft fee, please send us a copy of your bank statement showing the overdraft and any fees. We'll review it, and you're welcome to send us anything else you think is relevant at any time. You can reply to this message or call the number on your account. You're also free to take this up through any other channel you choose.\n\nCase reference: SYN-P02.",
+    "policy_cited": "08 General Dispute Handling Process, Standard process steps 3-4 (classification and individual response to every allegation); formatted per Policy 10 and Policy 11",
+    "remedy_stated": null,
+    "referral_stated": "Correction of the duplicate $110 payment (payments dated 2026-06-30 and 2026-07-01, $220 total against $110 due) is described as referred for approval. The reviewer should submit this referral before sending, since the retrieved policy sets no front-line refund authority.",
+    "allegations_addressed": [
+      "Monthly payment was taken out of bank account twice",
+      "Total of $220 withdrawn instead of $110",
+      "Double withdrawal caused an overdraft on checking account"
+    ]
+  },
+  "action_required_before_sending": "Correction of the duplicate $110 payment (payments dated 2026-06-30 and 2026-07-01, $220 total against $110 due) is described as referred for approval. The reviewer should submit this referral before sending, since the retrieved policy sets no front-line refund authority.",
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 all three allegations are addressed: the duplicate withdrawal, the $220 total versus $110 due, and the overdraft on the checking account.",
+    "groundedness_check": "pass \u2014 the two $110 payments on June 30, 2026 and July 1, 2026, the $220 total and the $110 due all match the verification output. The overdraft is correctly stated as unconfirmed, and the draft says it is recorded by the customer's bank. 'We've referred the duplicate payment for approval of a correction' is grounded: the verification output confirms the duplicate was the company's error, and `referral_stated` declares the referral for the reviewer to carry out before sending. The draft does not say a refund or credit has been granted or processed.",
+    "policy_authorization_check": "pass \u2014 `remedy_stated` is null and the draft promises no refund, credit or fee reimbursement. It says only that a correction is referred for approval and that no outcome or date can be promised.",
+    "prohibited_language_check": "pass \u2014 there is no fault admission beyond the confirmed fact (the draft only says the payment 'was taken twice'), no future guarantee, no legal conclusion and no unapproved promise. 'You're also free to take this up through any other channel you choose' invites other channels rather than discouraging them.",
+    "tone_structure_check": "pass \u2014 the draft follows the Policy 11 order: acknowledgment, findings with specific dates and amounts, outcome/next steps, then the case reference SYN-P02. It uses second person and plain language, has no marketing content, and handles each allegation in its own paragraph. Non-blocking note: the outcome (referral for correction) and the next steps share one paragraph, and that paragraph runs six sentences against the 2\u20134 sentence guideline. The reviewer may want to split it.",
+    "specific_issues": []
+  },
+  "summary": "Problem when making payments - partially_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-11T19:56:33+00:00"
+}

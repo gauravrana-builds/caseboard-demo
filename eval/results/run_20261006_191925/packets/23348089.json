@@ -1,0 +1,287 @@
+{
+  "complaint_id": "23348089",
+  "run_started": "2026-10-07T00:20:40+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23348089",
+    "date_received": "2026-06-18",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit monitoring or identity theft protection services",
+    "issue": "Billing dispute for services",
+    "sub_issue": "",
+    "state": "NC",
+    "narrative": "I cancelled my credit monitoring subscription in April but I was still charged $19.99 in May and again in June. I have the cancellation confirmation email with a timestamp from April 2nd.",
+    "account_id": "ACC-020",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1431,
+      "output_tokens": 245
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3126,
+      "output_tokens": 1313
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Cancelled credit monitoring subscription in April but was still charged in May",
+      "Charged again in June after cancellation"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      19.99
+    ],
+    "dates_mentioned": [
+      "April",
+      "May",
+      "June",
+      "April 2nd"
+    ],
+    "account_details_mentioned": "Cancelled credit monitoring subscription in April; customer has a cancellation confirmation email timestamped April 2nd; charged $19.99 in May and again in June",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "calm, factual, documented"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-020",
+      "loan_balance": 1100.0,
+      "origination_date": "2025-10-09",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-020",
+        "date": "2025-10-09",
+        "type": "payment",
+        "amount": 31.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2025-11-08",
+        "type": "payment",
+        "amount": 44.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2025-12-08",
+        "type": "payment",
+        "amount": 39.29,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2026-01-07",
+        "type": "payment",
+        "amount": 36.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2026-02-06",
+        "type": "payment",
+        "amount": 84.62,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2026-03-08",
+        "type": "payment",
+        "amount": 91.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2026-04-07",
+        "type": "payment",
+        "amount": 37.93,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2026-05-07",
+        "type": "payment",
+        "amount": 31.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2026-06-06",
+        "type": "payment",
+        "amount": 61.11,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2026-07-06",
+        "type": "payment",
+        "amount": 78.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-020",
+        "date": "2026-08-05",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved ledger for ACC-020 (a payday loan) covers 2025-10-09 through 2026-08-05, which includes April, May and June 2026. It contains only routine loan payments (2026-04-07 $37.93, 2026-05-07 $31.43, 2026-06-06 $61.11). No $19.99 credit monitoring charges appear, and no subscription enrollment, cancellation, or billing records appear either. This does not contradict the claim, because the subscription is likely billed through a separate product, vendor, or payment method that this loan ledger does not capture. The data is also a generic placeholder account record, not one built to verify this complaint. Missing: (1) the subscription/billing record for the credit monitoring service, including enrollment and cancellation status; (2) any record of the cancellation request, to compare against the customer's April 2nd confirmation email; (3) the card or account the $19.99 charges were allegedly posted to; (4) confirmation that this loan account is linked to the subscription at all.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap decides the outcome: without subscription billing and cancellation records, we cannot tell whether the two $19.99 charges occurred after a valid April 2nd cancellation, which triggers the automatic High rule.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central question. No subscription, billing, or cancellation records were retrieved, so any draft would be a guess. A human must obtain the missing records before a response is prepared.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I cancelled my credit monitoring subscription in April but I was still charged $19.99 in May and again in June. I have the cancellation confirmation email with a timestamp from April 2nd.",
+    "extraction": {
+      "allegations": [
+        "Cancelled credit monitoring subscription in April but was still charged in May",
+        "Charged again in June after cancellation"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        19.99
+      ],
+      "dates_mentioned": [
+        "April",
+        "May",
+        "June",
+        "April 2nd"
+      ],
+      "account_details_mentioned": "Cancelled credit monitoring subscription in April; customer has a cancellation confirmation email timestamped April 2nd; charged $19.99 in May and again in June",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "calm, factual, documented"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved ledger for ACC-020 (a payday loan) covers 2025-10-09 through 2026-08-05, which includes April, May and June 2026. It contains only routine loan payments (2026-04-07 $37.93, 2026-05-07 $31.43, 2026-06-06 $61.11). No $19.99 credit monitoring charges appear, and no subscription enrollment, cancellation, or billing records appear either. This does not contradict the claim, because the subscription is likely billed through a separate product, vendor, or payment method that this loan ledger does not capture. The data is also a generic placeholder account record, not one built to verify this complaint. Missing: (1) the subscription/billing record for the credit monitoring service, including enrollment and cancellation status; (2) any record of the cancellation request, to compare against the customer's April 2nd confirmation email; (3) the card or account the $19.99 charges were allegedly posted to; (4) confirmation that this loan account is linked to the subscription at all.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap decides the outcome: without subscription billing and cancellation records, we cannot tell whether the two $19.99 charges occurred after a valid April 2nd cancellation, which triggers the automatic High rule.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-020",
+        "loan_balance": 1100.0,
+        "origination_date": "2025-10-09",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-020",
+          "date": "2025-10-09",
+          "type": "payment",
+          "amount": 31.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2025-11-08",
+          "type": "payment",
+          "amount": 44.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2025-12-08",
+          "type": "payment",
+          "amount": 39.29,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2026-01-07",
+          "type": "payment",
+          "amount": 36.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2026-02-06",
+          "type": "payment",
+          "amount": 84.62,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2026-03-08",
+          "type": "payment",
+          "amount": 91.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2026-04-07",
+          "type": "payment",
+          "amount": 37.93,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2026-05-07",
+          "type": "payment",
+          "amount": 31.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2026-06-06",
+          "type": "payment",
+          "amount": 61.11,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2026-07-06",
+          "type": "payment",
+          "amount": 78.57,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-020",
+          "date": "2026-08-05",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central question. No subscription, billing, or cancellation records were retrieved, so any draft would be a guess. A human must obtain the missing records before a response is prepared.",
+    "unresolved": "The retrieved ledger for ACC-020 (a payday loan) covers 2025-10-09 through 2026-08-05, which includes April, May and June 2026. It contains only routine loan payments (2026-04-07 $37.93, 2026-05-07 $31.43, 2026-06-06 $61.11). No $19.99 credit monitoring charges appear, and no subscription enrollment, cancellation, or billing records appear either. This does not contradict the claim, because the subscription is likely billed through a separate product, vendor, or payment method that this loan ledger does not capture. The data is also a generic placeholder account record, not one built to verify this complaint. Missing: (1) the subscription/billing record for the credit monitoring service, including enrollment and cancellation status; (2) any record of the cancellation request, to compare against the customer's April 2nd confirmation email; (3) the card or account the $19.99 charges were allegedly posted to; (4) confirmation that this loan account is linked to the subscription at all.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Billing dispute for services - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:20:53+00:00"
+}

@@ -1,0 +1,177 @@
+{
+  "complaint_id": "25570367",
+  "run_started": "2026-10-07T00:20:57+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "25570367",
+    "date_received": "2026-08-19",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Information belongs to someone else",
+    "state": "FL",
+    "narrative": "There is an account on my credit report that belongs to someone else with a similar name. I have never lived at the address associated with this account and I've sent documentation proving this multiple times.",
+    "account_id": "ACC-025",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1424,
+      "output_tokens": 251
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2631,
+      "output_tokens": 969
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "An account on the credit report belongs to someone else with a similar name",
+      "Has never lived at the address associated with the account",
+      "Sent documentation proving this multiple times"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [],
+    "account_details_mentioned": "An account appears on the customer's credit report that the customer says belongs to someone else with a similar name; the customer says they never lived at the address associated with the account",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise, implicitly frustrated by repeated unresolved disputes"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-025",
+      "loan_balance": 950.0,
+      "origination_date": "2026-06-11",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-025",
+        "date": "2026-06-11",
+        "type": "payment",
+        "amount": 59.38,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-025",
+        "date": "2026-07-11",
+        "type": "payment",
+        "amount": 27.94,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-025",
+        "date": "2026-08-10",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-025",
+        "date": "2026-09-09",
+        "type": "payment",
+        "amount": 43.18,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges that an account on their credit report belongs to someone else with a similar name, that they never lived at the associated address, and that they sent identity documentation multiple times. The retrieved record for ACC-025 (installment loan, $950.00 balance, originated 2026-06-11, status current) has no data on the account holder's identity, the address on file, or credit bureau reporting. The transactions (payments of $59.38 on 2026-06-11, $27.94 on 2026-07-11 and $43.18 on 2026-09-09, plus a $30.00 fee on 2026-08-10) show only routine payment activity and say nothing about who owns the account. There is no log of prior disputes or received documentation, so the claim that documents were sent multiple times cannot be checked. The account note says the record is generic and was not built to confirm or deny this complaint. It is also unclear that ACC-025 is the account the customer is disputing. Missing: customer identity and address-of-record data, a link between the complainant and ACC-025, the credit bureau tradeline details, and the dispute and documentation history.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap decides the outcome, because whether the account belongs to this customer cannot be established from the evidence. This is an automatic High trigger, and the customer's repeated prior disputes add to the risk.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence cannot establish whether the disputed account belongs to the customer (possible misattributed account or identity mix-up), and this gap determines the outcome. Human review is required to verify identity, address of record and prior dispute documentation before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "There is an account on my credit report that belongs to someone else with a similar name. I have never lived at the address associated with this account and I've sent documentation proving this multiple times.",
+    "extraction": {
+      "allegations": [
+        "An account on the credit report belongs to someone else with a similar name",
+        "Has never lived at the address associated with the account",
+        "Sent documentation proving this multiple times"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [],
+      "account_details_mentioned": "An account appears on the customer's credit report that the customer says belongs to someone else with a similar name; the customer says they never lived at the address associated with the account",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise, implicitly frustrated by repeated unresolved disputes"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges that an account on their credit report belongs to someone else with a similar name, that they never lived at the associated address, and that they sent identity documentation multiple times. The retrieved record for ACC-025 (installment loan, $950.00 balance, originated 2026-06-11, status current) has no data on the account holder's identity, the address on file, or credit bureau reporting. The transactions (payments of $59.38 on 2026-06-11, $27.94 on 2026-07-11 and $43.18 on 2026-09-09, plus a $30.00 fee on 2026-08-10) show only routine payment activity and say nothing about who owns the account. There is no log of prior disputes or received documentation, so the claim that documents were sent multiple times cannot be checked. The account note says the record is generic and was not built to confirm or deny this complaint. It is also unclear that ACC-025 is the account the customer is disputing. Missing: customer identity and address-of-record data, a link between the complainant and ACC-025, the credit bureau tradeline details, and the dispute and documentation history.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap decides the outcome, because whether the account belongs to this customer cannot be established from the evidence. This is an automatic High trigger, and the customer's repeated prior disputes add to the risk.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-025",
+        "loan_balance": 950.0,
+        "origination_date": "2026-06-11",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-025",
+          "date": "2026-06-11",
+          "type": "payment",
+          "amount": 59.38,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-025",
+          "date": "2026-07-11",
+          "type": "payment",
+          "amount": 27.94,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-025",
+          "date": "2026-08-10",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-025",
+          "date": "2026-09-09",
+          "type": "payment",
+          "amount": 43.18,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence cannot establish whether the disputed account belongs to the customer (possible misattributed account or identity mix-up), and this gap determines the outcome. Human review is required to verify identity, address of record and prior dispute documentation before any response is drafted.",
+    "unresolved": "The customer alleges that an account on their credit report belongs to someone else with a similar name, that they never lived at the associated address, and that they sent identity documentation multiple times. The retrieved record for ACC-025 (installment loan, $950.00 balance, originated 2026-06-11, status current) has no data on the account holder's identity, the address on file, or credit bureau reporting. The transactions (payments of $59.38 on 2026-06-11, $27.94 on 2026-07-11 and $43.18 on 2026-09-09, plus a $30.00 fee on 2026-08-10) show only routine payment activity and say nothing about who owns the account. There is no log of prior disputes or received documentation, so the claim that documents were sent multiple times cannot be checked. The account note says the record is generic and was not built to confirm or deny this complaint. It is also unclear that ACC-025 is the account the customer is disputing. Missing: customer identity and address-of-record data, a link between the complainant and ACC-025, the credit bureau tradeline details, and the dispute and documentation history.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:08+00:00"
+}

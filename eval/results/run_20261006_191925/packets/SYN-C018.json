@@ -1,0 +1,263 @@
+{
+  "complaint_id": "SYN-C018",
+  "run_started": "2026-10-07T00:24:59+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C018",
+    "date_received": "2026-08-03",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt is not yours",
+    "state": "IL",
+    "narrative": "I am being contacted about a $25 debt that does not belong to me. I have asked for validation multiple times and have not received any documentation.",
+    "account_id": "ACC-068",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1402,
+      "output_tokens": 180
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2988,
+      "output_tokens": 1201
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Being contacted about a $25 debt that does not belong to the customer",
+      "Requested validation multiple times and has not received any documentation"
+    ],
+    "requested_outcome": "Validation documentation for the debt",
+    "dollar_amounts_mentioned": [
+      25.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-068",
+      "loan_balance": 2000.0,
+      "origination_date": "2025-11-21",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-068",
+        "date": "2025-11-21",
+        "type": "payment",
+        "amount": 68.97,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2025-12-21",
+        "type": "payment",
+        "amount": 95.24,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2026-01-20",
+        "type": "payment",
+        "amount": 60.61,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2026-02-19",
+        "type": "payment",
+        "amount": 64.52,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2026-03-21",
+        "type": "payment",
+        "amount": 90.91,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2026-04-20",
+        "type": "payment",
+        "amount": 60.61,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2026-05-20",
+        "type": "payment",
+        "amount": 86.96,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2026-06-19",
+        "type": "payment",
+        "amount": 62.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2026-07-19",
+        "type": "payment",
+        "amount": 83.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-068",
+        "date": "2026-08-18",
+        "type": "payment",
+        "amount": 58.82,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges (1) being contacted about a $25 debt that is not theirs and (2) repeated validation requests that went unanswered. Account ACC-068 is an installment loan ($2,000.00 balance, status current, originated 2025-11-21). Its transaction history shows only ten routine scheduled payments from 2025-11-21 to 2026-08-18, ranging from $58.82 to $95.24. None of these is a $25 charge, collection placement, or fee. The data does not contain (a) any collection or third-party debt record, (b) the debt the customer was contacted about or who owns it, (c) a contact or correspondence log showing collection attempts, (d) a log of validation requests or the responses sent. The account note states the record is generic and was not built to confirm or deny this complaint. The absence of a $25 item on ACC-068 does not show the debt is not the customer's. It may sit on another account or with another entity, and the customer gave no account or date details to narrow the search. Neither allegation can be confirmed or contradicted from the evidence provided.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap could change the outcome: whether the $25 debt is valid and whether validation requests were received and ignored cannot be determined from the records. The complaint also describes repeated unanswered validation requests, which raises debt-collection and UDAAP-type concerns.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central facts (debt ownership and validation request handling), and the gap affects the outcome, so a human reviewer must retrieve collection and correspondence records before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I am being contacted about a $25 debt that does not belong to me. I have asked for validation multiple times and have not received any documentation.",
+    "extraction": {
+      "allegations": [
+        "Being contacted about a $25 debt that does not belong to the customer",
+        "Requested validation multiple times and has not received any documentation"
+      ],
+      "requested_outcome": "Validation documentation for the debt",
+      "dollar_amounts_mentioned": [
+        25.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": null,
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges (1) being contacted about a $25 debt that is not theirs and (2) repeated validation requests that went unanswered. Account ACC-068 is an installment loan ($2,000.00 balance, status current, originated 2025-11-21). Its transaction history shows only ten routine scheduled payments from 2025-11-21 to 2026-08-18, ranging from $58.82 to $95.24. None of these is a $25 charge, collection placement, or fee. The data does not contain (a) any collection or third-party debt record, (b) the debt the customer was contacted about or who owns it, (c) a contact or correspondence log showing collection attempts, (d) a log of validation requests or the responses sent. The account note states the record is generic and was not built to confirm or deny this complaint. The absence of a $25 item on ACC-068 does not show the debt is not the customer's. It may sit on another account or with another entity, and the customer gave no account or date details to narrow the search. Neither allegation can be confirmed or contradicted from the evidence provided.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap could change the outcome: whether the $25 debt is valid and whether validation requests were received and ignored cannot be determined from the records. The complaint also describes repeated unanswered validation requests, which raises debt-collection and UDAAP-type concerns.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-068",
+        "loan_balance": 2000.0,
+        "origination_date": "2025-11-21",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-068",
+          "date": "2025-11-21",
+          "type": "payment",
+          "amount": 68.97,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2025-12-21",
+          "type": "payment",
+          "amount": 95.24,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2026-01-20",
+          "type": "payment",
+          "amount": 60.61,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2026-02-19",
+          "type": "payment",
+          "amount": 64.52,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2026-03-21",
+          "type": "payment",
+          "amount": 90.91,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2026-04-20",
+          "type": "payment",
+          "amount": 60.61,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2026-05-20",
+          "type": "payment",
+          "amount": 86.96,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2026-06-19",
+          "type": "payment",
+          "amount": 62.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2026-07-19",
+          "type": "payment",
+          "amount": 83.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-068",
+          "date": "2026-08-18",
+          "type": "payment",
+          "amount": 58.82,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central facts (debt ownership and validation request handling), and the gap affects the outcome, so a human reviewer must retrieve collection and correspondence records before any response is drafted.",
+    "unresolved": "The customer alleges (1) being contacted about a $25 debt that is not theirs and (2) repeated validation requests that went unanswered. Account ACC-068 is an installment loan ($2,000.00 balance, status current, originated 2025-11-21). Its transaction history shows only ten routine scheduled payments from 2025-11-21 to 2026-08-18, ranging from $58.82 to $95.24. None of these is a $25 charge, collection placement, or fee. The data does not contain (a) any collection or third-party debt record, (b) the debt the customer was contacted about or who owns it, (c) a contact or correspondence log showing collection attempts, (d) a log of validation requests or the responses sent. The account note states the record is generic and was not built to confirm or deny this complaint. The absence of a $25 item on ACC-068 does not show the debt is not the customer's. It may sit on another account or with another entity, and the customer gave no account or date details to narrow the search. Neither allegation can be confirmed or contradicted from the evidence provided.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:25:10+00:00"
+}

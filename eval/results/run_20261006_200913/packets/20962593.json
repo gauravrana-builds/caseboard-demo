@@ -1,0 +1,311 @@
+{
+  "complaint_id": "20962593",
+  "run_started": "2026-10-07T01:09:15+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20962593",
+    "date_received": "2026-04-05",
+    "product": "Debt collection",
+    "sub_product": "Payday loan debt",
+    "issue": "Communication tactics",
+    "sub_issue": "Frequent or repeated calls",
+    "state": "AR",
+    "narrative": "This collection agency calls me 4 to 5 times a day, sometimes before 8am, about a payday loan debt. I have asked them multiple times to only contact me by mail and they keep calling anyway. It's gotten to the point where I'm afraid to answer my phone.",
+    "account_id": "ACC-005",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1447,
+      "output_tokens": 264
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3341,
+      "output_tokens": 1828
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Collection agency calls 4 to 5 times a day about a payday loan debt",
+      "Calls sometimes occur before 8am",
+      "Customer asked multiple times to be contacted only by mail and the agency keeps calling anyway",
+      "Customer is afraid to answer their phone"
+    ],
+    "requested_outcome": "Contact by mail only",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "4 to 5 times a day",
+      "sometimes before 8am"
+    ],
+    "account_details_mentioned": "Payday loan debt in collection",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "distressed but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-005",
+      "loan_balance": 600.0,
+      "origination_date": "2025-10-23",
+      "payment_status": "past_due",
+      "product_type": "payday_loan",
+      "account_note": "Payday loan, past due. Opened 2025-10-23."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-005",
+        "date": "2026-02-20",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled payment not received"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-01",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Account placed with third-party collection agency; past-due total $600.00"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-02",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Collection agency notice mailed to address on file"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 07:41, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 12:15, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 16:30, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 18:45, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 07:55, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 11:00, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 14:20, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 17:05, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-03-31",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 19:10, no answer"
+      },
+      {
+        "account_id": "ACC-005",
+        "date": "2026-04-01",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Collection agency outbound call 12:05, answered, 2 min"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "SUPPORTED: (1) Call frequency. The call log shows 4 outbound calls on 2026-03-30 (07:41, 12:15, 16:30, 18:45) and 5 on 2026-03-31 (07:55, 11:00, 14:20, 17:05, 19:10), matching '4 to 5 times a day'. A further call on 2026-04-01 at 12:05 was answered for 2 minutes. That is 10 calls in 3 days. (2) Calls before 8am. Calls at 07:41 on 2026-03-30 and 07:55 on 2026-03-31 fall before 8am. (3) The debt exists: the payday loan (ACC-005, $600.00) is past due and was placed with a third-party collection agency on 2026-03-01. NOT VERIFIED: the customer's claim that they repeatedly asked for mail-only contact. No request to restrict contact to mail is recorded in the account notes or transaction log, so the claim that the agency 'keeps calling anyway' after such requests cannot be confirmed. The 2026-04-01 answered call (2 min) is the only logged live contact, and its content is not in the data. Also missing: the agency's own contact notes or call recordings, and any record of customer communications to the lender or agency. The customer's fear of answering the phone is subjective and not verifiable from the records. Note that a collection notice was mailed on 2026-03-02, so mail contact has occurred.",
+    "risk_tier": "High",
+    "risk_rationale": "The call log itself shows potentially prohibited collection conduct by a third-party agency (two calls before 8am and 10 calls in 3 days, which exceeds common call-frequency limits for a single debt), and the undocumented mail-only request is a gap that could change the outcome, so this needs compliance review even though there is no attorney or regulator mention.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence confirms potentially abusive or harassing collection-call practices (pre-8am calls and high call frequency) and the customer's mail-only request is unverified; this is High risk and requires human compliance review, with the agency's contact records and call recordings pulled before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "This collection agency calls me 4 to 5 times a day, sometimes before 8am, about a payday loan debt. I have asked them multiple times to only contact me by mail and they keep calling anyway. It's gotten to the point where I'm afraid to answer my phone.",
+    "extraction": {
+      "allegations": [
+        "Collection agency calls 4 to 5 times a day about a payday loan debt",
+        "Calls sometimes occur before 8am",
+        "Customer asked multiple times to be contacted only by mail and the agency keeps calling anyway",
+        "Customer is afraid to answer their phone"
+      ],
+      "requested_outcome": "Contact by mail only",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "4 to 5 times a day",
+        "sometimes before 8am"
+      ],
+      "account_details_mentioned": "Payday loan debt in collection",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "distressed but factual"
+    },
+    "verification": {
+      "fact_verification": "partially_true",
+      "fact_verification_explanation": "SUPPORTED: (1) Call frequency. The call log shows 4 outbound calls on 2026-03-30 (07:41, 12:15, 16:30, 18:45) and 5 on 2026-03-31 (07:55, 11:00, 14:20, 17:05, 19:10), matching '4 to 5 times a day'. A further call on 2026-04-01 at 12:05 was answered for 2 minutes. That is 10 calls in 3 days. (2) Calls before 8am. Calls at 07:41 on 2026-03-30 and 07:55 on 2026-03-31 fall before 8am. (3) The debt exists: the payday loan (ACC-005, $600.00) is past due and was placed with a third-party collection agency on 2026-03-01. NOT VERIFIED: the customer's claim that they repeatedly asked for mail-only contact. No request to restrict contact to mail is recorded in the account notes or transaction log, so the claim that the agency 'keeps calling anyway' after such requests cannot be confirmed. The 2026-04-01 answered call (2 min) is the only logged live contact, and its content is not in the data. Also missing: the agency's own contact notes or call recordings, and any record of customer communications to the lender or agency. The customer's fear of answering the phone is subjective and not verifiable from the records. Note that a collection notice was mailed on 2026-03-02, so mail contact has occurred.",
+      "risk_tier": "High",
+      "risk_rationale": "The call log itself shows potentially prohibited collection conduct by a third-party agency (two calls before 8am and 10 calls in 3 days, which exceeds common call-frequency limits for a single debt), and the undocumented mail-only request is a gap that could change the outcome, so this needs compliance review even though there is no attorney or regulator mention.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-005",
+        "loan_balance": 600.0,
+        "origination_date": "2025-10-23",
+        "payment_status": "past_due",
+        "product_type": "payday_loan",
+        "account_note": "Payday loan, past due. Opened 2025-10-23."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-005",
+          "date": "2026-02-20",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled payment not received"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-01",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Account placed with third-party collection agency; past-due total $600.00"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-02",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Collection agency notice mailed to address on file"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-30",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 07:41, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-30",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 12:15, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-30",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 16:30, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-30",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 18:45, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-31",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 07:55, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-31",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 11:00, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-31",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 14:20, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-31",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 17:05, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-03-31",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 19:10, no answer"
+        },
+        {
+          "account_id": "ACC-005",
+          "date": "2026-04-01",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Collection agency outbound call 12:05, answered, 2 min"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence confirms potentially abusive or harassing collection-call practices (pre-8am calls and high call frequency) and the customer's mail-only request is unverified; this is High risk and requires human compliance review, with the agency's contact records and call recordings pulled before any response is drafted.",
+    "unresolved": null,
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Communication tactics - partially_true - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T01:09:33+00:00"
+}

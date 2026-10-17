@@ -1,0 +1,247 @@
+{
+  "complaint_id": "22245329",
+  "run_started": "2026-10-08T18:01:29+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "22245329",
+    "date_received": "5/15/2026",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt is not yours",
+    "state": "PA",
+    "narrative": "I am being contacted about a debt of $1,100 that I do not recognize. When I asked for validation of the debt, including the original creditor's name, they refused to provide it and just told me to pay or it would go to collections.",
+    "account_id": "ACC-027",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1428,
+      "output_tokens": 248
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4596,
+      "output_tokens": 1570
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4415,
+      "output_tokens": 1310
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4605,
+      "output_tokens": 1678
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Being contacted about a $1,100 debt the customer does not recognize",
+      "Collector refused to provide debt validation, including the original creditor's name, when asked",
+      "Collector said to pay or the debt would go to collections"
+    ],
+    "requested_outcome": "Validation of the debt, including the original creditor's name",
+    "dollar_amounts_mentioned": [
+      1100.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Debt of $1,100 that the customer does not recognize",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concise, factual, disputing the debt"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-027",
+      "loan_balance": 2000.0,
+      "origination_date": "7/19/2025",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, current. Opened 2025-07-19."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-027",
+        "date": "2026-03-19",
+        "type": "payment",
+        "amount": 185.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2026-04-19",
+        "type": "payment",
+        "amount": 185.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2026-05-12",
+        "type": "payment",
+        "amount": 185.0,
+        "note": "Scheduled installment received"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The central allegation is that the customer is being pursued for a $1,100 debt they do not recognize, and that the collector refused validation (including the original creditor's name) and said to pay or the debt would go to collections. The only account on file, ACC-027, is a current installment loan opened 2025-07-19 with a $2,000 balance. Its payments of $185 on 2026-03-19, 2026-04-19 and 2026-05-12 were all received as scheduled. Nothing on this account is a $1,100 debt, but that does not show the collector's debt is invalid. The debt may sit on another account or with a third-party collector or debt buyer, and the customer has not linked it to ACC-027. The records also hold no collector contact logs, call recordings, validation requests or validation notices. The collector's statements and any refusal to validate are verbal or third-party conduct that this system does not capture. Missing: the source and identity of the $1,100 debt (original creditor, account, or placement with a collector), and the collector contact and validation-request history.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The disputed amount of $1,100 is well over $200, and the customer alleges collector conduct (refusal to validate, pressure to pay or be sent to collections) that falls under Reg F (policy 03). The Reg F High bullet was considered but not met: the customer does not allege a threat of legal action or credit reporting, false statements about the amount or legal status, or abusive language, and 'go to collections' reads as pressure to pay. There is no attorney or regulator reference, no explicit identity-theft or fraud allegation (the customer only says they do not recognize the debt), no misleading-terms allegation, and no embedded instructions. The unverifiable status was not used to raise the tier.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the records do not identify the $1,100 debt or its original creditor, and hold no collector contact or validation-request history. Locate the debt's origin and the collector contact records before responding.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I am being contacted about a debt of $1,100 that I do not recognize. When I asked for validation of the debt, including the original creditor's name, they refused to provide it and just told me to pay or it would go to collections.",
+    "extraction": {
+      "allegations": [
+        "Being contacted about a $1,100 debt the customer does not recognize",
+        "Collector refused to provide debt validation, including the original creditor's name, when asked",
+        "Collector said to pay or the debt would go to collections"
+      ],
+      "requested_outcome": "Validation of the debt, including the original creditor's name",
+      "dollar_amounts_mentioned": [
+        1100.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Debt of $1,100 that the customer does not recognize",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concise, factual, disputing the debt"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The central allegation is that the customer is being pursued for a $1,100 debt they do not recognize, and that the collector refused validation (including the original creditor's name) and said to pay or the debt would go to collections. The only account on file, ACC-027, is a current installment loan opened 2025-07-19 with a $2,000 balance. Its payments of $185 on 2026-03-19, 2026-04-19 and 2026-05-12 were all received as scheduled. Nothing on this account is a $1,100 debt, but that does not show the collector's debt is invalid. The debt may sit on another account or with a third-party collector or debt buyer, and the customer has not linked it to ACC-027. The records also hold no collector contact logs, call recordings, validation requests or validation notices. The collector's statements and any refusal to validate are verbal or third-party conduct that this system does not capture. Missing: the source and identity of the $1,100 debt (original creditor, account, or placement with a collector), and the collector contact and validation-request history.",
+      "risk_tier": "Medium",
+      "risk_rationale": "The disputed amount of $1,100 is well over $200, and the customer alleges collector conduct (refusal to validate, pressure to pay or be sent to collections) that falls under Reg F (policy 03). The Reg F High bullet was considered but not met: the customer does not allege a threat of legal action or credit reporting, false statements about the amount or legal status, or abusive language, and 'go to collections' reads as pressure to pay. There is no attorney or regulator reference, no explicit identity-theft or fraud allegation (the customer only says they do not recognize the debt), no misleading-terms allegation, and no embedded instructions. The unverifiable status was not used to raise the tier.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-027",
+        "loan_balance": 2000.0,
+        "origination_date": "7/19/2025",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Installment loan, current. Opened 2025-07-19."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-027",
+          "date": "2026-03-19",
+          "type": "payment",
+          "amount": 185.0,
+          "note": "Scheduled installment received"
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2026-04-19",
+          "type": "payment",
+          "amount": 185.0,
+          "note": "Scheduled installment received"
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2026-05-12",
+          "type": "payment",
+          "amount": 185.0,
+          "note": "Scheduled installment received"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the records do not identify the $1,100 debt or its original creditor, and hold no collector contact or validation-request history. Locate the debt's origin and the collector contact records before responding.",
+    "unresolved": "The central allegation is that the customer is being pursued for a $1,100 debt they do not recognize, and that the collector refused validation (including the original creditor's name) and said to pay or the debt would go to collections. The only account on file, ACC-027, is a current installment loan opened 2025-07-19 with a $2,000 balance. Its payments of $185 on 2026-03-19, 2026-04-19 and 2026-05-12 were all received as scheduled. Nothing on this account is a $1,100 debt, but that does not show the collector's debt is invalid. The debt may sit on another account or with a third-party collector or debt buyer, and the customer has not linked it to ACC-027. The records also hold no collector contact logs, call recordings, validation requests or validation notices. The collector's statements and any refusal to validate are verbal or third-party conduct that this system does not capture. Missing: the source and identity of the $1,100 debt (original creditor, account, or placement with a collector), and the collector contact and validation-request history.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - Medium risk - draft ready for review",
+  "run_finished": "2026-10-09T19:23:19+00:00",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You wrote to us about a $1,100 debt you don't recognize, and about a collector who wouldn't give you validation or the original creditor's name. We understand how unsettling it is to be pressed for money you don't believe you owe. Here is what we found on each point.\n\nThe $1,100 debt: The only account we have on file for you is an installment loan, and it shows no $1,100 balance. That does not tell us whether the debt the collector described is valid, or where it comes from. It could be tied to another account or to another company, and nothing you sent links it to the account we hold. So we are unable to verify this debt.\n\nValidation and the original creditor's name: Our records contain no request for validation from you and no record of any contact with this collector. Because we can't identify the debt, we also can't give you an original creditor's name.\n\nThe statement to pay or the debt would go to collections: We have no call recording or contact log for this conversation, so we can't confirm what was said.\n\nNext steps: If you can send us the collector's name and contact details, any letter or notice you received, the account or reference number they gave you, and the dates they contacted you, we will review it as soon as it arrives. You are welcome to send more information at any time, and you remain free to raise this with the collector or any other organization you choose. You can reply to this message or call the number on your account.\n\nCase reference: 22245329.",
+        "policy_cited": "08 General Dispute Handling Process (unable to verify classification; respond to every allegation individually with a clear next step), with Policy 10 and Policy 11 applied",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Being contacted about a $1,100 debt the customer does not recognize",
+          "Collector refused to provide debt validation, including the original creditor's name, when asked",
+          "Collector said to pay or the debt would go to collections"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You wrote to us about a $1,100 debt you don't recognize, and about a collector who wouldn't give you validation or the original creditor's name. We understand how unsettling it is to be pressed for money you don't believe you owe. Here is what we found on each point.\n\nThe $1,100 debt: The only account we have on file for you is an installment loan, and it shows no $1,100 balance. That does not tell us whether the debt the collector described is valid, or where it comes from. It could be tied to another account or to another company, and nothing you sent links it to the account we hold. So we are unable to verify this debt.\n\nValidation and the original creditor's name: Our records contain no request for validation from you and no record of any contact with this collector. Because we can't identify the debt, we also can't give you an original creditor's name.\n\nThe statement to pay or the debt would go to collections: We have no call recording or contact log for this conversation, so we can't confirm what was said.\n\nNext steps: If you can send us the collector's name and contact details, any letter or notice you received, the account or reference number they gave you, and the dates they contacted you, we will review it as soon as it arrives. You are welcome to send more information at any time, and you remain free to raise this with the collector or any other organization you choose. You can reply to this message or call the number on your account.\n\nCase reference: 22245329.",
+    "policy_cited": "08 General Dispute Handling Process (unable to verify classification; respond to every allegation individually with a clear next step), with Policy 10 and Policy 11 applied",
+    "remedy_stated": null,
+    "referral_stated": null,
+    "allegations_addressed": [
+      "Being contacted about a $1,100 debt the customer does not recognize",
+      "Collector refused to provide debt validation, including the original creditor's name, when asked",
+      "Collector said to pay or the debt would go to collections"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass",
+    "groundedness_check": "pass",
+    "policy_authorization_check": "pass",
+    "prohibited_language_check": "pass",
+    "tone_structure_check": "pass",
+    "specific_issues": []
+  },
+  "action_required_before_sending": null,
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Evidence is unverifiable and the gap decides the outcome: the records do not identify the $1,100 debt or its original creditor, and hold no collector contact or validation-request history. Locate the debt's origin and the collector contact records before responding.",
+    "at": "2026-10-09T19:23:19+00:00"
+  }
+}

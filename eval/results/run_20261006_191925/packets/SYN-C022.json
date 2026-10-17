@@ -1,0 +1,167 @@
+{
+  "complaint_id": "SYN-C022",
+  "run_started": "2026-10-07T00:25:12+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C022",
+    "date_received": "2026-07-11",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Problem with a company's investigation into an existing problem",
+    "sub_issue": "Their investigation did not fix an error on your report",
+    "state": "NC",
+    "narrative": "I disputed an error showing a $150 balance on my credit report and the company closed the dispute as verified without explaining what was actually checked.",
+    "account_id": "ACC-072",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1426,
+      "output_tokens": 204
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2521,
+      "output_tokens": 1168
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Disputed an error showing a $150 balance on credit report",
+      "Company closed the dispute as verified",
+      "Company did not explain what was actually checked"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      150.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Credit report shows a $150 balance that the customer says is an error",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-072",
+      "loan_balance": 1600.0,
+      "origination_date": "2026-07-17",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-072",
+        "date": "2026-07-17",
+        "type": "payment",
+        "amount": 51.61,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-072",
+        "date": "2026-08-16",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-072",
+        "date": "2026-09-15",
+        "type": "payment",
+        "amount": 69.57,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved evidence cannot confirm or contradict the claim. (1) No credit reporting data was provided, so we cannot see what balance is reported for this customer, and nothing in the account or transaction data equals or derives from $150. ACC-072 is a current installment loan with a $1,600.00 balance. Its history has only three entries: a $51.61 payment on 2026-07-17, a $30.00 fee on 2026-08-16, and a $69.57 payment on 2026-09-15. (2) No dispute or investigation records were provided, so we cannot verify that a dispute was filed, how it was closed, or what was checked. (3) The complaint names no account or tradeline, so the $150 may relate to a different account or reporting field than ACC-072. (4) The account_note says the record is generic and not built to confirm or deny this complaint. Missing: furnished credit reporting data for the account, the dispute case file with its closure and verification details, and confirmation of which account the customer means.",
+    "risk_tier": "High",
+    "risk_rationale": "The disputed $150 balance cannot be confirmed or refuted from the available data, and that gap decides the outcome: whether the reported amount is accurate and whether the dispute was properly investigated. This triggers the automatic High tier for unverifiable claims. There is no attorney/regulator reference and the flag is False, so that trigger did not apply.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome. The credit reporting data and dispute investigation records needed to assess the $150 balance and the 'verified' closure are missing, and the complaint does not clearly tie to ACC-072. A human reviewer must obtain them before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I disputed an error showing a $150 balance on my credit report and the company closed the dispute as verified without explaining what was actually checked.",
+    "extraction": {
+      "allegations": [
+        "Disputed an error showing a $150 balance on credit report",
+        "Company closed the dispute as verified",
+        "Company did not explain what was actually checked"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        150.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Credit report shows a $150 balance that the customer says is an error",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved evidence cannot confirm or contradict the claim. (1) No credit reporting data was provided, so we cannot see what balance is reported for this customer, and nothing in the account or transaction data equals or derives from $150. ACC-072 is a current installment loan with a $1,600.00 balance. Its history has only three entries: a $51.61 payment on 2026-07-17, a $30.00 fee on 2026-08-16, and a $69.57 payment on 2026-09-15. (2) No dispute or investigation records were provided, so we cannot verify that a dispute was filed, how it was closed, or what was checked. (3) The complaint names no account or tradeline, so the $150 may relate to a different account or reporting field than ACC-072. (4) The account_note says the record is generic and not built to confirm or deny this complaint. Missing: furnished credit reporting data for the account, the dispute case file with its closure and verification details, and confirmation of which account the customer means.",
+      "risk_tier": "High",
+      "risk_rationale": "The disputed $150 balance cannot be confirmed or refuted from the available data, and that gap decides the outcome: whether the reported amount is accurate and whether the dispute was properly investigated. This triggers the automatic High tier for unverifiable claims. There is no attorney/regulator reference and the flag is False, so that trigger did not apply.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-072",
+        "loan_balance": 1600.0,
+        "origination_date": "2026-07-17",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-072",
+          "date": "2026-07-17",
+          "type": "payment",
+          "amount": 51.61,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-072",
+          "date": "2026-08-16",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-072",
+          "date": "2026-09-15",
+          "type": "payment",
+          "amount": 69.57,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome. The credit reporting data and dispute investigation records needed to assess the $150 balance and the 'verified' closure are missing, and the complaint does not clearly tie to ACC-072. A human reviewer must obtain them before any response is drafted.",
+    "unresolved": "The retrieved evidence cannot confirm or contradict the claim. (1) No credit reporting data was provided, so we cannot see what balance is reported for this customer, and nothing in the account or transaction data equals or derives from $150. ACC-072 is a current installment loan with a $1,600.00 balance. Its history has only three entries: a $51.61 payment on 2026-07-17, a $30.00 fee on 2026-08-16, and a $69.57 payment on 2026-09-15. (2) No dispute or investigation records were provided, so we cannot verify that a dispute was filed, how it was closed, or what was checked. (3) The complaint names no account or tradeline, so the $150 may relate to a different account or reporting field than ACC-072. (4) The account_note says the record is generic and not built to confirm or deny this complaint. Missing: furnished credit reporting data for the account, the dispute case file with its closure and verification details, and confirmation of which account the customer means.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem with a company's investigation into an existing problem - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:25:25+00:00"
+}

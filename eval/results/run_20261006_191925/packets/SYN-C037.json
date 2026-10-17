@@ -1,0 +1,295 @@
+{
+  "complaint_id": "SYN-C037",
+  "run_started": "2026-10-07T00:26:22+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C037",
+    "date_received": "2026-09-21",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "NC",
+    "narrative": "I was charged a $22 fee on my installment loan this month that was never disclosed in my original loan agreement. I've reviewed the paperwork twice and cannot find any mention of this charge.",
+    "account_id": "ACC-087",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1432,
+      "output_tokens": 219
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3168,
+      "output_tokens": 1224
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $22 fee on installment loan this month that was never disclosed in the original loan agreement",
+      "Reviewed the paperwork twice and cannot find any mention of the charge"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      22.0
+    ],
+    "dates_mentioned": [
+      "this month"
+    ],
+    "account_details_mentioned": "Installment loan with an original loan agreement; a $22 fee was charged this month",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "calm, factual, specific"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-087",
+      "loan_balance": 950.0,
+      "origination_date": "2025-02-02",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-087",
+        "date": "2025-02-02",
+        "type": "payment",
+        "amount": 38.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-03-04",
+        "type": "payment",
+        "amount": 55.88,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-04-03",
+        "type": "payment",
+        "amount": 31.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-05-03",
+        "type": "payment",
+        "amount": 52.78,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-06-02",
+        "type": "payment",
+        "amount": 35.19,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-07-02",
+        "type": "payment",
+        "amount": 36.54,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-08-01",
+        "type": "payment",
+        "amount": 45.24,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-08-31",
+        "type": "payment",
+        "amount": 67.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-09-30",
+        "type": "payment",
+        "amount": 33.93,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-10-30",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-11-29",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-087",
+        "date": "2025-12-29",
+        "type": "payment",
+        "amount": 35.19,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "No $22 fee appears anywhere in the transaction history for ACC-087. The only fee is a $30.00 'routine fee assessment' on 2025-11-29, which does not match the $22 amount. The latest entry is a $35.19 payment on 2025-12-29, and the complaint says only 'this month', so it is unclear whether the history covers the month in question. A fee posted after 2025-12-29 would not be visible. Even if the fee exists, the data cannot show whether it was disclosed. There is no loan agreement, fee schedule, or fee-type detail in the evidence, and the account_note says the record is generic and not built for fact-verification. Missing: (1) the complaint's actual filing date or the month 'this month' refers to, (2) transaction data through that month, (3) the original loan agreement or fee schedule for this payday loan, and (4) any explanation of what the $30 fee on 2025-11-29 was for.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap could change the outcome, because we cannot confirm whether a $22 fee exists or whether the fee was disclosed in the loan agreement; the unexplained $30 fee on 2025-11-29 adds to this uncertainty.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on points that determine the outcome (existence of the $22 fee and its disclosure in the loan agreement). Human review is needed to obtain the missing transaction period and loan agreement/fee schedule before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was charged a $22 fee on my installment loan this month that was never disclosed in my original loan agreement. I've reviewed the paperwork twice and cannot find any mention of this charge.",
+    "extraction": {
+      "allegations": [
+        "Charged a $22 fee on installment loan this month that was never disclosed in the original loan agreement",
+        "Reviewed the paperwork twice and cannot find any mention of the charge"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        22.0
+      ],
+      "dates_mentioned": [
+        "this month"
+      ],
+      "account_details_mentioned": "Installment loan with an original loan agreement; a $22 fee was charged this month",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "calm, factual, specific"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "No $22 fee appears anywhere in the transaction history for ACC-087. The only fee is a $30.00 'routine fee assessment' on 2025-11-29, which does not match the $22 amount. The latest entry is a $35.19 payment on 2025-12-29, and the complaint says only 'this month', so it is unclear whether the history covers the month in question. A fee posted after 2025-12-29 would not be visible. Even if the fee exists, the data cannot show whether it was disclosed. There is no loan agreement, fee schedule, or fee-type detail in the evidence, and the account_note says the record is generic and not built for fact-verification. Missing: (1) the complaint's actual filing date or the month 'this month' refers to, (2) transaction data through that month, (3) the original loan agreement or fee schedule for this payday loan, and (4) any explanation of what the $30 fee on 2025-11-29 was for.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap could change the outcome, because we cannot confirm whether a $22 fee exists or whether the fee was disclosed in the loan agreement; the unexplained $30 fee on 2025-11-29 adds to this uncertainty.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-087",
+        "loan_balance": 950.0,
+        "origination_date": "2025-02-02",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-087",
+          "date": "2025-02-02",
+          "type": "payment",
+          "amount": 38.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-03-04",
+          "type": "payment",
+          "amount": 55.88,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-04-03",
+          "type": "payment",
+          "amount": 31.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-05-03",
+          "type": "payment",
+          "amount": 52.78,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-06-02",
+          "type": "payment",
+          "amount": 35.19,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-07-02",
+          "type": "payment",
+          "amount": 36.54,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-08-01",
+          "type": "payment",
+          "amount": 45.24,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-08-31",
+          "type": "payment",
+          "amount": 67.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-09-30",
+          "type": "payment",
+          "amount": 33.93,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-10-30",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-11-29",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-087",
+          "date": "2025-12-29",
+          "type": "payment",
+          "amount": 35.19,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on points that determine the outcome (existence of the $22 fee and its disclosure in the loan agreement). Human review is needed to obtain the missing transaction period and loan agreement/fee schedule before any response is drafted.",
+    "unresolved": "No $22 fee appears anywhere in the transaction history for ACC-087. The only fee is a $30.00 'routine fee assessment' on 2025-11-29, which does not match the $22 amount. The latest entry is a $35.19 payment on 2025-12-29, and the complaint says only 'this month', so it is unclear whether the history covers the month in question. A fee posted after 2025-12-29 would not be visible. Even if the fee exists, the data cannot show whether it was disclosed. There is no loan agreement, fee schedule, or fee-type detail in the evidence, and the account_note says the record is generic and not built for fact-verification. Missing: (1) the complaint's actual filing date or the month 'this month' refers to, (2) transaction data through that month, (3) the original loan agreement or fee schedule for this payday loan, and (4) any explanation of what the $30 fee on 2025-11-29 was for.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:26:34+00:00"
+}

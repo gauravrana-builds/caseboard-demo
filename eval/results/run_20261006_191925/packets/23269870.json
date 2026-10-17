@@ -1,0 +1,291 @@
+{
+  "complaint_id": "23269870",
+  "run_started": "2026-10-07T00:21:29+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23269870",
+    "date_received": "2026-06-16",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "CA",
+    "narrative": "I was charged an origination fee of $75 that was never disclosed to me anywhere in my loan agreement. I've read through the document twice and cannot find this fee mentioned.",
+    "account_id": "ACC-036",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1427,
+      "output_tokens": 202
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3146,
+      "output_tokens": 1176
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $75 origination fee that was not disclosed in the loan agreement",
+      "Reviewed the loan agreement twice and could not find the fee mentioned"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      75.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Loan agreement does not mention the origination fee, per customer's review",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and measured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-036",
+      "loan_balance": 950.0,
+      "origination_date": "2025-09-25",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-036",
+        "date": "2025-09-25",
+        "type": "payment",
+        "amount": 39.58,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2025-10-25",
+        "type": "payment",
+        "amount": 36.54,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2025-11-24",
+        "type": "payment",
+        "amount": 31.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2025-12-24",
+        "type": "payment",
+        "amount": 45.24,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2026-01-23",
+        "type": "payment",
+        "amount": 73.08,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2026-02-22",
+        "type": "payment",
+        "amount": 27.14,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2026-03-24",
+        "type": "payment",
+        "amount": 26.39,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2026-04-23",
+        "type": "payment",
+        "amount": 52.78,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2026-05-23",
+        "type": "payment",
+        "amount": 67.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2026-06-22",
+        "type": "payment",
+        "amount": 55.88,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2026-07-22",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-036",
+        "date": "2026-08-21",
+        "type": "payment",
+        "amount": 27.94,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The transaction history for ACC-036 (2025-09-25 to 2026-08-21) contains no $75 origination fee. The only fee is $30.00 on 2026-07-22, labeled 'Routine fee assessment', which does not match the amount the customer disputes. This does not disprove the claim, for three reasons. (1) The history has no loan disbursement entry, so an origination fee netted from loan proceeds would not appear as a separate charge. (2) The loan agreement and fee disclosure documents were not provided, so the allegation that the fee is not disclosed cannot be checked. (3) The account note says the record is generic and not built to confirm or deny this complaint. Missing: the disbursement record or funding breakdown, the signed loan agreement and fee schedule, and an explanation of the $30 fee on 2026-07-22 (it may or may not be related).",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable and the gap could change the outcome: whether a $75 origination fee was charged, and whether it was disclosed, cannot be determined from the available records.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on a disputed $75 fee, so any draft would risk asserting an unsupported conclusion. The customer also alleges an undisclosed fee, which is a UDAAP-pattern signal, so a human reviewer must retrieve the disbursement record and loan agreement before a response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was charged an origination fee of $75 that was never disclosed to me anywhere in my loan agreement. I've read through the document twice and cannot find this fee mentioned.",
+    "extraction": {
+      "allegations": [
+        "Charged a $75 origination fee that was not disclosed in the loan agreement",
+        "Reviewed the loan agreement twice and could not find the fee mentioned"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        75.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Loan agreement does not mention the origination fee, per customer's review",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and measured"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The transaction history for ACC-036 (2025-09-25 to 2026-08-21) contains no $75 origination fee. The only fee is $30.00 on 2026-07-22, labeled 'Routine fee assessment', which does not match the amount the customer disputes. This does not disprove the claim, for three reasons. (1) The history has no loan disbursement entry, so an origination fee netted from loan proceeds would not appear as a separate charge. (2) The loan agreement and fee disclosure documents were not provided, so the allegation that the fee is not disclosed cannot be checked. (3) The account note says the record is generic and not built to confirm or deny this complaint. Missing: the disbursement record or funding breakdown, the signed loan agreement and fee schedule, and an explanation of the $30 fee on 2026-07-22 (it may or may not be related).",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable and the gap could change the outcome: whether a $75 origination fee was charged, and whether it was disclosed, cannot be determined from the available records.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-036",
+        "loan_balance": 950.0,
+        "origination_date": "2025-09-25",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-036",
+          "date": "2025-09-25",
+          "type": "payment",
+          "amount": 39.58,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2025-10-25",
+          "type": "payment",
+          "amount": 36.54,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2025-11-24",
+          "type": "payment",
+          "amount": 31.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2025-12-24",
+          "type": "payment",
+          "amount": 45.24,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2026-01-23",
+          "type": "payment",
+          "amount": 73.08,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2026-02-22",
+          "type": "payment",
+          "amount": 27.14,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2026-03-24",
+          "type": "payment",
+          "amount": 26.39,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2026-04-23",
+          "type": "payment",
+          "amount": 52.78,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2026-05-23",
+          "type": "payment",
+          "amount": 67.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2026-06-22",
+          "type": "payment",
+          "amount": 55.88,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2026-07-22",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-036",
+          "date": "2026-08-21",
+          "type": "payment",
+          "amount": 27.94,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on a disputed $75 fee, so any draft would risk asserting an unsupported conclusion. The customer also alleges an undisclosed fee, which is a UDAAP-pattern signal, so a human reviewer must retrieve the disbursement record and loan agreement before a response is drafted.",
+    "unresolved": "The transaction history for ACC-036 (2025-09-25 to 2026-08-21) contains no $75 origination fee. The only fee is $30.00 on 2026-07-22, labeled 'Routine fee assessment', which does not match the amount the customer disputes. This does not disprove the claim, for three reasons. (1) The history has no loan disbursement entry, so an origination fee netted from loan proceeds would not appear as a separate charge. (2) The loan agreement and fee disclosure documents were not provided, so the allegation that the fee is not disclosed cannot be checked. (3) The account note says the record is generic and not built to confirm or deny this complaint. Missing: the disbursement record or funding breakdown, the signed loan agreement and fee schedule, and an explanation of the $30 fee on 2026-07-22 (it may or may not be related).",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:41+00:00"
+}

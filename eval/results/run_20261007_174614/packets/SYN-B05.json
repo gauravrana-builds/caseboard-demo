@@ -1,0 +1,291 @@
+{
+  "complaint_id": "SYN-B05",
+  "run_started": "2026-10-07T22:47:23+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B05",
+    "date_received": "5/24/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Problem when making payments",
+    "sub_issue": "",
+    "state": "CO",
+    "narrative": "I have an issue with my loan. Things have not been right for a while and I want someone to look into it and make it right. I've been a customer for a long time and I don't think this is fair.",
+    "account_id": "ACC-016",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1418,
+      "output_tokens": 188
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 5209,
+      "output_tokens": 569
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Something is wrong with the loan and has not been right for a while",
+      "Believes the situation is unfair"
+    ],
+    "requested_outcome": "Someone to look into the issue and make it right",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "for a while"
+    ],
+    "account_details_mentioned": "Long-time customer",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "vague and general, mildly frustrated"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-016",
+      "loan_balance": 1100.0,
+      "origination_date": "2025-03-09",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-016",
+        "date": "2025-03-09",
+        "type": "payment",
+        "amount": 37.93,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-04-08",
+        "type": "payment",
+        "amount": 52.38,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-05-08",
+        "type": "payment",
+        "amount": 32.35,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-06-07",
+        "type": "payment",
+        "amount": 33.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-07-07",
+        "type": "payment",
+        "amount": 55.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-08-06",
+        "type": "payment",
+        "amount": 55.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-09-05",
+        "type": "payment",
+        "amount": 84.62,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-10-05",
+        "type": "payment",
+        "amount": 44.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-11-04",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2025-12-04",
+        "type": "payment",
+        "amount": 34.38,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2026-01-03",
+        "type": "payment",
+        "amount": 64.71,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-016",
+        "date": "2026-02-02",
+        "type": "payment",
+        "amount": 37.93,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The complaint names no specific problem event: no fee, payment, date, amount, or contact. It says only that 'something is wrong with the loan' and has been for 'a while'. The account (ACC-016, installment loan, balance $1,100, status current) shows 11 routine payments between 2025-03-09 and 2026-02-02 and one $25.00 fee on 2025-11-04 labeled 'Routine fee assessment.' Nothing in the records is anomalous (no missed payment, duplicate, or reversal), but the complaint does not say whether the $25 fee or anything else is the issue, so no central allegation can be checked. The 2025-11-04 fee is also the only month with no payment recorded, and the complaint does not say whether that is the concern. Missing: the specific issue the customer is raising (which charge, payment, or event, and when). It cannot be decided from the records without clarification from the customer.",
+    "risk_tier": "Low",
+    "risk_rationale": "No attorney/regulator reference, identity-theft or misled-terms allegation, collector conduct, hardship, vulnerability, or embedded instructions is present, and no dollar amount over $200 is alleged. The unverifiable status does not raise the tier, and the vague, mildly frustrated complaint is routine.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the complaint identifies no specific event, fee, payment, or date to check against the records. Contact the customer to clarify what is wrong with the loan before responding.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Low",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I have an issue with my loan. Things have not been right for a while and I want someone to look into it and make it right. I've been a customer for a long time and I don't think this is fair.",
+    "extraction": {
+      "allegations": [
+        "Something is wrong with the loan and has not been right for a while",
+        "Believes the situation is unfair"
+      ],
+      "requested_outcome": "Someone to look into the issue and make it right",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "for a while"
+      ],
+      "account_details_mentioned": "Long-time customer",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "vague and general, mildly frustrated"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The complaint names no specific problem event: no fee, payment, date, amount, or contact. It says only that 'something is wrong with the loan' and has been for 'a while'. The account (ACC-016, installment loan, balance $1,100, status current) shows 11 routine payments between 2025-03-09 and 2026-02-02 and one $25.00 fee on 2025-11-04 labeled 'Routine fee assessment.' Nothing in the records is anomalous (no missed payment, duplicate, or reversal), but the complaint does not say whether the $25 fee or anything else is the issue, so no central allegation can be checked. The 2025-11-04 fee is also the only month with no payment recorded, and the complaint does not say whether that is the concern. Missing: the specific issue the customer is raising (which charge, payment, or event, and when). It cannot be decided from the records without clarification from the customer.",
+      "risk_tier": "Low",
+      "risk_rationale": "No attorney/regulator reference, identity-theft or misled-terms allegation, collector conduct, hardship, vulnerability, or embedded instructions is present, and no dollar amount over $200 is alleged. The unverifiable status does not raise the tier, and the vague, mildly frustrated complaint is routine.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-016",
+        "loan_balance": 1100.0,
+        "origination_date": "2025-03-09",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-016",
+          "date": "2025-03-09",
+          "type": "payment",
+          "amount": 37.93,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-04-08",
+          "type": "payment",
+          "amount": 52.38,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-05-08",
+          "type": "payment",
+          "amount": 32.35,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-06-07",
+          "type": "payment",
+          "amount": 33.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-07-07",
+          "type": "payment",
+          "amount": 55.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-08-06",
+          "type": "payment",
+          "amount": 55.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-09-05",
+          "type": "payment",
+          "amount": 84.62,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-10-05",
+          "type": "payment",
+          "amount": 44.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-11-04",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2025-12-04",
+          "type": "payment",
+          "amount": 34.38,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2026-01-03",
+          "type": "payment",
+          "amount": 64.71,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-016",
+          "date": "2026-02-02",
+          "type": "payment",
+          "amount": 37.93,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the complaint identifies no specific event, fee, payment, or date to check against the records. Contact the customer to clarify what is wrong with the loan before responding.",
+    "unresolved": "The complaint names no specific problem event: no fee, payment, date, amount, or contact. It says only that 'something is wrong with the loan' and has been for 'a while'. The account (ACC-016, installment loan, balance $1,100, status current) shows 11 routine payments between 2025-03-09 and 2026-02-02 and one $25.00 fee on 2025-11-04 labeled 'Routine fee assessment.' Nothing in the records is anomalous (no missed payment, duplicate, or reversal), but the complaint does not say whether the $25 fee or anything else is the issue, so no central allegation can be checked. The 2025-11-04 fee is also the only month with no payment recorded, and the complaint does not say whether that is the concern. Missing: the specific issue the customer is raising (which charge, payment, or event, and when). It cannot be decided from the records without clarification from the customer.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem when making payments - unverifiable - Low risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T22:47:33+00:00"
+}

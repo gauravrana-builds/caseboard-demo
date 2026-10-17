@@ -1,0 +1,140 @@
+complaint_id,demo_case_type,narrative,extracted_allegations,fact_verification,risk_tier,policy_cited,draft_text,remedy_stated,verifier_result,verifier_issues,human_tag (Approve / Minor / Substantive),reviewer_notes
+22853918,core,"I set up autopay for this loan six months ago and it worked fine until last month, when my payment was never withdrawn and I was charged a late fee as a result. I have a screenshot of my autopay settings still showing as active.",Autopay was set up six months ago and worked fine until last month | Payment was never withdrawn last month | Charged a late fee as a result of the payment not being withdrawn,confirmed_false,Low,06 Fee Waiver and Goodwill Credit Authority (no waiver applicable; no fee found on the account); Policy 10 Prohibited Language; Policy 11 Response Tone and Format,"We received your complaint that last month's autopay payment on your loan was not withdrawn and that a late fee followed. We reviewed your account's payment history and address each point below.
+
+Autopay working until last month: Our records show one payment posted in every monthly cycle from November 27, 2025 through September 23, 2026, roughly 30 days apart. Our payment history does not show whether those payments were made through autopay, so we can't confirm or dispute your screenshot of the autopay settings.
+
+Payment not withdrawn: We did not find a missed payment. Because your message didn't include a date, we couldn't match ""last month"" to a specific payment. Every monthly cycle in our records has a payment posted.
+
+Late fee: We found no late fee or other fee anywhere in your account history. Your account is currently listed as current, so there is no fee to waive or remove.
+
+Next steps: If you see a missed withdrawal or a fee on your bank statement or account statement, please reply with the date and amount, along with a copy of the statement or your autopay screenshot if you can. We will review those details against our records. You can also reach us by phone at the number on your account.
+
+Case reference: 22853918",,pass,,,
+24984944,core,I tried to make my monthly payment through the website three times this week and the payment keeps failing with no error message explaining why. Now I'm worried I'll be reported late through no fault of my own.,Attempted to make monthly payment through the website three times this week and each payment failed | No error message explaining why the payment failed,unverifiable,Medium,"08 General Dispute Handling Process, Standard process (steps 3-4) and 'What counts as a complete response' (unable to verify classification); also Policy 10 Prohibited Language and Policy 11 Response Tone and Format","You contacted us because your monthly payment failed three times this week when you tried to pay through our website, and you did not receive an error message explaining why. We understand how worrying that can be.
+
+What we found: We reviewed your account's payment history. It shows three completed payments, the most recent on September 7, 2026 for $80.65. Your account is currently listed as current. The history shows no failed or declined payment attempts, and it does not include website activity or error-message records.
+
+Your two concerns:
+
+1. Three failed payment attempts: We are unable to verify this. Without records of the website attempts, we can neither confirm nor rule out that they happened.
+
+2. No error message: We are also unable to verify this, for the same reason. We do not have a record of what appeared on your screen.
+
+Next steps: To help us look further, please reply to this message or contact us using the contact information on your account. Please include the dates and approximate times of each attempt, the payment method you used, and any screenshots or messages you saw. We will review whatever you send and let you know what we find.
+
+You are also welcome to contact any other channel you choose about this matter.
+
+Case reference: 24984944",,pass,,,
+SYN-C003,core,"I reached out about a hardship plan after a reduction in my work hours and have not received a callback in over a week, while my $300 balance continues to accrue interest.",Reached out about a hardship plan after a reduction in work hours and has not received a callback in over a week | $300 balance continues to accrue interest,unverifiable,Medium,"07 Hardship and Payment Deferral Options (payment date shift, analyst-approvable; other options described as available pending supervisor review), with 10 Prohibited Language and 11 Response Tone and Format applied","You contacted us about a hardship plan after your work hours were reduced, and you told us you haven't received a callback in over a week. We understand how frustrating that wait has been, especially while you're managing a change in income.
+
+What we found:
+
+Hardship request and callback: The records available to us for this review don't show when your request was received or when a callback was due, so we couldn't confirm the timing. Your account is currently in good standing (payment status: current), which means you're eligible for our hardship options.
+
+The $300 balance and interest: Our records show a loan balance of $1,600.00, and we could not find a $300 figure on your account. We also couldn't confirm from the records reviewed what the $300 refers to. If you can tell us where you're seeing it, such as a statement or a particular date, we will look into it.
+
+Outcome and options:
+
+We can offer you a one-time shift of your payment due date by up to 10 days within the same billing cycle, at no fee. This option is available once in a 12-month period.
+
+We can also review the following options. They are available pending supervisor review, and none has been approved yet:
+- Lowering your monthly payment for up to 3 months, with your loan term extended to match.
+- A short period of up to 2 months where payments toward the loan amount itself are put on hold.
+- A temporary pause on all payments for up to 60 days.
+
+Next steps:
+
+Please reply to this message or call the number on your account and give us the case reference below. Let us know which option you'd like to pursue and, if you can, where you saw the $300 amount, so we can go over your choices with you directly.
+
+Case reference: SYN-C003","Offer of a one-time, no-fee payment date shift of up to 10 days within the same billing cycle (once per 12-month period). The reduced-payment plan, the deferral of payments toward the loan amount, and the full payment pause are described only as available pending supervisor review, not approved.",fail,"Completeness: the draft never addresses the 'accrue interest' part of the second allegation, even though its own heading names interest. It should state that no interest-accrual entries appear in the records reviewed, or that this could not be confirmed. | Groundedness: 'good standing ... which means you're eligible for our hardship options' is not supported by the verification output, which shows only 'current' status. It also overstates eligibility for options requiring supervisor or manager approval. It should be reworded, for example to say the account is current and that the options are subject to review.",,
+SYN-C014,core,I tried to make my $40 monthly payment through the mobile app and it failed twice with no error explanation. I'm concerned I'll be reported late through no fault of my own.,Attempted to make a $40 monthly payment through the mobile app and it failed twice | No error explanation was provided for the failed payments,unverifiable,Medium,"08 General Dispute Handling Process, Standard process (Classify: unable to verify; Respond: address every allegation individually); 10 Prohibited Language; 11 Response Tone and Format","You contacted us because two attempts to make a $40 payment through our mobile app failed, and no explanation was given for the failures. We reviewed your account for both concerns.
+
+Failed payment attempts: Your transaction history shows completed payments only. A payment that failed in the app would not appear there, so we could not confirm or rule out the two failed attempts from the records we reviewed. We also could not find a $40 payment among your posted payments, which range from $35.71 to $89.29. Your account is currently in good standing, and our records show no late fees or missed payments.
+
+No error explanation: The records we reviewed do not include the app's payment-processing logs or any error messages it displayed. We therefore could not verify what message, if any, appeared when the attempts failed.
+
+Because we could not verify either point, we have classified this as unable to verify, and no remedy applies at this time. To help us look further, please reply to this message with:
+- the approximate date and time of each attempt,
+- the payment method or account you used,
+- any error message or screenshot you have.
+
+With those details, we can review the app's payment-processing records for those attempts. You are welcome to reply here or call the number on your account. If you prefer to raise this through another channel, that is always your choice.
+
+Case reference: SYN-C014",,pass,,,
+SYN-C025,core,I was charged a $200 fee on my installment loan this month that was never disclosed in my original loan agreement. I've reviewed the paperwork twice and cannot find any mention of this charge.,Charged a $200 fee on installment loan this month that was never disclosed in the original loan agreement | Reviewed the paperwork twice and found no mention of the charge,confirmed_false,Medium,08 General Dispute Handling Process (fee-amount allegation: not confirmed; disclosure allegation: unable to verify). Drafted per Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).,"You contacted us about a $200 fee on your installment loan this month that you say is not mentioned in your original loan agreement. We understand how frustrating it is to see a charge you don't recognize.
+
+Fee amount: We reviewed the activity on your account from February 4, 2026 through September 2, 2026. We did not find a $200 fee. The only fees are two $35.00 fees, posted on February 4, 2026 and September 2, 2026, and every other entry is a scheduled payment.
+
+Our review only covers activity through September 2, 2026. If the charge you are seeing is for a different amount, or posted after that date, it would not appear in what we reviewed.
+
+Disclosure in your loan agreement: You told us you reviewed your paperwork twice and found no mention of the charge. Your loan agreement was not part of the records we reviewed, so we cannot confirm from our review whether any fee is covered in it, either way.
+
+Outcome: Because no $200 fee appears on your account, we have not made any adjustment at this time.
+
+Next steps: Please reply with the date and amount of the charge as it appears on your statement. If you can, include the pages of your loan agreement you reviewed. We will compare them against your account records and respond in writing. You are also welcome to contact us at the number on your account.
+
+Case reference: SYN-C025",,pass,,,
+SYN-C026,core,I tried to make my $75 monthly payment through the mobile app and it failed twice with no error explanation. I'm concerned I'll be reported late through no fault of my own.,Attempted to make a $75 monthly payment through the mobile app and it failed twice | No error explanation was provided for the failed payments,unverifiable,Medium,"08 General Dispute Handling Process (Standard process, step 3 'unable to verify' classification; 'What counts as a complete response'), applied with Policy 10 and Policy 11","You contacted us because your $75 monthly payment through our mobile app failed twice, and you did not receive an explanation of why. We understand how frustrating that can be.
+
+What we found:
+
+1. Failed payment attempts: We reviewed your transaction history. It lists only completed payments, so a payment that did not go through would not appear in it. Because of this, we could not confirm or rule out that the two attempts failed. Your complaint did not include the dates of the attempts, so we could not match them to a specific period. Your account is currently in good standing, and we see no missed payments or late fees in your history.
+
+2. No error explanation: The records we reviewed contain no error message or app activity for these attempts, so we could not determine what error was shown or why it was not explained.
+
+Outcome: We could not verify either concern with the information currently available, so no remedy has been applied.
+
+Next steps: Please reply with the approximate dates and times of the two attempts and any error message or screenshot you have. We will use that to review the matter again and respond in writing. If you would like to raise this through another channel, you are welcome to do so.
+
+Case reference: SYN-C026",,pass,,,
+SYN-F01,core_confirmed_false,I was charged a $35 late fee this month even though I paid on time. I pay the same way every month and this has never happened before.,Charged a $35 late fee this month despite paying on time | Pays the same way every month and this has never happened before,confirmed_false,Low,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (no fee was charged, so no waiver or refund applies); Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format) applied to wording and structure","You contacted us about a $35 late fee you believe was charged to your account even though you paid on time.
+
+What we found: We reviewed the June payment record on your account. Your payment of $180.00 was received on June 8, 2026, two days before the June 10, 2026 due date. Your account is in current status. We found no late fee, and no other fee, assessed for June, so the $35 charge you mentioned does not appear in our records.
+
+You also mentioned that you pay the same way every month and that this has never happened before. For June, our records match what you described: your payment arrived before the due date and no late fee was applied.
+
+Outcome: Because no late fee was assessed, there is no charge to refund or waive, and no change has been made to your account.
+
+Next steps: If you are seeing a $35 charge on a statement or in your online account, please reply to this message with the statement date or a screenshot, or call the number on your account. We will compare it against our records with you.
+
+Case reference: SYN-F01",,pass,,,
+SYN-F04,core_confirmed_false,"I was double charged my monthly payment of $180 this month, once on the 1st and once on the 15th.","Double charged monthly payment of $180 this month, once on the 1st and once on the 15th",confirmed_false,Low,"08 General Dispute Handling Process (standard process, outcome classified as not confirmed — no error found, so no remedy applies)","You contacted us about being charged your $180 monthly payment twice this month, on the 1st and again on the 15th.
+
+We reviewed the transaction history on your account. Our records show one payment of $180.00, processed on June 1, 2026. We did not find a second $180 charge on June 15 or on any other date this month. Your account is current, and the payment matches your expected monthly installment.
+
+Because our records show only one payment, we found no duplicate charge and have no refund or adjustment to make.
+
+If your bank or card statement shows a second charge, please reply to this message or call the number on your account. Send us the date, the amount, and how it appears on your statement, and we will review it. You are also free to raise your concern through any other channel you choose.
+
+Case reference: SYN-F04",,pass,,,
+SYN-P01,core_partially_true,"I was charged two separate fees this month, a $15 processing fee and a $35 late fee. I think both of these are wrong and should be refunded.",Charged a $15 processing fee this month that the customer believes is wrong | Charged a $35 late fee this month that the customer believes is wrong,confirmed_false,Low,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee correctly charged per disclosed agreement; no fee found for the second allegation, so no waiver applicable)","You contacted us because you believe a $15 processing fee and a $35 late fee were charged to your account this month in error. We reviewed your account's transaction history and loan agreement, and here is what we found.
+
+$15 processing fee: Our records show a $15 processing fee was applied on June 25, 2026. This is the standard processing fee described in section 2.1 of your loan agreement. Because it was charged as the agreement describes and no error occurred, we are not able to waive or refund it.
+
+$35 late fee: We did not find a $35 late fee anywhere in your account's transaction history for this period, and your account's payment status is current. Since no such fee was charged, there is nothing to refund.
+
+If you are seeing a $35 charge on a statement or in your online account, please reply with the date and a copy or description of what you see, and we will review it. You can also call us at the number on your account.
+
+Case reference: SYN-P01",,pass,,,
+SYN-P02,core_partially_true,"My payment this month was taken out twice from my bank account, for $220 total instead of $110. This has caused an overdraft on my checking account.",Monthly payment was taken out twice from bank account | Total of $220 withdrawn instead of $110 | Double withdrawal caused an overdraft on checking account,partially_true,Medium,08 General Dispute Handling Process (outcome classification: partially confirmed; no remedy is specified or authorized in the cited policy),"You contacted us because your monthly payment was withdrawn twice and you were overdrawn as a result. We reviewed your account and responded to each point below.
+
+**Two withdrawals of $110:** Our records confirm that two payments of $110.00 were taken from your bank account, one on June 30 and one on July 1, for a total of $220.00. Only one $110.00 installment was due. The second payment was a duplicate caused by a payment-processor retry issue.
+
+**Total of $220 instead of $110:** This is also confirmed. The $220.00 total matches our transaction records. As of our latest review, no refund or reversal of the duplicate $110.00 payment appears in your transaction history.
+
+**Overdraft on your checking account:** We cannot confirm this from our records. Overdrafts and related charges are assessed by your bank, and no overdraft-related charge appears on your account with us. Your bank can give you the details of any overdraft on your checking account.
+
+**Next steps:** [CASE OWNER TO INSERT: documented next step and timeframe for the duplicate $110.00 payment, as confirmed against actual process. Do not send until completed.] If you have questions in the meantime, you can reply to this message.
+
+We understand this has been frustrating. Case reference: SYN-P02.",,fail,"Tone/structure: no distinct outcome/resolution section; the outcome for the confirmed duplicate $110.00 payment is left to an unfilled placeholder, so the draft is not sendable as written. | Tone/structure: the frustration acknowledgment is placed after 'Next steps' instead of in the opening, which breaks the Policy 11 ordering. | Note (not a failure): completeness, groundedness, authorization, and prohibited-language checks passed. All three allegations are addressed individually. Every date and amount traces to the verification output. No remedy is promised, and there is no fault admission beyond confirmed fact, no future guarantee, no legal conclusion, and no discouragement of other channels.",,
+SYN-P04,core_partially_true,"I was told my loan had no prepayment penalty, but when I paid it off early I was charged an extra $60 fee that wasn't in my original disclosures.",Told the loan had no prepayment penalty | Charged an extra $60 fee after paying off the loan early | The $60 fee was not in the original disclosures,partially_true,Medium,"08 General Dispute Handling Process, standard process (outcome classified as partially confirmed; every allegation addressed individually), with Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format) applied","You contacted us about a $60 fee charged when you paid off your loan early, and about being told the loan had no prepayment penalty. We reviewed your account and the loan agreement on file. Here is what we found on each point.
+
+The $60 fee: Your loan was paid off early on July 8, 2026, and a $60.00 early payoff processing fee was charged to your account the same day. Our records confirm this charge.
+
+Whether the fee was in your original disclosures: The loan agreement on file lists this fee in section 4.3, ""Payoff Terms."" Based on the records we reviewed, the fee was included in the written loan documents.
+
+What you were told about prepayment penalties: The records we reviewed did not include call recordings, chat logs, or sales notes, so we could not confirm or rule out what was said to you. The written agreement does not settle this question, and we have not reached a conclusion on it.
+
+Next steps: If you can, please reply with when and how you were told there was no prepayment penalty (for example, by phone, chat, or in person), and the name of the person if you know it. We will review anything you send and write back to you. You are also free to pursue this through any other channel you choose.
+
+Case reference: SYN-P04",,fail,"Tone/structure: the outcome/resolution element is missing. The customer is not told what happens to the $60 fee (for example, 'no adjustment has been made at this time; the case remains open pending the information requested'). The draft moves directly from findings to next steps. | Minor, non-failing observation: 'We will review anything you send and write back to you' gives no timeframe. This does not violate a cited policy, but the redraft could add one if a documented timeline exists.",,

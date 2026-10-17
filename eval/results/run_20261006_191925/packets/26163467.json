@@ -1,0 +1,159 @@
+{
+  "complaint_id": "26163467",
+  "run_started": "2026-10-07T00:21:29+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "26163467",
+    "date_received": "2026-08-31",
+    "product": "Checking or savings account",
+    "sub_product": "Checking account",
+    "issue": "Problem caused by your funds being low",
+    "sub_issue": "Overdrafts and overdraft fees",
+    "state": "NY",
+    "narrative": "I was charged three separate $35 overdraft fees on the same day for purchases that were all under $10 combined. I believe my bank reordered my transactions to maximize the number of fees they could charge me.",
+    "account_id": "ACC-035",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1430,
+      "output_tokens": 502
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2511,
+      "output_tokens": 1186
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged three separate $35 overdraft fees on the same day",
+      "The purchases that triggered the fees were all under $10 combined",
+      "Believes the bank reordered transactions to maximize the number of fees charged"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      35.0,
+      10.0
+    ],
+    "dates_mentioned": [
+      "the same day"
+    ],
+    "account_details_mentioned": "Three overdraft fees of $35 each posted on the same day; the purchases causing them totaled under $10 combined",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual, suspicious of bank practices"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-035",
+      "loan_balance": 600.0,
+      "origination_date": "2026-08-03",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-035",
+        "date": "2026-08-03",
+        "type": "payment",
+        "amount": 37.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-035",
+        "date": "2026-09-02",
+        "type": "payment",
+        "amount": 28.57,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved record cannot confirm or contradict any of the three allegations. Account ACC-035 is an installment loan (balance $600.00, status current, originated 2026-08-03). Its history has only two scheduled payments: $37.50 on 2026-08-03 and $28.57 on 2026-09-02. There are no overdraft fees, no purchases or debits, and no posting-order data. Overdraft fees and transaction reordering apply to a deposit/checking account, so the account retrieved may be the wrong one, or the relevant checking account was never pulled. The complaint also gives no date beyond 'the same day', so the period cannot be identified. The absence of fees here is not evidence the claim is false. Missing: the linked checking/deposit account record, its transaction history with posting order and timestamps for the disputed day, the fee assessments, and the bank's overdraft/posting-order policy. The account_note says this record was generated for volume and not built to verify this complaint, which supports a data mismatch.",
+    "risk_tier": "High",
+    "risk_rationale": "The claim is unverifiable because the evidence is for the wrong product type, and the gap decides the outcome: whether three $35 overdraft fees (about $105) were charged, and whether they were improperly caused by transaction reordering, cannot be established. This meets the automatic High trigger. The reordering allegation is also a UDAAP-pattern signal that reinforces the tier.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the core allegations (the retrieved installment-loan account has no overdraft or deposit activity), and the gap affects the outcome. The reordering allegation also needs human review. Escalate to retrieve the correct checking account and its transaction posting data.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was charged three separate $35 overdraft fees on the same day for purchases that were all under $10 combined. I believe my bank reordered my transactions to maximize the number of fees they could charge me.",
+    "extraction": {
+      "allegations": [
+        "Charged three separate $35 overdraft fees on the same day",
+        "The purchases that triggered the fees were all under $10 combined",
+        "Believes the bank reordered transactions to maximize the number of fees charged"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        35.0,
+        10.0
+      ],
+      "dates_mentioned": [
+        "the same day"
+      ],
+      "account_details_mentioned": "Three overdraft fees of $35 each posted on the same day; the purchases causing them totaled under $10 combined",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual, suspicious of bank practices"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved record cannot confirm or contradict any of the three allegations. Account ACC-035 is an installment loan (balance $600.00, status current, originated 2026-08-03). Its history has only two scheduled payments: $37.50 on 2026-08-03 and $28.57 on 2026-09-02. There are no overdraft fees, no purchases or debits, and no posting-order data. Overdraft fees and transaction reordering apply to a deposit/checking account, so the account retrieved may be the wrong one, or the relevant checking account was never pulled. The complaint also gives no date beyond 'the same day', so the period cannot be identified. The absence of fees here is not evidence the claim is false. Missing: the linked checking/deposit account record, its transaction history with posting order and timestamps for the disputed day, the fee assessments, and the bank's overdraft/posting-order policy. The account_note says this record was generated for volume and not built to verify this complaint, which supports a data mismatch.",
+      "risk_tier": "High",
+      "risk_rationale": "The claim is unverifiable because the evidence is for the wrong product type, and the gap decides the outcome: whether three $35 overdraft fees (about $105) were charged, and whether they were improperly caused by transaction reordering, cannot be established. This meets the automatic High trigger. The reordering allegation is also a UDAAP-pattern signal that reinforces the tier.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-035",
+        "loan_balance": 600.0,
+        "origination_date": "2026-08-03",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-035",
+          "date": "2026-08-03",
+          "type": "payment",
+          "amount": 37.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-035",
+          "date": "2026-09-02",
+          "type": "payment",
+          "amount": 28.57,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the core allegations (the retrieved installment-loan account has no overdraft or deposit activity), and the gap affects the outcome. The reordering allegation also needs human review. Escalate to retrieve the correct checking account and its transaction posting data.",
+    "unresolved": "The retrieved record cannot confirm or contradict any of the three allegations. Account ACC-035 is an installment loan (balance $600.00, status current, originated 2026-08-03). Its history has only two scheduled payments: $37.50 on 2026-08-03 and $28.57 on 2026-09-02. There are no overdraft fees, no purchases or debits, and no posting-order data. Overdraft fees and transaction reordering apply to a deposit/checking account, so the account retrieved may be the wrong one, or the relevant checking account was never pulled. The complaint also gives no date beyond 'the same day', so the period cannot be identified. The absence of fees here is not evidence the claim is false. Missing: the linked checking/deposit account record, its transaction history with posting order and timestamps for the disputed day, the fee assessments, and the bank's overdraft/posting-order policy. The account_note says this record was generated for volume and not built to verify this complaint, which supports a data mismatch.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem caused by your funds being low - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:43+00:00"
+}

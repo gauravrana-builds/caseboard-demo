@@ -1,0 +1,281 @@
+{
+  "complaint_id": "22558745",
+  "run_started": "2026-10-07T00:21:56+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "22558745",
+    "date_received": "2026-05-26",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Getting the loan",
+    "sub_issue": "",
+    "state": "IL",
+    "narrative": "I was approved for a $2000 loan but only $1500 was deposited into my account, with no explanation for the difference. The loan agreement I signed clearly states $2000.",
+    "account_id": "ACC-042",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1417,
+      "output_tokens": 388
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3088,
+      "output_tokens": 1301
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Approved for a $2000 loan but only $1500 was deposited into the account",
+      "No explanation was given for the difference",
+      "The signed loan agreement states $2000"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      2000.0,
+      1500.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "$1500 deposited into account; signed loan agreement states $2000",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-042",
+      "loan_balance": 1800.0,
+      "origination_date": "2025-09-14",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-042",
+        "date": "2025-09-14",
+        "type": "payment",
+        "amount": 120.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2025-10-14",
+        "type": "payment",
+        "amount": 112.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2025-11-13",
+        "type": "payment",
+        "amount": 52.94,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2025-12-13",
+        "type": "payment",
+        "amount": 52.94,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2026-01-12",
+        "type": "payment",
+        "amount": 66.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2026-02-11",
+        "type": "payment",
+        "amount": 94.74,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2026-03-13",
+        "type": "payment",
+        "amount": 112.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2026-04-12",
+        "type": "payment",
+        "amount": 58.06,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2026-05-12",
+        "type": "payment",
+        "amount": 112.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2026-06-11",
+        "type": "payment",
+        "amount": 90.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-042",
+        "date": "2026-07-11",
+        "type": "payment",
+        "amount": 72.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges a $2,000 approved loan with only $1,500 deposited. The transaction history for ACC-042 (2025-09-14 to 2026-07-11) contains only 11 scheduled payments and no disbursement or origination-funding entry, so the amount actually deposited cannot be confirmed. The account record gives origination date 2025-09-14, a current loan balance of $1,800.00, and no original principal or contractual loan amount. The signed loan agreement is not in the evidence, so the $2,000 figure cannot be checked. The account_note says this is a generic dataset record not built to confirm or deny the complaint. The $1,800 balance also does not reconcile with either figure. Payments total about $944.85, which would imply a principal well above $2,000, absent interest, fees, or other activity not shown. Missing: the disbursement record, the original principal and loan agreement terms, and any fee or deduction detail (e.g., origination fees withheld from proceeds).",
+    "risk_tier": "High",
+    "risk_rationale": "The disputed $500 difference between the stated and deposited loan amounts cannot be confirmed from the evidence, and that gap would decide the outcome, which is an automatic High trigger. There is no attorney or regulator mention, and attorney_regulator_flag is False.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central issue: there is no disbursement record or loan agreement to confirm whether $1,500 or $2,000 was funded. Escalate to a human reviewer to obtain the origination and disbursement records and check whether fees were deducted from the proceeds.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was approved for a $2000 loan but only $1500 was deposited into my account, with no explanation for the difference. The loan agreement I signed clearly states $2000.",
+    "extraction": {
+      "allegations": [
+        "Approved for a $2000 loan but only $1500 was deposited into the account",
+        "No explanation was given for the difference",
+        "The signed loan agreement states $2000"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        2000.0,
+        1500.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "$1500 deposited into account; signed loan agreement states $2000",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges a $2,000 approved loan with only $1,500 deposited. The transaction history for ACC-042 (2025-09-14 to 2026-07-11) contains only 11 scheduled payments and no disbursement or origination-funding entry, so the amount actually deposited cannot be confirmed. The account record gives origination date 2025-09-14, a current loan balance of $1,800.00, and no original principal or contractual loan amount. The signed loan agreement is not in the evidence, so the $2,000 figure cannot be checked. The account_note says this is a generic dataset record not built to confirm or deny the complaint. The $1,800 balance also does not reconcile with either figure. Payments total about $944.85, which would imply a principal well above $2,000, absent interest, fees, or other activity not shown. Missing: the disbursement record, the original principal and loan agreement terms, and any fee or deduction detail (e.g., origination fees withheld from proceeds).",
+      "risk_tier": "High",
+      "risk_rationale": "The disputed $500 difference between the stated and deposited loan amounts cannot be confirmed from the evidence, and that gap would decide the outcome, which is an automatic High trigger. There is no attorney or regulator mention, and attorney_regulator_flag is False.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-042",
+        "loan_balance": 1800.0,
+        "origination_date": "2025-09-14",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-042",
+          "date": "2025-09-14",
+          "type": "payment",
+          "amount": 120.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2025-10-14",
+          "type": "payment",
+          "amount": 112.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2025-11-13",
+          "type": "payment",
+          "amount": 52.94,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2025-12-13",
+          "type": "payment",
+          "amount": 52.94,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2026-01-12",
+          "type": "payment",
+          "amount": 66.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2026-02-11",
+          "type": "payment",
+          "amount": 94.74,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2026-03-13",
+          "type": "payment",
+          "amount": 112.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2026-04-12",
+          "type": "payment",
+          "amount": 58.06,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2026-05-12",
+          "type": "payment",
+          "amount": 112.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2026-06-11",
+          "type": "payment",
+          "amount": 90.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-042",
+          "date": "2026-07-11",
+          "type": "payment",
+          "amount": 72.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central issue: there is no disbursement record or loan agreement to confirm whether $1,500 or $2,000 was funded. Escalate to a human reviewer to obtain the origination and disbursement records and check whether fees were deducted from the proceeds.",
+    "unresolved": "The customer alleges a $2,000 approved loan with only $1,500 deposited. The transaction history for ACC-042 (2025-09-14 to 2026-07-11) contains only 11 scheduled payments and no disbursement or origination-funding entry, so the amount actually deposited cannot be confirmed. The account record gives origination date 2025-09-14, a current loan balance of $1,800.00, and no original principal or contractual loan amount. The signed loan agreement is not in the evidence, so the $2,000 figure cannot be checked. The account_note says this is a generic dataset record not built to confirm or deny the complaint. The $1,800 balance also does not reconcile with either figure. Payments total about $944.85, which would imply a principal well above $2,000, absent interest, fees, or other activity not shown. Missing: the disbursement record, the original principal and loan agreement terms, and any fee or deduction detail (e.g., origination fees withheld from proceeds).",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Getting the loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:22:10+00:00"
+}

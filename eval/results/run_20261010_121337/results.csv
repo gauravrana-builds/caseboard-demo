@@ -1,0 +1,7 @@
+complaint_id,demo_case_type,truth_risk_tier,pred_risk_tier,truth_escalate,stopped,stop_kind,truth_fact_verification,pred_fact_verification,status,verifier_result,draft_attempts,error
+20962593,core,Medium,Medium,FALSE,False,,partially_true,partially_true,draft_ready,pass,2,
+21633667,core,Low,Low,FALSE,False,,confirmed_true,confirmed_true,draft_ready,pass,1,
+22853918,core,Low,Low,FALSE,False,,confirmed_false,confirmed_false,draft_ready,pass,1,
+23623033,core,Low,Low,FALSE,False,,confirmed_false,confirmed_false,draft_ready,pass,1,
+24113084,core,Medium,Medium,FALSE,False,,confirmed_true,confirmed_true,draft_ready,pass,1,
+SYN-P02,core_partially_true,Medium,Medium,FALSE,False,,partially_true,partially_true,draft_ready,pass,1,

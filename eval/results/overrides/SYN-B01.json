@@ -1,0 +1,288 @@
+{
+  "complaint_id": "SYN-B01",
+  "run_started": "2026-10-08T18:00:44+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B01",
+    "date_received": "5/2/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "TX",
+    "narrative": "I was charged a $45 late fee on my installment loan even though I made the payment on time through the app. I have called customer service three times over the past two weeks and no one has fixed it. If this isn't corrected by the end of this week I will be speaking with my attorney about my options.",
+    "account_id": "ACC-013",
+    "attorney_regulator_flag": "TRUE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1455,
+      "output_tokens": 486
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4799,
+      "output_tokens": 1603
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4381,
+      "output_tokens": 1339
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4541,
+      "output_tokens": 2610
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $45 late fee on an installment loan despite making the payment on time through the app",
+      "Called customer service three times over the past two weeks with no resolution"
+    ],
+    "requested_outcome": "Correction of the late fee",
+    "dollar_amounts_mentioned": [
+      45.0
+    ],
+    "dates_mentioned": [
+      "over the past two weeks",
+      "by the end of this week"
+    ],
+    "account_details_mentioned": "Installment loan; payment made on time through the app; $45 late fee charged",
+    "risk_signal_phrases": [
+      "I will be speaking with my attorney about my options"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated, specific, time-pressured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-013",
+      "loan_balance": 2800.0,
+      "origination_date": "5/14/2026",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-013",
+        "date": "2026-05-14",
+        "type": "payment",
+        "amount": 155.56,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-013",
+        "date": "2026-06-13",
+        "type": "payment",
+        "amount": 215.38,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-013",
+        "date": "2026-07-13",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-013",
+        "date": "2026-08-12",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-013",
+        "date": "2026-09-11",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The central allegation is a $45 late fee charged despite an on-time app payment. The transaction history for ACC-013 (2026-05-14 to 2026-09-11) has no $45 fee and no fee labeled as a late fee. The only fees are two $30 charges, on 2026-07-13 and 2026-08-12, both noted as 'Routine fee assessment', so neither matches the amount or the described late-fee event. The most recent payment, $100 on 2026-09-11, is recorded as a routine scheduled payment, and the account status is 'current'. The three customer-service calls are not recorded in the account or transaction data. They are background to the complaint, not a separate problem event, and do not change the finding. A human reviewer should check two things before responding. First, the $30 fees might be what the customer is referring to. Second, the customer describes an 'installment loan' while the account record says 'payday_loan', and the account note says the record is generic and not built to verify this complaint.",
+    "risk_tier": "High",
+    "risk_rationale": "Automatic High: the customer wrote 'I will be speaking with my attorney about my options', and attorney_regulator_flag is TRUE, so this is a mandatory-escalation trigger regardless of the small $45 dispute.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "triggers": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "draft_ready",
+  "escalation_package": {
+    "complaint_text": "I was charged a $45 late fee on my installment loan even though I made the payment on time through the app. I have called customer service three times over the past two weeks and no one has fixed it. If this isn't corrected by the end of this week I will be speaking with my attorney about my options.",
+    "extraction": {
+      "allegations": [
+        "Charged a $45 late fee on an installment loan despite making the payment on time through the app",
+        "Called customer service three times over the past two weeks with no resolution"
+      ],
+      "requested_outcome": "Correction of the late fee",
+      "dollar_amounts_mentioned": [
+        45.0
+      ],
+      "dates_mentioned": [
+        "over the past two weeks",
+        "by the end of this week"
+      ],
+      "account_details_mentioned": "Installment loan; payment made on time through the app; $45 late fee charged",
+      "risk_signal_phrases": [
+        "I will be speaking with my attorney about my options"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated, specific, time-pressured"
+    },
+    "verification": {
+      "fact_verification": "confirmed_false",
+      "fact_verification_explanation": "The central allegation is a $45 late fee charged despite an on-time app payment. The transaction history for ACC-013 (2026-05-14 to 2026-09-11) has no $45 fee and no fee labeled as a late fee. The only fees are two $30 charges, on 2026-07-13 and 2026-08-12, both noted as 'Routine fee assessment', so neither matches the amount or the described late-fee event. The most recent payment, $100 on 2026-09-11, is recorded as a routine scheduled payment, and the account status is 'current'. The three customer-service calls are not recorded in the account or transaction data. They are background to the complaint, not a separate problem event, and do not change the finding. A human reviewer should check two things before responding. First, the $30 fees might be what the customer is referring to. Second, the customer describes an 'installment loan' while the account record says 'payday_loan', and the account note says the record is generic and not built to verify this complaint.",
+      "risk_tier": "High",
+      "risk_rationale": "Automatic High: the customer wrote 'I will be speaking with my attorney about my options', and attorney_regulator_flag is TRUE, so this is a mandatory-escalation trigger regardless of the small $45 dispute.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-013",
+        "loan_balance": 2800.0,
+        "origination_date": "5/14/2026",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-013",
+          "date": "2026-05-14",
+          "type": "payment",
+          "amount": 155.56,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-013",
+          "date": "2026-06-13",
+          "type": "payment",
+          "amount": 215.38,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-013",
+          "date": "2026-07-13",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-013",
+          "date": "2026-08-12",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-013",
+          "date": "2026-09-11",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "unresolved": null,
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - confirmed_false - High risk - draft ready for review",
+  "run_finished": "2026-10-09T19:23:03+00:00",
+  "policy": {
+    "policy_id": "06",
+    "topic": "Fee Waiver and Goodwill Credit Authority",
+    "category": "internal",
+    "matched_keywords": [
+      "late fee"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Fee Waiver and Goodwill Credit Authority\n\n**Applies to:** Complaints where account/transaction data confirms a fee was charged in error, or where a goodwill gesture is being considered for a confirmed service failure.\n\n## Authority thresholds\n| Fee/credit amount | Who may approve |\n|---|---|\n| $0 \u2013 $50 | Complaints analyst, no additional sign-off required |\n| $50.01 \u2013 $200 | Complaints analyst with supervisor co-sign |\n| $200.01+ | Supervisor or manager approval required; analyst may not approve independently |\n\n## When a waiver is appropriate\n- The transaction history **confirms** the fee was charged in error (e.g., payment was received before the due date but a late fee was still assessed).\n- The fee was charged due to a documented system or processing error.\n- A documented goodwill exception for a first-time, low-dollar fee on an otherwise good-standing account (use sparingly, document the rationale).\n\n## When a waiver is NOT appropriate\n- The transaction history confirms the fee was correctly charged (no error occurred) \u2014 the response should explain the charge, not waive it.\n- The complaint's underlying fact could not be verified (missing/incomplete data) \u2014 route to manual review rather than waiving preemptively.\n- The complaint involves a dispute of right vs. convenience (e.g., customer disagrees with a disclosed, legitimate fee) \u2014 explain the fee and its basis; do not waive solely to end the complaint.\n\n## What an analyst or agent may say\n- May state the exact dollar amount being waived and the specific reason (tied to the confirmed error).\n- May NOT waive a fee \"as a one-time courtesy\" without a documented rationale on file \u2014 every waiver must cite either a confirmed error or an explicit goodwill justification.\n\n## Documentation requirement\nEvery waiver, regardless of amount, must be logged with: the confirming evidence (which transaction record), the dollar amount, and the approving party.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You wrote to us about a $45 late fee on your installment loan, which you say was charged even though you paid on time through the app, and about three calls over the past two weeks that left the problem unresolved. We understand how frustrating that is, and we've looked at both points.\n\nThe $45 late fee: We reviewed your account's transaction history from May 14 to September 11, 2026, and found no $45 charge and no fee labeled as a late fee. The only fees on the account are two $30 charges, on July 13 and August 12, both recorded as routine fee assessments. Your most recent payment, $100 on September 11, was received and recorded as a scheduled payment, and your account is currently in good standing. Because we found no error, we have no fee to waive or correct at this time. If the $30 charges are the ones you mean, or if you're seeing a $45 charge somewhere else, please send us a screenshot or statement showing it and we'll look at it directly.\n\nThe three calls: The account and transaction records we reviewed don't include any record of those calls, so we can't confirm what was discussed. If you can share the dates and the phone number you called from, we'll look into them.\n\nNext steps: You're welcome to send us any additional information at any time, and we'll review it. You can reply to this message with it. Please include case reference SYN-B01 in any further correspondence.",
+        "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (no fee error confirmed by transaction history); also governed by 10 Prohibited Language and 11 Response Tone and Format",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Charged a $45 late fee on an installment loan despite making the payment on time through the app",
+          "Called customer service three times over the past two weeks with no resolution"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 both allegations are addressed: the $45 late fee despite an on-time app payment, and the three unresolved calls over two weeks.",
+        "groundedness_check": "pass \u2014 the claims trace to the verification output: no $45 charge and no fee labeled as a late fee; two $30 'Routine fee assessment' charges on July 13 and August 12; a $100 scheduled payment on September 11; status current; no record of the calls. 'Installment loan' is the customer's own descriptor, framed as what the customer wrote. It is not stated as an established fact, so it is not a failure on its own. The human reviewer should still note the verification flag that the account record says 'payday_loan'. 'Good standing' is a reasonable plain-language rendering of status 'current'.",
+        "policy_authorization_check": "pass \u2014 no remedy, waiver, credit, or referral is stated (remedy_stated and referral_stated are null). The draft explains that no fee error was found, which matches Policy 06's 'When a waiver is NOT appropriate'. Nothing exceeds the authority thresholds.",
+        "prohibited_language_check": "pass \u2014 no fault admission, no future guarantee, and no legal conclusion. Nothing discourages the customer from other channels such as a regulator or counsel. 'We have no fee to waive or correct at this time' is a factual statement of outcome, not a legal characterization. The offers to 'look at it directly' and 'look into' the calls are requests for information, not promised remedies.",
+        "tone_structure_check": "pass \u2014 the order is acknowledgment (opening paragraph), findings and outcome (one paragraph per allegation), next steps, then case reference SYN-B01. The tone is plain, second-person, and non-performative. Minor advisory only: the late-fee paragraph runs five sentences against Policy 11's 2\u20134 sentence guideline, which does not change the result.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You wrote to us about a $45 late fee on your installment loan, which you say was charged even though you paid on time through the app, and about three calls over the past two weeks that left the problem unresolved. We understand how frustrating that is, and we've looked at both points.\n\nThe $45 late fee: We reviewed your account's transaction history from May 14 to September 11, 2026, and found no $45 charge and no fee labeled as a late fee. The only fees on the account are two $30 charges, on July 13 and August 12, both recorded as routine fee assessments. Your most recent payment, $100 on September 11, was received and recorded as a scheduled payment, and your account is currently in good standing. Because we found no error, we have no fee to waive or correct at this time. If the $30 charges are the ones you mean, or if you're seeing a $45 charge somewhere else, please send us a screenshot or statement showing it and we'll look at it directly.\n\nThe three calls: The account and transaction records we reviewed don't include any record of those calls, so we can't confirm what was discussed. If you can share the dates and the phone number you called from, we'll look into them.\n\nNext steps: You're welcome to send us any additional information at any time, and we'll review it. You can reply to this message with it. Please include case reference SYN-B01 in any further correspondence.",
+    "policy_cited": "06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (no fee error confirmed by transaction history); also governed by 10 Prohibited Language and 11 Response Tone and Format",
+    "remedy_stated": null,
+    "referral_stated": null,
+    "allegations_addressed": [
+      "Charged a $45 late fee on an installment loan despite making the payment on time through the app",
+      "Called customer service three times over the past two weeks with no resolution"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 both allegations are addressed: the $45 late fee despite an on-time app payment, and the three unresolved calls over two weeks.",
+    "groundedness_check": "pass \u2014 the claims trace to the verification output: no $45 charge and no fee labeled as a late fee; two $30 'Routine fee assessment' charges on July 13 and August 12; a $100 scheduled payment on September 11; status current; no record of the calls. 'Installment loan' is the customer's own descriptor, framed as what the customer wrote. It is not stated as an established fact, so it is not a failure on its own. The human reviewer should still note the verification flag that the account record says 'payday_loan'. 'Good standing' is a reasonable plain-language rendering of status 'current'.",
+    "policy_authorization_check": "pass \u2014 no remedy, waiver, credit, or referral is stated (remedy_stated and referral_stated are null). The draft explains that no fee error was found, which matches Policy 06's 'When a waiver is NOT appropriate'. Nothing exceeds the authority thresholds.",
+    "prohibited_language_check": "pass \u2014 no fault admission, no future guarantee, and no legal conclusion. Nothing discourages the customer from other channels such as a regulator or counsel. 'We have no fee to waive or correct at this time' is a factual statement of outcome, not a legal characterization. The offers to 'look at it directly' and 'look into' the calls are requests for information, not promised remedies.",
+    "tone_structure_check": "pass \u2014 the order is acknowledgment (opening paragraph), findings and outcome (one paragraph per allegation), next steps, then case reference SYN-B01. The tone is plain, second-person, and non-performative. Minor advisory only: the late-fee paragraph runs five sentences against Policy 11's 2\u20134 sentence guideline, which does not change the result.",
+    "specific_issues": []
+  },
+  "action_required_before_sending": null,
+  "analyst_override": {
+    "reason": "(replaced by the analyst's own reason when the case is downgraded)",
+    "original_stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "at": "2026-10-09T19:23:03+00:00"
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "complaint_id": "SYN-C033",
+  "run_started": "2026-10-07T00:26:05+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C033",
+    "date_received": "2026-05-02",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account information incorrect",
+    "state": "MO",
+    "narrative": "My credit report shows an incorrect balance of $135 on an account I believe is fully paid off, and my dispute has not resolved the error.",
+    "account_id": "ACC-083",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1413,
+      "output_tokens": 205
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3150,
+      "output_tokens": 1788
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Credit report shows an incorrect balance of $135 on an account the customer believes is fully paid off",
+      "Dispute has not resolved the error"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      135.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Account believed to be fully paid off; credit report shows a balance of $135",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief, factual, unresolved dispute"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-083",
+      "loan_balance": 600.0,
+      "origination_date": "2025-06-21",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-083",
+        "date": "2025-06-21",
+        "type": "payment",
+        "amount": 21.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2025-07-21",
+        "type": "payment",
+        "amount": 16.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2025-08-20",
+        "type": "payment",
+        "amount": 20.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2025-09-19",
+        "type": "payment",
+        "amount": 37.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2025-10-19",
+        "type": "payment",
+        "amount": 46.15,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2025-11-18",
+        "type": "payment",
+        "amount": 21.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2025-12-18",
+        "type": "payment",
+        "amount": 35.29,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2026-01-17",
+        "type": "payment",
+        "amount": 17.65,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2026-02-16",
+        "type": "payment",
+        "amount": 21.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2026-03-18",
+        "type": "payment",
+        "amount": 42.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2026-04-17",
+        "type": "payment",
+        "amount": 18.75,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-083",
+        "date": "2026-05-17",
+        "type": "payment",
+        "amount": 30.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer's belief that the account is fully paid off is not supported. Account ACC-083 (payday loan, originated 2025-06-21) shows loan_balance $600.00 and payment_status 'current', not paid or closed. The 12 payments from 2025-06-21 to 2026-05-17 total $329.16, which is below $600.00, so the ledger does not show a payoff. However, the correct balance and the $135 the customer says is reported cannot be verified. (1) It is unclear whether the $600.00 loan_balance is the original principal or the current balance. If it is current, the balance is $600.00. If it is original principal, the implied remaining balance is about $270.84 before any interest or fees, and no interest or fee transactions appear. Neither figure matches $135. (2) No credit bureau or furnisher data was provided, so the reported $135 balance cannot be confirmed or traced to this account. (3) No dispute record was provided, so the claim that the dispute was not resolved cannot be checked. (4) The account_note says the record is generic and not built for fact verification.",
+    "risk_tier": "High",
+    "risk_rationale": "The accuracy of the disputed $135 credit-reported balance cannot be confirmed because the account balance is ambiguous ($600 vs. about $271) and matches neither the customer's figure nor a payoff. This gap could change the outcome, which is an automatic High trigger for an unverifiable claim. The customer's mention of a prior unresolved dispute (repeated contact) adds to the risk.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on a point that affects the outcome: the correct balance and the reported $135 cannot be reconciled with the account record, and no credit reporting or dispute history was provided. Human review is needed to confirm the true balance and the furnished data before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "My credit report shows an incorrect balance of $135 on an account I believe is fully paid off, and my dispute has not resolved the error.",
+    "extraction": {
+      "allegations": [
+        "Credit report shows an incorrect balance of $135 on an account the customer believes is fully paid off",
+        "Dispute has not resolved the error"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        135.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Account believed to be fully paid off; credit report shows a balance of $135",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "brief, factual, unresolved dispute"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer's belief that the account is fully paid off is not supported. Account ACC-083 (payday loan, originated 2025-06-21) shows loan_balance $600.00 and payment_status 'current', not paid or closed. The 12 payments from 2025-06-21 to 2026-05-17 total $329.16, which is below $600.00, so the ledger does not show a payoff. However, the correct balance and the $135 the customer says is reported cannot be verified. (1) It is unclear whether the $600.00 loan_balance is the original principal or the current balance. If it is current, the balance is $600.00. If it is original principal, the implied remaining balance is about $270.84 before any interest or fees, and no interest or fee transactions appear. Neither figure matches $135. (2) No credit bureau or furnisher data was provided, so the reported $135 balance cannot be confirmed or traced to this account. (3) No dispute record was provided, so the claim that the dispute was not resolved cannot be checked. (4) The account_note says the record is generic and not built for fact verification.",
+      "risk_tier": "High",
+      "risk_rationale": "The accuracy of the disputed $135 credit-reported balance cannot be confirmed because the account balance is ambiguous ($600 vs. about $271) and matches neither the customer's figure nor a payoff. This gap could change the outcome, which is an automatic High trigger for an unverifiable claim. The customer's mention of a prior unresolved dispute (repeated contact) adds to the risk.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-083",
+        "loan_balance": 600.0,
+        "origination_date": "2025-06-21",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-083",
+          "date": "2025-06-21",
+          "type": "payment",
+          "amount": 21.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2025-07-21",
+          "type": "payment",
+          "amount": 16.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2025-08-20",
+          "type": "payment",
+          "amount": 20.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2025-09-19",
+          "type": "payment",
+          "amount": 37.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2025-10-19",
+          "type": "payment",
+          "amount": 46.15,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2025-11-18",
+          "type": "payment",
+          "amount": 21.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2025-12-18",
+          "type": "payment",
+          "amount": 35.29,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2026-01-17",
+          "type": "payment",
+          "amount": 17.65,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2026-02-16",
+          "type": "payment",
+          "amount": 21.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2026-03-18",
+          "type": "payment",
+          "amount": 42.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2026-04-17",
+          "type": "payment",
+          "amount": 18.75,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-083",
+          "date": "2026-05-17",
+          "type": "payment",
+          "amount": 30.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on a point that affects the outcome: the correct balance and the reported $135 cannot be reconciled with the account record, and no credit reporting or dispute history was provided. Human review is needed to confirm the true balance and the furnished data before any response is drafted.",
+    "unresolved": "The customer's belief that the account is fully paid off is not supported. Account ACC-083 (payday loan, originated 2025-06-21) shows loan_balance $600.00 and payment_status 'current', not paid or closed. The 12 payments from 2025-06-21 to 2026-05-17 total $329.16, which is below $600.00, so the ledger does not show a payoff. However, the correct balance and the $135 the customer says is reported cannot be verified. (1) It is unclear whether the $600.00 loan_balance is the original principal or the current balance. If it is current, the balance is $600.00. If it is original principal, the implied remaining balance is about $270.84 before any interest or fees, and no interest or fee transactions appear. Neither figure matches $135. (2) No credit bureau or furnisher data was provided, so the reported $135 balance cannot be confirmed or traced to this account. (3) No dispute record was provided, so the claim that the dispute was not resolved cannot be checked. (4) The account_note says the record is generic and not built for fact verification.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:26:22+00:00"
+}

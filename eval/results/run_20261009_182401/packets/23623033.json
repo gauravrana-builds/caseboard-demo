@@ -1,0 +1,197 @@
+{
+  "complaint_id": "23623033",
+  "run_started": "2026-10-09T23:25:45+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23623033",
+    "date_received": "6/26/2026",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account status incorrect",
+    "state": "TX",
+    "narrative": "My account is showing as 60 days past due on my credit report, but I have never missed a payment on this account. My bank statements show every payment was made on time for the past 18 months.",
+    "account_id": "ACC-022",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1422,
+      "output_tokens": 239
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4881,
+      "output_tokens": 1385
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4284,
+      "output_tokens": 1596
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4599,
+      "output_tokens": 2191
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Account is showing as 60 days past due on credit report",
+      "Customer states they have never missed a payment on this account",
+      "Bank statements show every payment was made on time for the past 18 months"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "past 18 months"
+    ],
+    "account_details_mentioned": "Account reported as 60 days past due on credit report; customer states all payments were made on time for the past 18 months, supported by bank statements",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and measured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-022",
+      "loan_balance": 1600.0,
+      "origination_date": "11/18/2024",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, current. Opened 2024-11-18."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-022",
+        "date": "2026-01-18",
+        "type": "payment",
+        "amount": 140.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-02-18",
+        "type": "payment",
+        "amount": 140.0,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-03-18",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $140.00 not received"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-04-18",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $140.00 not received"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-04-20",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Account reported to credit bureaus: 60 days past due"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-05-18",
+        "type": "payment",
+        "amount": 280.0,
+        "note": "Payment received covering 2 installments"
+      },
+      {
+        "account_id": "ACC-022",
+        "date": "2026-06-18",
+        "type": "payment",
+        "amount": 140.0,
+        "note": "Scheduled installment received"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The central allegation is that the account is wrongly reported 60 days past due because the customer never missed a payment. The reporting did happen: the log shows 'Account reported to credit bureaus: 60 days past due' on 2026-04-20. The records contradict the customer's explanation. The 2026-03-18 and 2026-04-18 scheduled installments of $140.00 each are logged as 'not received'. Payments were received on 2026-01-18 and 2026-02-18. The missed installments were made up by a $280.00 payment on 2026-05-18 covering 2 installments, and the 2026-06-18 installment was received. The account is now 'current'. The customer's statements are not on file, but the company's own payment records directly contradict 'never missed a payment', so that gap does not change the finding. Note for the reviewer: the oldest missed installment (2026-03-18) was about 33 days old on 2026-04-20, so the '60 days' label on that date may be worth a check. The customer did not allege this, and it does not support the claim that no payments were missed.",
+    "risk_tier": "Low",
+    "risk_rationale": "There is no attorney/regulator reference, identity-theft dispute, embedded instruction, UDAAP-pattern language, hardship or vulnerability indicator, and no dollar amount in dispute; the claim is confirmed false against clear payment records on a routine credit-reporting dispute.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Low",
+  "policy": {
+    "policy_id": "04",
+    "topic": "Credit Reporting Disputes (FCRA)",
+    "category": "regulatory",
+    "matched_keywords": [
+      "credit report",
+      "incorrect information"
+    ],
+    "fallback_used": false,
+    "text": "# Policy: Credit Reporting Disputes (Fair Credit Reporting Act)\n\n**Applies to:** Any complaint alleging inaccurate, incomplete, or unverifiable information reported to a consumer reporting agency (credit bureau).\n\n## Requirements\n- As a furnisher of information, we must investigate a dispute (received either directly from the consumer or relayed by a credit bureau) within **30 days**, extendable to **45 days** if the consumer provides additional information during the 30-day window.\n- We must review all relevant information provided by the consumer, correct any inaccuracy found, and report the results of the investigation back to the consumer and, if applicable, to the credit bureau.\n- If an item is found to be inaccurate or unverifiable, it must be corrected or deleted from our reporting **promptly**.\n- We may not resume reporting an item we previously deleted unless we can certify the information is accurate and complete.\n- A consumer may request a statement of the dispute to be included in their credit file if the dispute is not resolved to their satisfaction.\n\n## What an analyst or agent may say\n- May confirm whether our internal records match or contradict what is reported (e.g., payment history, account status).\n- May state the applicable 30/45-day investigation timeline.\n- May NOT promise a specific bureau will update within a specific number of days \u2014 we control our own furnishing, not the bureau's processing timeline.\n\n## Escalation trigger\nA **third or subsequent dispute on the same item**, or any complaint stating an investigation was closed with no explanation of what was actually checked, should be escalated \u2014 repeated unresolved disputes carry elevated regulatory risk.\n\n## Remedy authority\nFront-line staff may initiate a correction to our own furnished data (status, balance, payment history) when the internal transaction record clearly supports the correction. Removing an account entirely, or correcting identity-mismatch issues, requires supervisor or fraud-team review.\n\n*Source: Fair Credit Reporting Act, 15 U.S.C. \u00a7 1681 et seq. Generic, illustrative summary for internal training/demo purposes, not legal advice.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "We received your complaint about your account appearing as 60 days past due on your credit report, and we understand how concerning that is when you believe every payment was made on time. We reviewed your payment history, and this is what we found for each point you raised.\n\nThe 60-day status on your credit report: Our records confirm that on April 20, 2026, your account was reported to the credit bureaus as 60 days past due.\n\nYour statement that you never missed a payment: Our records show your January 18 and February 18, 2026 payments were received. They do not show receipt of the $140.00 installments due March 18 and April 18, 2026. A $280.00 payment covering two installments was received on May 18, and your June 18 installment was received. Your account is now current.\n\nYour bank statements showing on-time payments for 18 months: We don't have your bank statements on file, so we haven't been able to compare them against our records. If they show payments on March 18 and April 18 that went to this account, please send them and we will review them. You can send them at any time by replying to this message or calling the number on your account.\n\nBased on our current records, we have not made a correction to how your account is reported. Disputes like this are investigated within 30 days, and that can extend to 45 days if you send additional information during that window. If you're not satisfied with the result, you may ask for a statement of your dispute to be included in your credit file.\n\nCase reference: 23623033.",
+        "policy_cited": "04 Credit Reporting Disputes (FCRA) \u2014 what an analyst may say (confirm internal records, state 30/45-day timeline) and Remedy authority (no correction supported by internal records); 10 Prohibited Language; 11 Response Tone and Format",
+        "remedy_stated": null,
+        "referral_stated": null,
+        "allegations_addressed": [
+          "Account is showing as 60 days past due on credit report",
+          "Customer states they have never missed a payment on this account",
+          "Bank statements show every payment was made on time for the past 18 months"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass",
+        "groundedness_check": "pass. Every date, amount and status traces to the verification output (reported 60 days past due on 2026-04-20; $140.00 installments due 3/18 and 4/18 not received; 1/18 and 2/18 payments received; $280.00 payment on 5/18; 6/18 payment received; account now current; bank statements not on file). The 30/45-day timeline and the statement-of-dispute option come from the cited policy. Nothing is stated as already granted or processed. Note for the human reviewer: the draft does not assert that the '60 days' label is accurate. The verification output flagged that the oldest missed installment was only about 33 days old on 2026-04-20. The reviewer should resolve that question before sending.",
+        "policy_authorization_check": "pass. No remedy is stated (remedy_stated and referral_stated are null). The draft declines a correction because the records do not support one, which is consistent with the Remedy authority section of the cited policy. No promise about bureau update timing is made.",
+        "prohibited_language_check": "pass. There is no fault admission beyond confirmed fact, no future guarantee, no legal conclusion, no unauthorized promise, and nothing that discourages other channels. The empathy line ('we understand how concerning that is') is within the tone guidance, and the draft offers the statement-of-dispute option.",
+        "tone_structure_check": "pass. The draft follows the Policy 11 order: it opens by referencing the specific complaint, gives findings with specific dates and amounts, states the outcome (no correction made based on current records), gives next steps (send bank statements, 30/45-day timeline, statement of dispute), and ends with the case reference 23623033. It addresses each allegation in its own short paragraph and uses plain language. The bank-statement next step sits inside the findings section rather than the next-steps section. This is a minor ordering point and not a structural failure.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "We received your complaint about your account appearing as 60 days past due on your credit report, and we understand how concerning that is when you believe every payment was made on time. We reviewed your payment history, and this is what we found for each point you raised.\n\nThe 60-day status on your credit report: Our records confirm that on April 20, 2026, your account was reported to the credit bureaus as 60 days past due.\n\nYour statement that you never missed a payment: Our records show your January 18 and February 18, 2026 payments were received. They do not show receipt of the $140.00 installments due March 18 and April 18, 2026. A $280.00 payment covering two installments was received on May 18, and your June 18 installment was received. Your account is now current.\n\nYour bank statements showing on-time payments for 18 months: We don't have your bank statements on file, so we haven't been able to compare them against our records. If they show payments on March 18 and April 18 that went to this account, please send them and we will review them. You can send them at any time by replying to this message or calling the number on your account.\n\nBased on our current records, we have not made a correction to how your account is reported. Disputes like this are investigated within 30 days, and that can extend to 45 days if you send additional information during that window. If you're not satisfied with the result, you may ask for a statement of your dispute to be included in your credit file.\n\nCase reference: 23623033.",
+    "policy_cited": "04 Credit Reporting Disputes (FCRA) \u2014 what an analyst may say (confirm internal records, state 30/45-day timeline) and Remedy authority (no correction supported by internal records); 10 Prohibited Language; 11 Response Tone and Format",
+    "remedy_stated": null,
+    "referral_stated": null,
+    "allegations_addressed": [
+      "Account is showing as 60 days past due on credit report",
+      "Customer states they have never missed a payment on this account",
+      "Bank statements show every payment was made on time for the past 18 months"
+    ]
+  },
+  "action_required_before_sending": null,
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass",
+    "groundedness_check": "pass. Every date, amount and status traces to the verification output (reported 60 days past due on 2026-04-20; $140.00 installments due 3/18 and 4/18 not received; 1/18 and 2/18 payments received; $280.00 payment on 5/18; 6/18 payment received; account now current; bank statements not on file). The 30/45-day timeline and the statement-of-dispute option come from the cited policy. Nothing is stated as already granted or processed. Note for the human reviewer: the draft does not assert that the '60 days' label is accurate. The verification output flagged that the oldest missed installment was only about 33 days old on 2026-04-20. The reviewer should resolve that question before sending.",
+    "policy_authorization_check": "pass. No remedy is stated (remedy_stated and referral_stated are null). The draft declines a correction because the records do not support one, which is consistent with the Remedy authority section of the cited policy. No promise about bureau update timing is made.",
+    "prohibited_language_check": "pass. There is no fault admission beyond confirmed fact, no future guarantee, no legal conclusion, no unauthorized promise, and nothing that discourages other channels. The empathy line ('we understand how concerning that is') is within the tone guidance, and the draft offers the statement-of-dispute option.",
+    "tone_structure_check": "pass. The draft follows the Policy 11 order: it opens by referencing the specific complaint, gives findings with specific dates and amounts, states the outcome (no correction made based on current records), gives next steps (send bank statements, 30/45-day timeline, statement of dispute), and ends with the case reference 23623033. It addresses each allegation in its own short paragraph and uses plain language. The bank-statement next step sits inside the findings section rather than the next-steps section. This is a minor ordering point and not a structural failure.",
+    "specific_issues": []
+  },
+  "summary": "Incorrect information on your report - confirmed_false - Low risk - draft ready for review",
+  "run_finished": "2026-10-09T23:26:27+00:00"
+}

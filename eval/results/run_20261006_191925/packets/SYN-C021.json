@@ -1,0 +1,151 @@
+{
+  "complaint_id": "SYN-C021",
+  "run_started": "2026-10-07T00:25:12+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C021",
+    "date_received": "2026-05-19",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account information incorrect",
+    "state": "CO",
+    "narrative": "My credit report shows an incorrect balance of $60 on an account I believe is fully paid off, and my dispute has not resolved the error.",
+    "account_id": "ACC-071",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1413,
+      "output_tokens": 202
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2458,
+      "output_tokens": 1338
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Credit report shows an incorrect balance of $60 on an account the customer believes is fully paid off",
+      "Dispute has not resolved the error"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      60.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Account believed to be fully paid off; credit report shows a balance of $60",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "brief, factual, unresolved"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-071",
+      "loan_balance": 1600.0,
+      "origination_date": "2026-08-08",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-071",
+        "date": "2026-08-08",
+        "type": "payment",
+        "amount": 88.89,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-071",
+        "date": "2026-09-07",
+        "type": "payment",
+        "amount": 53.33,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The evidence cannot confirm or refute the core claim. (1) The customer says the account is fully paid off, but ACC-071 is an active installment loan with a $1,600.00 balance and 'current' status. Two payments are on file: $88.89 on 2026-08-08 and $53.33 on 2026-09-07. On its face this contradicts 'paid off'. (2) The customer says the credit report shows a $60 balance, but no credit bureau or furnishing data was retrieved, so the reported $60 cannot be verified. The $60 matches neither the $1,600 balance nor any transaction amount, so it is unclear whether the complaint concerns ACC-071 or a different account. (3) No dispute record was retrieved (filing date, status, outcome), so the claim that the dispute did not resolve the error cannot be checked. (4) The account record is marked as a generic placeholder, not built for fact verification, so its balance may not be reliable. Missing: the credit report or furnishing data for the account, the dispute history, confirmation of which account the customer means, and a reliable account balance record.",
+    "risk_tier": "High",
+    "risk_rationale": "Evidence is unverifiable and the gap could change the outcome: without knowing which account is meant or what is being reported, we cannot tell whether this is a customer misunderstanding or an inaccurate credit-reporting error with an unresolved dispute.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on a point that determines the outcome: no credit-reporting or dispute data was retrieved, and the $60 reported balance conflicts with the $1,600 account record. A human reviewer must confirm the account, the reported balance and the dispute status before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "My credit report shows an incorrect balance of $60 on an account I believe is fully paid off, and my dispute has not resolved the error.",
+    "extraction": {
+      "allegations": [
+        "Credit report shows an incorrect balance of $60 on an account the customer believes is fully paid off",
+        "Dispute has not resolved the error"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        60.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Account believed to be fully paid off; credit report shows a balance of $60",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "brief, factual, unresolved"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The evidence cannot confirm or refute the core claim. (1) The customer says the account is fully paid off, but ACC-071 is an active installment loan with a $1,600.00 balance and 'current' status. Two payments are on file: $88.89 on 2026-08-08 and $53.33 on 2026-09-07. On its face this contradicts 'paid off'. (2) The customer says the credit report shows a $60 balance, but no credit bureau or furnishing data was retrieved, so the reported $60 cannot be verified. The $60 matches neither the $1,600 balance nor any transaction amount, so it is unclear whether the complaint concerns ACC-071 or a different account. (3) No dispute record was retrieved (filing date, status, outcome), so the claim that the dispute did not resolve the error cannot be checked. (4) The account record is marked as a generic placeholder, not built for fact verification, so its balance may not be reliable. Missing: the credit report or furnishing data for the account, the dispute history, confirmation of which account the customer means, and a reliable account balance record.",
+      "risk_tier": "High",
+      "risk_rationale": "Evidence is unverifiable and the gap could change the outcome: without knowing which account is meant or what is being reported, we cannot tell whether this is a customer misunderstanding or an inaccurate credit-reporting error with an unresolved dispute.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-071",
+        "loan_balance": 1600.0,
+        "origination_date": "2026-08-08",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-071",
+          "date": "2026-08-08",
+          "type": "payment",
+          "amount": 88.89,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-071",
+          "date": "2026-09-07",
+          "type": "payment",
+          "amount": 53.33,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on a point that determines the outcome: no credit-reporting or dispute data was retrieved, and the $60 reported balance conflicts with the $1,600 account record. A human reviewer must confirm the account, the reported balance and the dispute status before any response is drafted.",
+    "unresolved": "The evidence cannot confirm or refute the core claim. (1) The customer says the account is fully paid off, but ACC-071 is an active installment loan with a $1,600.00 balance and 'current' status. Two payments are on file: $88.89 on 2026-08-08 and $53.33 on 2026-09-07. On its face this contradicts 'paid off'. (2) The customer says the credit report shows a $60 balance, but no credit bureau or furnishing data was retrieved, so the reported $60 cannot be verified. The $60 matches neither the $1,600 balance nor any transaction amount, so it is unclear whether the complaint concerns ACC-071 or a different account. (3) No dispute record was retrieved (filing date, status, outcome), so the claim that the dispute did not resolve the error cannot be checked. (4) The account record is marked as a generic placeholder, not built for fact verification, so its balance may not be reliable. Missing: the credit report or furnishing data for the account, the dispute history, confirmation of which account the customer means, and a reliable account balance record.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:25:25+00:00"
+}

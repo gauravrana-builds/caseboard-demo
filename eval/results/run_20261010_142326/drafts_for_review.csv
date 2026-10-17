@@ -1,0 +1,29 @@
+complaint_id,demo_case_type,narrative,extracted_allegations,fact_verification,risk_tier,policy_cited,draft_text,remedy_stated,action_required_before_sending,verifier_result,verifier_issues,human_tag (Approve / Minor / Substantive),reviewer_notes
+20962593,core,"This collection agency calls me 4 to 5 times a day, sometimes before 8am, about a payday loan debt. I have asked them multiple times to only contact me by mail and they keep calling anyway. It's gotten to the point where I'm afraid to answer my phone.",Collection agency calls 4 to 5 times a day about a payday loan debt | Some calls are made before 8am | Customer asked multiple times to be contacted only by mail and the agency continues to call | Customer is afraid to answer the phone,partially_true,Medium,"08 General Dispute Handling Process, standard process (respond to every allegation individually; state a clear next step). Policies 10 and 11 applied to language and format.","Thank you for telling us about the calls you've been getting about your payday loan account. Being contacted several times a day, and feeling afraid to pick up your phone, is stressful, and we understand why you want the calls to change.
+
+We looked at the call records for your account. Here is what we found on each point you raised.
+
+The number of calls: You're right about this. Our records show 4 calls from the collection agency on March 30 and 5 calls on March 31.
+
+Calls before 8am: The records show a call at 7:41 on March 30 and another at 7:55 on March 31. They don't show which time zone those times are in, so we can't say for certain what time the calls reached you. If you can tell us what time you received them, please do.
+
+Your requests to be contacted by mail only: We couldn't find a mail-only request in our account notes. Requests you made directly to the agency may not be something our system holds, and the call records we have start on March 30, so we can't see anything earlier. That doesn't mean you didn't ask. It means we can't confirm it from our side. Our records also show a call on April 1 at 12:05 that was answered and lasted 2 minutes.
+
+How this has affected you: Our records can't show how these calls have felt for you, and we're not questioning what you've told us.
+
+What happens next: We're sending your request for mail-only contact, along with the call details above, to the team that reviews collection agency contact, so it can be looked at. We can't tell you yet what the outcome will be.
+
+If you can, please reply with when you asked to be contacted by mail only, how you asked (by phone, letter or something else), and who you spoke with if you remember. You're welcome to send us anything else at any time, and we'll review it.
+
+Your case reference number is 20962593. Please use it in any further correspondence.",,"The customer's request for mail-only contact, with the confirmed call details (4 calls on 2026-03-30, 5 on 2026-03-31, including 07:41 and 07:55, and the answered 2-minute call on 2026-04-01 at 12:05), is described as being sent to the team that reviews collection agency contact. The reviewer should make this referral before sending.",pass,,,
+21633667,core,My installment loan payment was due on the 14th and I paid it on the 13th through the mobile app. I still got charged a $35 late fee. I have a screenshot of the app showing the payment confirmation dated the 13th.,"Charged a $35 late fee despite paying on the 13th, before the 14th due date | Payment made through the mobile app",confirmed_true,Low,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is appropriate' (fee confirmed charged on a payment received before the due date) and Authority thresholds, $0-$50 tier","You paid your loan before the due date and still ended up with a $35 late fee. That's frustrating, especially after you took the time to save a screenshot of your payment confirmation.
+
+Here's what we found when we looked at your account.
+
+Your payment: You made your $118.75 payment through the mobile app on April 13th, one day before your April 14th due date. That matches what you told us, and our own records show it, so we didn't need your screenshot.
+
+The late fee: A $35.00 late fee was charged to your account on April 15th. Your payment was recorded on your account on April 15th as well, two days after it came in through the app. We don't see any reversal of the fee in your account history.
+
+What happens next: Because our records show your payment arrived before the due date, we've referred the $35.00 late fee for approval to be reversed. We can't promise the outcome or a date yet, but we'll write to you once there's a decision.
+
+If you have anything else you'd like us to look at, including your screenshot, you're welcome to send it at any time and we'll review it. You can reply to this message or call the number on your account, and please quote case reference 21633667.",,"Reversal of the $35.00 late fee charged 2026-04-15 is being referred for approval. The payment of $118.75 was received via the mobile app on 2026-04-13, before the 2026-04-14 due date. The amount is in the $0-$50 tier, so the complaints analyst can approve it. Per Policy 06, log the confirming transaction record, the amount, and the approver. Confirm the referral or approval before sending.",pass,,,

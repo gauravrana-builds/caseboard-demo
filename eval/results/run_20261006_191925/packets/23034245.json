@@ -1,0 +1,231 @@
+{
+  "complaint_id": "23034245",
+  "run_started": "2026-10-07T00:21:12+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "23034245",
+    "date_received": "2026-06-09",
+    "product": "Debt collection",
+    "sub_product": "Credit card debt",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt was result of identity theft",
+    "state": "FL",
+    "narrative": "This credit card debt resulted from identity theft that I reported to the FTC and local police over a year ago. I have the police report number and FTC affidavit, and I have sent both to this collector twice, but they keep contacting me as if I never provided anything.",
+    "account_id": "ACC-030",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1443,
+      "output_tokens": 632
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2894,
+      "output_tokens": 1373
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Credit card debt resulted from identity theft",
+      "Reported the identity theft to the FTC and local police over a year ago",
+      "Sent the police report number and FTC affidavit to the collector twice",
+      "Collector keeps contacting them as if no documentation was provided"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "over a year ago"
+    ],
+    "account_details_mentioned": "Credit card debt in collection; customer states they have a police report number and FTC affidavit and sent both to the collector twice",
+    "risk_signal_phrases": [
+      "reported to the FTC and local police",
+      "I have the police report number and FTC affidavit"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-030",
+      "loan_balance": 3100.0,
+      "origination_date": "2026-03-14",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-030",
+        "date": "2026-03-14",
+        "type": "payment",
+        "amount": 106.9,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-030",
+        "date": "2026-04-13",
+        "type": "payment",
+        "amount": 119.23,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-030",
+        "date": "2026-05-13",
+        "type": "payment",
+        "amount": 88.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-030",
+        "date": "2026-06-12",
+        "type": "payment",
+        "amount": 140.91,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-030",
+        "date": "2026-07-12",
+        "type": "payment",
+        "amount": 221.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-030",
+        "date": "2026-08-11",
+        "type": "payment",
+        "amount": 119.23,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-030",
+        "date": "2026-09-10",
+        "type": "payment",
+        "amount": 119.23,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved account does not match the complaint, and nothing in the evidence addresses the identity theft claim. The customer describes a credit card debt in collection that was reported as identity theft over a year ago. ACC-030 is an installment_loan originated 2026-03-14, so it is less than a year old and post-dates the reported theft. Its payment_status is 'current', with seven routine scheduled payments from 2026-03-14 to 2026-09-10 (e.g., $106.90, $221.43, $119.23) and no collection, charge-off, or dispute activity. The account_note says the record is generic and not built to confirm or deny this complaint. Missing: (1) the credit card account the complaint refers to, or confirmation that ACC-030 is the right account; (2) any collection placement or third-party collector contact logs; (3) any record of a police report number or FTC affidavit being received, or of any identity theft dispute or fraud flag; (4) the dates and content of the customer's two submissions. The data neither supports nor contradicts the claim, so it is not marked confirmed_false. The mismatch more likely means the wrong account was retrieved.",
+    "risk_tier": "High",
+    "risk_rationale": "The evidence is unverifiable on the central issue (whether the debt is fraudulent and whether identity theft documentation was received and ignored), and that gap could change the outcome. The complaint also references an FTC identity theft report and a police report, and describes a collector repeatedly contacting the customer despite documentation already sent.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable in a way that affects the outcome: the retrieved account (a current installment loan) does not match the described collections credit card, and there are no records of the identity theft documentation or collector contacts. Escalate to a human reviewer to locate the correct account and confirm the identity theft dispute handling before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "This credit card debt resulted from identity theft that I reported to the FTC and local police over a year ago. I have the police report number and FTC affidavit, and I have sent both to this collector twice, but they keep contacting me as if I never provided anything.",
+    "extraction": {
+      "allegations": [
+        "Credit card debt resulted from identity theft",
+        "Reported the identity theft to the FTC and local police over a year ago",
+        "Sent the police report number and FTC affidavit to the collector twice",
+        "Collector keeps contacting them as if no documentation was provided"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "over a year ago"
+      ],
+      "account_details_mentioned": "Credit card debt in collection; customer states they have a police report number and FTC affidavit and sent both to the collector twice",
+      "risk_signal_phrases": [
+        "reported to the FTC and local police",
+        "I have the police report number and FTC affidavit"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved account does not match the complaint, and nothing in the evidence addresses the identity theft claim. The customer describes a credit card debt in collection that was reported as identity theft over a year ago. ACC-030 is an installment_loan originated 2026-03-14, so it is less than a year old and post-dates the reported theft. Its payment_status is 'current', with seven routine scheduled payments from 2026-03-14 to 2026-09-10 (e.g., $106.90, $221.43, $119.23) and no collection, charge-off, or dispute activity. The account_note says the record is generic and not built to confirm or deny this complaint. Missing: (1) the credit card account the complaint refers to, or confirmation that ACC-030 is the right account; (2) any collection placement or third-party collector contact logs; (3) any record of a police report number or FTC affidavit being received, or of any identity theft dispute or fraud flag; (4) the dates and content of the customer's two submissions. The data neither supports nor contradicts the claim, so it is not marked confirmed_false. The mismatch more likely means the wrong account was retrieved.",
+      "risk_tier": "High",
+      "risk_rationale": "The evidence is unverifiable on the central issue (whether the debt is fraudulent and whether identity theft documentation was received and ignored), and that gap could change the outcome. The complaint also references an FTC identity theft report and a police report, and describes a collector repeatedly contacting the customer despite documentation already sent.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-030",
+        "loan_balance": 3100.0,
+        "origination_date": "2026-03-14",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-030",
+          "date": "2026-03-14",
+          "type": "payment",
+          "amount": 106.9,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-030",
+          "date": "2026-04-13",
+          "type": "payment",
+          "amount": 119.23,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-030",
+          "date": "2026-05-13",
+          "type": "payment",
+          "amount": 88.57,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-030",
+          "date": "2026-06-12",
+          "type": "payment",
+          "amount": 140.91,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-030",
+          "date": "2026-07-12",
+          "type": "payment",
+          "amount": 221.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-030",
+          "date": "2026-08-11",
+          "type": "payment",
+          "amount": 119.23,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-030",
+          "date": "2026-09-10",
+          "type": "payment",
+          "amount": 119.23,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable in a way that affects the outcome: the retrieved account (a current installment loan) does not match the described collections credit card, and there are no records of the identity theft documentation or collector contacts. Escalate to a human reviewer to locate the correct account and confirm the identity theft dispute handling before any response is drafted.",
+    "unresolved": "The retrieved account does not match the complaint, and nothing in the evidence addresses the identity theft claim. The customer describes a credit card debt in collection that was reported as identity theft over a year ago. ACC-030 is an installment_loan originated 2026-03-14, so it is less than a year old and post-dates the reported theft. Its payment_status is 'current', with seven routine scheduled payments from 2026-03-14 to 2026-09-10 (e.g., $106.90, $221.43, $119.23) and no collection, charge-off, or dispute activity. The account_note says the record is generic and not built to confirm or deny this complaint. Missing: (1) the credit card account the complaint refers to, or confirmation that ACC-030 is the right account; (2) any collection placement or third-party collector contact logs; (3) any record of a police report number or FTC affidavit being received, or of any identity theft dispute or fraud flag; (4) the dates and content of the customer's two submissions. The data neither supports nor contradicts the claim, so it is not marked confirmed_false. The mismatch more likely means the wrong account was retrieved.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:29+00:00"
+}

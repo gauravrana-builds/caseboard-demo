@@ -1,0 +1,271 @@
+{
+  "complaint_id": "21109282",
+  "run_started": "2026-10-07T00:20:04+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "21109282",
+    "date_received": "2026-04-09",
+    "product": "Checking or savings account",
+    "sub_product": "Savings account",
+    "issue": "Managing an account",
+    "sub_issue": "Deposits and withdrawals",
+    "state": "IL",
+    "narrative": "I deposited a check for $1200 on a Monday and the bank put a hold on the full amount for 9 business days, which is longer than I was told when I opened the account. I needed that money for rent and had to borrow from a family member instead.",
+    "account_id": "ACC-010",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1431,
+      "output_tokens": 270
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3077,
+      "output_tokens": 1363
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Bank placed a hold on the full amount of a $1200 check deposit for 9 business days",
+      "Hold length was longer than what the customer was told when opening the account",
+      "Customer needed the money for rent and had to borrow from a family member instead"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      1200.0
+    ],
+    "dates_mentioned": [
+      "a Monday",
+      "9 business days"
+    ],
+    "account_details_mentioned": "Deposited a check for $1200 on a Monday; full amount held for 9 business days; hold length differed from what was disclosed at account opening",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and measured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-010",
+      "loan_balance": 2000.0,
+      "origination_date": "2025-01-03",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-010",
+        "date": "2025-01-03",
+        "type": "payment",
+        "amount": 142.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-02-02",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-03-04",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-04-03",
+        "type": "payment",
+        "amount": 111.11,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-05-03",
+        "type": "payment",
+        "amount": 57.14,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-06-02",
+        "type": "payment",
+        "amount": 66.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-07-02",
+        "type": "payment",
+        "amount": 105.26,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-08-01",
+        "type": "payment",
+        "amount": 80.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-08-31",
+        "type": "payment",
+        "amount": 133.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-010",
+        "date": "2025-09-30",
+        "type": "payment",
+        "amount": 86.96,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The complaint concerns a $1,200 check deposit that was held for 9 business days at a deposit account. The only account retrieved is ACC-010, an installment loan with a $2,000 balance, origination date 2025-01-03 and payment status current. Its 10 transactions (2025-01-03 to 2025-09-30) are all loan payments or fees. None is a check deposit, funds-availability hold or hold release, so the deposit and hold can be neither confirmed nor contradicted. Missing: (1) a deposit/checking account record for this customer, or confirmation that ACC-010 is the correct account; (2) the $1,200 check deposit and its date (the complaint says only 'a Monday'); (3) hold placement and release records, to verify the 9-business-day duration and that the full amount was held; (4) the funds-availability disclosure given at account opening, to compare against the hold actually applied; (5) the complaint's filing date, to confirm the transaction history covers the relevant period. The rent and family-borrowing claim is a customer-reported consequence and cannot be checked against bank records.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap could change the outcome: without deposit, hold and disclosure records, the bank cannot tell whether a $1,200 hold was applied or whether it exceeded the disclosed hold period.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable: the retrieved account is an installment loan with no deposit, hold or account-opening disclosure records, so the central claim (hold longer than disclosed) cannot be assessed. Route to human review to locate the correct deposit account and records.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I deposited a check for $1200 on a Monday and the bank put a hold on the full amount for 9 business days, which is longer than I was told when I opened the account. I needed that money for rent and had to borrow from a family member instead.",
+    "extraction": {
+      "allegations": [
+        "Bank placed a hold on the full amount of a $1200 check deposit for 9 business days",
+        "Hold length was longer than what the customer was told when opening the account",
+        "Customer needed the money for rent and had to borrow from a family member instead"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        1200.0
+      ],
+      "dates_mentioned": [
+        "a Monday",
+        "9 business days"
+      ],
+      "account_details_mentioned": "Deposited a check for $1200 on a Monday; full amount held for 9 business days; hold length differed from what was disclosed at account opening",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and measured"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The complaint concerns a $1,200 check deposit that was held for 9 business days at a deposit account. The only account retrieved is ACC-010, an installment loan with a $2,000 balance, origination date 2025-01-03 and payment status current. Its 10 transactions (2025-01-03 to 2025-09-30) are all loan payments or fees. None is a check deposit, funds-availability hold or hold release, so the deposit and hold can be neither confirmed nor contradicted. Missing: (1) a deposit/checking account record for this customer, or confirmation that ACC-010 is the correct account; (2) the $1,200 check deposit and its date (the complaint says only 'a Monday'); (3) hold placement and release records, to verify the 9-business-day duration and that the full amount was held; (4) the funds-availability disclosure given at account opening, to compare against the hold actually applied; (5) the complaint's filing date, to confirm the transaction history covers the relevant period. The rent and family-borrowing claim is a customer-reported consequence and cannot be checked against bank records.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap could change the outcome: without deposit, hold and disclosure records, the bank cannot tell whether a $1,200 hold was applied or whether it exceeded the disclosed hold period.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-010",
+        "loan_balance": 2000.0,
+        "origination_date": "2025-01-03",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-010",
+          "date": "2025-01-03",
+          "type": "payment",
+          "amount": 142.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-02-02",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-03-04",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-04-03",
+          "type": "payment",
+          "amount": 111.11,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-05-03",
+          "type": "payment",
+          "amount": 57.14,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-06-02",
+          "type": "payment",
+          "amount": 66.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-07-02",
+          "type": "payment",
+          "amount": 105.26,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-08-01",
+          "type": "payment",
+          "amount": 80.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-08-31",
+          "type": "payment",
+          "amount": 133.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-010",
+          "date": "2025-09-30",
+          "type": "payment",
+          "amount": 86.96,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable: the retrieved account is an installment loan with no deposit, hold or account-opening disclosure records, so the central claim (hold longer than disclosed) cannot be assessed. Route to human review to locate the correct deposit account and records.",
+    "unresolved": "The complaint concerns a $1,200 check deposit that was held for 9 business days at a deposit account. The only account retrieved is ACC-010, an installment loan with a $2,000 balance, origination date 2025-01-03 and payment status current. Its 10 transactions (2025-01-03 to 2025-09-30) are all loan payments or fees. None is a check deposit, funds-availability hold or hold release, so the deposit and hold can be neither confirmed nor contradicted. Missing: (1) a deposit/checking account record for this customer, or confirmation that ACC-010 is the correct account; (2) the $1,200 check deposit and its date (the complaint says only 'a Monday'); (3) hold placement and release records, to verify the 9-business-day duration and that the full amount was held; (4) the funds-availability disclosure given at account opening, to compare against the hold actually applied; (5) the complaint's filing date, to confirm the transaction history covers the relevant period. The rent and family-borrowing claim is a customer-reported consequence and cannot be checked against bank records.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Managing an account - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:20:17+00:00"
+}

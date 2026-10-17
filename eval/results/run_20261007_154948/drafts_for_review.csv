@@ -1,0 +1,138 @@
+complaint_id,demo_case_type,narrative,extracted_allegations,fact_verification,risk_tier,policy_cited,draft_text,remedy_stated,verifier_result,verifier_issues,human_tag (Approve / Minor / Substantive),reviewer_notes
+20962593,core,"This collection agency calls me 4 to 5 times a day, sometimes before 8am, about a payday loan debt. I have asked them multiple times to only contact me by mail and they keep calling anyway. It's gotten to the point where I'm afraid to answer my phone.",Collection agency calls 4 to 5 times a day about a payday loan debt | Some calls come before 8am | Customer asked multiple times to be contacted only by mail and the agency continues to call | Customer is afraid to answer their phone,partially_true,Medium,08 General Dispute Handling Process (standard process and complete-response requirements); 10 Prohibited Language; 11 Response Tone and Format,"Thank you for telling us about the repeated collection calls on your payday loan account, including calls before 8am and your request to be contacted by mail only. We understand how stressful this has been, especially if it makes you afraid to answer your phone.
+
+What we found:
+
+- Call frequency: Our call records show 10 outbound calls over three days. There were 4 calls on March 30, 5 on March 31, and 1 on April 1. This matches your description of 4 to 5 calls a day.
+
+- Calls before 8am: Two of those calls were logged before 8am, at 7:41am on March 30 and 7:55am on March 31. Our records do not show the time zone, so we cannot yet confirm whether these were before 8am where you are.
+
+- Your request for mail-only contact: We could not find a record of this request in our account records. The April 1 call was answered and lasted 2 minutes, but we have no record of what was said. Requests made directly to the collection agency may not appear in our system. This means we have not confirmed your request. It does not mean it was not made.
+
+- Your fear of answering the phone: We have noted what you told us. This is not something our records can confirm or dispute, and we take it seriously.
+
+Outcome: The call volume is confirmed, and the timing of the early calls is partly confirmed. Your mail-only request is not confirmed, because we have no record of it. At this time we have not changed how you are contacted, and we cannot promise a change before we complete this review.
+
+Next steps: Please reply with the following so we can look further:
+- The approximate dates you asked to be contacted by mail only.
+- How you made each request (by phone or in writing) and who you spoke with, if you know.
+- The phone number the calls came in on and your time zone.
+- Any copies of written requests you have.
+
+A written request to be contacted by mail only also gives us a clear record to work from. Once we receive your reply, we will compare it with our records and the agency's contact history and write to you with what we find and what happens next.
+
+Case reference: 20962593",,pass,,,
+21633667,core,My installment loan payment was due on the 14th and I paid it on the 13th through the mobile app. I still got charged a $35 late fee. I have a screenshot of the app showing the payment confirmation dated the 13th.,"Charged a $35 late fee despite paying on the 13th, before the 14th due date",confirmed_true,Low,"06 Fee Waiver and Goodwill Credit Authority, $0–$50 tier (transaction history confirms fee charged in error; payment received before due date)","You contacted us about a $35 late fee charged to your account even though you made your payment on the 13th, before the 14th due date. We understand how frustrating that is.
+
+We reviewed your account records. They show your payment of $118.75 was received through the mobile app on April 13, 2026, one day before the April 14 due date. The payment was not posted to your account until April 15, and a $35.00 late fee was assessed that same day. Our records confirm this fee was applied in error.
+
+We are waiving the $35.00 late fee. You don't need to send your app screenshot, because our own records confirm the payment date.
+
+You don't need to take any further action. If you have questions or see a different amount on your next statement, you can reply to this message or call us at the number on your account. Please include your case reference number.
+
+Case reference: 21633667","Waiver of the $35.00 late fee assessed on April 15, 2026",pass,,,
+22853918,core,"I set up autopay for this loan six months ago and it worked fine until last month, when my payment was never withdrawn and I was charged a late fee as a result. I have a screenshot of my autopay settings still showing as active.",Autopay was set up six months ago and worked fine until last month | Payment was never withdrawn last month | Charged a late fee as a result of the payment not being withdrawn,confirmed_false,Low,06 Fee Waiver and Goodwill Credit Authority (no waiver applicable — transaction history confirms the fee was correctly charged); 10 Prohibited Language; 11 Response Tone and Format,"Thank you for contacting us about your missed autopay payment and the late fee on your account. We understand how frustrating it is to be charged a fee when you expected your payment to go through automatically.
+
+We reviewed your account history. Here is what we found on each point you raised:
+
+1. Autopay worked for six months until last month: Our records show your autopay withdrawals of $100.00 were completed on March 27, 2026 and April 27, 2026. On May 9, 2026, the account log shows autopay was turned off through the mobile app.
+
+2. Your payment was not withdrawn last month: The $100.00 installment due May 27, 2026 was not withdrawn. Our records show no active autopay instruction on the account on that date, and no payment was received.
+
+3. You were charged a late fee as a result: A $25.00 late fee was applied on June 1, 2026, after the May 27 installment was not received. Because our records show autopay had been turned off before that payment date, the fee was applied correctly and we are not able to waive it.
+
+You mentioned having a screenshot showing autopay as active. We do not have it on file. If you would like to send it, reply to this message and we will review it alongside your account records.
+
+If you would like autopay active again, please let us know. You are also welcome to raise this concern through any other channel you choose.
+
+Case reference: 22853918",,pass,,,
+23623033,core,"My account is showing as 60 days past due on my credit report, but I have never missed a payment on this account. My bank statements show every payment was made on time for the past 18 months.",Account is showing as 60 days past due on credit report | Customer states they have never missed a payment on this account | Bank statements show every payment was made on time for the past 18 months,confirmed_false,Low,"04 Credit Reporting Disputes (FCRA): investigation timeline and remedy authority (no correction applicable, records support reported data); 10 Prohibited Language; 11 Response Tone and Format","You contacted us because your account is showing as 60 days past due on your credit report, and you believe every payment over the past 18 months was made on time. We understand how concerning this is, and we reviewed your payment history in detail.
+
+Here is what our records show for each of your points:
+
+1. Reported as 60 days past due: Our records show that the scheduled $140.00 installments due on March 18, 2026 and April 18, 2026 were not received. On April 20, 2026, the account was reported to the credit bureaus as 60 days past due, based on those two missed installments.
+
+2. Never missed a payment: Our ledger does not support this. The March 18 and April 18 installments do not appear as received. Our records do show that your January 18 and February 18, 2026 payments were received.
+
+3. Bank statements showing on-time payments for 18 months: We do not currently have your bank statements, so we could not compare them against our ledger. Our own records show the two missed installments above.
+
+The account was brought current on May 18, 2026 with a $280.00 payment covering two installments, and your June 18, 2026 installment of $140.00 was received. Because our records match what was reported, we have not made a correction to the reported history. Our records do not show whether the credit bureau report has been updated since your May 18 payment, so we cannot confirm how the account currently appears with the bureaus.
+
+If you have bank statements showing payments on March 18 or April 18, 2026, please reply to this message with copies. We will review them. Please note that our investigation period is generally 30 days, and it may extend to 45 days if you provide additional information during the review. If you are not satisfied with the outcome, you may ask to have a statement of your dispute included in your credit file. You are also free to contact any other agency or resource about this matter.
+
+Case reference: 23623033",,pass,,,
+24113084,core,I'm struggling to keep up with payments on this loan due to a medical emergency and reached out twice about hardship options. I haven't gotten any response and the fees keep adding up every week.,Struggling to keep up with loan payments due to a medical emergency | Reached out twice about hardship options with no response | Fees keep adding up every week,confirmed_true,Medium,"07 Hardship and Payment Deferral Options (options 1–4, 'What an analyst or agent may say'); 10 Prohibited Language; 11 Response Tone and Format","We're sorry to hear about your medical emergency, and we understand how hard it is to keep up with loan payments while dealing with it. This response covers each of the three concerns in your message.
+
+**Your hardship requests.** Our records show you called us on June 18th to ask about hardship options and to request a callback. You called again on June 30th to follow up. Your request is logged as pending review.
+
+**No response.** We found no return call or other contact from us after your June 18th callback request. Our records support what you told us.
+
+**Weekly fees.** Our records show six $15 weekly extension fees, assessed on June 5th, June 12th, June 19th, June 26th, July 3rd and July 10th, for a total of $90. Four of these were assessed after your first hardship request on June 18th. These fees were applied to your account as described.
+
+**What happens next.** Our hardship options include a payment date shift, a temporary reduced-payment plan, a short deferral period, and a pause on payments (forbearance). Some of these options require supervisor review, so none are approved yet. Which options you qualify for depends on your account details, and we will confirm any approved arrangement, including how it affects fees, in writing.
+
+To follow up, reply to this message or call the number on your account and mention the case reference below. You are also welcome to contact any other channel you choose about this matter.
+
+Case reference: 24113084",,pass,,,
+SYN-B06,boundary_conflicting_evidence,I called in March and spoke to someone named Derek who told me my $30 fee would be waived and it would show on my next statement. It's now two statements later and the fee is still there and nobody can find any record of that call ever happening.,Representative named Derek said on a March call that a $30 fee would be waived and would show on the next statement | The $30 fee is still on the account two statements later | No one can find any record of the March call,partially_true,Medium,"08 General Dispute Handling Process (standard process; outcome classified as partially confirmed; every allegation addressed individually), with 10 Prohibited Language and 11 Response Tone and Format applied","You contacted us because a $30 fee is still on your account two statements after you say a representative named Derek told you in March that it would be waived. We reviewed your account and the call records, and here is what we found on each point.
+
+The $30 fee remains on your account. Our records show it was applied on March 18, 2026, and it has not been waived in our system.
+
+The March call. You mentioned that no one could find a record of it. Our call log does show an inbound call from you on March 15, 2026, handled by a representative named D. Reyes. On that call a fee waiver was requested, and the request was passed to a supervisor. The log does not show an approval or a denial. The $30 fee was applied on March 18, three days after the call, and the records we have do not show whether the March 15 request was about this fee.
+
+What Derek told you. Our system does not record what was said during calls, so we cannot confirm or rule out that you were told the fee would be waived. The supervisor's decision and any notes or recording of the call are not in the records available to us.
+
+Because of this, no waiver has been approved or denied on this fee, and it stays on your account for now. We understand how frustrating it is to see a charge you expected to be removed.
+
+If you can share the date and time of any other call, the name of anyone else you spoke with, or any confirmation you received, please reply to this message or call the number on your account. We will add that information to your case. Please include case reference SYN-B06 in any further correspondence.",,fail,"Groundedness: ""no waiver has been approved or denied on this fee"" overstates the verification, which says only that the supervisor outcome is not in the records. Reword to say the records available do not show a decision. | Groundedness: the statement that the records do not show whether the March 15 request concerned this fee is the drafter's own inference. It does not appear in the verification output and should be removed or backed by evidence. | Tone/structure: the ""The March call"" paragraph is six sentences, over Policy 11's 2–4 sentence limit, and should be split. | Tone/structure: next steps do not say what the company will do to obtain the supervisor decision or call notes, or when the customer will hear back, contrary to Policy 08's clear-next-step requirement.",,
+SYN-F01,core_confirmed_false,I was charged a $35 late fee this month even though I paid on time. I pay the same way every month and this has never happened before.,Charged a $35 late fee this month despite paying on time | Pays the same way every month and this has never happened before,confirmed_false,Low,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (no fee was assessed, so no waiver applies); response governed by 10 Prohibited Language and 11 Response Tone and Format","You contacted us about a $35 late fee you believe was charged to your account this month even though you paid on time. We reviewed your account and payment history.
+
+What we found: your payment of $180 was received on June 8, 2026, two days before your June 10, 2026 due date. You are correct that the payment was on time. Our records show no late fee was assessed for June, and no fee of any kind appears in your transaction history for this cycle.
+
+You also mentioned that you pay the same way every month and that this has never happened before. For this billing cycle, your on-time payment was recorded as expected, and we found no late fee charged to your account.
+
+Because no fee was charged, there is nothing to waive or reverse, so no credit or adjustment applies. If you are seeing a $35 charge on your statement or in your online account, please reply to this message with the date and description of the charge, or contact us using the details on your account. We will review exactly what you are seeing. You are also welcome to pursue any other channel you choose.
+
+Case reference: SYN-F01",,pass,,,
+SYN-F04,core_confirmed_false,"I was double charged my monthly payment of $180 this month, once on the 1st and once on the 15th.","Double charged the monthly payment of $180 this month, once on the 1st and once on the 15th",confirmed_false,Low,"08 General Dispute Handling Process (outcome classified as not confirmed, no error found); 10 Prohibited Language; 11 Response Tone and Format","You contacted us about a possible double charge of your $180 monthly payment this month, on the 1st and again on the 15th.
+
+We reviewed your transaction records for this month. They show one $180 payment, processed on June 1st. We did not find a second $180 payment on June 15th or on any other date this month.
+
+Based on what our records show, no duplicate charge was made to your account, so there is no refund or adjustment to make for this issue.
+
+If your bank or card statement shows a second charge, please reply to this message with the date and amount as it appears there, or call us at the number on your account. We will compare it against our records. You are also free to contact your bank or card issuer about any charge you see on your statement.
+
+Case reference: SYN-F04",,pass,,,
+SYN-P01,core_partially_true,"I was charged two separate fees this month, a $15 processing fee and a $35 late fee. I think both of these are wrong and should be refunded.",Charged a $15 processing fee this month | Charged a $35 late fee this month | Believes both fees are wrong,confirmed_false,Low,"06 Fee Waiver and Goodwill Credit Authority, 'When a waiver is NOT appropriate' (fee confirmed as correctly charged; no error found, so no waiver applies). Also governed by Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format).","Thank you for contacting us about the $15 processing fee and the $35 late fee you saw on your account this month, and for asking us to refund both. We reviewed your account and transaction history, and here is what we found.
+
+$15 processing fee: This fee was charged on June 25, 2026. It is a standard fee described in section 2.1 of your loan agreement, and we found no error in how it was applied.
+
+$35 late fee: We did not find a $35 late fee anywhere in your transaction history for this period. Your account is current, and no late fee was charged.
+
+Because the processing fee was applied as described in your agreement and no late fee was charged, we are not issuing a refund or waiver for either amount.
+
+If you are seeing a $35 charge on a statement or in your online account, please reply to this message with the date and where you saw it. We will review it. You are also welcome to ask for further review of this response through any channel you choose.
+
+Case reference: SYN-P01.",,pass,,,
+SYN-P02,core_partially_true,"My payment this month was taken out twice from my bank account, for $220 total instead of $110. This has caused an overdraft on my checking account.","Payment this month was taken out twice from bank account, totaling $220 instead of $110 | Double withdrawal caused an overdraft on checking account",partially_true,Medium,"08 General Dispute Handling Process (Standard process, steps 3-4, and 'What counts as a complete response'); Policy 10 Prohibited Language; Policy 11 Response Tone and Format. Policy 08 sets no refund or remedy authority, so no remedy is stated.","You contacted us because $220 was taken from your bank account for your payment this month instead of $110, and because the double withdrawal overdrafted your checking account. We understand this has been frustrating. We reviewed your account and address each concern below.
+
+What we found:
+
+1. Double withdrawal: Our records confirm two $110 payments on your account, one on June 30, 2026 and one on July 1, 2026. That totals $220 against the expected $110. The second payment was a duplicate caused by a payment-processing retry issue on our side, which we logged on July 1, 2026.
+
+2. Overdraft on your checking account: An overdraft would have happened at your bank, and any fee would have been charged by your bank, so our system has no record of it. We can neither confirm nor rule it out from our records. To review this part, we would need your bank statement or overdraft notice showing the overdraft and any fee amount.
+
+Outcome: The duplicate $110 payment is confirmed. No refund or reimbursement for the extra payment has been approved at this time, so we cannot state a remedy in this message. We also cannot state an outcome on the overdraft until we have the bank documentation described above.
+
+Next steps: Please reply to this message with a copy of your bank statement or overdraft notice, with personal details you don't want to share hidden. You are also welcome to reply with any questions about the duplicate payment.
+
+Case reference: SYN-P02",,fail,"Groundedness: the case reference ""SYN-P02"" is not traceable to any provided source (the account is ACC-P02). Confirm the real case number or use the system-issued one. | Tone/structure: the confirmed company-side duplicate payment ends with no remedy, no explanation, and no pending-review next step. The draft should state what happens next for the duplicate, such as that the extra payment is being referred for review, but only if that is actually true and authorized.",,
+SYN-P03,core_partially_true,"This collector calls me multiple times a day and has also called my workplace, which I never gave them permission to contact.",Collector calls multiple times a day | Collector called the customer's workplace without permission,partially_true,Medium,"08 General Dispute Handling Process (Standard process, steps 3-4, and 'What counts as a complete response'); format and language per Policy 10 and Policy 11. No remedy policy applies because no remedy was requested or authorized.","Thank you for letting us know about the collection calls you've received and the call you reported to your workplace. We understand this has been frustrating, and we reviewed both concerns individually.
+
+Call frequency: Our call records show 6 calls to your personal phone number within a 7-day period. Our records show the number of calls in that period, but not a day-by-day breakdown, so we can't confirm from them how many calls were made on any single day.
+
+Call to your workplace: We found no record of a call to a workplace or employer number. The only phone number on file for your account is the personal number you provided to us, so we were not able to confirm this part of your complaint.
+
+No adjustment to your account has been made as a result of this review. If you have more details about the workplace call, such as the date, the approximate time, or the number that was called, please reply to this message or call the number on your account, and we will review that information and respond to you in writing. You are also welcome to contact any other channel you choose about this matter.
+
+Case reference: SYN-P03.",,pass,,,

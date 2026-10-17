@@ -1,0 +1,141 @@
+{
+  "complaint_id": "SYN-C001",
+  "run_started": "2026-10-07T00:23:22+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C001",
+    "date_received": "2026-08-15",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "TN",
+    "narrative": "I was charged a $75 fee on my installment loan this month that was never disclosed in my original loan agreement. I've reviewed the paperwork twice and cannot find any mention of this charge.",
+    "account_id": "ACC-051",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1432,
+      "output_tokens": 216
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2407,
+      "output_tokens": 1140
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $75 fee on installment loan this month that was never disclosed in the original loan agreement",
+      "Reviewed the paperwork twice and found no mention of the charge"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      75.0
+    ],
+    "dates_mentioned": [
+      "this month"
+    ],
+    "account_details_mentioned": "Installment loan with an original loan agreement that the customer says does not mention the $75 fee",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and measured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-051",
+      "loan_balance": 950.0,
+      "origination_date": "2026-09-12",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-051",
+        "date": "2026-09-12",
+        "type": "payment",
+        "amount": 47.5,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The transaction history for ACC-051 holds a single entry: a $47.50 routine scheduled payment on 2026-09-12, which is also the origination date. It shows no $75 fee, but that does not disprove the claim, because the history looks incomplete (no disbursement entry, no activity after origination for a $950 balance). The complaint says only 'this month', so the date of the alleged fee cannot be matched to the data. The loan agreement or fee schedule was not provided, so the claim that the fee is undisclosed cannot be checked. The account record lists product_type 'payday_loan' while the customer describes an 'installment loan'. The account_note says the record is generic and not built to confirm or deny this complaint. Missing: complete transaction history covering the complaint month, the original loan agreement and fee disclosures, and confirmation of the product type.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is 'unverifiable' and the gap could change the outcome, since neither the $75 fee nor its disclosure in the loan agreement can be confirmed, which is an automatic High trigger.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: the $75 fee and the loan agreement's disclosure terms cannot be confirmed from the available records, so a human reviewer must retrieve the full transaction history and the loan agreement before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was charged a $75 fee on my installment loan this month that was never disclosed in my original loan agreement. I've reviewed the paperwork twice and cannot find any mention of this charge.",
+    "extraction": {
+      "allegations": [
+        "Charged a $75 fee on installment loan this month that was never disclosed in the original loan agreement",
+        "Reviewed the paperwork twice and found no mention of the charge"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        75.0
+      ],
+      "dates_mentioned": [
+        "this month"
+      ],
+      "account_details_mentioned": "Installment loan with an original loan agreement that the customer says does not mention the $75 fee",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and measured"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The transaction history for ACC-051 holds a single entry: a $47.50 routine scheduled payment on 2026-09-12, which is also the origination date. It shows no $75 fee, but that does not disprove the claim, because the history looks incomplete (no disbursement entry, no activity after origination for a $950 balance). The complaint says only 'this month', so the date of the alleged fee cannot be matched to the data. The loan agreement or fee schedule was not provided, so the claim that the fee is undisclosed cannot be checked. The account record lists product_type 'payday_loan' while the customer describes an 'installment loan'. The account_note says the record is generic and not built to confirm or deny this complaint. Missing: complete transaction history covering the complaint month, the original loan agreement and fee disclosures, and confirmation of the product type.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is 'unverifiable' and the gap could change the outcome, since neither the $75 fee nor its disclosure in the loan agreement can be confirmed, which is an automatic High trigger.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-051",
+        "loan_balance": 950.0,
+        "origination_date": "2026-09-12",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-051",
+          "date": "2026-09-12",
+          "type": "payment",
+          "amount": 47.5,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: the $75 fee and the loan agreement's disclosure terms cannot be confirmed from the available records, so a human reviewer must retrieve the full transaction history and the loan agreement before any response is drafted.",
+    "unresolved": "The transaction history for ACC-051 holds a single entry: a $47.50 routine scheduled payment on 2026-09-12, which is also the origination date. It shows no $75 fee, but that does not disprove the claim, because the history looks incomplete (no disbursement entry, no activity after origination for a $950 balance). The complaint says only 'this month', so the date of the alleged fee cannot be matched to the data. The loan agreement or fee schedule was not provided, so the claim that the fee is undisclosed cannot be checked. The account record lists product_type 'payday_loan' while the customer describes an 'installment loan'. The account_note says the record is generic and not built to confirm or deny this complaint. Missing: complete transaction history covering the complaint month, the original loan agreement and fee disclosures, and confirmation of the product type.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:23:33+00:00"
+}

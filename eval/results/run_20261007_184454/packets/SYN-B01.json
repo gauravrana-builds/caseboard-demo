@@ -1,0 +1,215 @@
+{
+  "complaint_id": "SYN-B01",
+  "run_started": "2026-10-07T23:46:07+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-B01",
+    "date_received": "5/2/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "TX",
+    "narrative": "I was charged a $45 late fee on my installment loan even though I made the payment on time through the app. I have called customer service three times over the past two weeks and no one has fixed it. If this isn't corrected by the end of this week I will be speaking with my attorney about my options.",
+    "account_id": "ACC-013",
+    "attorney_regulator_flag": "TRUE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1455,
+      "output_tokens": 232
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4781,
+      "output_tokens": 1370
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Charged a $45 late fee despite paying on time through the app",
+      "Called customer service three times over the past two weeks with no resolution"
+    ],
+    "requested_outcome": "Correction of the fee",
+    "dollar_amounts_mentioned": [
+      45.0
+    ],
+    "dates_mentioned": [
+      "over the past two weeks",
+      "by the end of this week"
+    ],
+    "account_details_mentioned": "Installment loan; payment made on time through the app",
+    "risk_signal_phrases": [
+      "I will be speaking with my attorney about my options"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated, specific, time-pressured"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-013",
+      "loan_balance": 2800.0,
+      "origination_date": "5/14/2026",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-013",
+        "date": "2026-05-14",
+        "type": "payment",
+        "amount": 155.56,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-013",
+        "date": "2026-06-13",
+        "type": "payment",
+        "amount": 215.38,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-013",
+        "date": "2026-07-13",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-013",
+        "date": "2026-08-12",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-013",
+        "date": "2026-09-11",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_false",
+    "fact_verification_explanation": "The central allegation is that a $45 late fee was wrongly charged despite an on-time payment through the app. The transaction history for ACC-013 (2026-05-14 to 2026-09-11) contains no $45 fee of any kind. The only fees are two $30 assessments, on 2026-07-13 and 2026-08-12, both noted as 'Routine fee assessment' and neither labeled a late fee. The most recent entry is a $100 payment on 2026-09-11, and no fee follows it. The customer's claim of a $45 late fee is therefore not supported. The three customer service calls are not recorded in the account or transaction data, so they can be neither confirmed nor ruled out. They are a secondary complaint and do not change the finding on the fee. The customer may be referring to one of the $30 fees, and a human reviewer should check this, since the records do not show why those fees were assessed. Payments on 2026-07-13 and 2026-08-12 are absent from the history.",
+    "risk_tier": "High",
+    "risk_rationale": "The narrative contains an explicit attorney reference ('I will be speaking with my attorney about my options') and attorney_regulator_flag is TRUE, which is an automatic High trigger regardless of the small fee amount or the evidence finding.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "triggers": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was charged a $45 late fee on my installment loan even though I made the payment on time through the app. I have called customer service three times over the past two weeks and no one has fixed it. If this isn't corrected by the end of this week I will be speaking with my attorney about my options.",
+    "extraction": {
+      "allegations": [
+        "Charged a $45 late fee despite paying on time through the app",
+        "Called customer service three times over the past two weeks with no resolution"
+      ],
+      "requested_outcome": "Correction of the fee",
+      "dollar_amounts_mentioned": [
+        45.0
+      ],
+      "dates_mentioned": [
+        "over the past two weeks",
+        "by the end of this week"
+      ],
+      "account_details_mentioned": "Installment loan; payment made on time through the app",
+      "risk_signal_phrases": [
+        "I will be speaking with my attorney about my options"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated, specific, time-pressured"
+    },
+    "verification": {
+      "fact_verification": "confirmed_false",
+      "fact_verification_explanation": "The central allegation is that a $45 late fee was wrongly charged despite an on-time payment through the app. The transaction history for ACC-013 (2026-05-14 to 2026-09-11) contains no $45 fee of any kind. The only fees are two $30 assessments, on 2026-07-13 and 2026-08-12, both noted as 'Routine fee assessment' and neither labeled a late fee. The most recent entry is a $100 payment on 2026-09-11, and no fee follows it. The customer's claim of a $45 late fee is therefore not supported. The three customer service calls are not recorded in the account or transaction data, so they can be neither confirmed nor ruled out. They are a secondary complaint and do not change the finding on the fee. The customer may be referring to one of the $30 fees, and a human reviewer should check this, since the records do not show why those fees were assessed. Payments on 2026-07-13 and 2026-08-12 are absent from the history.",
+      "risk_tier": "High",
+      "risk_rationale": "The narrative contains an explicit attorney reference ('I will be speaking with my attorney about my options') and attorney_regulator_flag is TRUE, which is an automatic High trigger regardless of the small fee amount or the evidence finding.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-013",
+        "loan_balance": 2800.0,
+        "origination_date": "5/14/2026",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-013",
+          "date": "2026-05-14",
+          "type": "payment",
+          "amount": 155.56,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-013",
+          "date": "2026-06-13",
+          "type": "payment",
+          "amount": 215.38,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-013",
+          "date": "2026-07-13",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-013",
+          "date": "2026-08-12",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-013",
+          "date": "2026-09-11",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "unresolved": null,
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Charged fees or interest you didn't expect - confirmed_false - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T23:46:20+00:00"
+}

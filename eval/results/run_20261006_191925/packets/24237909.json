@@ -1,0 +1,251 @@
+{
+  "complaint_id": "24237909",
+  "run_started": "2026-10-07T00:22:01+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "24237909",
+    "date_received": "2026-07-15",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Earned wage access",
+    "issue": "Issues with repayment",
+    "sub_issue": "",
+    "state": "CA",
+    "narrative": "An earned wage advance I took out was supposed to be repaid from a single paycheck, but it's been deducted from my account for three separate pay periods in a row, which I never agreed to.",
+    "account_id": "ACC-043",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1423,
+      "output_tokens": 243
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2974,
+      "output_tokens": 1262
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Earned wage advance was supposed to be repaid from a single paycheck",
+      "Advance was deducted from the account for three separate pay periods in a row",
+      "Customer never agreed to repeated deductions"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "three separate pay periods in a row"
+    ],
+    "account_details_mentioned": "Earned wage advance repayment deducted from account across three consecutive pay periods instead of one paycheck",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-043",
+      "loan_balance": 2800.0,
+      "origination_date": "2026-01-10",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-043",
+        "date": "2026-01-10",
+        "type": "payment",
+        "amount": 107.69,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-043",
+        "date": "2026-02-09",
+        "type": "payment",
+        "amount": 121.74,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-043",
+        "date": "2026-03-11",
+        "type": "payment",
+        "amount": 77.78,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-043",
+        "date": "2026-04-10",
+        "type": "payment",
+        "amount": 107.69,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-043",
+        "date": "2026-05-10",
+        "type": "payment",
+        "amount": 155.56,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-043",
+        "date": "2026-06-09",
+        "type": "payment",
+        "amount": 147.37,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-043",
+        "date": "2026-07-09",
+        "type": "payment",
+        "amount": 147.37,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-043",
+        "date": "2026-08-08",
+        "type": "fee",
+        "amount": 35.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-043",
+        "date": "2026-09-07",
+        "type": "payment",
+        "amount": 103.7,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The record cannot confirm or contradict the claim. (1) The account is a 'payday_loan' (ACC-043), and no earned wage advance product or advance record is present. (2) The ledger shows only monthly 'Routine scheduled payment' entries, with no deductions labeled as advance repayments and no pay-period or payroll data. (3) The complaint gives no dates or amounts, so no specific transactions can be matched. (4) There is no record of the repayment terms or the customer's authorization for repeated deductions. Three consecutive payments exist (2026-05-10 $155.56, 2026-06-09 $147.37, 2026-07-09 $147.37), but they are monthly, not per pay period, and nothing ties them to the alleged advance. The account note also says this is a generic record not built to verify this complaint. Missing: the earned wage advance agreement and repayment terms, the advance disbursement record, payroll/pay-period deduction records, authorization or consent records, and the specific dates or amounts the customer disputes.",
+    "risk_tier": "High",
+    "risk_rationale": "Evidence is unverifiable and the gap could change the outcome, because whether the repeated deductions were authorized or exceeded the agreed single repayment cannot be determined. This is an automatic High trigger, and the allegation of repeated deductions the customer 'never agreed to' is a UDAAP-pattern signal that reinforces it.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the unresolved gap (whether the repeated deductions were authorized or exceeded the agreed repayment terms) affects the outcome, so a human reviewer must retrieve the missing records before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "An earned wage advance I took out was supposed to be repaid from a single paycheck, but it's been deducted from my account for three separate pay periods in a row, which I never agreed to.",
+    "extraction": {
+      "allegations": [
+        "Earned wage advance was supposed to be repaid from a single paycheck",
+        "Advance was deducted from the account for three separate pay periods in a row",
+        "Customer never agreed to repeated deductions"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "three separate pay periods in a row"
+      ],
+      "account_details_mentioned": "Earned wage advance repayment deducted from account across three consecutive pay periods instead of one paycheck",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The record cannot confirm or contradict the claim. (1) The account is a 'payday_loan' (ACC-043), and no earned wage advance product or advance record is present. (2) The ledger shows only monthly 'Routine scheduled payment' entries, with no deductions labeled as advance repayments and no pay-period or payroll data. (3) The complaint gives no dates or amounts, so no specific transactions can be matched. (4) There is no record of the repayment terms or the customer's authorization for repeated deductions. Three consecutive payments exist (2026-05-10 $155.56, 2026-06-09 $147.37, 2026-07-09 $147.37), but they are monthly, not per pay period, and nothing ties them to the alleged advance. The account note also says this is a generic record not built to verify this complaint. Missing: the earned wage advance agreement and repayment terms, the advance disbursement record, payroll/pay-period deduction records, authorization or consent records, and the specific dates or amounts the customer disputes.",
+      "risk_tier": "High",
+      "risk_rationale": "Evidence is unverifiable and the gap could change the outcome, because whether the repeated deductions were authorized or exceeded the agreed single repayment cannot be determined. This is an automatic High trigger, and the allegation of repeated deductions the customer 'never agreed to' is a UDAAP-pattern signal that reinforces it.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-043",
+        "loan_balance": 2800.0,
+        "origination_date": "2026-01-10",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-043",
+          "date": "2026-01-10",
+          "type": "payment",
+          "amount": 107.69,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-043",
+          "date": "2026-02-09",
+          "type": "payment",
+          "amount": 121.74,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-043",
+          "date": "2026-03-11",
+          "type": "payment",
+          "amount": 77.78,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-043",
+          "date": "2026-04-10",
+          "type": "payment",
+          "amount": 107.69,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-043",
+          "date": "2026-05-10",
+          "type": "payment",
+          "amount": 155.56,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-043",
+          "date": "2026-06-09",
+          "type": "payment",
+          "amount": 147.37,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-043",
+          "date": "2026-07-09",
+          "type": "payment",
+          "amount": 147.37,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-043",
+          "date": "2026-08-08",
+          "type": "fee",
+          "amount": 35.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-043",
+          "date": "2026-09-07",
+          "type": "payment",
+          "amount": 103.7,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the unresolved gap (whether the repeated deductions were authorized or exceeded the agreed repayment terms) affects the outcome, so a human reviewer must retrieve the missing records before any response is drafted.",
+    "unresolved": "The record cannot confirm or contradict the claim. (1) The account is a 'payday_loan' (ACC-043), and no earned wage advance product or advance record is present. (2) The ledger shows only monthly 'Routine scheduled payment' entries, with no deductions labeled as advance repayments and no pay-period or payroll data. (3) The complaint gives no dates or amounts, so no specific transactions can be matched. (4) There is no record of the repayment terms or the customer's authorization for repeated deductions. Three consecutive payments exist (2026-05-10 $155.56, 2026-06-09 $147.37, 2026-07-09 $147.37), but they are monthly, not per pay period, and nothing ties them to the alleged advance. The account note also says this is a generic record not built to verify this complaint. Missing: the earned wage advance agreement and repayment terms, the advance disbursement record, payroll/pay-period deduction records, authorization or consent records, and the specific dates or amounts the customer disputes.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Issues with repayment - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:22:13+00:00"
+}

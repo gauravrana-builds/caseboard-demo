@@ -1,0 +1,279 @@
+{
+  "complaint_id": "21206128",
+  "run_started": "2026-10-07T00:19:54+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "21206128",
+    "date_received": "2026-04-13",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Information is missing that should be on the report",
+    "state": "PA",
+    "narrative": "I paid off my payday loan in full three months ago but my credit report doesn't show the account as closed or paid. It still shows as open with a balance. I have my bank statement showing the payment went through.",
+    "account_id": "ACC-008",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1438,
+      "output_tokens": 238
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3108,
+      "output_tokens": 1256
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Paid off payday loan in full three months ago",
+      "Credit report does not show the account as closed or paid",
+      "Credit report still shows the account as open with a balance"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "three months ago"
+    ],
+    "account_details_mentioned": "Payday loan paid off in full; credit report still lists the account as open with a balance; customer has a bank statement showing the payment went through",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "calm, factual, documentation-backed"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-008",
+      "loan_balance": 2800.0,
+      "origination_date": "2025-10-11",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-008",
+        "date": "2025-10-11",
+        "type": "payment",
+        "amount": 133.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2025-11-10",
+        "type": "payment",
+        "amount": 147.37,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2025-12-10",
+        "type": "payment",
+        "amount": 200.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2026-01-09",
+        "type": "payment",
+        "amount": 103.7,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2026-02-08",
+        "type": "payment",
+        "amount": 77.78,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2026-03-10",
+        "type": "payment",
+        "amount": 175.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2026-04-09",
+        "type": "payment",
+        "amount": 103.7,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2026-05-09",
+        "type": "payment",
+        "amount": 164.71,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2026-06-08",
+        "type": "payment",
+        "amount": 90.32,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2026-07-08",
+        "type": "payment",
+        "amount": 155.56,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-008",
+        "date": "2026-08-07",
+        "type": "payment",
+        "amount": 77.78,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved record does not clearly belong to the loan the customer describes, and it contains no credit reporting data. (1) Product mismatch: the customer describes a payday loan, but ACC-008 is an 'installment_loan' originated 2025-10-11. It cannot be confirmed that ACC-008 is the account in dispute, or that the payday loan is held in this system at all. (2) If ACC-008 were the account, the claim would be contradicted: the balance is $2,800.00, status is 'current', and the history (2025-10-11 to 2026-08-07) shows only routine scheduled payments of $77.78 to $200.00, with no payoff-sized payment and no closure entry. (3) Missing evidence: no credit bureau/furnished-data record, so what the credit report shows cannot be checked. The customer's bank statement showing the payoff was not provided, and the payoff date and amount are unstated ('three months ago' only). (4) The account_note says the record is generic filler data and was not built to verify this complaint, so its reliability for this case is low.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap could change the outcome: whether the correct account was retrieved determines whether the payoff claim is true or false, and credit reporting accuracy cannot be assessed without bureau data or the customer's payment proof.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: the retrieved account (installment loan) does not match the customer's described product (payday loan), and there is no credit reporting data or payoff proof. A human must locate the correct account and review the customer's bank statement before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I paid off my payday loan in full three months ago but my credit report doesn't show the account as closed or paid. It still shows as open with a balance. I have my bank statement showing the payment went through.",
+    "extraction": {
+      "allegations": [
+        "Paid off payday loan in full three months ago",
+        "Credit report does not show the account as closed or paid",
+        "Credit report still shows the account as open with a balance"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "three months ago"
+      ],
+      "account_details_mentioned": "Payday loan paid off in full; credit report still lists the account as open with a balance; customer has a bank statement showing the payment went through",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "calm, factual, documentation-backed"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved record does not clearly belong to the loan the customer describes, and it contains no credit reporting data. (1) Product mismatch: the customer describes a payday loan, but ACC-008 is an 'installment_loan' originated 2025-10-11. It cannot be confirmed that ACC-008 is the account in dispute, or that the payday loan is held in this system at all. (2) If ACC-008 were the account, the claim would be contradicted: the balance is $2,800.00, status is 'current', and the history (2025-10-11 to 2026-08-07) shows only routine scheduled payments of $77.78 to $200.00, with no payoff-sized payment and no closure entry. (3) Missing evidence: no credit bureau/furnished-data record, so what the credit report shows cannot be checked. The customer's bank statement showing the payoff was not provided, and the payoff date and amount are unstated ('three months ago' only). (4) The account_note says the record is generic filler data and was not built to verify this complaint, so its reliability for this case is low.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap could change the outcome: whether the correct account was retrieved determines whether the payoff claim is true or false, and credit reporting accuracy cannot be assessed without bureau data or the customer's payment proof.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-008",
+        "loan_balance": 2800.0,
+        "origination_date": "2025-10-11",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-008",
+          "date": "2025-10-11",
+          "type": "payment",
+          "amount": 133.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2025-11-10",
+          "type": "payment",
+          "amount": 147.37,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2025-12-10",
+          "type": "payment",
+          "amount": 200.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2026-01-09",
+          "type": "payment",
+          "amount": 103.7,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2026-02-08",
+          "type": "payment",
+          "amount": 77.78,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2026-03-10",
+          "type": "payment",
+          "amount": 175.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2026-04-09",
+          "type": "payment",
+          "amount": 103.7,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2026-05-09",
+          "type": "payment",
+          "amount": 164.71,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2026-06-08",
+          "type": "payment",
+          "amount": 90.32,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2026-07-08",
+          "type": "payment",
+          "amount": 155.56,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-008",
+          "date": "2026-08-07",
+          "type": "payment",
+          "amount": 77.78,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap affects the outcome: the retrieved account (installment loan) does not match the customer's described product (payday loan), and there is no credit reporting data or payoff proof. A human must locate the correct account and review the customer's bank statement before any response is drafted.",
+    "unresolved": "The retrieved record does not clearly belong to the loan the customer describes, and it contains no credit reporting data. (1) Product mismatch: the customer describes a payday loan, but ACC-008 is an 'installment_loan' originated 2025-10-11. It cannot be confirmed that ACC-008 is the account in dispute, or that the payday loan is held in this system at all. (2) If ACC-008 were the account, the claim would be contradicted: the balance is $2,800.00, status is 'current', and the history (2025-10-11 to 2026-08-07) shows only routine scheduled payments of $77.78 to $200.00, with no payoff-sized payment and no closure entry. (3) Missing evidence: no credit bureau/furnished-data record, so what the credit report shows cannot be checked. The customer's bank statement showing the payoff was not provided, and the payoff date and amount are unstated ('three months ago' only). (4) The account_note says the record is generic filler data and was not built to verify this complaint, so its reliability for this case is low.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:20:07+00:00"
+}

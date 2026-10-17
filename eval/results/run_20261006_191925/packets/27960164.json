@@ -1,0 +1,215 @@
+{
+  "complaint_id": "27960164",
+  "run_started": "2026-10-07T00:21:19+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "27960164",
+    "date_received": "2026-09-22",
+    "product": "Checking or savings account",
+    "sub_product": "Checking account",
+    "issue": "Problem with a lender or other company charging your account",
+    "sub_issue": "Transaction was not authorized",
+    "state": "NJ",
+    "narrative": "A recurring charge of $29.99 has been taken from my checking account for the past four months for a subscription I never signed up for. I've disputed it with my bank twice and it keeps getting charged again the following month.",
+    "account_id": "ACC-033",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1431,
+      "output_tokens": 255
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2787,
+      "output_tokens": 1308
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Recurring $29.99 charge taken from checking account for the past four months for a subscription the customer never signed up for",
+      "Disputed the charge with bank twice",
+      "Charge keeps being taken again the following month despite disputes"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      29.99
+    ],
+    "dates_mentioned": [
+      "the past four months",
+      "the following month"
+    ],
+    "account_details_mentioned": "Recurring $29.99 charge from checking account for a subscription never signed up for; disputed with bank twice",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-033",
+      "loan_balance": 1100.0,
+      "origination_date": "2026-04-04",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-033",
+        "date": "2026-04-04",
+        "type": "payment",
+        "amount": 31.43,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-033",
+        "date": "2026-05-04",
+        "type": "payment",
+        "amount": 30.56,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-033",
+        "date": "2026-06-03",
+        "type": "payment",
+        "amount": 61.11,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-033",
+        "date": "2026-07-03",
+        "type": "payment",
+        "amount": 40.74,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-033",
+        "date": "2026-08-02",
+        "type": "payment",
+        "amount": 36.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-033",
+        "date": "2026-09-01",
+        "type": "payment",
+        "amount": 39.29,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved record is ACC-033, an installment loan (balance $1,100.00, originated 2026-04-04, status current). The complaint concerns a recurring $29.99 charge on a checking account. The six transactions (2026-04-04 through 2026-09-01) are all scheduled loan payments of $30.56 to $61.11, and none is $29.99 or looks like a subscription debit. This absence does not contradict the claim, because the checking account's transactions were not retrieved. Missing: (1) the checking account record and its transaction history for the past four months or more, (2) the merchant or descriptor for the $29.99 charge, and (3) the bank's records of the two prior disputes and their outcomes. The account note also says the record is generic and not built for this complaint, so ACC-033 may not be the customer's relevant account at all.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap is outcome-determinative, since it is unknown whether the recurring $29.99 charge exists and how the two prior disputes were handled. This is an automatic High trigger, and the customer's two prior disputes (repeated contact) add to the concern. No attorney or regulator reference is present, and attorney_regulator_flag is False.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable: the retrieved account is an installment loan, not the checking account where the $29.99 charge allegedly occurs, and the gap could change the outcome. Human review is needed to locate the correct account and dispute history before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "A recurring charge of $29.99 has been taken from my checking account for the past four months for a subscription I never signed up for. I've disputed it with my bank twice and it keeps getting charged again the following month.",
+    "extraction": {
+      "allegations": [
+        "Recurring $29.99 charge taken from checking account for the past four months for a subscription the customer never signed up for",
+        "Disputed the charge with bank twice",
+        "Charge keeps being taken again the following month despite disputes"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        29.99
+      ],
+      "dates_mentioned": [
+        "the past four months",
+        "the following month"
+      ],
+      "account_details_mentioned": "Recurring $29.99 charge from checking account for a subscription never signed up for; disputed with bank twice",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved record is ACC-033, an installment loan (balance $1,100.00, originated 2026-04-04, status current). The complaint concerns a recurring $29.99 charge on a checking account. The six transactions (2026-04-04 through 2026-09-01) are all scheduled loan payments of $30.56 to $61.11, and none is $29.99 or looks like a subscription debit. This absence does not contradict the claim, because the checking account's transactions were not retrieved. Missing: (1) the checking account record and its transaction history for the past four months or more, (2) the merchant or descriptor for the $29.99 charge, and (3) the bank's records of the two prior disputes and their outcomes. The account note also says the record is generic and not built for this complaint, so ACC-033 may not be the customer's relevant account at all.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap is outcome-determinative, since it is unknown whether the recurring $29.99 charge exists and how the two prior disputes were handled. This is an automatic High trigger, and the customer's two prior disputes (repeated contact) add to the concern. No attorney or regulator reference is present, and attorney_regulator_flag is False.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-033",
+        "loan_balance": 1100.0,
+        "origination_date": "2026-04-04",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-033",
+          "date": "2026-04-04",
+          "type": "payment",
+          "amount": 31.43,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-033",
+          "date": "2026-05-04",
+          "type": "payment",
+          "amount": 30.56,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-033",
+          "date": "2026-06-03",
+          "type": "payment",
+          "amount": 61.11,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-033",
+          "date": "2026-07-03",
+          "type": "payment",
+          "amount": 40.74,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-033",
+          "date": "2026-08-02",
+          "type": "payment",
+          "amount": 36.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-033",
+          "date": "2026-09-01",
+          "type": "payment",
+          "amount": 39.29,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable: the retrieved account is an installment loan, not the checking account where the $29.99 charge allegedly occurs, and the gap could change the outcome. Human review is needed to locate the correct account and dispute history before any response is drafted.",
+    "unresolved": "The retrieved record is ACC-033, an installment loan (balance $1,100.00, originated 2026-04-04, status current). The complaint concerns a recurring $29.99 charge on a checking account. The six transactions (2026-04-04 through 2026-09-01) are all scheduled loan payments of $30.56 to $61.11, and none is $29.99 or looks like a subscription debit. This absence does not contradict the claim, because the checking account's transactions were not retrieved. Missing: (1) the checking account record and its transaction history for the past four months or more, (2) the merchant or descriptor for the $29.99 charge, and (3) the bank's records of the two prior disputes and their outcomes. The account note also says the record is generic and not built for this complaint, so ACC-033 may not be the customer's relevant account at all.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem with a lender or other company charging your account - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:32+00:00"
+}

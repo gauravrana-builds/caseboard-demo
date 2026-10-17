@@ -1,0 +1,267 @@
+{
+  "complaint_id": "24575492",
+  "run_started": "2026-10-07T00:21:26+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "24575492",
+    "date_received": "2026-07-24",
+    "product": "Checking or savings account",
+    "sub_product": "Other banking product or service",
+    "issue": "Closing an account",
+    "sub_issue": "Can't close your account",
+    "state": "CA",
+    "narrative": "I requested to close my account over a month ago and it is still open and still accruing a monthly maintenance fee. Every time I call I'm told it will be closed within 5 business days and it never happens.",
+    "account_id": "ACC-034",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1417,
+      "output_tokens": 245
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3046,
+      "output_tokens": 1821
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Requested to close account over a month ago and it is still open",
+      "Account is still accruing a monthly maintenance fee",
+      "Told on every call that the account will be closed within 5 business days, but it never happens"
+    ],
+    "requested_outcome": "Closure of the account",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "over a month ago",
+      "within 5 business days"
+    ],
+    "account_details_mentioned": "Account remains open and is still accruing a monthly maintenance fee after closure request",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-034",
+      "loan_balance": 600.0,
+      "origination_date": "2025-05-08",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-034",
+        "date": "2025-05-08",
+        "type": "payment",
+        "amount": 17.65,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2025-06-07",
+        "type": "fee",
+        "amount": 25.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2025-07-07",
+        "type": "payment",
+        "amount": 20.69,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2025-08-06",
+        "type": "payment",
+        "amount": 37.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2025-09-05",
+        "type": "payment",
+        "amount": 16.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2025-10-05",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2025-11-04",
+        "type": "payment",
+        "amount": 22.22,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2025-12-04",
+        "type": "payment",
+        "amount": 27.27,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2026-01-03",
+        "type": "payment",
+        "amount": 46.15,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-034",
+        "date": "2026-02-02",
+        "type": "payment",
+        "amount": 22.22,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The evidence covers only part of the claim. (1) Account still open: not directly confirmed. ACC-034 is a $600 installment loan with a current payment status and a balance, which is consistent with an open account, but the record has no explicit open/closed status and no closure-request field. (2) Monthly maintenance fee: not supported. The only fee in the history is a single $25.00 'Routine fee assessment' on 2025-06-07. No fee appears in the eight months after that (last transaction 2026-02-02), and nothing recurs monthly. (3) Closure request made over a month ago, and repeated '5 business days' promises on calls: unverifiable. No call log, contact history, or closure-request record was provided, and the account note says the record is generic and not built for fact verification. It is also unknown whether the outstanding $600 balance legitimately blocks closure, and the complaint date is not given relative to the transaction history. Missing: servicing or contact notes, closure-request records, the account's closure policy or payoff status, and the date of the complaint.",
+    "risk_tier": "High",
+    "risk_rationale": "The central allegation (a closure request that was ignored, with repeated unfulfilled 5-business-day assurances) cannot be verified, and that gap decides the outcome, so this is an automatic High; the repeated-promise pattern is a UDAAP-pattern signal that also pushed the tier upward.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the outcome-determining issue: there is no record of the closure request or of what the customer was told on calls, so a draft would have to guess whether the bank failed to act on a closure request. Route to human review with the contact history and the account's closure and payoff status.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I requested to close my account over a month ago and it is still open and still accruing a monthly maintenance fee. Every time I call I'm told it will be closed within 5 business days and it never happens.",
+    "extraction": {
+      "allegations": [
+        "Requested to close account over a month ago and it is still open",
+        "Account is still accruing a monthly maintenance fee",
+        "Told on every call that the account will be closed within 5 business days, but it never happens"
+      ],
+      "requested_outcome": "Closure of the account",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "over a month ago",
+        "within 5 business days"
+      ],
+      "account_details_mentioned": "Account remains open and is still accruing a monthly maintenance fee after closure request",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The evidence covers only part of the claim. (1) Account still open: not directly confirmed. ACC-034 is a $600 installment loan with a current payment status and a balance, which is consistent with an open account, but the record has no explicit open/closed status and no closure-request field. (2) Monthly maintenance fee: not supported. The only fee in the history is a single $25.00 'Routine fee assessment' on 2025-06-07. No fee appears in the eight months after that (last transaction 2026-02-02), and nothing recurs monthly. (3) Closure request made over a month ago, and repeated '5 business days' promises on calls: unverifiable. No call log, contact history, or closure-request record was provided, and the account note says the record is generic and not built for fact verification. It is also unknown whether the outstanding $600 balance legitimately blocks closure, and the complaint date is not given relative to the transaction history. Missing: servicing or contact notes, closure-request records, the account's closure policy or payoff status, and the date of the complaint.",
+      "risk_tier": "High",
+      "risk_rationale": "The central allegation (a closure request that was ignored, with repeated unfulfilled 5-business-day assurances) cannot be verified, and that gap decides the outcome, so this is an automatic High; the repeated-promise pattern is a UDAAP-pattern signal that also pushed the tier upward.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-034",
+        "loan_balance": 600.0,
+        "origination_date": "2025-05-08",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-034",
+          "date": "2025-05-08",
+          "type": "payment",
+          "amount": 17.65,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2025-06-07",
+          "type": "fee",
+          "amount": 25.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2025-07-07",
+          "type": "payment",
+          "amount": 20.69,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2025-08-06",
+          "type": "payment",
+          "amount": 37.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2025-09-05",
+          "type": "payment",
+          "amount": 16.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2025-10-05",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2025-11-04",
+          "type": "payment",
+          "amount": 22.22,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2025-12-04",
+          "type": "payment",
+          "amount": 27.27,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2026-01-03",
+          "type": "payment",
+          "amount": 46.15,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-034",
+          "date": "2026-02-02",
+          "type": "payment",
+          "amount": 22.22,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the outcome-determining issue: there is no record of the closure request or of what the customer was told on calls, so a draft would have to guess whether the bank failed to act on a closure request. Route to human review with the contact history and the account's closure and payoff status.",
+    "unresolved": "The evidence covers only part of the claim. (1) Account still open: not directly confirmed. ACC-034 is a $600 installment loan with a current payment status and a balance, which is consistent with an open account, but the record has no explicit open/closed status and no closure-request field. (2) Monthly maintenance fee: not supported. The only fee in the history is a single $25.00 'Routine fee assessment' on 2025-06-07. No fee appears in the eight months after that (last transaction 2026-02-02), and nothing recurs monthly. (3) Closure request made over a month ago, and repeated '5 business days' promises on calls: unverifiable. No call log, contact history, or closure-request record was provided, and the account note says the record is generic and not built for fact verification. It is also unknown whether the outstanding $600 balance legitimately blocks closure, and the complaint date is not given relative to the transaction history. Missing: servicing or contact notes, closure-request records, the account's closure policy or payoff status, and the date of the complaint.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Closing an account - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:45+00:00"
+}

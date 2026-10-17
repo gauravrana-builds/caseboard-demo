@@ -1,0 +1,163 @@
+{
+  "complaint_id": "SYN-P04",
+  "run_started": "2026-10-07T02:29:02+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-P04",
+    "date_received": "7/10/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Charged fees or interest you didn't expect",
+    "sub_issue": "",
+    "state": "TN",
+    "narrative": "I was told my loan had no prepayment penalty, but when I paid it off early I was charged an extra $60 fee that wasn't in my original disclosures.",
+    "account_id": "ACC-P04",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1421,
+      "output_tokens": 202
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3227,
+      "output_tokens": 1419
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3717,
+      "output_tokens": 1710
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4147,
+      "output_tokens": 894
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Told the loan had no prepayment penalty",
+      "Charged an extra $60 fee after paying off the loan early",
+      "The fee was not in the original disclosures"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      60.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Loan was paid off early; original disclosures did not include the $60 fee",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-P04",
+      "loan_balance": 0.0,
+      "origination_date": "2025-08-15",
+      "payment_status": "paid_off",
+      "product_type": "installment_loan",
+      "account_note": "Loan was paid in full on 2026-07-08 (CONFIRMED \u2014 early payoff occurred as described). Transaction log shows a $60 'early payoff processing fee' was charged (CONFIRMED \u2014 fee was charged). However, loan agreement on file, section 4.3, does list this fee under 'Payoff Terms' \u2014 it was disclosed, just easy to miss (customer's claim of non-disclosure is NOT CONFIRMED, though the fee itself is real)."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-P04",
+        "date": "2026-07-08",
+        "type": "payoff",
+        "amount": 0.0,
+        "note": "Loan paid in full."
+      },
+      {
+        "account_id": "ACC-P04",
+        "date": "2026-07-08",
+        "type": "fee",
+        "amount": 60.0,
+        "note": "Early payoff processing fee - disclosed in loan agreement section 4.3."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "Supported: the loan was paid off early on 2026-07-08 and a $60 'early payoff processing fee' was charged the same day, so the customer's claim that the fee was charged is confirmed. Contradicted: the customer says the fee was not in the original disclosures, but loan agreement section 4.3 ('Payoff Terms') lists it. The fee was disclosed, though it may be easy to miss. Not verifiable from the records: the claim that the customer was told the loan had no prepayment penalty. That was an alleged verbal statement, and no call recording, notes, or sales record was provided. This gap does not change what the written agreement says about the fee.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true, which moves the tier to Medium. The allegation that the customer was told there was no prepayment penalty matches the UDAAP pattern (possible misleading statement about terms), and I weighed it in the tier. I did not raise the tier to High because there is no attorney/regulator reference, the amount is only $60, and the fee was disclosed in writing in section 4.3. The verbal-representation allegation is unverified.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "08",
+    "topic": "General Dispute Handling Process",
+    "category": "internal",
+    "matched_keywords": [
+      "general dispute",
+      "process",
+      "timeline",
+      "acknowledge",
+      "investigate",
+      "respond"
+    ],
+    "fallback_used": true,
+    "text": "# Internal Policy: General Dispute Handling Process\n\n**Applies to:** Any complaint not governed more specifically by another policy in this set (i.e., the default process).\n\n## Standard process\n1. **Acknowledge** receipt within 3 business days.\n2. **Investigate** \u2014 compare the customer's claim against account and transaction records.\n3. **Classify** the outcome as one of: confirmed (company error), not confirmed (no error found), partially confirmed (mixed), or unable to verify (insufficient data).\n4. **Respond** in writing within 15 calendar days of receipt (consistent with standard regulatory complaint-handling expectations), addressing every distinct allegation raised in the complaint individually \u2014 a response that addresses only the primary complaint and ignores a secondary request is incomplete.\n5. **Close** the case with a documented root-cause category for internal trend reporting.\n\n## What counts as a complete response\n- Every distinct factual allegation is addressed (confirmed, not confirmed, or unable to verify).\n- Every distinct request the customer made is addressed (a refund request and an account-closure request in the same complaint both need a response, even if only one is granted).\n- The response states a clear next step or outcome \u2014 never ends on an open-ended \"we are looking into it\" with no indication of what happens next, unless the case is genuinely still pending additional information.\n\n## What an analyst or agent may say\n- May state what was investigated and the outcome in plain language.\n- May NOT close a case as \"resolved\" if any raised allegation was not actually addressed.\n\n## Escalation trigger\nUse the dedicated Escalation Criteria policy (document 09) for attorney/regulator/vulnerability triggers. This document covers only the baseline process for complaints that don't meet those triggers.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a $60 fee charged after you paid off your loan early, and about what you were told regarding prepayment penalties. We reviewed your account and loan agreement. Here is what we found on each point.\n\nThe $60 fee: Our records confirm that you paid off your loan early on July 8, 2026, and that a $60 early payoff processing fee was charged on the same day.\n\nWhether the fee was in your original disclosures: Section 4.3 (\"Payoff Terms\") of your loan agreement lists this early payoff processing fee.\n\nWhat you were told about a prepayment penalty: We were not able to verify this part of your complaint. The conversation you describe was verbal, and the records we reviewed do not include a call recording, notes, or other documentation of it. We are not able to confirm or dispute what was said.\n\nOutcome: Based on our review, we found no error in how the fee was applied, so no refund or adjustment has been made to your account.\n\nNext steps: If you would like us to consider more information about the conversation, such as the approximate date, how you were contacted, or who you spoke with, please reply to this message and we will add it to your case. You are also welcome to tell us what outcome you are hoping for. You can reach us by replying here or through the contact details on your account.\n\nCase reference: SYN-P04",
+        "policy_cited": "08 General Dispute Handling Process (standard process, steps 3-4: classify outcome and address every allegation individually); formatted per Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format). No remedy applicable; no error found in fee application.",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "Told the loan had no prepayment penalty",
+          "Charged an extra $60 fee after paying off the loan early",
+          "The fee was not in the original disclosures"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass",
+        "groundedness_check": "pass",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "You contacted us about a $60 fee charged after you paid off your loan early, and about what you were told regarding prepayment penalties. We reviewed your account and loan agreement. Here is what we found on each point.\n\nThe $60 fee: Our records confirm that you paid off your loan early on July 8, 2026, and that a $60 early payoff processing fee was charged on the same day.\n\nWhether the fee was in your original disclosures: Section 4.3 (\"Payoff Terms\") of your loan agreement lists this early payoff processing fee.\n\nWhat you were told about a prepayment penalty: We were not able to verify this part of your complaint. The conversation you describe was verbal, and the records we reviewed do not include a call recording, notes, or other documentation of it. We are not able to confirm or dispute what was said.\n\nOutcome: Based on our review, we found no error in how the fee was applied, so no refund or adjustment has been made to your account.\n\nNext steps: If you would like us to consider more information about the conversation, such as the approximate date, how you were contacted, or who you spoke with, please reply to this message and we will add it to your case. You are also welcome to tell us what outcome you are hoping for. You can reach us by replying here or through the contact details on your account.\n\nCase reference: SYN-P04",
+    "policy_cited": "08 General Dispute Handling Process (standard process, steps 3-4: classify outcome and address every allegation individually); formatted per Policy 10 (Prohibited Language) and Policy 11 (Response Tone and Format). No remedy applicable; no error found in fee application.",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "Told the loan had no prepayment penalty",
+      "Charged an extra $60 fee after paying off the loan early",
+      "The fee was not in the original disclosures"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass",
+    "groundedness_check": "pass",
+    "policy_authorization_check": "pass",
+    "prohibited_language_check": "pass",
+    "tone_structure_check": "pass",
+    "specific_issues": []
+  },
+  "summary": "Charged fees or interest you didn't expect - partially_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T02:29:38+00:00"
+}

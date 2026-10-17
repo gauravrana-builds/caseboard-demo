@@ -1,0 +1,279 @@
+{
+  "complaint_id": "22929510",
+  "run_started": "2026-10-07T00:20:44+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "22929510",
+    "date_received": "2026-06-05",
+    "product": "Credit reporting or other personal consumer reports",
+    "sub_product": "Credit reporting",
+    "issue": "Problem with a company's investigation into an existing problem",
+    "sub_issue": "Their investigation did not fix an error on your report",
+    "state": "TX",
+    "narrative": "I filed a dispute three weeks ago about a late payment that I believe was reported in error, since I have autopay set up and have never missed a payment. The company closed the dispute saying the information was verified as accurate, but did not explain what they actually checked. At this point I am also considering reaching out to my state attorney general's consumer protection office if this isn't resolved.",
+    "account_id": "ACC-021",
+    "attorney_regulator_flag": "True"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1496,
+      "output_tokens": 274
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3080,
+      "output_tokens": 1215
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "A late payment was reported in error despite autopay being set up and no missed payments",
+      "The company closed the dispute stating the information was verified as accurate without explaining what was checked"
+    ],
+    "requested_outcome": "Resolution of the dispute (correction of the allegedly erroneous late payment)",
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "three weeks ago"
+    ],
+    "account_details_mentioned": "Autopay is set up; customer states they have never missed a payment",
+    "risk_signal_phrases": [
+      "I am also considering reaching out to my state attorney general's consumer protection office if this isn't resolved"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "frustrated but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-021",
+      "loan_balance": 2200.0,
+      "origination_date": "2025-12-10",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-021",
+        "date": "2025-12-10",
+        "type": "payment",
+        "amount": 91.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-01-09",
+        "type": "payment",
+        "amount": 75.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-02-08",
+        "type": "payment",
+        "amount": 88.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-03-10",
+        "type": "payment",
+        "amount": 91.67,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-04-09",
+        "type": "payment",
+        "amount": 129.41,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-05-09",
+        "type": "payment",
+        "amount": 104.76,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-06-08",
+        "type": "payment",
+        "amount": 183.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-07-08",
+        "type": "payment",
+        "amount": 122.22,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-08-07",
+        "type": "payment",
+        "amount": 73.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-021",
+        "date": "2026-09-06",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "Partially supportive but not conclusive. The transaction history shows 10 payments on a roughly monthly cadence from 2025-12-10 to 2026-09-06 (e.g., 2026-07-08 $122.22, 2026-08-07 $73.33, 2026-09-06 $100.00). There are no missed-payment, late-fee, or returned-payment entries, and the account status is 'current'. This is consistent with the customer's claim of no missed payments. However, the records do not include: (1) payment due dates, so on-time status can't be confirmed; (2) autopay enrollment records; (3) credit bureau furnishing or tradeline data showing what was reported and when; (4) the dispute investigation record or closure notice, so the claim that the dispute was closed as 'verified accurate' with no explanation can't be checked; (5) a reference date for 'three weeks ago'. The account_note also says the record is a generic placeholder not built for fact verification. Payment amounts vary from $73.33 to $183.33 despite being labeled 'routine scheduled', which should be reviewed. The gap could change the outcome, because whether a late payment was reported can't be determined from this data.",
+    "risk_tier": "High",
+    "risk_rationale": "The customer says they are considering contacting their state attorney general's consumer protection office, and attorney_regulator_flag is TRUE. Either is an automatic High trigger. The unverifiable core allegation (an erroneous late-payment report) is a second automatic High trigger.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "triggers": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I filed a dispute three weeks ago about a late payment that I believe was reported in error, since I have autopay set up and have never missed a payment. The company closed the dispute saying the information was verified as accurate, but did not explain what they actually checked. At this point I am also considering reaching out to my state attorney general's consumer protection office if this isn't resolved.",
+    "extraction": {
+      "allegations": [
+        "A late payment was reported in error despite autopay being set up and no missed payments",
+        "The company closed the dispute stating the information was verified as accurate without explaining what was checked"
+      ],
+      "requested_outcome": "Resolution of the dispute (correction of the allegedly erroneous late payment)",
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "three weeks ago"
+      ],
+      "account_details_mentioned": "Autopay is set up; customer states they have never missed a payment",
+      "risk_signal_phrases": [
+        "I am also considering reaching out to my state attorney general's consumer protection office if this isn't resolved"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "frustrated but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "Partially supportive but not conclusive. The transaction history shows 10 payments on a roughly monthly cadence from 2025-12-10 to 2026-09-06 (e.g., 2026-07-08 $122.22, 2026-08-07 $73.33, 2026-09-06 $100.00). There are no missed-payment, late-fee, or returned-payment entries, and the account status is 'current'. This is consistent with the customer's claim of no missed payments. However, the records do not include: (1) payment due dates, so on-time status can't be confirmed; (2) autopay enrollment records; (3) credit bureau furnishing or tradeline data showing what was reported and when; (4) the dispute investigation record or closure notice, so the claim that the dispute was closed as 'verified accurate' with no explanation can't be checked; (5) a reference date for 'three weeks ago'. The account_note also says the record is a generic placeholder not built for fact verification. Payment amounts vary from $73.33 to $183.33 despite being labeled 'routine scheduled', which should be reviewed. The gap could change the outcome, because whether a late payment was reported can't be determined from this data.",
+      "risk_tier": "High",
+      "risk_rationale": "The customer says they are considering contacting their state attorney general's consumer protection office, and attorney_regulator_flag is TRUE. Either is an automatic High trigger. The unverifiable core allegation (an erroneous late-payment report) is a second automatic High trigger.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-021",
+        "loan_balance": 2200.0,
+        "origination_date": "2025-12-10",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-021",
+          "date": "2025-12-10",
+          "type": "payment",
+          "amount": 91.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-01-09",
+          "type": "payment",
+          "amount": 75.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-02-08",
+          "type": "payment",
+          "amount": 88.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-03-10",
+          "type": "payment",
+          "amount": 91.67,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-04-09",
+          "type": "payment",
+          "amount": 129.41,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-05-09",
+          "type": "payment",
+          "amount": 104.76,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-06-08",
+          "type": "payment",
+          "amount": 183.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-07-08",
+          "type": "payment",
+          "amount": 122.22,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-08-07",
+          "type": "payment",
+          "amount": 73.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-021",
+          "date": "2026-09-06",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": [
+      {
+        "type": "attorney_regulator",
+        "detail": "Attorney/regulator reference in narrative: 'attorney'",
+        "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared."
+      }
+    ],
+    "stop_reason": "Attorney or regulator mention detected - mandatory escalation per policy 09; no draft may be prepared.",
+    "unresolved": "Partially supportive but not conclusive. The transaction history shows 10 payments on a roughly monthly cadence from 2025-12-10 to 2026-09-06 (e.g., 2026-07-08 $122.22, 2026-08-07 $73.33, 2026-09-06 $100.00). There are no missed-payment, late-fee, or returned-payment entries, and the account status is 'current'. This is consistent with the customer's claim of no missed payments. However, the records do not include: (1) payment due dates, so on-time status can't be confirmed; (2) autopay enrollment records; (3) credit bureau furnishing or tradeline data showing what was reported and when; (4) the dispute investigation record or closure notice, so the claim that the dispute was closed as 'verified accurate' with no explanation can't be checked; (5) a reference date for 'three weeks ago'. The account_note also says the record is a generic placeholder not built for fact verification. Payment amounts vary from $73.33 to $183.33 despite being labeled 'routine scheduled', which should be reviewed. The gap could change the outcome, because whether a late payment was reported can't be determined from this data.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Problem with a company's investigation into an existing problem - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:20:57+00:00"
+}

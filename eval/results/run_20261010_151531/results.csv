@@ -1,0 +1,4 @@
+complaint_id,demo_case_type,truth_risk_tier,pred_risk_tier,truth_escalate,stopped,stop_kind,truth_fact_verification,pred_fact_verification,status,verifier_result,draft_attempts,error
+20963338,core,High,High,TRUE,True,model_decision,partially_true,partially_true,escalated,,0,
+22245329,core,Medium,Medium,FALSE,True,model_decision,unverifiable,unverifiable,escalated,,0,
+SYN-P01,core_partially_true,Low,Medium,FALSE,False,,partially_true,partially_true,draft_ready,pass,1,

@@ -1,0 +1,223 @@
+{
+  "complaint_id": "SYN-C004",
+  "run_started": "2026-10-07T00:23:46+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C004",
+    "date_received": "2026-05-15",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Getting the loan",
+    "sub_issue": "",
+    "state": "GA",
+    "narrative": "I was approved for $135 but only received a partial deposit with no explanation for the shortfall, despite my signed agreement showing the full amount.",
+    "account_id": "ACC-054",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1408,
+      "output_tokens": 201
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2803,
+      "output_tokens": 1170
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Approved for $135 but only received a partial deposit",
+      "No explanation given for the shortfall",
+      "Signed agreement shows the full amount"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      135.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Approved for $135; signed agreement shows the full amount; only a partial deposit was received",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-054",
+      "loan_balance": 1250.0,
+      "origination_date": "2026-03-14",
+      "payment_status": "current",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-054",
+        "date": "2026-03-14",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-054",
+        "date": "2026-04-13",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-054",
+        "date": "2026-05-13",
+        "type": "payment",
+        "amount": 69.44,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-054",
+        "date": "2026-06-12",
+        "type": "payment",
+        "amount": 65.79,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-054",
+        "date": "2026-07-12",
+        "type": "payment",
+        "amount": 83.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-054",
+        "date": "2026-08-11",
+        "type": "payment",
+        "amount": 54.35,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-054",
+        "date": "2026-09-10",
+        "type": "payment",
+        "amount": 39.06,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The ledger for ACC-054 has no disbursement or deposit entry, only payments (2026-03-14 $50.00, 2026-05-13 $69.44, 2026-06-12 $65.79, 2026-07-12 $83.33, 2026-08-11 $54.35, 2026-09-10 $39.06) and one fee (2026-04-13 $30.00). Nothing shows the amount funded, so the claimed partial deposit can't be confirmed or refuted. Also missing: the approved loan amount and the signed agreement terms, which the account record doesn't include. The record shows a $1,250.00 balance, which doesn't match a $135 approval. The complaint may refer to a different loan or a different account, or the record may be incomplete. The account_note says the record is generic and not built to verify this complaint. The complaint gives no date, so it can't be tied to a specific event. Needed to resolve: the disbursement record for the loan, the approved amount and any itemized deductions from the signed agreement, and confirmation that ACC-054 is the account the complaint refers to.",
+    "risk_tier": "High",
+    "risk_rationale": "The evidence is unverifiable, and the missing piece (the amount actually disbursed against the approved $135) is the central fact of the complaint, so the gap could change the outcome. This triggers the automatic High tier even though no attorney or regulator is mentioned and the amount is under $200.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Fact verification is unverifiable and the gap (no disbursement record or approved-amount terms) directly affects the outcome. Escalate to a human reviewer to pull the funding record and signed agreement before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was approved for $135 but only received a partial deposit with no explanation for the shortfall, despite my signed agreement showing the full amount.",
+    "extraction": {
+      "allegations": [
+        "Approved for $135 but only received a partial deposit",
+        "No explanation given for the shortfall",
+        "Signed agreement shows the full amount"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        135.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Approved for $135; signed agreement shows the full amount; only a partial deposit was received",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The ledger for ACC-054 has no disbursement or deposit entry, only payments (2026-03-14 $50.00, 2026-05-13 $69.44, 2026-06-12 $65.79, 2026-07-12 $83.33, 2026-08-11 $54.35, 2026-09-10 $39.06) and one fee (2026-04-13 $30.00). Nothing shows the amount funded, so the claimed partial deposit can't be confirmed or refuted. Also missing: the approved loan amount and the signed agreement terms, which the account record doesn't include. The record shows a $1,250.00 balance, which doesn't match a $135 approval. The complaint may refer to a different loan or a different account, or the record may be incomplete. The account_note says the record is generic and not built to verify this complaint. The complaint gives no date, so it can't be tied to a specific event. Needed to resolve: the disbursement record for the loan, the approved amount and any itemized deductions from the signed agreement, and confirmation that ACC-054 is the account the complaint refers to.",
+      "risk_tier": "High",
+      "risk_rationale": "The evidence is unverifiable, and the missing piece (the amount actually disbursed against the approved $135) is the central fact of the complaint, so the gap could change the outcome. This triggers the automatic High tier even though no attorney or regulator is mentioned and the amount is under $200.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-054",
+        "loan_balance": 1250.0,
+        "origination_date": "2026-03-14",
+        "payment_status": "current",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-054",
+          "date": "2026-03-14",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-054",
+          "date": "2026-04-13",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-054",
+          "date": "2026-05-13",
+          "type": "payment",
+          "amount": 69.44,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-054",
+          "date": "2026-06-12",
+          "type": "payment",
+          "amount": 65.79,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-054",
+          "date": "2026-07-12",
+          "type": "payment",
+          "amount": 83.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-054",
+          "date": "2026-08-11",
+          "type": "payment",
+          "amount": 54.35,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-054",
+          "date": "2026-09-10",
+          "type": "payment",
+          "amount": 39.06,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Fact verification is unverifiable and the gap (no disbursement record or approved-amount terms) directly affects the outcome. Escalate to a human reviewer to pull the funding record and signed agreement before any response is drafted.",
+    "unresolved": "The ledger for ACC-054 has no disbursement or deposit entry, only payments (2026-03-14 $50.00, 2026-05-13 $69.44, 2026-06-12 $65.79, 2026-07-12 $83.33, 2026-08-11 $54.35, 2026-09-10 $39.06) and one fee (2026-04-13 $30.00). Nothing shows the amount funded, so the claimed partial deposit can't be confirmed or refuted. Also missing: the approved loan amount and the signed agreement terms, which the account record doesn't include. The record shows a $1,250.00 balance, which doesn't match a $135 approval. The complaint may refer to a different loan or a different account, or the record may be incomplete. The account_note says the record is generic and not built to verify this complaint. The complaint gives no date, so it can't be tied to a specific event. Needed to resolve: the disbursement record for the loan, the approved amount and any itemized deductions from the signed agreement, and confirmation that ACC-054 is the account the complaint refers to.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Getting the loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:23:59+00:00"
+}

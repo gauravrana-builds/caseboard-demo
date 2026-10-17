@@ -1,0 +1,248 @@
+{
+  "complaint_id": "20994901",
+  "run_started": "2026-10-07T02:37:19+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "20994901",
+    "date_received": "4/7/2026",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Took or threatened to take negative or legal action",
+    "sub_issue": "Threatened or suggested your credit would be damaged",
+    "state": "AZ",
+    "narrative": "A debt collector told me on the phone that if I didn't pay $650 by Friday they would ruin my credit score permanently and I would never be able to get a loan again. This felt like a threat meant to scare me into paying immediately without giving me time to verify the debt.",
+    "account_id": "ACC-006",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1454,
+      "output_tokens": 250
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3875,
+      "output_tokens": 1191
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3834,
+      "output_tokens": 1888
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4398,
+      "output_tokens": 1744
+    },
+    {
+      "step": "drafting",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4036,
+      "output_tokens": 2659
+    },
+    {
+      "step": "verifier",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4394,
+      "output_tokens": 2007
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "A debt collector said on the phone that if the customer did not pay $650 by Friday, they would ruin the customer's credit score permanently",
+      "A debt collector said the customer would never be able to get a loan again",
+      "The customer felt the statement was a threat meant to scare them into paying immediately without time to verify the debt"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      650.0
+    ],
+    "dates_mentioned": [
+      "by Friday"
+    ],
+    "account_details_mentioned": null,
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned and feeling threatened, factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-006",
+      "loan_balance": 1400.0,
+      "origination_date": "2025-09-15",
+      "payment_status": "past_due",
+      "product_type": "installment_loan",
+      "account_note": "Installment loan, past due. Opened 2025-09-15."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-006",
+        "date": "2025-10-15",
+        "type": "payment",
+        "amount": 162.5,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2025-11-14",
+        "type": "payment",
+        "amount": 162.5,
+        "note": "Scheduled installment received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2025-12-15",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $162.50 not received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-01-14",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $162.50 not received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-02-13",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $162.50 not received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-03-15",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled installment $162.50 not received"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-03-20",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Account moved to in-house collections. Past-due total $650.00"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-04-03",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Outbound collections call to customer, voicemail left, 1 min"
+      },
+      {
+        "account_id": "ACC-006",
+        "date": "2026-04-06",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Outbound collections call to customer, 7 min, recorded. QA review tag: statement about credit impact outside approved script"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "partially_true",
+    "fact_verification_explanation": "Supported: the account is past due, with a $650.00 past-due total recorded on 2026-03-20 when it moved to in-house collections, which matches the amount the customer cites. A 7-minute recorded outbound collections call took place on 2026-04-06, and QA tagged it 'statement about credit impact outside approved script.' This corroborates that the collector made an unapproved statement about credit consequences. Not verified: the exact words used. The records do not show that the collector said the customer's credit would be ruined 'permanently,' that they would 'never get a loan again,' or that payment was demanded 'by Friday.' The QA tag does not quote the statement, and no transcript is in the evidence provided. The earlier 2026-04-03 call was a 1-minute voicemail and is not relevant to the alleged statement. The call recording exists and can settle the wording.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The claim is partially_true (a QA-flagged off-script credit statement is corroborated, but the threatening wording is not confirmed) and the $650 amount exceeds $200; there is no attorney/regulator reference, hardship, or vulnerability indicator, and collector conduct is rated under debt-collection rules rather than as a UDAAP matter.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": true,
+    "stop_reason": null,
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "policy": {
+    "policy_id": "09",
+    "topic": "Escalation Criteria",
+    "category": "internal",
+    "matched_keywords": [
+      "legal action"
+    ],
+    "fallback_used": false,
+    "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+  },
+  "status": "draft_ready",
+  "attempts": [
+    {
+      "attempt": 1,
+      "draft": {
+        "draft_text": "You contacted us about a phone call from our collections team in which you felt threatened over a $650 past-due balance. We understand how stressful that call must have been, and we reviewed your account and the call record.\n\nWhat we found: Your account has a past-due balance of $650.00, recorded on March 20, 2026, when it moved to our in-house collections team. A 7-minute recorded call to you took place on April 6, 2026. Our quality review flagged that call for a statement about credit impact that falls outside our approved script.\n\nYour concerns, one at a time:\n\n1. Being told that your credit would be ruined permanently if you did not pay $650 by Friday: Our review confirms that a statement about credit impact outside our approved script was made on the April 6 call. The records reviewed so far do not show the exact words used, including the word \"permanently\" or a Friday deadline, so we cannot yet confirm that wording.\n\n2. Being told you would never be able to get a loan again: This specific statement is also not confirmed by the records reviewed so far. The call recording is available and can be used to check the exact words.\n\n3. Feeling pressured to pay immediately without time to verify the debt: We understand why you felt this way. Your account records show the $650.00 past-due balance you described. We are referring your complaint for review of the call recording so the exact wording can be checked.\n\nOutcome: No account change or remedy has been applied at this time, because the review of the call wording is not complete.\n\nNext steps: If you would like to go over the details of your balance, such as how the $650.00 was calculated, reply to this message or call the number on your account. Please include the case reference below.\n\nCase reference: 20994901",
+        "policy_cited": "09 Escalation Criteria (no mandatory escalation trigger applies; standard high-risk flag \u2014 dollar amount over $500 \u2014 means this draft requires supervisor sign-off before sending); governed by Policy 10 Prohibited Language and Policy 11 Response Tone and Format",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "A debt collector said on the phone that if the customer did not pay $650 by Friday, they would ruin the customer's credit score permanently",
+          "A debt collector said the customer would never be able to get a loan again",
+          "The customer felt the statement was a threat meant to scare them into paying immediately without time to verify the debt"
+        ]
+      },
+      "verifier": {
+        "overall_result": "fail",
+        "completeness_check": "pass",
+        "groundedness_check": "fail \u2014 \"We are referring your complaint for review of the call recording so the exact wording can be checked.\" Neither the verification output nor the cited policies show that a referral has been made or will be. The verification only says the recording exists and can settle the wording. The opening line \"we reviewed your account and the call record\" also risks overstating the evidence. Only the QA tag was reviewed, not the recording or a transcript, and the draft's own findings say the exact words are unknown.",
+        "policy_authorization_check": "pass",
+        "prohibited_language_check": "pass",
+        "tone_structure_check": "pass",
+        "specific_issues": [
+          "Groundedness: the draft commits to a referral/review of the call recording that is not documented in the verification output or policy, and the opening implies the call itself was reviewed when only the QA tag was. Either remove or reword these (e.g., 'the call recording is available for review') or confirm that a referral has actually been made.",
+          "The draft requires supervisor sign-off before sending because the $650 exceeds the $500 high-risk threshold in Policy 09. This is noted in the draft's policy field and is not a failure, but sign-off must happen before release."
+        ]
+      }
+    },
+    {
+      "attempt": 2,
+      "draft": {
+        "draft_text": "Thank you for telling us about your recent phone call with our collections team. You said the representative told you that if you didn't pay $650 by Friday, your credit score would be ruined permanently and you would never get a loan again. You also said this felt like a threat meant to pressure you into paying without time to verify the debt. We understand this has been stressful.\n\nWhat we found:\n\n1. The $650 balance: Our records show your account is past due. As of March 20, 2026, when the account moved to our in-house collections team, the past-due total was $650.00. This matches the amount you mentioned.\n\n2. The statements about your credit: Our records show a recorded 7-minute call from us to you on April 6, 2026. A quality review of that call noted a statement about credit impact that was outside our approved script. The review note does not quote what was said, so we cannot confirm the exact words you describe, including \"ruin your credit permanently\" or \"never get a loan again.\"\n\n3. The pressure to pay right away: We cannot confirm from our records whether a \"Friday\" deadline was given on the call. We have noted your concern that you felt rushed and did not have time to verify the debt.\n\nOutcome: We have confirmed that the call included an off-script statement about credit impact. We have not confirmed the specific wording you reported. This response does not include an account adjustment.\n\nNext steps: The recording of the April 6 call is available for review. If you can share anything else about what was said, such as the time of the call or the wording you remember, please reply to this message or call the number on your account. You are also welcome to ask us for details about the $650 balance.\n\nCase reference: 20994901",
+        "policy_cited": "09 Escalation Criteria, standard high-risk flag (amount in dispute exceeds $500): draft requires supervisor sign-off before it is sent. No mandatory escalation trigger identified. Also governed by 10 Prohibited Language and 11 Response Tone and Format. No remedy policy applies because no remedy is stated.",
+        "remedy_stated": null,
+        "allegations_addressed": [
+          "A debt collector said on the phone that if the customer did not pay $650 by Friday, they would ruin the customer's credit score permanently",
+          "A debt collector said the customer would never be able to get a loan again",
+          "The customer felt the statement was a threat meant to scare them into paying immediately without time to verify the debt"
+        ]
+      },
+      "verifier": {
+        "overall_result": "pass",
+        "completeness_check": "pass \u2014 All three allegations are addressed. The 'ruin credit permanently' and 'never get a loan again' statements are handled together in finding 2, but both phrases are named. The 'Friday' deadline and the pressure/no-time-to-verify concern are covered in finding 3.",
+        "groundedness_check": "pass \u2014 The $650.00 past-due total on March 20, 2026, the move to in-house collections, the 7-minute April 6 recorded call, and the QA tag about an off-script credit statement all trace to the verification output. The draft correctly says the exact wording and the 'Friday' deadline cannot be confirmed. Minor caveat: 'The recording of the April 6 call is available for review' is supported only as 'the recording exists.' It does not say who can review it or whether the customer can access it. The supervisor should confirm or reword this so the customer is not led to expect access to the recording.",
+        "policy_authorization_check": "pass \u2014 No remedy is stated, and the draft says no account adjustment is included, so nothing exceeds policy authority. Per Policy 09, the $650 amount exceeds the $500 high-risk threshold, so the draft must have supervisor sign-off before it is sent. No mandatory escalation trigger is present.",
+        "prohibited_language_check": "pass \u2014 The draft has no fault admission beyond confirmed fact. It states only that the call included an off-script statement about credit impact, which the QA tag confirms. It has no future guarantees, no legal conclusions, and nothing that discourages the customer from other channels.",
+        "tone_structure_check": "pass \u2014 The draft follows Policy 11 order: a specific acknowledgment, findings, outcome, next steps, and the case reference (20994901). It uses second person and plain language, with numbered findings and short paragraphs. The length is acceptable for a multi-allegation complaint, and it has no marketing content.",
+        "specific_issues": []
+      }
+    }
+  ],
+  "draft": {
+    "draft_text": "Thank you for telling us about your recent phone call with our collections team. You said the representative told you that if you didn't pay $650 by Friday, your credit score would be ruined permanently and you would never get a loan again. You also said this felt like a threat meant to pressure you into paying without time to verify the debt. We understand this has been stressful.\n\nWhat we found:\n\n1. The $650 balance: Our records show your account is past due. As of March 20, 2026, when the account moved to our in-house collections team, the past-due total was $650.00. This matches the amount you mentioned.\n\n2. The statements about your credit: Our records show a recorded 7-minute call from us to you on April 6, 2026. A quality review of that call noted a statement about credit impact that was outside our approved script. The review note does not quote what was said, so we cannot confirm the exact words you describe, including \"ruin your credit permanently\" or \"never get a loan again.\"\n\n3. The pressure to pay right away: We cannot confirm from our records whether a \"Friday\" deadline was given on the call. We have noted your concern that you felt rushed and did not have time to verify the debt.\n\nOutcome: We have confirmed that the call included an off-script statement about credit impact. We have not confirmed the specific wording you reported. This response does not include an account adjustment.\n\nNext steps: The recording of the April 6 call is available for review. If you can share anything else about what was said, such as the time of the call or the wording you remember, please reply to this message or call the number on your account. You are also welcome to ask us for details about the $650 balance.\n\nCase reference: 20994901",
+    "policy_cited": "09 Escalation Criteria, standard high-risk flag (amount in dispute exceeds $500): draft requires supervisor sign-off before it is sent. No mandatory escalation trigger identified. Also governed by 10 Prohibited Language and 11 Response Tone and Format. No remedy policy applies because no remedy is stated.",
+    "remedy_stated": null,
+    "allegations_addressed": [
+      "A debt collector said on the phone that if the customer did not pay $650 by Friday, they would ruin the customer's credit score permanently",
+      "A debt collector said the customer would never be able to get a loan again",
+      "The customer felt the statement was a threat meant to scare them into paying immediately without time to verify the debt"
+    ]
+  },
+  "verifier": {
+    "overall_result": "pass",
+    "completeness_check": "pass \u2014 All three allegations are addressed. The 'ruin credit permanently' and 'never get a loan again' statements are handled together in finding 2, but both phrases are named. The 'Friday' deadline and the pressure/no-time-to-verify concern are covered in finding 3.",
+    "groundedness_check": "pass \u2014 The $650.00 past-due total on March 20, 2026, the move to in-house collections, the 7-minute April 6 recorded call, and the QA tag about an off-script credit statement all trace to the verification output. The draft correctly says the exact wording and the 'Friday' deadline cannot be confirmed. Minor caveat: 'The recording of the April 6 call is available for review' is supported only as 'the recording exists.' It does not say who can review it or whether the customer can access it. The supervisor should confirm or reword this so the customer is not led to expect access to the recording.",
+    "policy_authorization_check": "pass \u2014 No remedy is stated, and the draft says no account adjustment is included, so nothing exceeds policy authority. Per Policy 09, the $650 amount exceeds the $500 high-risk threshold, so the draft must have supervisor sign-off before it is sent. No mandatory escalation trigger is present.",
+    "prohibited_language_check": "pass \u2014 The draft has no fault admission beyond confirmed fact. It states only that the call included an off-script statement about credit impact, which the QA tag confirms. It has no future guarantees, no legal conclusions, and nothing that discourages the customer from other channels.",
+    "tone_structure_check": "pass \u2014 The draft follows Policy 11 order: a specific acknowledgment, findings, outcome, next steps, and the case reference (20994901). It uses second person and plain language, with numbered findings and short paragraphs. The length is acceptable for a multi-allegation complaint, and it has no marketing content.",
+    "specific_issues": []
+  },
+  "summary": "Took or threatened to take negative or legal action - partially_true - Medium risk - draft ready for review",
+  "run_finished": "2026-10-07T12:18:25+00:00"
+}

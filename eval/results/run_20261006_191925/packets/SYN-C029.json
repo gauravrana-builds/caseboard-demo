@@ -1,0 +1,221 @@
+{
+  "complaint_id": "SYN-C029",
+  "run_started": "2026-10-07T00:25:47+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C029",
+    "date_received": "2026-08-14",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Installment loan",
+    "issue": "Incorrect information on your report",
+    "sub_issue": "Account status incorrect",
+    "state": "NY",
+    "narrative": "My loan is reporting as past due on my credit report but my own records show my $60 payment was made on time through autopay.",
+    "account_id": "ACC-079",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1409,
+      "output_tokens": 191
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2790,
+      "output_tokens": 1090
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Loan is reporting as past due on credit report",
+      "Customer's records show the $60 payment was made on time through autopay"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      60.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "$60 payment made on time through autopay; loan reporting as past due on credit report",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concise"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-079",
+      "loan_balance": 600.0,
+      "origination_date": "2026-03-18",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-079",
+        "date": "2026-03-18",
+        "type": "payment",
+        "amount": 27.27,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-079",
+        "date": "2026-04-17",
+        "type": "payment",
+        "amount": 28.57,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-079",
+        "date": "2026-05-17",
+        "type": "payment",
+        "amount": 17.65,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-079",
+        "date": "2026-06-16",
+        "type": "payment",
+        "amount": 17.65,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-079",
+        "date": "2026-07-16",
+        "type": "fee",
+        "amount": 30.0,
+        "note": "Routine fee assessment."
+      },
+      {
+        "account_id": "ACC-079",
+        "date": "2026-08-15",
+        "type": "payment",
+        "amount": 19.35,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-079",
+        "date": "2026-09-14",
+        "type": "payment",
+        "amount": 30.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The evidence does not support or refute either allegation. (1) Past-due credit reporting: no credit bureau or furnishing data was retrieved. The internal payment_status is 'current', but that does not show what is reported externally. The 2026-07-16 entry is a $30.00 fee with no payment that month, so a missed or late July payment is possible and could be the basis for a past-due report. (2) The $60 autopay payment: no $60 transaction appears anywhere in the history. Payments are $27.27 (2026-03-18), $28.57 (2026-04-17), $17.65 (2026-05-17), $17.65 (2026-06-16), $19.35 (2026-08-15) and $30.00 (2026-09-14). The customer gave no date, so it is unclear which payment they mean. The history also has no autopay indicator, and the $60 may be a total, a different account, or a payment not captured here. The account_note says the record is generic and not built to confirm or deny this complaint, which lowers confidence in this data. Missing: credit reporting/furnishing history, the date and payment the customer refers to, autopay enrollment records, and an explanation of the July 2026 fee and missing payment.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap could change the outcome, since neither the $60 payment nor the past-due credit reporting can be confirmed or refuted, which is an automatic High trigger.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on points that determine the outcome (whether the $60 on-time autopay payment occurred and whether the loan is reported past due), so a human must review the records before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "My loan is reporting as past due on my credit report but my own records show my $60 payment was made on time through autopay.",
+    "extraction": {
+      "allegations": [
+        "Loan is reporting as past due on credit report",
+        "Customer's records show the $60 payment was made on time through autopay"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        60.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "$60 payment made on time through autopay; loan reporting as past due on credit report",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concise"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The evidence does not support or refute either allegation. (1) Past-due credit reporting: no credit bureau or furnishing data was retrieved. The internal payment_status is 'current', but that does not show what is reported externally. The 2026-07-16 entry is a $30.00 fee with no payment that month, so a missed or late July payment is possible and could be the basis for a past-due report. (2) The $60 autopay payment: no $60 transaction appears anywhere in the history. Payments are $27.27 (2026-03-18), $28.57 (2026-04-17), $17.65 (2026-05-17), $17.65 (2026-06-16), $19.35 (2026-08-15) and $30.00 (2026-09-14). The customer gave no date, so it is unclear which payment they mean. The history also has no autopay indicator, and the $60 may be a total, a different account, or a payment not captured here. The account_note says the record is generic and not built to confirm or deny this complaint, which lowers confidence in this data. Missing: credit reporting/furnishing history, the date and payment the customer refers to, autopay enrollment records, and an explanation of the July 2026 fee and missing payment.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap could change the outcome, since neither the $60 payment nor the past-due credit reporting can be confirmed or refuted, which is an automatic High trigger.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-079",
+        "loan_balance": 600.0,
+        "origination_date": "2026-03-18",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-079",
+          "date": "2026-03-18",
+          "type": "payment",
+          "amount": 27.27,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-079",
+          "date": "2026-04-17",
+          "type": "payment",
+          "amount": 28.57,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-079",
+          "date": "2026-05-17",
+          "type": "payment",
+          "amount": 17.65,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-079",
+          "date": "2026-06-16",
+          "type": "payment",
+          "amount": 17.65,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-079",
+          "date": "2026-07-16",
+          "type": "fee",
+          "amount": 30.0,
+          "note": "Routine fee assessment."
+        },
+        {
+          "account_id": "ACC-079",
+          "date": "2026-08-15",
+          "type": "payment",
+          "amount": 19.35,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-079",
+          "date": "2026-09-14",
+          "type": "payment",
+          "amount": 30.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on points that determine the outcome (whether the $60 on-time autopay payment occurred and whether the loan is reported past due), so a human must review the records before any response is drafted.",
+    "unresolved": "The evidence does not support or refute either allegation. (1) Past-due credit reporting: no credit bureau or furnishing data was retrieved. The internal payment_status is 'current', but that does not show what is reported externally. The 2026-07-16 entry is a $30.00 fee with no payment that month, so a missed or late July payment is possible and could be the basis for a past-due report. (2) The $60 autopay payment: no $60 transaction appears anywhere in the history. Payments are $27.27 (2026-03-18), $28.57 (2026-04-17), $17.65 (2026-05-17), $17.65 (2026-06-16), $19.35 (2026-08-15) and $30.00 (2026-09-14). The customer gave no date, so it is unclear which payment they mean. The history also has no autopay indicator, and the $60 may be a total, a different account, or a payment not captured here. The account_note says the record is generic and not built to confirm or deny this complaint, which lowers confidence in this data. Missing: credit reporting/furnishing history, the date and payment the customer refers to, autopay enrollment records, and an explanation of the July 2026 fee and missing payment.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Incorrect information on your report - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:25:59+00:00"
+}

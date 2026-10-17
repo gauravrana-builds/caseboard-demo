@@ -1,0 +1,207 @@
+{
+  "complaint_id": "25164083",
+  "run_started": "2026-10-07T19:56:47+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "25164083",
+    "date_received": "8/10/2026",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Received a loan you didn't apply for",
+    "sub_issue": "",
+    "state": "CA",
+    "narrative": "I received a notice that a payday loan was opened in my name that I never applied for. I think my identity may have been stolen and I am worried about the impact on my credit.",
+    "account_id": "ACC-037",
+    "attorney_regulator_flag": "FALSE"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1419,
+      "output_tokens": 223
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 4312,
+      "output_tokens": 843
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Received a notice that a payday loan was opened in their name",
+      "Never applied for the payday loan",
+      "Believes identity may have been stolen",
+      "Worried about the impact on credit"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [],
+    "account_details_mentioned": "A payday loan was opened in the customer's name without their application; customer received a notice about it",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concerned and worried, but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-037",
+      "loan_balance": 1100.0,
+      "origination_date": "2026-07-02",
+      "payment_status": "delinquent",
+      "product_type": "payday_loan",
+      "account_note": "Payday loan, delinquent. Opened 2026-07-02."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-037",
+        "date": "2026-07-02",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Online application received; loan funded $1,100.00 to bank account ending 6620"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-07-02",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Identity verification: address and phone on application differ from customer master record"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-08-01",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Scheduled payment not received"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-08-03",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Delinquency notice mailed to address on customer master record"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-08-06",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Inbound call from customer disputing the loan, 9 min"
+      },
+      {
+        "account_id": "ACC-037",
+        "date": "2026-08-07",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Fraud review opened; collections activity paused"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The central allegation is that the payday loan was opened in the customer's name without their application (identity theft). The records point toward the customer but do not settle it. On 2026-07-02 the online application was funded for $1,100.00 to a bank account ending 6620, and identity verification noted that the address and phone on the application differ from the customer master record. The customer disputed the loan by phone on 2026-08-06, and a fraud review was opened on 2026-08-07 with collections paused. That fraud review is still open, so fraud is not established, and nothing in the records contradicts the customer either. Missing: the outcome of the fraud review, and confirmation of whether bank account ending 6620 belongs to the customer.",
+    "risk_tier": "Medium",
+    "risk_rationale": "The loan balance is $1,100, which is over the $200 threshold, and the unverified identity-theft allegation is serious with credit consequences. There is no attorney/regulator reference, no embedded instructions, and no UDAAP or collector-conduct (Reg F) pattern, so the tier does not reach High. The tier was not raised because the claim is unverifiable.",
+    "udaap_pattern_detected": false,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the fraud review opened 2026-08-07 is still pending, so we cannot confirm or deny that the loan was opened without the customer's authorization. Hold the response until the fraud team issues its finding.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "Medium",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I received a notice that a payday loan was opened in my name that I never applied for. I think my identity may have been stolen and I am worried about the impact on my credit.",
+    "extraction": {
+      "allegations": [
+        "Received a notice that a payday loan was opened in their name",
+        "Never applied for the payday loan",
+        "Believes identity may have been stolen",
+        "Worried about the impact on credit"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [],
+      "account_details_mentioned": "A payday loan was opened in the customer's name without their application; customer received a notice about it",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concerned and worried, but factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The central allegation is that the payday loan was opened in the customer's name without their application (identity theft). The records point toward the customer but do not settle it. On 2026-07-02 the online application was funded for $1,100.00 to a bank account ending 6620, and identity verification noted that the address and phone on the application differ from the customer master record. The customer disputed the loan by phone on 2026-08-06, and a fraud review was opened on 2026-08-07 with collections paused. That fraud review is still open, so fraud is not established, and nothing in the records contradicts the customer either. Missing: the outcome of the fraud review, and confirmation of whether bank account ending 6620 belongs to the customer.",
+      "risk_tier": "Medium",
+      "risk_rationale": "The loan balance is $1,100, which is over the $200 threshold, and the unverified identity-theft allegation is serious with credit consequences. There is no attorney/regulator reference, no embedded instructions, and no UDAAP or collector-conduct (Reg F) pattern, so the tier does not reach High. The tier was not raised because the claim is unverifiable.",
+      "udaap_pattern_detected": false
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-037",
+        "loan_balance": 1100.0,
+        "origination_date": "2026-07-02",
+        "payment_status": "delinquent",
+        "product_type": "payday_loan",
+        "account_note": "Payday loan, delinquent. Opened 2026-07-02."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-037",
+          "date": "2026-07-02",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Online application received; loan funded $1,100.00 to bank account ending 6620"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-07-02",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Identity verification: address and phone on application differ from customer master record"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-08-01",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Scheduled payment not received"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-08-03",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Delinquency notice mailed to address on customer master record"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-08-06",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Inbound call from customer disputing the loan, 9 min"
+        },
+        {
+          "account_id": "ACC-037",
+          "date": "2026-08-07",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Fraud review opened; collections activity paused"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable and the gap decides the outcome: the fraud review opened 2026-08-07 is still pending, so we cannot confirm or deny that the loan was opened without the customer's authorization. Hold the response until the fraud team issues its finding.",
+    "unresolved": "The central allegation is that the payday loan was opened in the customer's name without their application (identity theft). The records point toward the customer but do not settle it. On 2026-07-02 the online application was funded for $1,100.00 to a bank account ending 6620, and identity verification noted that the address and phone on the application differ from the customer master record. The customer disputed the loan by phone on 2026-08-06, and a fraud review was opened on 2026-08-07 with collections paused. That fraud review is still open, so fraud is not established, and nothing in the records contradicts the customer either. Missing: the outcome of the fraud review, and confirmation of whether bank account ending 6620 belongs to the customer.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Received a loan you didn't apply for - unverifiable - Medium risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T19:56:55+00:00"
+}

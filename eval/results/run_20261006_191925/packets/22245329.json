@@ -1,0 +1,265 @@
+{
+  "complaint_id": "22245329",
+  "run_started": "2026-10-07T00:21:02+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "22245329",
+    "date_received": "2026-05-15",
+    "product": "Debt collection",
+    "sub_product": "I do not know",
+    "issue": "Attempts to collect debt not owed",
+    "sub_issue": "Debt is not yours",
+    "state": "PA",
+    "narrative": "I am being contacted about a debt of $1,100 that I do not recognize. When I asked for validation of the debt, including the original creditor's name, they refused to provide it and just told me to pay or it would go to collections.",
+    "account_id": "ACC-027",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1428,
+      "output_tokens": 237
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3038,
+      "output_tokens": 1055
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Contacted about a $1,100 debt the customer does not recognize",
+      "Asked for validation of the debt, including the original creditor's name, and the collector refused to provide it",
+      "Told to pay or the debt would go to collections"
+    ],
+    "requested_outcome": "Validation of the debt, including the original creditor's name",
+    "dollar_amounts_mentioned": [
+      1100.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Customer does not recognize the debt",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "factual and concerned"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-027",
+      "loan_balance": 2000.0,
+      "origination_date": "2025-07-19",
+      "payment_status": "current",
+      "product_type": "installment_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-027",
+        "date": "2025-07-19",
+        "type": "payment",
+        "amount": 62.5,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2025-08-18",
+        "type": "payment",
+        "amount": 76.92,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2025-09-17",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2025-10-17",
+        "type": "payment",
+        "amount": 111.11,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2025-11-16",
+        "type": "payment",
+        "amount": 90.91,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2025-12-16",
+        "type": "payment",
+        "amount": 83.33,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2026-01-15",
+        "type": "payment",
+        "amount": 80.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2026-02-14",
+        "type": "payment",
+        "amount": 142.86,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2026-03-16",
+        "type": "payment",
+        "amount": 57.14,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-027",
+        "date": "2026-04-15",
+        "type": "payment",
+        "amount": 86.96,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The retrieved data cannot confirm or contradict any of the three allegations. (1) The $1,100 debt: ACC-027 is a current installment loan with a $2,000 balance and ten routine payments from 2025-07-19 to 2026-04-15. No $1,100 balance, charge-off, delinquency, or sold/assigned debt appears, so it is unclear whether the debt is tied to this account or to a different account or creditor. (2) The refused validation request: there is no communication log, collector contact record, or validation-request record. (3) The 'pay or it goes to collections' statement: there is no collections-referral or third-party placement data. The account_note is a generic placeholder and was not written to support fact-verification. Missing: the origin and account linkage of the $1,100 debt, any collections or third-party placement records, the original creditor's identity, and call or correspondence logs for the collector contact.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap could change the outcome, because whether the $1,100 debt exists and belongs to this customer cannot be determined. The narrative also alleges a refusal to validate the debt and pay-or-else pressure, which is a UDAAP-pattern signal that reinforces the High tier.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on a material point (the existence and ownership of the disputed $1,100 debt, and whether validation was refused), so any drafted response could misstate facts. Escalate to a human reviewer, who should also assess the debt-validation and collection-pressure allegations.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I am being contacted about a debt of $1,100 that I do not recognize. When I asked for validation of the debt, including the original creditor's name, they refused to provide it and just told me to pay or it would go to collections.",
+    "extraction": {
+      "allegations": [
+        "Contacted about a $1,100 debt the customer does not recognize",
+        "Asked for validation of the debt, including the original creditor's name, and the collector refused to provide it",
+        "Told to pay or the debt would go to collections"
+      ],
+      "requested_outcome": "Validation of the debt, including the original creditor's name",
+      "dollar_amounts_mentioned": [
+        1100.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Customer does not recognize the debt",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "factual and concerned"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The retrieved data cannot confirm or contradict any of the three allegations. (1) The $1,100 debt: ACC-027 is a current installment loan with a $2,000 balance and ten routine payments from 2025-07-19 to 2026-04-15. No $1,100 balance, charge-off, delinquency, or sold/assigned debt appears, so it is unclear whether the debt is tied to this account or to a different account or creditor. (2) The refused validation request: there is no communication log, collector contact record, or validation-request record. (3) The 'pay or it goes to collections' statement: there is no collections-referral or third-party placement data. The account_note is a generic placeholder and was not written to support fact-verification. Missing: the origin and account linkage of the $1,100 debt, any collections or third-party placement records, the original creditor's identity, and call or correspondence logs for the collector contact.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap could change the outcome, because whether the $1,100 debt exists and belongs to this customer cannot be determined. The narrative also alleges a refusal to validate the debt and pay-or-else pressure, which is a UDAAP-pattern signal that reinforces the High tier.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-027",
+        "loan_balance": 2000.0,
+        "origination_date": "2025-07-19",
+        "payment_status": "current",
+        "product_type": "installment_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-027",
+          "date": "2025-07-19",
+          "type": "payment",
+          "amount": 62.5,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2025-08-18",
+          "type": "payment",
+          "amount": 76.92,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2025-09-17",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2025-10-17",
+          "type": "payment",
+          "amount": 111.11,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2025-11-16",
+          "type": "payment",
+          "amount": 90.91,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2025-12-16",
+          "type": "payment",
+          "amount": 83.33,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2026-01-15",
+          "type": "payment",
+          "amount": 80.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2026-02-14",
+          "type": "payment",
+          "amount": 142.86,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2026-03-16",
+          "type": "payment",
+          "amount": 57.14,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-027",
+          "date": "2026-04-15",
+          "type": "payment",
+          "amount": 86.96,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on a material point (the existence and ownership of the disputed $1,100 debt, and whether validation was refused), so any drafted response could misstate facts. Escalate to a human reviewer, who should also assess the debt-validation and collection-pressure allegations.",
+    "unresolved": "The retrieved data cannot confirm or contradict any of the three allegations. (1) The $1,100 debt: ACC-027 is a current installment loan with a $2,000 balance and ten routine payments from 2025-07-19 to 2026-04-15. No $1,100 balance, charge-off, delinquency, or sold/assigned debt appears, so it is unclear whether the debt is tied to this account or to a different account or creditor. (2) The refused validation request: there is no communication log, collector contact record, or validation-request record. (3) The 'pay or it goes to collections' statement: there is no collections-referral or third-party placement data. The account_note is a generic placeholder and was not written to support fact-verification. Missing: the origin and account linkage of the $1,100 debt, any collections or third-party placement records, the original creditor's identity, and call or correspondence logs for the collector contact.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Attempts to collect debt not owed - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:21:13+00:00"
+}

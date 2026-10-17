@@ -1,0 +1,167 @@
+{
+  "complaint_id": "SYN-C028",
+  "run_started": "2026-10-07T00:25:35+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "SYN-C028",
+    "date_received": "2026-08-21",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Getting the loan",
+    "sub_issue": "",
+    "state": "OH",
+    "narrative": "I was approved for $32 but only received a partial deposit with no explanation for the shortfall, despite my signed agreement showing the full amount.",
+    "account_id": "ACC-078",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1408,
+      "output_tokens": 201
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 2530,
+      "output_tokens": 1299
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Approved for $32 but received only a partial deposit",
+      "No explanation given for the shortfall",
+      "Signed agreement shows the full amount"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [
+      32.0
+    ],
+    "dates_mentioned": [],
+    "account_details_mentioned": "Approved for $32; signed agreement shows the full amount; only a partial deposit was received",
+    "risk_signal_phrases": [],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "concise and factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-078",
+      "loan_balance": 1400.0,
+      "origination_date": "2026-07-11",
+      "payment_status": "past_due",
+      "product_type": "payday_loan",
+      "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-078",
+        "date": "2026-07-11",
+        "type": "payment",
+        "amount": 51.85,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-078",
+        "date": "2026-08-10",
+        "type": "payment",
+        "amount": 50.0,
+        "note": "Routine scheduled payment."
+      },
+      {
+        "account_id": "ACC-078",
+        "date": "2026-09-09",
+        "type": "payment",
+        "amount": 100.0,
+        "note": "Routine scheduled payment."
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "unverifiable",
+    "fact_verification_explanation": "The customer alleges approval for $32 but a partial deposit, with the signed agreement showing the full amount. The transaction history has only three payments (2026-07-11 $51.85, 2026-08-10 $50.00, 2026-09-09 $100.00). It has no disbursement or deposit entry, so the amount actually funded cannot be confirmed. The account record has no approved or contracted principal, no loan agreement terms and no fee or deduction schedule, so the approved amount and any shortfall cannot be checked. The account shows a $1,400.00 loan balance, which is far above the $32 the customer cites. That could mean the customer misstated the amount, the figure is in different units, or the account data is mismatched. The account note says the record is generically generated and not built to confirm or deny this complaint. Missing: the origination disbursement record (amount and date), the approved/contracted loan amount, the fee and deduction breakdown, and a reconciliation of $32 against the $1,400 balance.",
+    "risk_tier": "High",
+    "risk_rationale": "Verification is unverifiable and the gap is outcome-determinative: the disputed funded-versus-approved amount cannot be established, and the $32 versus $1,400 discrepancy is unreconciled. This is an automatic High trigger.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Evidence is unverifiable on the central issue (amount approved versus amount disbursed), so a response cannot be drafted without risking an inaccurate statement to the customer. Escalate for retrieval of the disbursement record and signed loan agreement.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I was approved for $32 but only received a partial deposit with no explanation for the shortfall, despite my signed agreement showing the full amount.",
+    "extraction": {
+      "allegations": [
+        "Approved for $32 but received only a partial deposit",
+        "No explanation given for the shortfall",
+        "Signed agreement shows the full amount"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [
+        32.0
+      ],
+      "dates_mentioned": [],
+      "account_details_mentioned": "Approved for $32; signed agreement shows the full amount; only a partial deposit was received",
+      "risk_signal_phrases": [],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "concise and factual"
+    },
+    "verification": {
+      "fact_verification": "unverifiable",
+      "fact_verification_explanation": "The customer alleges approval for $32 but a partial deposit, with the signed agreement showing the full amount. The transaction history has only three payments (2026-07-11 $51.85, 2026-08-10 $50.00, 2026-09-09 $100.00). It has no disbursement or deposit entry, so the amount actually funded cannot be confirmed. The account record has no approved or contracted principal, no loan agreement terms and no fee or deduction schedule, so the approved amount and any shortfall cannot be checked. The account shows a $1,400.00 loan balance, which is far above the $32 the customer cites. That could mean the customer misstated the amount, the figure is in different units, or the account data is mismatched. The account note says the record is generically generated and not built to confirm or deny this complaint. Missing: the origination disbursement record (amount and date), the approved/contracted loan amount, the fee and deduction breakdown, and a reconciliation of $32 against the $1,400 balance.",
+      "risk_tier": "High",
+      "risk_rationale": "Verification is unverifiable and the gap is outcome-determinative: the disputed funded-versus-approved amount cannot be established, and the $32 versus $1,400 discrepancy is unreconciled. This is an automatic High trigger.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-078",
+        "loan_balance": 1400.0,
+        "origination_date": "2026-07-11",
+        "payment_status": "past_due",
+        "product_type": "payday_loan",
+        "account_note": "Generic account generated for dataset volume. Not individually crafted to confirm/deny its paired complaint narrative -- build a specific account_note here if this complaint needs fact-verification scoring."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-078",
+          "date": "2026-07-11",
+          "type": "payment",
+          "amount": 51.85,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-078",
+          "date": "2026-08-10",
+          "type": "payment",
+          "amount": 50.0,
+          "note": "Routine scheduled payment."
+        },
+        {
+          "account_id": "ACC-078",
+          "date": "2026-09-09",
+          "type": "payment",
+          "amount": 100.0,
+          "note": "Routine scheduled payment."
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Evidence is unverifiable on the central issue (amount approved versus amount disbursed), so a response cannot be drafted without risking an inaccurate statement to the customer. Escalate for retrieval of the disbursement record and signed loan agreement.",
+    "unresolved": "The customer alleges approval for $32 but a partial deposit, with the signed agreement showing the full amount. The transaction history has only three payments (2026-07-11 $51.85, 2026-08-10 $50.00, 2026-09-09 $100.00). It has no disbursement or deposit entry, so the amount actually funded cannot be confirmed. The account record has no approved or contracted principal, no loan agreement terms and no fee or deduction schedule, so the approved amount and any shortfall cannot be checked. The account shows a $1,400.00 loan balance, which is far above the $32 the customer cites. That could mean the customer misstated the amount, the figure is in different units, or the account data is mismatched. The account note says the record is generically generated and not built to confirm or deny this complaint. Missing: the origination disbursement record (amount and date), the approved/contracted loan amount, the fee and deduction breakdown, and a reconciliation of $32 against the $1,400 balance.",
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Getting the loan - unverifiable - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T00:25:48+00:00"
+}

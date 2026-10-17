@@ -1,0 +1,269 @@
+{
+  "complaint_id": "24113084",
+  "run_started": "2026-10-07T01:10:40+00:00",
+  "model": "claude-sonnet-5-5",
+  "complaint": {
+    "complaint_id": "24113084",
+    "date_received": "2026-07-12",
+    "product": "Payday loan, title loan, personal loan, or advance loan",
+    "sub_product": "Payday loan",
+    "issue": "Struggling to pay your loan",
+    "sub_issue": "",
+    "state": "CA",
+    "narrative": "I'm struggling to keep up with payments on this loan due to a medical emergency and reached out twice about hardship options. I haven't gotten any response and the fees keep adding up every week.",
+    "account_id": "ACC-041",
+    "attorney_regulator_flag": "False"
+  },
+  "llm_calls": [
+    {
+      "step": "extraction",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 1426,
+      "output_tokens": 224
+    },
+    {
+      "step": "verify_and_classify",
+      "attempt": 1,
+      "stop_reason": "end_turn",
+      "input_tokens": 3034,
+      "output_tokens": 1672
+    }
+  ],
+  "extraction": {
+    "allegations": [
+      "Struggling to keep up with loan payments due to a medical emergency",
+      "Reached out twice about hardship options with no response",
+      "Fees keep adding up every week"
+    ],
+    "requested_outcome": null,
+    "dollar_amounts_mentioned": [],
+    "dates_mentioned": [
+      "every week"
+    ],
+    "account_details_mentioned": "Struggling to keep up with payments on the loan; fees accruing weekly",
+    "risk_signal_phrases": [
+      "due to a medical emergency"
+    ],
+    "suspicious_embedded_instructions": [],
+    "tone_summary": "distressed but factual"
+  },
+  "evidence": {
+    "account": {
+      "found": true,
+      "account_id": "ACC-041",
+      "loan_balance": 900.0,
+      "origination_date": "2026-03-05",
+      "payment_status": "past_due",
+      "product_type": "payday_loan",
+      "account_note": "Payday loan, past due. Opened 2026-03-05."
+    },
+    "transactions": [
+      {
+        "account_id": "ACC-041",
+        "date": "2026-04-02",
+        "type": "payment",
+        "amount": 150.0,
+        "note": "Scheduled payment received"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-05",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-12",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-18",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Inbound call from customer, 6 min; hardship options requested; callback requested"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-18",
+        "type": "none",
+        "amount": 0.0,
+        "note": "Hardship request logged; status pending review"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-19",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-26",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-06-30",
+        "type": "call_log",
+        "amount": 0.0,
+        "note": "Inbound call from customer, 4 min; follow-up on hardship request"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-07-03",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      },
+      {
+        "account_id": "ACC-041",
+        "date": "2026-07-10",
+        "type": "fee",
+        "amount": 15.0,
+        "note": "Weekly extension fee assessed"
+      }
+    ]
+  },
+  "verification": {
+    "fact_verification": "confirmed_true",
+    "fact_verification_explanation": "The verifiable parts of the claim are supported by the account record. (1) Fees: ACC-041 is a past-due payday loan with a $900 balance. Weekly extension fees of $15 were assessed on 2026-06-05, 06-12, 06-19, 06-26, 07-03 and 07-10, six fees totaling $90. Four of them ($60) were assessed after the customer's first hardship request. (2) Two contacts about hardship: inbound calls are logged on 2026-06-18 (6 min, hardship options requested, callback requested) and 2026-06-30 (4 min, follow-up on the hardship request). (3) No response: the hardship request logged 2026-06-18 is still 'pending review', and no outbound callback or hardship decision appears in the history. Caveat: the transaction data cannot confirm the medical emergency. That is background context and does not change the outcome. The only payment on record is $150 on 2026-04-02, which is consistent with the customer falling behind.",
+    "risk_tier": "High",
+    "risk_rationale": "No attorney or regulator is referenced, but the customer reports a medical emergency (hardship/vulnerability) and two contacts, and our own records show a hardship request unanswered since 2026-06-18 while four more $15 fees were assessed on a past-due payday loan, which together form a UDAAP-pattern risk.",
+    "udaap_pattern_detected": true,
+    "proceed_to_draft": false,
+    "stop_reason": "Possible unfair/abusive-treatment pattern: a documented hardship request has gone unanswered while fees keep accruing on a payday loan, so this needs human compliance review before any response is drafted.",
+    "triggers": [],
+    "code_overrides": []
+  },
+  "risk_tier": "High",
+  "status": "escalated",
+  "escalation_package": {
+    "complaint_text": "I'm struggling to keep up with payments on this loan due to a medical emergency and reached out twice about hardship options. I haven't gotten any response and the fees keep adding up every week.",
+    "extraction": {
+      "allegations": [
+        "Struggling to keep up with loan payments due to a medical emergency",
+        "Reached out twice about hardship options with no response",
+        "Fees keep adding up every week"
+      ],
+      "requested_outcome": null,
+      "dollar_amounts_mentioned": [],
+      "dates_mentioned": [
+        "every week"
+      ],
+      "account_details_mentioned": "Struggling to keep up with payments on the loan; fees accruing weekly",
+      "risk_signal_phrases": [
+        "due to a medical emergency"
+      ],
+      "suspicious_embedded_instructions": [],
+      "tone_summary": "distressed but factual"
+    },
+    "verification": {
+      "fact_verification": "confirmed_true",
+      "fact_verification_explanation": "The verifiable parts of the claim are supported by the account record. (1) Fees: ACC-041 is a past-due payday loan with a $900 balance. Weekly extension fees of $15 were assessed on 2026-06-05, 06-12, 06-19, 06-26, 07-03 and 07-10, six fees totaling $90. Four of them ($60) were assessed after the customer's first hardship request. (2) Two contacts about hardship: inbound calls are logged on 2026-06-18 (6 min, hardship options requested, callback requested) and 2026-06-30 (4 min, follow-up on the hardship request). (3) No response: the hardship request logged 2026-06-18 is still 'pending review', and no outbound callback or hardship decision appears in the history. Caveat: the transaction data cannot confirm the medical emergency. That is background context and does not change the outcome. The only payment on record is $150 on 2026-04-02, which is consistent with the customer falling behind.",
+      "risk_tier": "High",
+      "risk_rationale": "No attorney or regulator is referenced, but the customer reports a medical emergency (hardship/vulnerability) and two contacts, and our own records show a hardship request unanswered since 2026-06-18 while four more $15 fees were assessed on a past-due payday loan, which together form a UDAAP-pattern risk.",
+      "udaap_pattern_detected": true
+    },
+    "evidence": {
+      "account": {
+        "found": true,
+        "account_id": "ACC-041",
+        "loan_balance": 900.0,
+        "origination_date": "2026-03-05",
+        "payment_status": "past_due",
+        "product_type": "payday_loan",
+        "account_note": "Payday loan, past due. Opened 2026-03-05."
+      },
+      "transactions": [
+        {
+          "account_id": "ACC-041",
+          "date": "2026-04-02",
+          "type": "payment",
+          "amount": 150.0,
+          "note": "Scheduled payment received"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-06-05",
+          "type": "fee",
+          "amount": 15.0,
+          "note": "Weekly extension fee assessed"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-06-12",
+          "type": "fee",
+          "amount": 15.0,
+          "note": "Weekly extension fee assessed"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-06-18",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Inbound call from customer, 6 min; hardship options requested; callback requested"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-06-18",
+          "type": "none",
+          "amount": 0.0,
+          "note": "Hardship request logged; status pending review"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-06-19",
+          "type": "fee",
+          "amount": 15.0,
+          "note": "Weekly extension fee assessed"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-06-26",
+          "type": "fee",
+          "amount": 15.0,
+          "note": "Weekly extension fee assessed"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-06-30",
+          "type": "call_log",
+          "amount": 0.0,
+          "note": "Inbound call from customer, 4 min; follow-up on hardship request"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-07-03",
+          "type": "fee",
+          "amount": 15.0,
+          "note": "Weekly extension fee assessed"
+        },
+        {
+          "account_id": "ACC-041",
+          "date": "2026-07-10",
+          "type": "fee",
+          "amount": 15.0,
+          "note": "Weekly extension fee assessed"
+        }
+      ]
+    },
+    "trigger": "Model-determined stop (see stop_reason)",
+    "stop_reason": "Possible unfair/abusive-treatment pattern: a documented hardship request has gone unanswered while fees keep accruing on a payday loan, so this needs human compliance review before any response is drafted.",
+    "unresolved": null,
+    "policy_reference": {
+      "policy_id": "09",
+      "topic": "Escalation Criteria",
+      "text": "# Internal Policy: Escalation Criteria\n\n**Applies to:** Every complaint \u2014 this is the first policy that should be checked, before drafting any response.\n\n## Mandatory escalation triggers (no response may be drafted; route directly to legal/compliance)\n- Any mention of an attorney, lawyer, legal counsel, or stated intent to pursue legal action.\n- Any mention of a regulator (CFPB, state Attorney General, state banking regulator, or any other government agency) being contacted or already involved.\n- Any allegation of discrimination on a protected basis.\n- Any complaint alleging identity theft or fraud where the customer disputes the debt or account is theirs at all.\n\n## Standard high-risk flags (route to supervisor review before response; may still draft, but hold for sign-off)\n- Customer indicates a vulnerability (elderly, cognitive impairment, military service with a PCS or deployment-related hardship, limited English proficiency, stated disability).\n- Customer has filed 2 or more complaints on the same issue within the past 6 months.\n- Dollar amount in dispute exceeds $500.\n- Complaint alleges a pattern (e.g., \"this has happened multiple times,\" \"other customers have told me the same thing\").\n\n## What this means operationally\n- For a **mandatory escalation trigger**: do not draft a customer-facing response. Package the complaint, the relevant facts gathered so far, and the specific trigger reason, and route to legal/compliance.\n- For a **standard high-risk flag**: a draft may be prepared, but it requires supervisor sign-off before being sent, in addition to normal review.\n\n## What an analyst or agent may say\n- May state clearly and factually why a case has been escalated (which trigger applied).\n- May NOT draft any substantive response to the underlying complaint once a mandatory trigger is identified \u2014 only the escalation routing itself.\n\n*This is an internal, generic policy created for a training/demonstration environment and does not reflect any specific company's actual policy.*\n"
+    },
+    "agent_actions_taken": "Analysis only. No draft prepared, nothing sent, no escalation initiated - Maya decides whether to route this case."
+  },
+  "summary": "Struggling to pay your loan - confirmed_true - High risk - ESCALATED - no draft",
+  "run_finished": "2026-10-07T01:10:54+00:00"
+}
